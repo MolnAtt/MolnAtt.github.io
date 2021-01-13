@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hu">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Házioldal - Ellenőrzés</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/ellstyles.css">
+
+		<!-- Google Font Chakra Petch -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+	<div id="site-container">
+
+		<header>Házioldal</header>
+
+		<nav class="dropdown">
+			<div id="mobile-menu">
+				<img src="icons/menu_2.png" onclick="muti();" alt="Menü">
+			</div>
+			<ul id="myDropdown" class="dropdown-content">
+				<li class="desktop"><a href="index.html">Kezdőlap</a></li>
+				<li class="tablet"><a href="index.html"><img src="icons/kezdolap_icon.png" alt="Kezd"></a></li>
+				<li class="desktop"><a href="hazifeladatok.html">Házik</a></li>
+				<li class="tablet"><a href="hazifeladatok.html">HF</a></li>
+				<li class="desktop aktli"><a href="ellenorzes.html">Ellenőrzés</a></li>
+				<li class="tablet aktli"><a href="ellenorzes.html">Ell</a></li>
+				<li class="desktop"><a href="uzenetek.html">Üzenetek</a></li>
+				<li class="tablet"><a href="uzenetek.html"><img src="icons/uzenetek_icon.png" alt="Üz"></a></li>
+				<li class="desktop"><a href="beallitasok.html">Beállítások</a></li>
+				<li class="tablet"><a href="beallitasok.html"><img src="icons/beallitasok_icon.png" alt="Beáll"></a></li>
+				<li class="desktop"><a href="archivum.html">Archívum</a></li>
+				<li class="tablet"><a href="archivum.html">Arch</a></li>
+			</ul>
+		</nav>
+
+		<div id="main">
+			<h1>Ellenőrzés</h1>
+
+				<article class="ell">
+					<div class="temakor">Programozási tételek</div>
+					<h2 class="feladatnev">3000-F feladat</h2>
+					<div class="kiadas">Kiadás ideje:<span class="datum">2020.10.11.</span></div>
+					<div class="hatarido">Határidő: <span class="datum">2020.10.19.</span></div>
+					<div class="beadas">Beadás: <span class="datum">2020.10.17.</span></div>
+					<div class="ellenorizni">Ellenőrizni: <span class="datum surgos">2020.11.02.</span></div>
+					<div class="article-main">
+						<img class="article-media" src="media/prgthm1.png" alt="kép a feladatról: szélről befele csökkenő sorrendbe rakott orgonasípokat ábrázol a kép.">
+						<p>
+							Olvassuk be az alábbi fájl tartalmmát egy listába/tömbbe, majd a következő feladatokat oldjuk meg. 
+						</p>
+						<p>
+							Minden feladat előtt a program írja ki a feladat sorszámát!
+						</p>
+						<ol>
+							<li>
+							 Írjuk ki a sorozatban található 17-tel és -17-tel osztható számok harmadát!
+							</li>
+							<li>
+							 Írjuk ki az utolsó 9-cel vagy 25-tel osztható szám négyzetgyökét!
+							</li>
+							<li>
+							 Írjuk ki az első 3-mal vagy 5-tel osztható szám indexét!
+							</li>
+							<li>
+							 Igaz-e, hogy minden szám (0,20) nyílt intervallumba esik?
+							</li>
+							<li>
+							 Van-e a sorozatban olyan negatív szám, amelynek az összes szomszédja nulla?
+							</li>
+							<li>
+							 Hány 18-cal vagy 6-tal osztható szám található a sorozatban?
+							</li>
+							<li>
+							 Hány eleme van a sorozatnak?
+							</li>
+							<li>
+							 Mennyi a sorozatban található második legnagyobb szám?
+							</li>
+							<li>
+							 Van-e a sorozatban köbszám?
+							</li>
+							<li>
+							 Mennyi a sorozatban található számok szorzatának a fele?
+							</li>
+						</ol>
+						<button class="input-download">Input letöltése</button>
+					</div>
+					<div class="korabbimo">
+						<form method="POST">
+							<label for="korabbimok_1">
+								Megoldások letöltése:
+							</label>
+							<select name="korabbimok" id="korabbimok_1">
+								<option value="1">2. megoldás</option>
+								<option value="0">1. megoldás</option>
+							</select>
+							<button type="submit" name="letoltesgomb" value="regebbi">Letöltés</button>
+							<button type="submit" name="letoltesgomb" value="legfrissebb">Utolsó megoldás letöltése</button>
+						</form>
+					</div>
+					<div class="ertekeles">
+						<form method="POST" id="mentorform_1">
+							<label for="ertekelesopciok_1">
+								Korábbi megoldások:
+							</label>
+							<select name="ertekelesopciok" id="ertekelesopciok_1">
+								<option value="0">Elfogadva</option>
+								<option value="1">Dicséret</option>
+								<option value="2">Hibás</option>
+								<option value="3">Hiányos</option>
+								<option value="4">Nem értékelhető</option>
+								<option value="5">Plágiumgyanús</option>
+								<option value="6">Tanári segítség kérése</option>
+							</select>
+							<button type="submit">Küldés</button>
+						</form>
+					</div>
+					<div class="ertekeles-textarea">
+						<textarea rows="4" name="mentor-ertekeles" form="mentorform_1">
+Ide írd a mentoráltnak szóló szöveges megjegyzéseket!</textarea>
+					</div>
+				</article>
+
+				<article class="ell">
+					<div class="temakor">Programozási tételek</div>
+					<h2 class="feladatnev">3000-J feladat</h2>
+					<div class="kiadas">Kiadás ideje:<span class="datum">2020.10.11.</span></div>
+					<div class="hatarido">Határidő: <span class="datum">2020.10.27.</span></div>
+					<div class="beadas">Beadás: <span class="datum">2020.10.17.</span></div>
+					<div class="ellenorizni">Ellenőrizni: <span class="datum">2020.11.08.</span></div>
+					<div class="article-main">
+						<img class="article-media" src="media/prgthm2.png" alt="kép a feladatról: szélről befele csökkenő sorrendbe rakott orgonasípokat ábrázol a kép.">
+						<p>
+							Az input fájl egy osztály névsorát, különböző tanulócsoportokba történő beosztását és néhány egyéb adatát tartalmazza. Az egyes adatelemeket pontosvessző választja el.
+						</p>
+						<p>
+							Az egyes oszlopok jelentése a következő:
+						</p>
+						<ul>
+							<li>
+								tanulókód (szám)
+							</li>
+							<li>
+								diákok neve (szöveg)
+							</li>
+							<li>
+								matematika és informatika szerinti csoportbeosztás (szöveg)
+							</li>
+							<li>
+								angol csoportok szerinti besorolás, a szint és tanár megjelölésével (szöveg)
+							</li>
+							<li>
+								választott 2. idegen nyelv (szöveg)
+							</li>
+							<li>
+								a diák neme, testnevelés szerinti bontás (szöveg)
+							</li>
+							<li>
+								a családban együtt lakók száma (szám)
+							</li>
+							<li>
+								testvérek száma (szám)
+							</li>
+						</ul>
+						<ol>
+							<li>
+								Hány diák tanul az osztályban?
+							</li>
+							<li>
+								Hány fiú tanul az osztályban?
+							</li>
+							<li>
+								Hány lány tanul az osztályban?
+							</li>
+							<li>
+								Hány olyan diák van, akiknek több mint 1 testvére van!
+							</li>
+							<li>
+								Gyűjtse ki azon diákok nevét, akiknek több mint 1 testvérük van!
+							</li>
+							<li>
+								Hány olyan diák van, akiknek több mint 2 testvére van!
+							</li>
+							<li>
+								Gyűjtse ki azon diákok nevét, akiknek több mint 2 testvérük van!
+							</li>
+							<li>
+								Hány olyan diák van, akik a 2. idegen nyelvként a németet tanulják!
+							</li>
+							<li>
+								Gyűjtse ki azon fiú diákok nevét, akik a 2. idegen nyelvként a németet tanulják!
+							</li>
+							<li>
+								Hány diák tanul, az egyes angol csoportban?
+							</li>
+							<li>
+								Hány diák tanul, a kettes angol csoportban?
+							</li>
+							<li>
+								Hány diák tanul, az alfa matematika csoportban?
+							</li>
+							<li>
+								Hány diák tanul, az beta matematika csoportban?
+							</li>
+							<li>
+								Hány lány diák tanul, az alfa matematika csoportban?
+							</li>
+							<li>
+								Hány lány diák tanul, a beta matematika csoportban?
+							</li>
+							<li>
+								Hány fiú diák tanul, az alfa matematika csoportban?
+							</li>
+							<li>
+								Hány fiú diák tanul, a beta matematika csoportban?
+							</li>
+							<li>
+								Van-e olyan diák, aki a 2. idegen nyelvként oroszt tanul?
+							</li>
+							<li>
+								Van-e olyan diák, aki a 2. idegen nyelvként olaszt tanul?
+							</li>
+							<li>
+								Van-e olyan diák, aki a 2. idegen nyelvként spanyolt tanul?
+							</li>
+							<li>
+								Mekkora a legnagyobb család az osztályban?
+							</li>
+							<li>
+								Írjuk ki az egyik olyan diák nevét, akinek e legtöbb testvére van!
+							</li>
+							<li>
+								Gyűjtse ki azon lány diákok nevét, akik az egyes vagy kettes angol csoportban vannak!
+							</li>
+							<li>
+								Gyűjtse ki azon fiú diákok nevét, akik a hármas vagy négyes angol csoportban vannak és 0 vagy 2 testvérük van!
+							</li>
+							<li>
+								Viszonylag kevés azon családok száma, ahol az együttlakók száma és a testvérek száma között nem három a különbség. Adja meg a számukat!
+							</li>
+							<li>
+								Dári Dóra hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.
+							</li>
+							<li>
+								Avon Mór hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.
+							</li>
+							<li>
+								Zúz Mara hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.
+							</li>
+							<li>
+								Citad Ella hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.
+							</li>
+							<li>
+								Hát Izsák hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.
+							</li>
+							<li>
+								A spanyol vagy a német nyelvet tanulják-e többen az osztályban?
+							</li>
+							<li>
+								Kérjen be a felhasználótól egy nyelvet és írja ki, az adott nyelvet tanulók névsorát!
+							</li>
+						</ol>						
+						<button class="input-download">Input letöltése</button>
+					</div>
+					<div class="korabbimo">
+						<form method="POST">
+							<label for="korabbimok_2">
+								Megoldások letöltése:
+							</label>
+							<select name="korabbimok" id="korabbimok_2">
+								<option value="0">1. megoldás</option>
+							</select>
+							<button type="submit" name="letoltesgomb" value="regebbi">Letöltés</button>
+							<button type="submit" name="letoltesgomb" value="legfrissebb">Utolsó megoldás letöltése</button>
+						</form>
+					</div>
+					<div class="ertekeles">
+						<form method="POST" id="mentorform_2">
+							<label for="ertekelesopciok_2">
+								Korábbi megoldások:
+							</label>
+							<select name="ertekelesopciok" id="ertekelesopciok_2">
+								<option value="0">Elfogadva</option>
+								<option value="1">Dicséret</option>
+								<option value="2">Hibás</option>
+								<option value="3">Hiányos</option>
+								<option value="4">Nem értékelhető</option>
+								<option value="5">Plágiumgyanús</option>
+								<option value="6">Tanári segítség kérése</option>
+							</select>
+							<button type="submit">Küldés</button>
+						</form>
+					</div>
+					<div class="ertekeles-textarea">
+						<textarea rows="4" name="mentor-ertekeles" form="mentorform_2">
+Ide írd a mentoráltnak szóló szöveges megjegyzéseket!</textarea>
+					</div>
+				</article>
+
+				<article class="ell">
+					<div class="temakor">Szövegszerkesztés</div>
+					<h2 class="feladatnev">Atlétika: KÉ2017okt</h2>
+					<div class="kiadas">Kiadás ideje:<span class="datum">2020.10.14.</span></div>
+					<div class="hatarido">Határidő: <span class="datum">2020.10.21.</span></div>
+					<div class="beadas">Beadás: <span class="datum">2020.10.30.</span></div>
+					<div class="ellenorizni">Ellenőrizni: <span class="datum">2020.11.13.</span></div>
+					<div class="article-main">
+						<img class="article-media" src="media/atletika.png" alt="kép a feladatról: szélről befele csökkenő sorrendbe rakott orgonasípokat ábrázol a kép.">
+						<p>
+							Középszintű érettségi 2017. október
+						</p>
+						<button class="input-download">Input letöltése</button>
+					</div>
+					<div class="korabbimo">
+						<form method="POST">
+							<label for="korabbimok_3">
+								Megoldások letöltése:
+							</label>
+							<select name="korabbimok" id="korabbimok_3">
+								<option value="0">1. megoldás</option>
+							</select>
+							<button type="submit" name="letoltesgomb" value="regebbi">Letöltés</button>
+							<button type="submit" name="letoltesgomb" value="legfrissebb">Utolsó megoldás letöltése</button>
+						</form>
+					</div>
+					<div class="ertekeles">
+						<form method="POST" id="mentorform_3">
+							<label for="ertekelesopciok_3">
+								Korábbi megoldások:
+							</label>
+							<select name="ertekelesopciok" id="ertekelesopciok_3">
+								<option value="0">Elfogadva</option>
+								<option value="1">Dicséret</option>
+								<option value="2">Hibás</option>
+								<option value="3">Hiányos</option>
+								<option value="4">Nem értékelhető</option>
+								<option value="5">Plágiumgyanús</option>
+								<option value="6">Tanári segítség kérése</option>
+							</select>
+							<button type="submit">Küldés</button>
+						</form>
+					</div>
+					<div class="ertekeles-textarea">
+						<textarea rows="4" name="mentor-ertekeles" form="mentorform_3">
+Ide írd a mentoráltnak szóló szöveges megjegyzéseket!</textarea>
+					</div>
+				</article>
+
+
+
+
+		</div> <!-- end of main -->
+		<aside>
+			<h2>Hasznos információk</h2>
+			<h3>Lejáró HF határidők:</h3>
+			<ul>
+				<li>
+					<span class="datum surgos">2020.12.18.</span>
+					<span class="feladat">Inverz organasípos rendezés</span>
+				</li>
+				<li>
+					<span class="datum">2020.01.10.</span>
+					<span class="feladat">Excel projektmunka</span>
+				</li>
+			</ul>
+			<h3>Lejáró mentorálási határidők:</h3>
+			<ul>
+				<li class="hatarido-surgos">
+					<span class="datum surgos">2020.12.17.</span>
+					<span class="feladat">3000-F feladat</span>	
+				</li>
+				<li>
+					<span class="datum surgos">2021.12.18.</span>
+					<span class="feladat">3000-J feladat</span>					
+				</li>
+				<li>
+					<span class="datum">2021.01.8.</span>
+					<span class="feladat">Középszintű szövegszerkesztés érettségi (2017okt)</span>					
+				</li>
+			</ul>
+		</aside>
+		<footer>
+			<span class="footer-bal">Üzemeltető:</span> 
+		 		<span class="footer-jobb">Molnár Attila</span>
+			<span class="footer-bal">Neptun-kód:</span> 
+		 		<span class="footer-jobb">IQ93HY</span>
+			<span class="footer-bal">e-mail:</span> 
+		 		<address class="footer-jobb"><a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a></address>
+			<span class="footer-bal">telefon:</span> 
+				<address class="footer-jobb"><a href="tel:+36201234567">(20) 123-4567</a></address>
+			<span class="footer-bal">Utolsó módosítás időpontja:</span> 
+		 		<span class="footer-jobb">2020.01.13.</span>
+		</footer>
+	</div> <!--	end of <div id="site-container"> -->
+	<script src="scripts/muti.js"></script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+/* --------------------------- */
+/* ----- feladat article ----- */
+/* --------------------------- */
+
+
+article.hf {
+  display: grid;
+  grid-template-columns: auto 10em 15em;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas: 
+    "temakor temakor kiadas"
+    "feladatnev feladatnev hatarido"
+    "fmain fmain fmain"
+    "korabbimo korabbimo ertekeles"
+    "ujmo etextarea etextarea";
+}
+
+article.hf .temakor{
+  grid-area: temakor;
+}
+
+article.hf .kiadas{
+  grid-area: kiadas; 
+}
+
+article.hf .feladatnev{
+  grid-area: feladatnev;
+}
+
+article.hf .hatarido{
+  grid-area: hatarido;
+}
+
+article.hf .article-main{
+  grid-area: fmain;
+}
+
+article.hf .korabbimo{
+  grid-area: korabbimo;
+}
+
+article.hf .ujmo{
+  grid-area: ujmo;
+}
+
+article.hf .ertekeles-label{
+}
+
+article.hf .ertekeles{
+  grid-area: ertekeles;
+}
+
+article.hf .ertekeles-textarea{
+  grid-area: etextarea;
+  background-color: var(--vilagos);
+  color: var(--sotet);
+  border-radius: 5px;
+  padding:5px;
+  font-style: italic;
+  font-size: .8em;
+}
+
+article.hf .article-media{
+  border: 3px solid var(--sotet);
+  border-radius: 10px;
+}
+
+article.hf .ertekeles-value{
+  color:white;
+}
+
+

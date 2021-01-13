@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Házioldal - Archívum</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/archstyles.css">
+
+		<!-- Google Font Chakra Petch -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+		<div id="site-container">
+		<header>Házioldal</header>
+		<nav class="dropdown">
+			<div id="mobile-menu">
+				<img src="icons/menu_2.png" onclick="muti();" alt="Menü">
+			</div>
+			<ul id="myDropdown" class="dropdown-content">
+				<li class="desktop"><a href="index.html">Kezdőlap</a></li>
+				<li class="tablet"><a href="index.html"><img src="icons/kezdolap_icon.png"  alt="Kezd"></a></li>
+				<li class="desktop"><a href="hazifeladatok.html">Házik</a></li>
+				<li class="tablet"><a href="hazifeladatok.html">HF</a></li>
+				<li class="desktop"><a href="ellenorzes.html">Ellenőrzés</a></li>
+				<li class="tablet"><a href="ellenorzes.html">Ell</a></li>
+				<li class="desktop"><a href="uzenetek.html">Üzenetek</a></li>
+				<li class="tablet"><a href="uzenetek.html"><img src="icons/uzenetek_icon.png"  alt="Üz"></a></li>
+				<li class="desktop"><a href="beallitasok.html">Beállítások</a></li>
+				<li class="tablet"><a href="beallitasok.html"><img src="icons/beallitasok_icon.png" alt="Beáll"></a></li>
+				<li class="desktop aktli"><a href="archivum.html">Archívum</a></li>
+				<li class="tablet aktli"><a href="archivum.html">Arch</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<h1>Beállítások</h1>
+			<table class="arch">
+				<caption><span>Eddig beadott házi feladatok</span>
+					<details>
+						<summary>
+							Itt szerepel minden házi feladat, amit a tanuló valaha beadott, minden adattal együtt. Első két oszlopban a témakör és a feladat neve, a többi oszlopban a fealdathoz kapcsolódó időpontok szerepelnek (kitűzés, beadás, mentorálás) és végül a mentori értékelés szerepel. Mivel az el nem fogadott házi fealdatokat újra kell csinálni, ezek többnyire elfogadott házi feladatok lesznek. A még nem bírált házi feladatoknál ez utóbbi rubrikákban - jel szerepel.
+						</summary>
+					</details>
+				</caption>
+				<tr>
+					<th>Témakör</th>
+					<th>Feladat</th>
+					<th>Kiadás</th>
+					<th>Beadás</th>
+					<th>Mentorálás</th>
+					<th>Értékelés</th>
+				</tr>
+				<tr>
+					<td>Rendezések</td>
+					<td>Inverz orgonasípos rendezés</td>
+					<td>2020.11.12.</td>
+					<td>2020.11.15</td>
+					<td>2020.12.02</td>
+					<td>Elfogadva</td>
+				</tr>
+				<tr>
+					<td>Táblázatkezelés</td>
+					<td>Excel projektmunka</td>
+					<td>2020.11.4</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>Programozási tételek</td>
+					<td>3000-M</td>
+					<td>2019.06.02</td>
+					<td>2019.06.08</td>
+					<td>2019.06.10</td>
+					<td>Elfogadva</td>
+				</tr>
+				<tr>
+					<td>Programozási tételek</td>
+					<td>3000-K</td>
+					<td>2019.05.27</td>
+					<td>2019.06.29</td>
+					<td>2019.06.03</td>
+					<td>Elfogadva</td>
+				</tr>
+				<tr>
+					<td>Programozási tételek</td>
+					<td>3000-D</td>
+					<td>2019.05.15</td>
+					<td>2019.05.20</td>
+					<td>2019.05.21</td>
+					<td>Dicséretes</td>
+				</tr>
+				<tr>
+					<td>Webszerkesztés</td>
+					<td>Projektmunka</td>
+					<td>2019.04.12</td>
+					<td>2019.04.14</td>
+					<td>2019.04.16</td>
+					<td>Elfogadva</td>
+				</tr>
+				<tr>
+					<td>Táblázatkezelés</td>
+					<td>Pólórendelés</td>
+					<td>2019.03.02</td>
+					<td>2019.03.08</td>
+					<td>2019.03.10</td>
+					<td>Dicséretes</td>
+				</tr>
+			</table>
+
+		</div> <!-- end of main -->
+		<aside>
+			<h2>Hasznos információk</h2>
+			<h3>Lejáró HF határidők:</h3>
+			<ul>
+				<li>
+					<span class="datum surgos">2020.12.18.</span>
+					<span class="feladat">Inverz organasípos rendezés</span>
+				</li>
+				<li>
+					<span class="datum">2020.01.10.</span>
+					<span class="feladat">Excel projektmunka</span>
+				</li>
+			</ul>
+			<h3>Lejáró mentorálási határidők:</h3>
+			<ul>
+				<li class="hatarido-surgos">
+					<span class="datum surgos">2020.12.17.</span>
+					<span class="feladat">3000-F feladat</span>	
+				</li>
+				<li>
+					<span class="datum surgos">2021.12.18.</span>
+					<span class="feladat">3000-J feladat</span>					
+				</li>
+				<li>
+					<span class="datum">2021.01.8.</span>
+					<span class="feladat">Középszintű szövegszerkesztés érettségi (2017okt)</span>					
+				</li>
+			</ul>
+		</aside>
+		<footer>
+			<span class="footer-bal">Üzemeltető:</span> 
+		 		<span class="footer-jobb">Molnár Attila</span>
+			<span class="footer-bal">Neptun-kód:</span> 
+		 		<span class="footer-jobb">IQ93HY</span>
+			<span class="footer-bal">e-mail:</span> 
+		 		<address class="footer-jobb"><a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a></address>
+			<span class="footer-bal">telefon:</span> 
+				<address class="footer-jobb"><a href="tel:+36201234567">(20) 123-4567</a></address>
+			<span class="footer-bal">Utolsó módosítás időpontja:</span> 
+		 		<span class="footer-jobb">2020.01.13.</span>
+		</footer>
+	</div> <!--end of site-container -->
+	<script src="scripts/muti.js"></script>
+	</body>
+</html>

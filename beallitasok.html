@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Házioldal - Beállítások</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/beastyles.css">
+
+		<!-- Google Font Chakra Petch -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+		<div id="site-container">
+		<header>Házioldal</header>
+		<nav class="dropdown">
+			<div id="mobile-menu">
+				<img src="icons/menu_2.png" onclick="muti();" alt="Menü">
+			</div>
+			<ul id="myDropdown" class="dropdown-content">
+				<li class="desktop"><a href="index.html">Kezdőlap</a></li>
+				<li class="tablet"><a href="index.html"><img src="icons/kezdolap_icon.png" alt="Kezd"></a></li>
+				<li class="desktop"><a href="hazifeladatok.html">Házik</a></li>
+				<li class="tablet"><a href="hazifeladatok.html">HF</a></li>
+				<li class="desktop"><a href="ellenorzes.html">Ellenőrzés</a></li>
+				<li class="tablet"><a href="ellenorzes.html">Ell</a></li>
+				<li class="desktop"><a href="uzenetek.html">Üzenetek</a></li>
+				<li class="tablet"><a href="uzenetek.html"><img src="icons/uzenetek_icon.png" alt="Üz"></a></li>
+				<li class="desktop aktli"><a href="beallitasok.html">Beállítások</a></li>
+				<li class="tablet"><a href="beallitasok.html"><img src="icons/beallitasok_icon_akt.png" alt="Beáll"></a></li>
+				<li class="desktop"><a href="archivum.html">Archívum</a></li>
+				<li class="tablet"><a href="archivum.html">Arch</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<h1>Beállítások</h1>
+
+				<article class="bea">
+					<section id="alapadatok">
+						<h2>Alapadatok</h2>
+						<strong>Név:</strong><em>Gipsz Jakab</em>
+						<strong>Felhasználónév:</strong><em>gipszjakab</em>
+						<strong>intézményi e-mail:</strong><address>gipsz.jakab@szlgbp.hu</address>
+						<strong>saját e-mail:</strong><address>gijaki@gmail.com</address>
+						<strong>magamról:</strong><p>Én lennék Gipsz Jakab, nagyon szeretem az informatikát és ha nagy leszek, játékfejlesztő leszek.</p>
+					</section>
+					<section id="ertesitesek">
+						<form>
+							<h2>Értesítések</h2>
+								<h3 id="esemenyek">Események</h3>
+								<label for="ch1">Tanár házi feladatot ad fel</label> 
+								<input type="checkbox" id="ch1" name="ch1" value="1">
+								<label for="ch2">Mentorált házi feladatod ad be</label> 
+								<input type="checkbox" id="ch2" name="ch2" value="1">
+								<label for="ch3">Mentor értékelt</label> 
+								<input type="checkbox" id="ch3" name="ch3" value="1">
+							<h3 id="emlekeztetok">Emlékeztetők határidő előtt...</h3>
+								<label for="r-1">...soha</label> 
+								<input type="radio" id="r-1" name="emlekezteto" value="-1">
+								<label for="r14">...2 héttel</label> 
+								<input type="radio" id="r14" name="emlekezteto" value="14">
+								<label for="r7">...1 héttel</label> 
+								<input type="radio" id="r7" name="emlekezteto" value="7">
+								<label for="r3">...3 nappal</label> 
+								<input type="radio" id="r3" name="emlekezteto" value="3">
+								<label for="r1">...1 nappal</label> 
+								<input type="radio" id="r1" name="emlekezteto" value="1">
+<label for="ujemail">saját e-mail módosítása</label><input type="text" name="ujemail" id="ujemail" pattern=".+@.+\..+" title="Érvényes email-címet adj meg!" maxlength="50">
+<label for="ujmagamrol">magamról:</label><textarea rows=5 cols=20 name="ujmagamrol" id="ujmagamrol" maxlength="100">Ide írhatsz magadról pár szót. A szöveg ne legyen több, mint 100 karakter! (2 rövid mondat!)</textarea>
+								<button type="reset" id="resetgomb">Alaphelyzet</button>
+								<button type="submit" id="submitgomb">Mentés</button>
+						</form>
+					</section>
+				</article>
+
+		</div> <!-- end of main -->
+		<aside>
+			<h2>Hasznos információk</h2>
+			<h3>Lejáró HF határidők:</h3>
+			<ul>
+				<li>
+					<span class="datum surgos">2020.12.18.</span>
+					<span class="feladat">Inverz organasípos rendezés</span>
+				</li>
+				<li>
+					<span class="datum">2020.01.10.</span>
+					<span class="feladat">Excel projektmunka</span>
+				</li>
+			</ul>
+			<h3>Lejáró mentorálási határidők:</h3>
+			<ul>
+				<li class="hatarido-surgos">
+					<span class="datum surgos">2020.12.17.</span>
+					<span class="feladat">3000-F feladat</span>	
+				</li>
+				<li>
+					<span class="datum surgos">2021.12.18.</span>
+					<span class="feladat">3000-J feladat</span>					
+				</li>
+				<li>
+					<span class="datum">2021.01.8.</span>
+					<span class="feladat">Középszintű szövegszerkesztés érettségi (2017okt)</span>					
+				</li>
+			</ul>
+		</aside>
+		<footer>
+			<span class="footer-bal">Üzemeltető:</span> 
+		 		<span class="footer-jobb">Molnár Attila</span>
+			<span class="footer-bal">Neptun-kód:</span> 
+		 		<span class="footer-jobb">IQ93HY</span>
+			<span class="footer-bal">e-mail:</span> 
+		 		<address class="footer-jobb"><a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a></address>
+			<span class="footer-bal">telefon:</span> 
+				<address class="footer-jobb"><a href="tel:+36201234567">(20) 123-4567</a></address>
+			<span class="footer-bal">Utolsó módosítás időpontja:</span> 
+		 		<span class="footer-jobb">2020.01.13.</span>
+		</footer>
+	</div> <!--end of site-container -->
+	<script src="scripts/muti.js"></script>
+	</body>
+</html>

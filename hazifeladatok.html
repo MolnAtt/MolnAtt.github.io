@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="hu">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Házioldal - Házi feladatok</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/hfstyles.css">
+
+		<!-- Google Font Chakra Petch -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+	<div id="site-container">
+		<header>Házioldal</header>
+		<nav class="dropdown">
+			<div id="mobile-menu">
+				<img src="icons/menu_2.png" onclick="muti();"  alt="Menü">
+			</div>
+			<ul id="myDropdown" class="dropdown-content">
+				<li class="desktop"><a href="index.html">Kezdőlap</a></li>
+				<li class="tablet"><a href="index.html"><img src="icons/kezdolap_icon.png"  alt="Kezd"></a></li>
+				<li class="desktop aktli"><a href="hazifeladatok.html">Házik</a></li>
+				<li class="tablet aktli"><a href="hazifeladatok.html">HF</a></li>
+				<li class="desktop"><a href="ellenorzes.html">Ellenőrzés</a></li>
+				<li class="tablet"><a href="ellenorzes.html">Ell</a></li>
+				<li class="desktop"><a href="uzenetek.html">Üzenetek</a></li>
+				<li class="tablet"><a href="uzenetek.html"><img src="icons/uzenetek_icon.png"  alt="Üz"></a></li>
+				<li class="desktop"><a href="beallitasok.html">Beállítások</a></li>
+				<li class="tablet"><a href="beallitasok.html"><img src="icons/beallitasok_icon.png" alt="Beáll"></a></li>
+				<li class="desktop"><a href="archivum.html">Archívum</a></li>
+				<li class="tablet"><a href="archivum.html">Arch</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<h1>Házi feladatok</h1>
+
+			<article class="hf">
+				<div class="temakor">Rendezések</div>
+				<div class="kiadas">
+					Kiadás ideje:
+					<span class="datum">
+						2020.11.12.
+					</span>
+				</div>
+				<h2 class="feladatnev">Inverz orgonasípos rendezés</h2>
+				<div class="hatarido">Határidő: <span class="datum">2020.12.18.</span></div>
+				<div class="article-main">
+					<figure class="article-media">
+					<img  src="media/invorgona.png" alt="kép a feladatról: szélről befele csökkenő sorrendbe rakott orgonasípokat ábrázol a kép.">
+					<figcaption>Ez egy orgona belső része.</figcaption>
+					</figure>
+					<p>Inverz orgonasípos rendezésnek hívjuk a következő rendezettséget: a legnagyobb elem a sorozat elején található, a következő a sorozat végén, a következő az első után, a következő az utolsó előtt stb. 
+					</p>
+					<p>Készítsünk algoritmust, amely egy N elemű sorozatot a fenti módon rendez!
+					</p>
+					<button class="input-download">Input letöltése</button>
+				</div>
+				<div class="korabbimo">
+					<form method="POST">
+						<label for="korabbimok_1">
+							Korábbi megoldások:
+						</label>
+						<select name="korabbimok" id="korabbimok_1">
+							<option value="2">3. megoldás</option>
+							<option value="1">2. megoldás</option>
+							<option value="0">1. megoldás</option>
+						</select>
+						<button type="submit">Letöltés</button>
+						</form>
+				</div>
+
+				<div class="ujmo">
+					<form><label for="ujmo_1" >Új megoldás:</label>
+  						<input type="file" id="ujmo_1" name="filename">
+  						<input type="submit">
+					</form>
+				</div>
+				<div class="ertekeles">
+					<span class="ertekeles-label">
+						Mentor értékelése: 
+					</span>
+					<span class="ertekeles-value">
+						Elfogadva
+					</span>
+				</div>
+				<div class="ertekeles-textarea">
+					Nagyon szép megoldás volt, bár szerintem break nélkül még szebb lenne.
+				</div>
+			</article>
+
+			<article class="hf">
+				<div class="temakor">Táblázatkezelés</div>
+				<div class="kiadas">
+					Kiadás ideje:
+					<span class="datum">
+						2020.11.14.
+					</span>
+				</div>
+				<h2 class="feladatnev">Excel projektmunka</h2>
+				<div class="hatarido">Határidő: <span class="datum">2020.01.10</span></div>
+				<div class="article-main">
+					<img class="article-media" src="media/excel.png" alt="kép egy színes excel-tábláról.">
+					<p>
+						Rakj össze egy táblázatot, szólhat bármiről. Próbálj valódi adatokat szerezni hozzá! (Segítség: A Érettségi-feladatok végén mindig van egy forráslista, onnan lehet szedni ötleteket.)
+					</p>
+					<p>Értékelési szempontok:</p>
+					<ul>
+						<li>
+							Érdekes forrás, honnan szerezted be, stb. (ez bónuszpont)
+						</li>
+						<li>
+							Legyen szép a táblázat. Szegélyek, igazítások, hátterek, stb. (ez bónuszpont)
+						</li>
+						<li>
+							Mindenképp legyen benne feltételes formázás. Lehetőleg olyan feltételes formázás is legyen, ami nem formázandó cella tartalma alapján formáz, hanem egy másik cella.
+						</li>
+						<li>
+							A különböző táblákat, ha van értelme, lehetőleg külön munkalapokra szervezd ki.
+						</li>
+						<li>
+							Legyen benne munkalapok közti hivatkozás.
+						</li>
+						<li>
+							Legyen benne valamilyen AB-függvény (Az lenne az igazi, ha nem csak a Szumhatöbb és darabhatöbb függvényeket írnád át.)
+						</li>
+						<li>
+							Legyen benne tömbfüggvény
+						</li>
+						<li>
+							Legyen benne Index-holvan és olyan FKERES függvény amelynek a 4. paramétere IGAZ(). (osztályozós helyzetek)
+						</li>
+						<li>
+							Legyen benne minél többféle függvény úgy, hogy annak értelme is legyen. Készíts egy listát a használt függvényekből, és arról hogy az adott függvények melyik cellában találhatók. Erről készíts egy külön munkalapot is!
+						</li>
+						<li>
+							legyen benne védett cellatartomány/munkalap/munkafüzet, (hab a tortán, ha logikus, hogy miért az)
+						</li>
+						<li>
+							"Adatérvényesítés" Legördülő menünek is nagyon örülünk, szép lesz tőle minden
+						</li>
+						<li>
+							legyen benne olyan cella, amelyben van sortörés (Alt+Enter)
+						</li>
+						<li>
+							Szűrő legyen benne, akár egy kimásolt táblázatban
+						</li>
+						<li>
+							Lehet spreadsheetben is dolgozni, különösen, ha szeretnél inputot a táblázatnak (Űrlaphoz hozzárendelt táblázatot szerkesztesz.) Akkor viszont az lenne az érdekes, ha a bejövő adatokat dinamikusan követné a másik munkalap, amit szerkesztesz. Ez nem kötelező, de ezért is bónuszpont jár.
+						</li>	
+					</ul>
+				</div>
+				<div class="korabbimo">
+					<form method="POST">
+						<label for="korabbimok_2">
+							Korábbi megoldások:
+						</label>
+						<select name="korabbimok" id="korabbimok_2">
+						</select>
+						</form>
+				</div>
+
+				<div class="ujmo">
+					<form><label for="ujmo_2" >Új megoldás:</label>
+  						<input type="file" id="ujmo_2" name="filename">
+  						<input type="submit">
+					</form>
+				</div>
+				<div class="ertekeles">
+					<span class="ertekeles-label">
+						Mentor értékelése: 
+					</span>
+					<span class="ertekeles-value">
+						-
+					</span>
+				</div>
+				<div class="ertekeles-textarea">
+
+				</div>
+			</article>
+		</div> <!-- end of main -->
+		<aside>
+			<h2>Hasznos információk</h2>
+			<h3>Lejáró HF határidők:</h3>
+			<ul>
+				<li>
+					<span class="datum surgos">2020.12.18.</span>
+					<span class="feladat">Inverz organasípos rendezés</span>
+				</li>
+				<li>
+					<span class="datum">2020.01.10.</span>
+					<span class="feladat">Excel projektmunka</span>
+				</li>
+			</ul>
+			<h3>Lejáró mentorálási határidők:</h3>
+			<ul>
+				<li class="hatarido-surgos">
+					<span class="datum surgos">2020.12.17.</span>
+					<span class="feladat">3000-F feladat</span>	
+				</li>
+				<li>
+					<span class="datum surgos">2021.12.18.</span>
+					<span class="feladat">3000-J feladat</span>					
+				</li>
+				<li>
+					<span class="datum">2021.01.8.</span>
+					<span class="feladat">Középszintű szövegszerkesztés érettségi (2017okt)</span>					
+				</li>
+			</ul>
+		</aside>
+		<footer>
+			<span class="footer-bal">Üzemeltető:</span> 
+		 		<span class="footer-jobb">Molnár Attila</span>
+			<span class="footer-bal">Neptun-kód:</span> 
+		 		<span class="footer-jobb">IQ93HY</span>
+			<span class="footer-bal">e-mail:</span> 
+		 		<address class="footer-jobb"><a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a></address>
+			<span class="footer-bal">telefon:</span> 
+				<address class="footer-jobb"><a href="tel:+36201234567">(20) 123-4567</a></address>
+			<span class="footer-bal">Utolsó módosítás időpontja:</span> 
+		 		<span class="footer-jobb">2020.01.13.</span>
+		</footer>
+	</div> <!--	end of <div id="site-container"> -->
+	<script src="scripts/muti.js"></script>
+	</body>
+</html>

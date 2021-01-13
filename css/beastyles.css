@@ -1,0 +1,155 @@
+
+/* ----------------------------- */
+/* ----- beállítás article ----- */
+/* ----------------------------- */
+
+
+@media only screen and (max-width: 414px) {
+  article.bea {
+    background-color: inherit;
+    border:none;
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      ". alapadatok ."
+      ". ertesitesek .";
+    column-gap: 2%;
+  }
+}
+
+/* tablet */
+@media only screen and (min-width: 415px) and (max-width: 1024px) {
+  article.bea {
+    background-color: inherit;
+    border:none;
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      ". alapadatok ." 
+      ". ertesitesek .";
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 1025px) {
+    article.bea {
+    background-color: inherit;
+    border:none;
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "alapadatok ertesitesek";
+    column-gap: 2%;
+  }
+}
+
+
+
+
+section{
+  border: 3px solid var(--sotet);
+  background-color:  var(--sotet);
+  box-shadow: 0px 0px 5px 2px var(--sotet);
+  background-image: url("wp2.jpg");
+  background-size: cover;
+}
+
+
+article.bea section ul{
+    background-color:  var(--vilagos);
+}
+
+
+section h2, h3, label, strong{
+    background-color:rgba(0,0,0,.9);
+    box-shadow: 0 0 5px 2px black;
+    color:var(--vilagos);
+}
+article.bea #alapadatok{
+  grid-area: alapadatok;
+}
+
+article.bea #ertesitesek{
+  grid-area: ertesitesek;
+}
+
+article.uz .cimzett{
+  grid-area: cimzett;
+}
+
+article.bea address{
+  font-style: normal;
+}
+
+
+article.bea #alapadatok{
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  grid-template-rows: repeat(5,auto);
+  align-items: flex-start;
+  column-gap: 1%
+}
+
+article.bea #ertesitesek form{
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  grid-template-rows: repeat(10,auto);
+  column-gap: 3%;
+  row-gap: 1ex;
+}
+
+#ujmagamrol{
+   resize: none;
+}
+
+article.bea #alapadatok strong{
+  text-align: right;
+}
+
+article.bea #ertesitesek label{
+  text-align: right;
+}
+
+article.bea #alapadatok em,address{
+  font-style: normal;
+  color:white;
+}
+
+article.bea h2,h3{
+  font-weight: bold;
+  color:var(--vilagos);
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  margin:10px 0px;
+}
+
+#alapadatok p{
+  padding:0;
+  margin:0;
+  color:white;
+  width:250px;
+}
+#resetgomb{
+  place-self: end;
+  padding: 5px;
+}
+
+#submitgomb{
+  place-self:start;
+  padding: 5px;
+}
+
+
+
+article.bea #alapadatok li{
+  color:black;
+}
+
+

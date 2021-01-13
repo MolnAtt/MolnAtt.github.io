@@ -1,0 +1,453 @@
+/* --------------------- */
+/* ----- preambulum ---- */
+/* --------------------- */
+
+:root{
+  --sotet: rgb(13,17,23);
+  --vilagos: rgb(65,85,50);
+}
+  
+
+*{
+  margin:0;
+  padding:0;
+}
+
+
+/* ---------------- */
+/* ----- links ---- */
+/* ---------------- */
+
+a{
+  color:white;
+}
+
+article a:visited{
+  color:black ;
+}
+
+
+/* ------------------ */
+/* ----- layout  ---- */
+/* ------------------ */
+body{
+  background-color: var(--sotet);
+  font-size:14pt;
+}
+
+
+  #site-container{
+    position: relative;
+    min-height: 100vh;
+    background-image: linear-gradient(0.25turn, rgb(13,17,23), rgb(65,85,50), rgb(13,17,23));
+
+    font-family: 'Chakra Petch', 'Trebuchet MS', sans-serif;
+
+    display: grid;
+
+  }
+
+/* mobile */
+@media only screen and (max-width: 414px) {
+  #site-container{
+    width: 100%;
+    grid-template-columns: auto 40% ;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header nav"
+      "main main"
+      "footer footer";
+  }
+}
+
+/* tablet */
+@media only screen and (min-width: 415px) and (max-width: 1024px) {
+  #site-container{
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header header header "
+      ". nav ."
+      ". main ."
+      ". footer .";
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 1025px) {
+  #site-container{
+    grid-template-columns: 20ex auto 20ex;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header header header"
+      "nav main aside"
+      "footer footer footer";
+    column-gap: 5%;
+  }
+}
+
+
+
+/* ---------------- */
+/* ----- címek ---- */
+/* ---------------- */
+
+@media only screen and (max-width: 414px) {
+  header{
+    font-size: 2.5em;
+  }
+}
+
+@media only screen and (min-width: 415px) {
+  header{
+    font-size: 3em;
+  }
+}
+
+header{
+  text-align: center;
+  grid-area: header;
+  text-shadow: 0 0 25px var(--vilagos);
+}
+
+
+header, h1, h2, h3, h4, h5, h6{
+  font-weight: normal;
+  color: white;
+
+}
+
+
+article img{
+  border: 3px solid black;
+}
+
+h1{
+  position: sticky;
+  top:0;
+  text-align: center;
+  font-size: 2em;
+  background-color: var(--sotet);
+  text-shadow: 0 0 3px blue;
+  border-radius: 0 0 10px 10px;  
+}
+
+header, nav, aside, footer{
+    background-color: var(--sotet);
+    box-shadow: 0 0 25px 30px var(--sotet);
+  }
+
+
+/* -------------------------- */
+/* ----- navigációs menü ---- */
+/* -------------------------- */
+
+
+nav {
+    grid-area: nav;
+  }
+
+
+nav > ul{
+  background-color: var(--vilagos);
+}
+
+nav > ul > li{
+  background-color: inherit;
+}
+
+@media only screen and (max-width: 414px) {
+  #mobile-menu{
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+  }
+  nav ul{
+    display: none;
+  }
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 5px rgba(0,0,0,0.8);
+    z-index: 1;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    justify-self:stretch;
+    width:100%;
+    font-size: 1.5em;
+    color:black;
+    height:2.5em;
+  }
+
+  nav .tablet{
+    display:none;
+  }
+
+  .show {
+    display: grid;
+    grid-template-columns:auto;
+    grid-template-rows: repeat(6,2em);
+    place-content: stretch;
+  }
+
+  nav ul li {
+    display: flex;
+    place-content:stretch;
+  }
+
+}
+
+
+@media only screen and (min-width: 415px) and (max-width: 1024px) {
+  #mobile-menu{
+    display: none;
+  }
+  nav > ul{
+    position: sticky;
+    top:2%;
+    background-color: var(--sotet);
+    display:grid;
+    grid-template-columns: repeat(6,auto);
+    grid-template-rows: auto;
+    place-items:stretch;
+  }
+
+
+  nav ul li a {
+    display:grid;
+    text-decoration: none;
+    place-items: center;
+    color: var(--vilagos);
+  }
+
+  nav ul li a:hover {
+    background-color: white;
+  }
+
+  nav ul li.tablet{
+    display:grid;
+    place-items:stretch;   
+
+  }
+  nav ul li.desktop{
+    display:none;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  #mobile-menu{
+    display: none;
+  }
+  nav > ul{
+    position: sticky;
+    top:2%;
+    background-color: var(--sotet);
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(6,auto);
+  }
+
+  nav ul li.desktop{
+    display:block;
+  }
+  nav ul li.tablet{
+    display:none;
+  }
+  nav > ul > li > a{
+    text-decoration: none;
+    color: var(--vilagos);
+    padding:0 1em;
+    display:block;
+    font-size: 1.15em;
+  }
+
+  nav > ul > li > a:hover, nav > ul > li#aktli > a{
+    color: white;
+    text-shadow: 0 0 10px blue;
+  }
+}
+/* --------------- */
+/* ----- main ---- */
+/* --------------- */
+
+#main {
+  grid-area: main;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  row-gap: 2em;
+  justify-content: center;
+}
+
+article{
+  border-radius: 10px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+article:last-child, table:last-child {
+  margin-bottom: 8em;
+}
+
+article, h1, table{
+  border: 3px solid var(--sotet);
+  background-color:  var(--sotet);
+  box-shadow: 0 0 5px 2px var(--sotet);
+}
+
+article > h2{
+  text-align: center;
+  padding: 10px;
+  text-shadow: 0 0 2px blue;
+  align-self: center;
+}
+
+article > .article-main{
+    background-color:  var(--vilagos);
+    margin: .2em;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px var(--sotet);
+    padding: .5em;
+    color: var(--sotet);
+}
+
+article p{
+  margin: 1em 0em;
+  
+}
+
+article ul, ol {
+  margin: 0em 2em;
+  
+}
+
+
+
+article .article-media{
+  float: right;
+  margin-left: 0;
+  border-radius: 10px;
+}
+
+figcaption{
+  text-align: center;
+}
+
+
+
+
+
+/* ---------------- */
+/* ----- aside ---- */ /* reszponzív! */
+/* ---------------- */
+
+
+@media only screen and (max-width: 1024px) {  
+  aside, aside * {
+    display:none;
+  }
+}
+
+
+@media only screen and (min-width: 1025px) {
+
+  aside {
+    grid-area: aside;
+    display:flex;
+    flex-direction: column;
+    font-size: 1em;
+    row-gap:10px;
+    padding-left:10px;
+  }
+
+  aside > ul{
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    row-gap:5px;
+    list-style: none;
+  }
+
+  aside > ul > li {
+    color:var(--vilagos);
+    margin:5px;
+  }
+
+  aside > ul > div{
+    color:var(--vilagos);
+    margin:5px;
+  }
+
+  aside > ul > li > span.datum{
+    color: white;
+    display: block;
+  }
+
+  aside > ul > li > span.surgos{
+    color: red;
+    font-style: italic;
+  }
+
+}
+
+/* ---------------- */
+/* ----- footer ---- */
+/* ---------------- */
+
+footer {
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: auto;
+  column-gap: 3px;
+  justify-content: center;
+  color: var(--vilagos);
+  font-size: .8em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .footer-bal{
+  grid-column-start: 1;
+  font-weight: bold;
+  text-align: right;
+}
+
+footer .footer-jobb{
+  grid-column-start: 2;
+  font-weight: normal;
+  text-align: left;
+}
+
+footer a {
+  font-style: normal;
+  color:white;
+}
+
+
+article .datum{
+  color: white;
+}
+
+article .input-download{
+  float:right;
+}
+
+#koszonto {
+  background-color: var(--vilagos);
+  color:black;
+  font-size: 1.2em;
+}
+
+#koszonto p{
+  margin:1ex;
+}

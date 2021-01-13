@@ -1,0 +1,82 @@
+
+/* ------------------------------ */
+/* ----- ellenorzes article ----- */
+/* ------------------------------ */
+
+
+article.ell {
+  display: grid;
+  grid-template-columns: auto 10em 15em;
+  grid-template-rows: repeat(6, auto);
+  grid-template-areas: 
+    "temakor temakor kiadas"
+    "feladatnev feladatnev hatarido"
+    "feladatnev feladatnev beadas"
+    "feladatnev feladatnev ellenorizni"
+    "fmain fmain fmain"
+    "korabbimo ertekeles ertekeles"
+    "etextarea etextarea etextarea";
+}
+
+article.ell .temakor{
+  grid-area: temakor;
+}
+
+article.ell .feladatnev{
+  grid-area: feladatnev;
+}
+
+article.ell .kiadas{
+  grid-area: kiadas; 
+}
+
+article.ell .hatarido{
+  grid-area: hatarido;
+}
+
+article.ell .beadas{
+  grid-area: beadas; 
+}
+
+article.ell .ellenorizni{
+  grid-area: ellenorizni;
+}
+
+article.ell .article-main{
+  grid-area: fmain;
+}
+
+article.ell .korabbimo{
+  grid-area: korabbimo;
+}
+
+article.ell .ertekeles-label{
+}
+
+article.ell .ertekeles{
+  grid-area: ertekeles;
+}
+
+article.ell .ertekeles-textarea{
+  grid-area: etextarea;
+  background-color: var(--vilagos);
+  color: var(--sotet);
+  border-radius: 5px;
+  padding:5px;
+  font-style: italic;
+  font-size: .8em;
+}
+
+article.ell textarea{
+    width: 100%;
+}
+
+article.ell .article-media{
+  border: 3px solid var(--sotet);
+  border-radius: 10px;
+}
+
+span.surgos{
+  color: red;
+  font-style: italic;
+}
