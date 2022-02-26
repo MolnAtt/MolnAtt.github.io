@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>3000J+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3000M+</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        
+        <p>
+            A következő feladatok közül sok egymást követő feladat nagyon hasonlít egymásra. 
+            Törekedj arra, hogy szép, áttekinthető kódot írj! 
+            Próbáld meg úgy megoldani a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+            Lehetőleg próbáld meg ezeket a függvényeket több feladatban is felhasználni!
+            
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+        </p>
+        
+        <h3>(M) Csongrád megye</h3>
+        
+        <p>
+            Az input fájl Csongrád megye számos településének néhány adatát tartalmazza. Az egyes adatelemeket tabulátor választja el. Az input fájl nem tartalmazza a mezőneveket.
+        </p>
+        
+        <p><a href="input/3000M/input.txt">input.txt</a></p>
+
+        <p>
+            Az egyes oszlopok jelentése a következő:
+        </p>
+        
+        <ul>
+            <li>település azonosítója</li>
+            <li>település neve</li>
+            <li>rangja</li>
+            <li>kistérségi besorolása</li>
+            <li>területe hektárban</li>
+            <li>népessége</li>
+            <li>a településen lévő lakások száma</li>
+        </ul>
+
+        <ol>
+            <li>Hány település található az input fájlban?</li>
+            <li>Hány község rangú település található?</li>
+            <li>Hány város rangú település található?</li>
+            <li>Van-e falu rangú település?</li>
+            <li>Hány község rangú település található a Makói kistérségben?</li>
+            <li>Hány község rangú település található a Szegedi kistérségben?</li>
+            <li>Hány község rangú település található a Szentesi kistérségben?</li>
+            <li>Hány város rangú település található a Makói kistérségben?</li>
+            <li>Hány város rangú település található a Szegedi kistérségben?</li>
+            <li>Hány város rangú település található a Szentesi kistérségben?</li>
+            <li>Írja ki a község rangú települések közül az 1000 főnél népesebb települések nevét és népességét!</li>
+            <li>Írja ki a város rangú települések közül az 10000 főnél népesebb települések nevét és népességét!</li>
+            <li>Írja ki a község rangú települések közül az 1000 főnél alacsonyabb népességű települések nevét és népességét!</li>
+            <li>Írja ki a város rangú települések közül az 5000 főnél alacsonyabb népességű települések nevét és népességét!</li>
+            <li>Mennyi a legnépesebb település lélekszáma?</li>
+            <li>Mennyi a legalacsonyabb népességű település lélekszáma?</li>
+            <li>Melyik a legnépesebb település? Írja ki a település nevét és lélekszámát!</li>
+            <li>Melyik a legalacsonyabb népességű település? Írja ki a település nevét és lélekszámát!</li>
+            <li>Melyik a Makói kistérség legkisebb területű települése(i)?</li>
+            <li>Melyik a Szegedi kistérség legkisebb területű települése(i)?</li>
+            <li>Melyik a Szentesi kistérség legkisebb területű települése(i)?</li>
+            <li>Melyik a Makói kistérség legnépesebb települése(i)?</li>
+            <li>Melyik a Szegedi kistérség legnépesebb települése(i)?</li>
+            <li>Melyik a Szentesi kistérség legnépesebb települése(i)?</li>
+            <li>Írja ki a Makói kistérség településeinek népsűrűségét!</li>
+            <li>Írja ki a Szegedi kistérség településeinek népsűrűségét!</li>
+            <li>Írja ki a Szentesi kistérség településeinek népsűrűségét!</li>
+            <li>Írja ki a Kisteleki kistérség településeinek népsűrűségét!</li>
+            <li>Igaz-e, hogy minden Makói kistérségű település lélekszáma nagyobb, mint 1000?</li>
+            <li>Igaz-e, hogy minden Szentesi kistérségű település lélekszáma kisebb, mint 10000?</li>
+            <li>Igaz-e, hogy minden Szegedi kistérségű település lélekszáma nagyobb, mint 2000?</li>
+            <li>Igaz-e, hogy minden Kisteleki kistérségű település lélekszáma kisebb, mint 10000?</li>
+            <li>Írja ki a Makói kistérség településeinek egy lakásra jutó népesség számát!</li>
+            <li>Írja ki a Szentesi kistérség településeinek egy lakásra jutó népesség számát!</li>
+            <li>Írja ki a Szegedi kistérség településeinek egy lakásra jutó népesség számát!</li>
+            <li>Írja ki a Kisteleki kistérség településeinek egy lakásra jutó népesség számát!</li>
+            <li>Melyik településen a legrosszabb a lakáshelyzet? (Egy lakásra a legtöbb lakos jut.)</li>
+            <li>Készítsen kimutatást kistérségi bontásban, amelyben megadja az egyes kistérségek településeinek a számát!</li>
+            <li>Készítsen kimutatást kistérségi bontásban, amelyben megadja az egyes kistérségek összlakosságának a számát!</li>
+            <li>Készítsen kimutatást kistérségi bontásban, amelyben megadja az egyes kistérségek összterületének a nagyságát!</li>
+        </ol>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+    <div class="hivatkozas">A kérdések túlnyomó része <a href="http://ntibi.web.elte.hu">Nagy Tibor oldaláról</a> származik.</div>
+</footer>
+</body>
+</html>
