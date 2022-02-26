@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>3000J+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3000J+</h2>
+<article>
+    <p>
+        A következő feladatok közül sok egymást követő feladat nagyon hasonlít egymásra. 
+        Törekedj arra, hogy szép, áttekinthető kódot írj! 
+        Próbáld meg úgy megoldani a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+        Lehetőleg próbáld meg ezeket a függvényeket több feladatban is felhasználni!
+        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    
+    
+    <p>
+    Az input.csv fájl egy osztály névsorát, különböző tanulócsoportokba történő beosztását és néhány egyéb adatát tartalmazza. Az egyes adatelemeket pontosvessző választja el. 
+    
+    A mezőneveket a fájl nem tartalmazza.
+    </p>
+    <p><a href="input/3000J/input.txt">input.txt</a></p>
+    <p>
+        Az egyes oszlopok jelentése a következő:
+    </p>   
+    <ul>
+        <li>tanulokod (szám)</li>
+        <li>diákok neve (szöveg)</li>
+        <li>matematika és informatika szerinti csoportbeosztás (szöveg)</li>
+        <li>angol csoportok szerinti besorolás, a szint és tanár megjelölésével (szöveg)</li>
+        <li>választott 2. idegen nyelv (szöveg)</li>
+        <li>a diák neme, testnevelés szerinti bontás (szöveg)</li>
+        <li>a családban együttlakók száma (szám). Ez mindig 1 és 10 közé esik.</li>
+        <li>testvérek száma (szám). Ez mindig egy 1 és 7 közé esik. </li>
+    </ul>
+
+    <ol>
+        <li>Hány diák tanul az osztályban?</li>
+        <li>Hány fiú tanul az osztályban?</li>
+        <li>Hány lány tanul az osztályban?</li>
+        <li>Hány olyan diák van, akiknek több mint 1 testvére van?</li>
+        <li>Gyűjtse ki azon diákok nevét, akiknek több mint 1 testvérük van!</li>
+        <li>Hány olyan diák van, akiknek több mint 2 testvére van?</li>
+        <li>Gyűjtse ki azon diákok nevét, akiknek több mint 2 testvérük van!</li>
+        <li>Hány olyan diák van, akik a 2. idegen nyelvként a németet tanulják?</li>
+        <li>Gyűjtse ki azon fiú diákok nevét, akik a 2. idegen nyelvként a németet tanulják!</li>
+        <li>Hány diák tanul az egyes angol csoportban?</li>
+        <li>Hány diák tanul a kettes angol csoportban?</li>
+        <li>Hány diák tanul az alfa matematika csoportban?</li>
+        <li>Hány diák tanul az beta matematika csoportban?</li>
+        <li>Hány lány tanul az alfa matematika csoportban?</li>
+        <li>Hány lány tanul a beta matematika csoportban?</li>
+        <li>Hány fiú tanul az alfa matematika csoportban?</li>
+        <li>Hány fiú tanul a beta matematika csoportban?</li>
+        <li>Van-e olyan diák, aki a 2. idegen nyelvként oroszt tanul?</li>
+        <li>Van-e olyan diák, aki a 2. idegen nyelvként olaszt tanul?</li>
+        <li>Van-e olyan diák, aki a 2. idegen nyelvként spanyolt tanul?</li>
+        <li>Mekkora a legnagyobb család az osztályban?</li>
+        <li>Írjuk ki az egyik olyan diák nevét akinek e legtöbb testvére van!</li>
+        <li>Gyűjtse ki azon lány diákok nevét, akik az egyes vagy kettes angol csoportban vannak!</li>
+        <li>Gyűjtse ki azon fiú diákok nevét, akik a hármas vagy négyes angol csoportban vannak és 0 vagy 2 testvérük van!</li>
+        <li>Viszonylag kevés azon családok száma, ahol az együttlakók száma és a testvérek száma között nem három a különbség. Adja meg a számukat!</li>
+        <li>Dári Dóra hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.</li>
+        <li>Avon Mór hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak. </li>
+        <li>Zúz Mara hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak. </li>
+        <li>Citad Ella hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak. </li>
+        <li>Hát Izsák hiányzott a legutóbbi angol órán, szeretné bepótolni a hiányzást. Adja meg azon tanulók nevét, akik vele azonos angol csoportba járnak.</li>
+        <li>A spanyol vagy a német nyelvet tanulják-e többben az osztáyban?</li>
+        <li>Kérjen be a felhasználótól egy nyelvet és írja ki, az adott nyelvet tanulók névsorát!</li>
+        <li>Hány különböző második idegen nyelvet lehet tanulni?</li>
+        <li>Add meg a különböző matematika/informatika szerinti csoportbontások neveit!</li>
+        <li>Melyik angol nyelvi csoportba hányan járnak?</li>
+        <li>Csoportosítsuk az együttlakók száma szerint a diákokat! Melyik csoportban hányan vannak?</li>
+        <li>Melyik a leggyakrabban előforduló testvérszám?</li>
+        <li>Add meg angolcsoportonként, hogy melyik csoportban hány testvére van összesen az oda járó embereknek!</li>
+        <li>Add meg második nyelvi csoportonként, hogy melyik csoportban átlagosan hány testvére van az oda járó embereknek!</li>
+        <li>Add meg angolcsoportonként a névsorban első és utolsó diák nevét!</li>
+    </ol>
+
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+    <div class="hivatkozas">A kérdések túlnyomó része <a href="http://ntibi.web.elte.hu">Nagy Tibor oldaláról</a> származik.</div>
+</footer>
+</body>
+</html>

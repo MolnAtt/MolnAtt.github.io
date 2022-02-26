@@ -1,0 +1,55 @@
+body{
+
+    background-color:black;
+
+    color: #cccccc;
+    font-family: "Source Code Pro", monospace;
+    font-size: 14pt;
+}
+
+a {
+    text-decoration: none;
+    color: #4875d8;
+}
+
+a:hover, a:focus {
+    color: #74baf3;
+}
+
+em {
+    color:rgb(230, 208, 12);
+    font-style: normal;
+}
+
+
+strong{
+    color: #ffffff;
+    font-weight: normal;
+    text-shadow: 0 0 5px #ffffff;
+}
+
+main{
+    display:grid;
+    grid-template-columns: 80%;
+    justify-content: center;
+    justify-items: center;
+margin-bottom: 3em;
+}
+
+article{
+    max-width: 60em;
+    padding:15px;
+    background-color: black;
+
+}
+
+.hivatkozas{
+}
+
+footer{
+    font-size: smaller;
+    display: grid;
+    row-gap: 1ex;
+    justify-items: center;
+
+}
