@@ -1,0 +1,17 @@
+body {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+a {
+    padding: 4px;
+    border-radius: 10px;
+
+}
+a:hover {
+    border-radius: 10px;
+    transition: .5s;
+}
+
+

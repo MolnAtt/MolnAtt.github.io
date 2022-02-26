@@ -33,7 +33,7 @@ main{
     grid-template-columns: 80%;
     justify-content: center;
     justify-items: center;
-margin-bottom: 3em;
+    margin-bottom: 3em;
 }
 
 article{
