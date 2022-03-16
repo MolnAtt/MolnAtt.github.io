@@ -30,14 +30,13 @@ strong{
 
 main{
     display:grid;
-    grid-template-columns: 50em;
     justify-content: center;
     justify-items: center;
     margin-bottom: 3em;
 }
 
 article{
-    max-width: 60em;
+    max-width: 50em;
     padding:15px;
     background-color: black;
 
