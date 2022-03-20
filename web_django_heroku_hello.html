@@ -27,10 +27,11 @@ https://github.com/MolnAtt/djangotan/blob/main/deployment-quick.md
         <li>Csinálhatsz production servert a saját gépeden, de ekkor ügyelj arra a géped a házi ellenőrzéséig mindig legyen bekapcsolva, a router port-forwardingolva, stb.</li>
         <li>Csinálhatsz production servert egy Raspberry Pi-ból, csak ügyelj a port-forwardingra</li>
         <li>Használhatsz felhős tárhelyeket, amelyek Django-applikációkat tudnak hostolni.</li>
+        <li>és még sok másféleképpen eljárhatsz...</li>
     </ul>
 
     <p>
-        Mivel mindenkinek más gépe, más router-e van, én a felhős megoldást javaslom. A Heroku nevű felhős tárhelyszolgáltató kifejezetten ilyen, git-repository alapú webes applikációk hosztolására lett tervezve, ezért én mindenképpen ezt ajánlom. Ehhez készítettem is egy <a href="https://github.com/MolnAtt/djangotan/blob/main/deployment.md">step-by-step tutorialt</a>, amihez létezik egy <a href="https://github.com/MolnAtt/djangotan/blob/main/deployment-quick.md">rövidített verzió</a> is. Ez a tutorial a parancssori utasításokból áll és a heroku CLI-t (command line interface) használja. Meg lehet azonban oldani a dolgot kattintgatással is, GitHub-ról való áthozással is. Ha szeretnétek, <a href="">így is csinálhatjátok</a>.
+        Mivel mindenkinek más gépe, más router-e van, én a felhős megoldást javaslom. A Heroku nevű felhős tárhelyszolgáltató kifejezetten ilyen, git-repository alapú webes applikációk hosztolására lett tervezve, ezért én mindenképpen ezt ajánlom. Ehhez készítettem is egy <a href="https://github.com/MolnAtt/djangotan/blob/main/deployment.md">step-by-step tutorialt</a>, amihez létezik egy <a href="https://github.com/MolnAtt/djangotan/blob/main/deployment-quick.md">rövidített verzió</a> is. Ez a tutorial a parancssori utasításokból áll és a heroku CLI-t (command line interface) használja. Meg lehet azonban oldani a dolgot kattintgatással is, GitHub-ról való áthozással is. Ha szeretnétek, <a href="https://studygyaan.com/django/django-everywhere-host-your-django-app-for-free-on-heroku">így is csinálhatjátok</a>.
     </p>
     <p>Az applikációd írja ki a képernyőre, hogy Hello Django!</p>
     <p>statikus fájlokkal, például képekkel, stíluslapokkal (css) és szkriptekkel (js) nem kell még foglalkozz. </p>

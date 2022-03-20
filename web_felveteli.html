@@ -1,0 +1,55 @@
+https://github.com/MolnAtt/djangotan/blob/main/deployment-quick.md
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Django-2</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Felvételi kiértesítő applikáció</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>A Kőbányai Szent László Gimnáziumban ki kell értesíteni a tanulókat, hogy kit vettek fel és kit nem. A felvételi eredmények azonban személyes adatnak minősülnek, így nem lehet pusztán kirakni a tanulók névsorát a honlapra.</p>
+    <p>A feladat a következő: Készíts egy applikációt, amit az iskola honlapjáról belinkelhetnek, és ahol a felvételiző egy párbeszédablakkal találkozik. Ha itt a felvételiző megadja a diákigazolványon található oktatási azonosítóját, akkor számára írja ki az applikáció, hogy őt felvették-e vagy sem. Az applikációhoz egy import-felületet is készíteni kell, ahova a csv-formátumot betöltve az feltölti az applikáció adatbázisát.</p>
+
+    <h3>View-k</h3>
+    <h4>index és döntés</h4>
+    <p>
+        A felhasználó egy szöveges inputot lát egyedül. Ha ide beír egy létező azonosítót, akkor egy olyan oldal jelenik meg, amelyről kiderül, hogy az adott azonosítójú tanulót (a neve szerepeljen, ez fontos azért is, hogy egy elütött azonosító miatti hibás azonosítás kiderüljön!) a gimnázium mely tagozatára vették fel és hány ponttal (és esetleg melyre nem és hány ponttal). Ha nem létező kódot adott meg, akkor ezt közölje fele az applikáció és kérjen be újra inputot! Ügyelj arra, hogy a tanuló személyes adatai (pl. az azonosítója) ne jelenjen meg az url-ben!
+    </p>
+    <h4>import</h4>
+    <p>
+        A felhasználó (feltehetőleg az adminisztrátor) egy nagy és egy kis szöveges inputra alkalmas html-elemmel áll szemben és egy gombbal. A gombra kattintva, ha a kis szöveges input megegyezik egy titkos jelszóval (ezt most nem muszáj adatbázisban tárolni), akkor a nagy szöveges inputban található megfelelő formátumú csv-fájl alapján feltölti az applikáció az adatbázist. Legyen egyértelművé téve címkékkel, hogy melyik input melyik!
+    </p>
+
+    <h3>Adatbázis</h3>
+    <p>Az adatbázis megtervezésében és a titkárságtól elvárt formátumban szabad kezet kapsz. Az biztos, hogy a titkárságtól valamilyen csv formátumban kapod majd az eredményt, amiből a következő információk deríthetők ki:</p>
+    <ul>
+        <li>a felvételiző diákigazolványon is megtalálható azonosítószáma</li>
+        <li>a felvételiző neve</li>
+        <li>a felvételiző tagozatokon elért pontszámai (nem feltétlen egész szám!)</li>
+        <li>a felvételiző tagozatokon elért eredményei (felvették, nem vették fel)</li>
+    </ul>
+
+    <h3>Deployment</h3>
+    <p>A megoldásod legyen elérhető a világhálón, a címét pedig linkeld a repository README.md fájljában!</p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
