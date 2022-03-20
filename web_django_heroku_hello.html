@@ -1,0 +1,44 @@
+https://github.com/MolnAtt/djangotan/blob/main/deployment-quick.md
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Django-3</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Hello Django -- Development</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>Hosztolj egy Django-ban elkészített applikációt! Szabad kezet kapsz, hogy ezt hogy oldod meg:</p>
+    <ul>
+        <li>Csinálhatsz production servert a saját gépeden, de ekkor ügyelj arra a géped a házi ellenőrzéséig mindig legyen bekapcsolva, a router port-forwardingolva, stb.</li>
+        <li>Csinálhatsz production servert egy Raspberry Pi-ból, csak ügyelj a port-forwardingra</li>
+        <li>Használhatsz felhős tárhelyeket, amelyek Django-applikációkat tudnak hostolni.</li>
+    </ul>
+
+    <p>
+        Mivel mindenkinek más gépe, más router-e van, én a felhős megoldást javaslom. A Heroku nevű felhős tárhelyszolgáltató kifejezetten ilyen, git-repository alapú webes applikációk hosztolására lett tervezve, ezért én mindenképpen ezt ajánlom. Ehhez készítettem is egy <a href="https://github.com/MolnAtt/djangotan/blob/main/deployment.md">step-by-step tutorialt</a>, amihez létezik egy <a href="https://github.com/MolnAtt/djangotan/blob/main/deployment-quick.md">rövidített verzió</a> is. Ez a tutorial a parancssori utasításokból áll és a heroku CLI-t (command line interface) használja. Meg lehet azonban oldani a dolgot kattintgatással is, GitHub-ról való áthozással is. Ha szeretnétek, <a href="">így is csinálhatjátok</a>.
+    </p>
+    <p>Az applikációd írja ki a képernyőre, hogy Hello Django!</p>
+    <p>statikus fájlokkal, például képekkel, stíluslapokkal (css) és szkriptekkel (js) nem kell még foglalkozz. </p>
+    <p>A repóhoz tartozó README.md fájlban hivatkozásként szerepeljen a honlap linkje is!</p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
