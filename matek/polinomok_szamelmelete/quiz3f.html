@@ -1,0 +1,119 @@
+<html>
+<head>
+ <link rel="SHORTCUT ICON" href="/~attila/logo.png">
+ <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+ <link rel="stylesheet" type="text/css" href="http://phil.elte.hu/~attila/honlapst.css">
+ <title>factorizing into full cubes</title> 
+ <script 
+  type="text/javascript" 
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"> 
+ </script>
+</head>
+<body background="">
+<table width = 100% align = center border=0 cellspacing=0 >
+ <tr>
+  <td colspan=3 >
+   <table width=100% border=0>
+    <tr>
+     <td align=right valign=bottom>
+      <h3>
+       e-mail: molnar.h.attila@gmail.com 
+      </h3>
+	  </td>
+	 </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td width=20% >
+   <table width=100% border=0>
+   </table>
+  </td>
+  <td width=80% rowspan=8 align = left valign= top >
+   <table border=0 valign= top cellpadding=20 width=100%>
+    <tr>
+     <td>
+      <font face="Arial, Helvetica, sans-serif" font color=#666666 size=3>
+       <form>
+		<div>
+		 <h3>factorizing into full cubes
+	      <br>
+		  <br>number of questions: <label id="NumberOfQuestions">default</label>
+        </h3>
+		</div>
+	    <button type="button" onclick="PrevQuestion()">previous</button>
+	    <button type="button" onclick="NextQuestion()">next</button>
+	    <button type="button" onclick="RndQuestion()">random</button>
+		<br>
+		<br>
+	    <div>
+		 Q<label id="QuestionNumber">Question number</label>: <label id="QuestionText">The Question will be here</label>
+		</div>
+		<br><br>
+       <div id="Answers">
+		 The answers will be here
+		</div>
+	    <button type="button" onclick="GiveFeedback()">submit</button>
+		<h3>your answer is <label id="Feedback">...</label></h3>
+		<div id="ErrorDiv">
+		</div>
+	   </form>
+      </font>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+</body>
+<script src="quiz3f.js"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"]}});</script>
+<script>
+var Qnum = 0
+var AnswerCardinality = Quiz[Qnum].length-2;
+
+function WriteQuestion()
+{var AnswerText ='';
+ document.getElementById("QuestionNumber").innerHTML = Qnum+1;
+ document.getElementById("QuestionText").innerHTML = Quiz[Qnum][0];
+ for (var i=0;i<AnswerCardinality;i++)
+  {AnswerText = AnswerText + '<input type="radio" name="Answer" id="Answer_'+i+'" value="Value_'+i+'" onclick="DeleteFeedback()"/>' + Quiz[Qnum][i+2] + '<br><br>';}
+ document.getElementById("Answers").innerHTML = AnswerText;
+ MathJax.Hub.Queue(["Typeset",MathJax.Hub]);}
+ 
+function GiveFeedback()
+{var pipalvavan=0;
+ for (var i=0;i<AnswerCardinality;i++){if (document.getElementById("Answer_"+i).checked) {pipalvavan = i+1;};}
+ if (pipalvavan==Quiz[Qnum][1]) {document.getElementById("Feedback").innerHTML = "<font color=lime>Right!</font>";}
+  else if (pipalvavan==0)
+          {document.getElementById("Feedback").innerHTML = "<font color=blue>waiting for your choice</font>";}
+          else {document.getElementById("Feedback").innerHTML = "<font color=red>Wrong.</font>";}}
+
+function DeleteFeedback(){document.getElementById("Feedback").innerHTML = "<font color=blue>...</font>";}
+
+function NextQuestion()
+{if (Qnum==Quiz.length-1) {Qnum = 0;} else { Qnum = Qnum +1;}
+ AnswerCardinality = Quiz[Qnum].length-2;
+ WriteQuestion();
+ DeleteFeedback();}
+
+function PrevQuestion()
+{if (Qnum==0) {Qnum = Quiz.length-1;} else { Qnum = Qnum -1;}
+ AnswerCardinality = Quiz[Qnum].length-2;
+ WriteQuestion();
+ MathJax.Hub.Queue(["Typeset",MathJax.Hub,"AnswerText1"]);
+ DeleteFeedback();}
+
+function RndQuestion()
+{var i 
+ do {i= Math.floor(Math.random() * (Quiz.length));}
+ while (i==Qnum) 
+ Qnum = i;
+ AnswerCardinality = Quiz[Qnum].length-2;
+ WriteQuestion();
+ DeleteFeedback();}
+
+WriteQuestion();
+ document.getElementById("NumberOfQuestions").innerHTML = Quiz.length;
+</script>
+</html>
