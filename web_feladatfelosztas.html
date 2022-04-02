@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Dj-Kitalálós</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Hello Django -- Feladatválasztás</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Osztálykirándulás előtt adottak a témák, amikről kiselőadásokat kell tartani. Az osztályfőnöknek szüksége van egy, ezen kiselőadásokra való jelentkeztető felületre, ennek megvalósítása lenne a feladat. 
+        </p>
+        <p>
+            Az applikációban két különböző felhasználói csoport vesz részt: a tanár hozzáfér az admin site-hoz, ahol adhat új feladatokat és létrehozhat új felhasználókat egyenként. Emellett tudja használni a felhasználók csoportos regisztrációjára szolgáló plusz adminisztrátori felületet is, ahol tsv fájlok felhasználásával tud új felhasználókat csoportosan regisztrálni. 
+
+            A diákok be tudnak jelentkezni az oldalra, és bejelentkezés után egyből a feladatokat látják, ott pedig képesek a feladatokra feljelentkezni, feladatokról lejelentkezni illetve feladatok között átjelentkezni.
+        </p>
+        <h3>Jelentkezések logikája</h3>
+        <p>
+            <ul>
+                <li>
+                    Egy diák pontosan akkor <em>jelentkezhet fel</em> egy feladatra, ha arra még nem jelentkezett senki. 
+                </li>
+                <li>
+                    A diákok <em>lejelentkezhetnek</em>: visszavonhatják korábbi jelentkezésüket, amennyiben meggondolják magukat. 
+                </li>
+                <li>
+                    Ha egy diák úgy akarna jelentkezni, hogy már valahova fel van jelentkezve, akkor ő <em>átjelentkezik</em>, azaz a régi jelentkezése megszűnik az új jelentkezéssel.
+                </li>
+                <li>
+                    Minden felhasználó, így a tanár is tud jelentkezni. Jelentkezés tekintetében tanárok és diákok között nincsen különbség.
+                </li>
+            </ul>
+            A 
+        </p>
+    
+        <h3>View-k</h3>
+        <h4>login</h4>
+        <p>
+            Legyen egy, a felhasználók bejelentkeztetésére szolgáló felület! A Django beépített autentikációs rendszerét használd, <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication#login_template">amihez itt találsz segítséget</a> (a block-okon belüli rész fontos csak!).
+        </p>
+        <p>
+            A password-reset részt nem kell megvalósítani. (Email-küldés szükséges hozzá, és nehéz megvalósítani a jelszó elrejtését!)
+        </p>
+        <p>
+            Ezen az oldalon kívül minden oldalról legyen elérhető egy kijelentkeztető link!
+        </p>
+        <h4>Jelentkezés</h4>
+        <p>
+            Legyen egy oldal, amin jelentkezni lehet illetve áttekinthetők a jelentkezések a tanár számára. Az oldalon jelenjenek meg áttkintehető formában a választható feladatok, továbbá azon feladatok környezetében, amelyekre
+        </p>
+        <ul>
+            <li>még nem jelentkezett felhasználó, álljon rendelkezésre egy feljelentkezés-gomb vagy átjelentkezés gomb, attól függően, hogy a bejelentkezett felhasználónak van-e más jelentkezése.</li>
+            <li>már jelentkezett felhasználó, ne álljon rendelkezésre feljelentkezés-gomb.</li>
+            <li>már jelentkezett felhasználó, mégpedig pontosan az, aki szemléli a felületet, álljon rendelkezésre egy lejelentkezés-gomb.</li>
+        </ul>
+        <p>
+            <strong>Ha a gombok személyre szabása nehéz</strong>
+            elkészíthető úgy is a feladat, hogy csak fel- és lejelentkezőgombok vannak, amelyek minden körülmények között látszódnak, de csak akkor működnek, ha a megfelelő körülmények fennállnak. (Tehát pl a lejelentkezőgombok akkor is ott vannak, ha egyébként a felhasználó még nem jelentkezett az adott feladatra, csak éppen ez a gomb nem csinál semmit azon kívül, hogy újratölti az oldalt.) 
+        </p>
+        <p>
+            A megjelenítés során legyen egy lista azon felhasználókról is, akik nem választottak még egyáltalán semmilyen foglalkozást!
+        </p>
+        <h4>Regisztráció</h4>
+        <p>
+            Legyen egy oldal egy textarea-val és három gombbal. 
+        </p>
+        <h5>Új felhasználók</h5>
+        <p>
+            Az egyik gomb szolgáljon arra, hogy userek egy tsv fájlja névvel, felhasználónévvel és jelszóval kerül bele, akkor ez alapján létre lehessen egyetlen gombnyomással sok usert is egyszerre, akik ezt követően be tudnak jelentkezni.
+        </p>
+        <h5>Új feladatok</h5>
+        <p>
+            A másik gomb szolgáljon arra, hogy feladatnevek sortöréssel elválasztva kerülnek bele, akkor ez alapján létre lehessen egyetlen gombnyomással sok feladatot is hozni egyszerre, amelyekre később lehet jelentkezni.
+        </p>
+        <h5>Feladatok törlése</h5>
+        <p>
+            Legyen egy gomb, ami kitörli az összes feladatot az adatbázisból!
+        </p>
+        <h3>Adatbázis</h3>
+        <p>
+            Az adatbázisban létezzenek feladatok, amelyeknek tulajdonsága a nevük és a user, aki feljelentkezett az adott feladatra. Legyen megengedve az is, hogy ez a mező blank/null legyen. 
+        </p>
+        <p>
+            Minden modell legyen hozzáférhető az admin-site-on is a tanár számára!
+        </p>
+        <p>
+            Létezzen egy csoport a tanárok részére, akik a regisztrációs felületet kezelni tudják!
+        </p>
+           <h3>Deployment</h3>
+        <p>A megoldásod legyen elérhető a világhálón, a címét pedig linkeld a repository README.md fájljában!</p>
+        </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
