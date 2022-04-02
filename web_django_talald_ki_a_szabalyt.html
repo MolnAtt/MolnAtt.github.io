@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Dj-Kitalálós</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Hello Django -- Kitalálós</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Egy szabálykitalálós játékot kell megvalósítani. A szerveroldalon van egy függvény, ami két számhoz valamilyen általad kitalált szabály alapján hozzárendel egy harmadikat. Ennek a szabálynak a működését kell kitalálnia a honlapra ellátogató felhasználónak.
+        </p>
+    
+        <h3>View-k</h3>
+        <h4>feladvány</h4>
+        <p>
+            Az applikáció ad két számot a felhasználónak, majd megmondja, hogy az applikáció szabálya szerint mi a válasz a feladott kérdésre. 
+            Nagyon fontos, hogy a szabály nem szabad, hogy kideríthető legyen a kliensoldalon, tehát pl. a csatolt JavaScript-kódra, az esetleges rejtett HTML-elemekre figyeljünk oda! <strong>Ha</strong> használunk ilyet, akkor ezek erre vonatkozó információt ne tartalmazzanak.
+        </p>
+        <p>
+            Ezt követően szerepeljen egy számok bevitelére alkalmas input-mező, ahova a felhasználó megadhatja a tippjét, hogy a kapott két számra a szabályt alkalmazva milyen számot kapna. Legyen egy küldés gomb, amelyre kattintva a felhasználó elküldi a tippjét a szerveroldalra, a szerver kielemzi a helyzetet, és 
+        </p>
+        <ul>
+            <li>a szerveren kiprinteli, hogy a felhasználó mely két számra milyen eredményt adott meg, mi lett volna a jó válasz, és hogy ezek alapján a felhasználó válasza jó-e vagy sem. </li>
+            <li>úgy tölti újra az oldalt, hogy egy bekezdés megjelenik az input mező alatt, amiben szerepel, hogy a válasz helyes volt-e vagy sem.</li>
+        </ul> 
+        <p>
+            Egy kis segítség: formokkal dolgozva érdemes a számokat nem csak a szövegbe beírni, hanem rejtett inputokként is elhelyezni a form elemekben a két inputot!
+        </p>
+        <p>
+            A választól függetlenül ugyanúgy megjelenhet a következő számpár is a példamegoldással, csak úgy, mint az input-mező, hogy gyorsabban lehessen próbálkozni, tanulni, kifigyelni a szabályt.
+        </p>
+    
+        <h3>Adatbázis</h3>
+        <p>
+            Fontos részlet, hogy ez <em>a feladat nem igényel adatbázist</em>, tehát nem kell a szerveroldalon eltárolni, hogy a felhasználó milyen számokat kapott, amikor a választ elküldi. Ebben a feladatban most megbízhatunk a felhasználóban, hogy az általa megadott két inputot valóban tőlünk kapta. Más szóval: ha a felhasználó módosítja a html-ben (esetleg js-ben) a két változó értékét, és az így módosított értékek alapján tippel, akkor a szerver eközött és az általa adott feladat eredetisége között nem fog tudni különbséget tenni.
+        </p>
+    
+        <h3>Deployment</h3>
+        <p>A megoldásod legyen elérhető a világhálón, a címét pedig linkeld a repository README.md fájljában!</p>
+        </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
