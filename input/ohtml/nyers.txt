@@ -1,0 +1,133 @@
+A HTML nyelvről
+A HTML rövidítésről
+
+A HTML rövidítés jelentése Hypertext Markup Language. A Hypertext arra utal, hogy a hálózati kommunikációban használják a nyelvet, a markup pedig nem más, mint amikor a szerkesztésre és nyomdába leadott kéziratokhoz a szerzők megjegyzéseket írnak a nyomdászok és tipográfusok számára: ilyeneket, mint pl. hogy "kiemelendő", "külön sorba", stb. 
+
+wysiwyg-szerkesztők
+
+Van egy találó angol nyelvű kifejezés arra, ami a legjobban leírja a helyzetet: Wysiwyg-nek, "what you see is what you get"-nek nevezik az olyan programokat, amelyben pontosan azt látni szerkesztés közben, ahogyan az majd nyomtatáskor, megjelenéskor meg fog jelenni. A Word egy wysivig program. Webszerkesztéshez is van ilyen, pl. a SharePoint Designer. Ezeknek vannak előnyei és hátrányai is.
+
+Előny: Gyorsan lehet vele dolgozni, ha jól működik, akkor folyamatosan nyomon követhetőek az elrendezések és formázások
+Hátrány: A markup nem látható, pedig ott is bizony vannak egy kód, amiben a formázás tárolva van. Emiatt
+
+A kód, amit a wysiwyg-szerkesztők generálnak, ember számára bár olvashatók, rendkívül rossz velük dolgoznia mindenkinek, aki nem wysiwyg-szerkesztővel dolgozna, hanem a rendes markupban. 
+Sajnos a láthatatlanságnak ára is van: Rengeteg formázás úszik láthatatlanul a kódban arra várva, hogy egy ponton elrontsanak valamit. Pl. ha félkövérrel szedsz valamit, majd utána kitörlöd, lehet, hogy a félkövérséget biztosító formázás üresen ottmarad. Ezt lehet, hogy a program összevonja a szomszédos szóközzel, ahova pedig legközelebb írva egyszer csak azt veszed észre, hogy félkövér lesz a szöveg. Ez még könnyen észrevehető, de ha mondjuk egyetlen pontnyi betűméretet vagy betűtípust vált így az ember, az nagyon gonosz. Pl. A nyomtatott dokumentumok készítésének meg van az a kellemetlen tulajdonsága, hogy ami a képernyőn nem tűnik fel, az a hiba nyomtatásban ordít...
+
+Más markup-nyelvek
+A LaTeX, illetve helyesen: LATEX
+
+Léteznek egyébként más markup-nyelvek is, ilyen pl. a TeX, illetve az erre épülő elterjedtebb LaTeX, ami nagyon leegyszerűsítve a Microsoft Word-höz hasonló word compressorok* markup-megfelelője. Komoly helyeken LaTeX-ben szerkesztenek szöveget, ha felvesznek az egyetemre valamilyen matematikai vagy mérnöki szakra könnyen lehet, hogy ebben kell majd megírnod a képzést lezáró szakdolgozatod.
+
+* word compressor vigyázat, magyarul a "szövegszerkesztő"" tükörfordítása angolul a "text editor", azonban ez mást jelent. A Sublime Text, a notepad text editor, az ennél komolyabb formázási beállításokkal operáló wysiwig Word pedig már "word compressor". A kettő nem fejlettség tekintetében más, hanem cél tekintetében. Egy word compressor célja a nyomtatás képe, egy text editor célja az, hogy az általában nyers kódot, szövegfájlokat áttekinthetően jelenítse meg, és ne mentsen mellé láthatatlan formázást. Tehát egy text editor sosem wysiwyg.
+
+Markdown
+
+Az egyszerűen formázott szövegekre egy, a html-nél egyszerűbb, és forráskódját tekintve sokkal áttekinthetőbb nyelvet használnak, a markdownt. Ha az ember nem akart nagyon komplex formázásokat és elrendezéseket, akkor nyúl ehhez az eszközhöz. Számunkra a leggyakoribb felhasználása a GitHub-on vagy GitLab-on történik: A README.md-fájlok mind markdown fájlok, ezeket automatikusan formázza is a github/gitlab. Néhány példa formázási szabályokra: 
+
+A félkövér a **, a dőlt a * "tag"
+nincs 6 fokozat a headingekre, csak kettő, és nem kell mindenhol html-tageket használni (de ha akar az ember, akkor lehet!), hanem pl a címet, alcímet a következő sorban elhelyezett "====..." illetve "----..." jelsorozattal lehet jelölni. (Mintha aláhúznánk a címet!)
+A különböző bekezdéseket üres sorokkal választjuk el egymástól.
+A számozatlan sorozatok li-tagjeit lehet "- " jelpárokkal kódolni
+a számozott sorozatokat pedig "13." alakú jelsorozatokkal, ahol a pontig csak elég, ha valamilyen szám áll. Ezt az interpreter úgyis átírja majd olyan számra, ami valójában következne, így segítve a copy-paste-műveletkből előforduló hibákat. 
+
+Az így készülő markdown kódokat le tudják fordítani html-re, így nagyon gyorsan lehet belőlük egyszerűen formázott dokumentumokat készíteni. Ezt már persze CSS-sel lehet formázni. Ugyanakkor annyira nagyon egyszerű és áttekinthető a forráskód, hogy a tartalom ott is szinte ugyanúgy olvasható, mint formázott formában. pl. Egy program dokumentációjához ez kiváló formátum.
+
+Ennek a dokumentumnak a 99%-át is elő lehet állítani markdown nyelven. A táblázat nem fog menni, de az talán jobb is, ha nem megy...
+
+a markdown fájlok kiterjesztése az ".md", az ehhez a feladathoz tartozó feladatleírás is markdown-ban van.
+
+A Discord is értelmezi a markdown-os jelöléseket, illetve a git-es repository-k readme fájljait is illik ebben írni. Ilyenkor pl github-on vagy gitlab-on ezeket már formázva jeleníti meg. Tanulunk majd markdownról is akkor, amikor a verziókezelésről (gitről) fogunk tanulni.
+
+Tag-ek és attribútumok
+tagek
+
+A html-ben használt parancsok a tagek, ezek mondják meg, hogy milyen html elemmel van dolgunk. Ezeknek sokszor van záró-tag-je is, tehát ebben a nyelvben tulajdonképpen összeépültek a parancsok és a zárójelek.
+
+attribútumok
+
+A tagek viselkedését szabályozzák az attribútumok. Ezeket a "kacsacsőrökön" belülre kell írni, ha több is van, szóközzel elválasztva. Az attribútumokat mindig ...="..." formában kell írni. Balra az attribútum neve, jobbra az idézőjelekben az attribútum értéke szerepel. Az idézőjelek tehát most nem stringet határoznak meg, hanem ezek tulajdonképpen zárójelek! 
+
+Számtalan attribútum van, az align az igazítást intézi, a color a színt, a backgroundcolor a háttérszínt, stb.
+
+Modern html-ben a body-ban nem szokás formázni, hanem csak kategorizálni, ezért modern weblapokon leggyakrabban csak az id, name, class tagek fordulnak elő, és csak elvétve vannak más (általában nem formázásról szóló) attribútumok, pla a link href attribútuma vagy az img src attribútuma.
+
+HTML és Webdesign
+
+A lászló jelenlegi (2020.11.22-át írunk jelen sorok írásakor) honlapjának design-ja is abból az időből származik, amikor még csak a HTML létezett, a CSS és JavaScript mindössze fűszerezték ezeknek a honlapoknak a formázását.
+
+
+Néhány példa arról, hogy miről lehet felismerni a régi webdesign-t
+Táblázatok
+
+A table ma már arra szolgál, hogy táblákat jelenítsünk meg. Régen a weblapok elrendezését (layout) szabályozták a táblákkal: Ha a weblap három függőleges részből állt, akkor ezt egy háromoszlopos táblázattal valósították meg. Az oszlopok szélességét is a td-k szélességével állíották be. Ma már ilyet nem csinálunk, ehelyett a CSS3 grid-jeivel és flexbox-jaival dolgozunk. 
+
+
+Az érettségiben azonban mind a mai napig így megy a layout.
+
+Elrendezés 
+Az előbbi középre igazított bekezdést is html-ben formáztam most meg az align attribútummal, ezt azonban ma már CSS-ben szokás csinálni.
+
+Inline formázások
+Szintén elavultnak számít a színek használata html-ben: ezt a color attribútum használatával érték el. A value ilyenkor egy hashtag-et követő kétjegyű hexadecimális számokból álló számhármas adta meg. Ez egy RGB-kód, azaz az első kétjegyű szám a piros, a második a zöld, a harmadik pedig a kék színek arányát mutatja a keverésben. Ma már minden ilyet CSS-ben formázunk.
+
+Szemantikus web
+Ma már a HTML nyelv nem lát el kettős feladatot, tehát nem célja a tartalom és formázás/elrendezés kódolása. Ennek ellenére még mindig képes mind a kettőre, mivel nagyon fontos a lefele való kompatibilitás. A húsz éve megírt weblapokat a mai böngészőknek is meg kell tudni jeleníteniük. Ha nem így lenne, a 8-osok pl nem tudnák kideríteni a a suli honlapjáról, hogy felvették-e őket a Lászlóba...
+
+Ma a szemantikus web világában élünk már. A "szemantika" szó jelentéstant jelent. A szemantikus web kifejezés arra utal, hogy a legújabb, HTML5-ös szabványban már a HTML kódolása során nem arra figyelünk, hogy mi hogy nézzen ki, hanem hogy mi mit jelent.
+
+Az egyik legfontosabb cél egy weblap során az, hogy a tartalmára a felhasználók ráleljenek; hogy kidobja nekik az általuk használt keresőszoftver (Google, Bing, stb.) Ehhez a keresőmotorok feltárják, indexelik az internetet és megpróbálják "megérteni", hogy miről szólnak a honlapok. Ha a keresett kifejezés egy weblapon h1-es tagben szerepel, akkor biztos, hogy ez egy nagyon hangsúlyos része a weblapnak, a weblap "erről szól". Ha csak egy p-tagben fordult elő egy másik weblapon, akkor bár szól erről a honlap, de közel sem olyan hangsúlyos. Ilyenkor az első weblapot a második weblap előtt kell szerepeltetnie a keresőnek.
+
+A html feladata tehát már inkább csak az, hogy a weblap ilyen értelemben vett struktúráját leírja, a formázással nem törődik csak akkor, ha ehhez a struktúrához is hozzá kell nyúlni. Számtalan új tag jelent meg a html5-ben, amelyek a szemantikus webre épülnek a modern honlapok felépítésére épülnek, pl. article, section, footer, aside, nav, stb. 
+
+Modern honlap szemantikus elemei
+
+Főbb szemantikus elemek
+
+header: weblap címe: Arról szól, hogy mi van a weblapon. 
+nav: Navigációs menü, röviden "nav-bar". Ez szolgál a több weblapból álló honlapon a navigációra.
+section: A dokumentum egy elkülöníthető szakasza, magyarul a section is ezt jelenti: szakasz. Ezen belül vannak a már ismert h1, h2, ... és p tagek. 
+article: Az article (cikk) egy magában is megálló, a többi résztől függetlenül is értelmezhető része a dokumentumnak. 
+aside: Valami, ami mellékes információt tartalmaz, ami nem kapcsolódik szigorúan a tartalomhoz. Igazából a leggyakoribb alkalmazása az, hogy itt helyeznek el reklámokat.
+footer: Minden egyéb fontos információ, kapcsolatok, egyéb linkek, elérhetőségek, telefonszámok, email, utca-házszám stb. itt szerepel. Ez általában a nav-bárral együtt minden lapon közös.
+
+Az article és a section közt nincs alá-fölé rendeltség. Egy article állhat különböző section-ökből, és egy section is állhat több article-ből. 
+
+Struktúra
+Egy modern honlap szerkezete valahogy így néz ki. 
+
+Ez persze nem garancia arra, hogy az elemek is tényleg így fognak elhelyezkedni. Lehet, hogy az aside balra lesz, a navigációs menü ("nav-bár", a képen a nav elem) pedig bal oldalt fog felsorakozni, mivel oda rakja őket a honlapot formázó és elrendező CSS. A html-kódban azonban így szerepelnek egymás után, ugyanis a honlap logikai struktúrája ez. A footer azért tényleg lent szokott lenni. 
+
+
+
+Általános és megdönthetetlen érvényű szabályok
+
+
+Ilyenek nincsenek. Bárki, aki univerzális szabályt akar megfogalmazni korunk sztenderdjeire, különösen a webdesign kapcsán, kudarcra van ítélve. Amikor tehát én azt mondtam, hogy egy szép és modern weblap felépítése így és így néz ki, akkor ebből csak annyit szabad elhinni, hogy általában azért van valami ilyesmi. Vannak, amik ettől eltérnek, sőt, ezek általában ettől szépek, de ezek ettől térnek el, nem pedig mástól, és ilyen értelemben mégiscsak referenciapont a fenti szabályrendszer. Ahogy azt mondani szokták: a kivétel erősíti a szabályt.
+
+
+Példa
+
+Vegyük például a BME honlapját.
+Nálam ez most (2020.11.22.) így néz ki:
+
+A számokkal jelzett területek: 
+
+header
+nav, most tényleg fent. Vegyük észre, hogy a header-rel együtt ez is "sticky", lefele görgetve rátapad a felső ablakra, azaz akkor is rendelkezésre áll, ha az oldal aljára jutunk. CSS-ben sticky lesz a parancs, ami ezt előállítja.
+aside: végülis egyetemi dolgok vannak rajta, de inkább reklámokról van szó. 
+article: Nem tipikus példa, mivel nem tartalmat helyeztek el itt, hanem egy headingből és egy paragraphból és egy képből álló blokkot, ami linkként szolgál a valódi tartalomra. Viszont a kis blokkokra tekinthetünk úgy, mint az article-ben lévő section-ök.
+footer
+
+A kérdőjellel jelölt rész előtt most én is tanácstalanul állok. Végülis lazán kapcsolódik, ezért lehetne aside, de ugyanakkor ez egyfajta csinos nyitóképernyőként szolgál, nem valami mellékes dologról. Itt szeretnék hivatkozni  Az általános és megdönthetetlen szabályokról szóló részre.
+
+DOM
+
+Ha a html tulajdonképpen az oldal logikai struktúráját írja csak le, akkor úgy is lehet gondolni rá, hogy ez egy speciális irányított fagráfok leírására szolgáló nyelv. A gráf nem egy bonyolult dolog: Ha valahol bogyókat látsz vonalakkal, esetleg nyilakkal összehúzgálva, akkor az egy gráf. Valójában a hivatalos elnevezések szerint a bogyók a csúcsok (angolul node), köztük pedig élek vezetnek (angolul edge). Ha ezeknél számít, hogy milyen az irány, akkor erre nyilakat is szokás rajzolni és ilyenkor irányított gráfokról beszélünk. De van, hogy ilyenkor csak úgy ábrázolják az irányítást, hogy az egyik csúcsot a másik fölé rajzolják. A lenti ábrán is pl. így oldották meg az irányítást.
+
+
+A html azért tekinthető egy fagráf-leíró nyelvnek, mert az elemek egymásba rakása egy ilyen alá-fölé rendelt struktúrát alakít ki. Ha két elem közül az egyik benne van a másikban, akkor azt is mondjuk, hogy amelyik tartalmazza a másikat, az a szülő, amelyiket pedig tartalmazzák, az a gyerek. Az így kialakuló dokumentum tehát egy nagy "családfa" lesz, ez az ún. DOM: Document Object Model.
+Pl. egy nagyon egyszerű html dokumentum esetében a dokumentum DOM-ja így nézne ki:
+
+Egy egyszerű példadokumentum DOM-ja
+
+A DOM kiemelt fontosságú lesz majd CSS-ben és JavaScriptben, mivel gyakran fogunk majd a DOM-ra hivatkozni. Pl. ne minden felsorolást formázzon, hanem csak a nav-ban előforduló formázásokat. Vagy ne csak valahova hozzon létre egy elemet a program, hanem kifejezetten egy adott elem szülőjének hozzon létre új gyerek-elemet...
