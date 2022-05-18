@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-API</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Aknakereső</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        <p>
+            Az aknakereső egy NxM-es rácson játszódó játék. A játékosnak aknákat kell keresni, avagy leegyszerűsítve addig kell kattintgatnia, ameddig csak tud, úgy, hogy ne kattintson aknára. Egy mező különféle állapotokat mutat: 
+        </p>
+        <ul>
+            <li>Természetesen tartalmazhat aknát</li>
+            <li>Ha a szomszédjában van akna, akkor egy szám szerepel rajta: ez szám a szomszédos mezőkön szereplő aknák számát mutatja. Szomszédos mezők azok, amelyek legfeljebb 1 vízszintes és legfeljebb 1 függőleges mezővel elérhetők. Tehát egy, a pálya belsejében lévő cellának mindig 8 szomszédja van. A pálya sarkán egy mezőnek 3 szomszédja lehetséges, és a pálya közbülső szélein 5 szomszéddal kell számolni. </li>
+            <li>Ha sem a mezőn, sem a szomszédban nincs akna, akkor nem jelenik meg semmi. (Igazából ilyenkor a hagyományos játék elkezdi a program végigkattintgatni a környező mezőket, amiben ha van még egy üres, akkor ugyanígy tesz, és így tovább, míg számos mezőkkel találkozik. Természetesen aknával így nem találkozthat, mert azokat számos mezők veszik körül!</li>
+        </ul>
+
+        <p>
+            Hozz létre egy oldalt, ahol a fenti aknakereső játék játszható. Az oldal megnyitásakor sorsolódjon ki véletlenszerűen egy játszma: legyen elosztva az előre megadott méretű pályán egy előre megadott mennyiségű aknamennyiség. A táblán lehessen kattintgatni, ilyenkor jelenjenek meg az ott lévő objektumok alakjai. Legyen egy számláló, ami a felderítésre szoruló aknákat mutatja. A jobb kattintásra kerüljön le egy zászló a mezőkre. A zászló szerepe a vélt akna helyének jelzése. A zászlók lerakásakor csökkenjen a hátralévő aknák száma!
+        </p>
+        <p>
+            Az oldal legyen szép, esztétikus. Állíts be háttérszínt, headert, legyen h1-es elem is a lapon (akár maga a header szövege). Az aknakereső táblája legyen aknakereső-szerű: Használj grid-et a megvalósítás során! 
+        </p>
+            
+    <p>Az elkészült weboldalt töltsd fel valamilyen statikus weboldalak hosztolására alkalmas oldalra! Egy kényelmes lehetőség, ha ezt még nem használod másra, a <a href="https://pages.github.com/">GitHub Pages</a>. A link mögött egy tutorial van, lényegében ez úgy működik, hogy a GitHub fiókodban a speciálisan elnevezett, statikus weboldalt tartalmazó repositoryt képes a github hostolni.</p>
+    <p>
+        <strong>
+            A repóhoz tartozó README.md fájlban hivatkozásként szerepeljen a honlap linkje is!
+        </strong>
+    </p>    
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
