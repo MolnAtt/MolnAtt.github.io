@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3000J+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Lottó</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Írj függvényt, ami szimulál egy 5-ös lottóhúzást.
+    </p>
+    <p>
+        A lényeg most a keverésen lesz. Úgy oldd meg a feladatot, hogy létrehozol egy 90 elemű növekvő számokból álló listát, sorbarakod, <strong>megkevered</strong>, és kiírod az első 5 elemét. 
+    </p>
+    <p>
+        A keverés során figyelj oda arra, hogy a keverés után a lista bármely eleme a lista bármely helyén <strong>ugyanakkora</strong> valószínűséggel fordulhasson elő. 
+    </p>
+    <p>
+        Álljon itt egy <strong>ROSSZ</strong> példa 10 szám esetére: Egy 10 elemű listán egyszer végigmegyünk minden pozíción és mindegyik pozíció esetében feldobunk egy pénzt: Fej esetén megcseréljük a szomszédjával, írás esetén békében hagyjuk az adott helyet. Ez nem jó, mert az utolsó elem nem juthat el mindenhova, csak legfeljebb eggyel balra. De más baj is van vele: Az első elem bár bárhova eljuthat, mégsem egyenlő valószínűsségel. Az első helyen 50% eséllyel marad (I), a második helyre 25% valószínűséggel kerül (FI), a harmadik helyre 12.5% valószínűséggel kerül (FFI), ..., az utolsó helyre 100/1024 % valószínűséggel kerül. 
+        Tegyük fel most, hogy ezt a pénzdobásos cserélgetést nem egyszer játszuk el, hanem 10-szer: így az utolsó elem szerencsés dobások esetén akár a lista elejére is elkeveredhet. De a valószínűségek ekkor is egyenetlenek maradnak, így ez sem felel meg a feladat kiírásának. 
+    </p>
+    <p>
+        Szintén <strong>ROSSZ</strong> példa ez is: Dobok egy random számot, ez az első húzás. Dobok még egy random számot. Ha ugyanaz lett, mint amit már korábban dobtam, akkor újra dobok... Ennek a programnak a futási sebessége a véletlentől függ. Minden alkalommal, mikor ilyen kódot írsz, valahol a világban meghal egy informatikus.
+    </p>
+    <p>
+        Az egyszerű és elegáns megoldás a <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher-Yates-Knuth-keverés</a>. Van hozzá ezer videó is, nyilván. Ez a beszúró rendezésre emlékeztet. Első lépésben vesz egy véletlenszerű indexet 1 és 10 között. A kapott helyen lévő számot elcseréli az első helyen lévő számmal. Aztán vesz egy 2 és 10 közötti véletlenszerű indexet, és a kapott helyen lévő indexen lévő számot elcseréli a lista második helyén lévő számmal. És így tovább...
+    </p>
+    <p>
+        A keverés (random rendezés) olyankor fontos igazán, mikor visszatevés <strong>nélküli</strong> mintavételt próbálunk meg megvalósítani. Ezért a lottós feladat. Azaz olyan helyzetet próbálunk modellezni, amikor úgy húzunk egy kalapból, hogy a kihúzott dolgokat már nem rakjuk vissza, azaz amit egyszer kihúztunk, azt soha többet nem húzhatjuk. Ilyenkor tehát egy keverés után csak végig kell menni az elemeken: ez a végigmenetel szimulálja azt, hogy milyen sorrendben húzzuk ki az elemeket egymás után. Egy ponton ennek vége, ahogyan a kalapból is elfogynak egy idő után a dolgok...
+    </p>
+    <p>
+        A programod kommunikáljon a felhasználóval! Minden bemenetet "kérjen be", és minden kimenetnél írja ki, hogy mit fog kapni a felhasználó. 
+    </p>
+    
+
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

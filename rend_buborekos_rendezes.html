@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3000J+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Buborékos rendezés</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Írj egy programot, ami bekér egy N, INF, SUP számot. Generálj le egy N elemű listát, amiben INF és SUP közötti véletlenszerű számok szerepelnek. A program ezt követően írja ki a képernyőre az így generált számok listáját. Ezután írja ki sorbarendezve a számsorozatot. 
+    </p>
+    <p>
+        A sorbarendezés során a Buborékos rendezés algoritmusát használd! Ennek a lényege röviden összefoglalva: 
+        Az első helytől a végéig veszed az összes szomszédos elempárt, és megcseréled az elemeket, ha a rossz sorrendben vannak egymáshoz képest. Egy ilyen cserélgetés a lista elejétől a végéig a lista végén fogja elhelyezni a legnagyobb elemet. A lista elejétől az utolsó előtti helyig végigcserélgetve az elemeket az első N-1 elem legnagyobb eleme kerül az utolsó előtti helyre. Ezt követően a lista elejétől az N-2-edik helyig végigcserélgetve az elemeket az első N-2 elem legnagyobb eleme kerül az N-2-edik helyre. És így tovább. 
+    </p>
+    <p>
+        Figyeljünk oda arra, hogy a fenti algoritmus sok esetben optimalizálható. Sok ilyen szituációt mutat be a következő videó: 
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=Iv3vgjM8Pv4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>
+        A megoldásod során érdemes függvényt használni (mert ez a feladat papíros dolgozatban is számon lesz kérve, és úgy könnyebb megjegyezni): érdemes azt külön függvénybe kiszervezni, hogy az első elemtől valameddig cserélgetsz. Fontos, hogy ez a függvény azért bonyolultabbá válik, ha optimalizálsz is...
+    </p>
+    <p>
+        A programod kommunikáljon a felhasználóval! Minden bemenetet "kérjen be", és minden kimenetnél írja ki, hogy mit fog kapni a felhasználó. 
+    </p>
+    
+
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
