@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3000J+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Rendezett lista</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Rendezett lista alatt olyan adatszerkezetet értünk, amely egy listában tárolja az adatokat, de abban rendet tart: 
+        az elemek növekvő sorrendben szerepelnek benne. Ebben a feladatban az egyszerűség kedvéért számokkal dolgozunk csak és növekvő sorrendet tartunk.
+    </p>
+    <p>Nagyon fontos, hogy a szóban forgó metódusokban a logaritmikus keresés algoritmusát (a Helye függvényt) használd fel, különben nagyon lassú lesz minden.</p>
+    <ol>
+        <li>Készíts egy privát Helye metódust, egy tetszőleges elem esetén megmondja, hogy az hol van a listában, amennyiben benne van a listában, vagy megválaszolja azt, hogy milyen indexe lenne, ha bekerülne a listába!</li>
+        <li>Készíts egy Add metódust, amely egy elemet elhelyez a listában a helyére. </li>
+        <li>Készíts egy Contains metódust, ami megmondja, hogy egy elem szerepel-e a listában vagy sem! tehát pl a fenti halmaznál : rh.Contains(6) legyen igaz, de pl. rh.Contains(7) legyen hamis.</li>
+        <li>Készíts egy IndexOf metódust, ami megmondja egy elem indexét, ha benne van a rendezett halmazban, és -1-et ad, ha nincsen benne!</li>
+        <li>Készíts Remove method-ot metódust, ami azt csinálja, hogy egy megadott elemet kiszed a listából. Pl. ha a halmaz rh = [ 6 8 9 13 ], akkor rh.Remove(9) után legyen ez: [6 8 13]. Ha nincs benne olyan elem, amit ki lehetne venni, akkor az ilyen parancsnak nem kell semmilyen követkeménye legyen. </li>
+        <li>Készíts egy konstruktort, ami egy megadott lista alapján létrehoz egy olyan rendezett halmazt, amelynek pontosan a listában megadott elemek az elemei (csak sorrendben!).</li>
+        <li>Készíts egy IntervallumMetszet(int a,int b) metódust, amely egy olyan rendezett halmazt ad vissza, amely a rendezett halmaz pontosan azon elemeit tartalmazza, amelyek nem kisebbek, mint a, és nem nagyobbak, mint b! Tehát pl. a fenti példában rh.IntervallumMetszet(8,10) eredménye egy ilyen rendezett halmaz: [8, 9] </li>
+        <li>Írj Max() metódust, ami a legnagyobb elemet adja vissza!</li>
+        <li>Írj Min() metódust, ami a legkisebb elemet adja vissza!</li>
+        <li>Írj metódust, ami megadja az adatok terjedelmét! Azaz a legnagyobb és legkisebb elem értékbeli távolságát.</li>
+        <li>Írj Nagy(int n) metódust, ami az n-edik legnagyobb elemet adja vissza!</li>
+        <li>Írj Kicsi(n) metódust, ami az n-edik legkisebb elemet adja vissza!</li>
+        <li>Add meg az elemek mediánját visszaadó metódust! (egy adathalmaz mediánja az az elem, amely sorba rakva az elemeket a középső, illetve páros sok elem esetén a középső kettő átlaga!) 
+        </li>        
+        <li>Hozz létre olyan metódust, amely egy általad választott módon megadja az adathalmaz kvartiliseit! (Egy adathalmaznak három kvartilise van: A második maga a medián, azaz a középső elem vagy a két középső elem átlaga, ha nincs ilyen. Az első kvartilis az adatsor azon eleme, ami az adatsort 1:3 arányban osztja, azaz egy ötelemű rendezett lista esetén a második elem. A harmadik kvartilis az az elem, amely az adatsort 3:1 arányban osztja, azaz egy ötelemű rendezett lista esetén a negyedik elem. Ha nincsenek pont ilyen elemek, amelyek 1:3 vagy 3:1 arányban osztanák a listát, akkor a lista egynegyedét körbevevő elemek súlyozott átlaga a kvartilis -- a súly aszerint adódik, hogy melyikhez van közelebb.) 
+        Például: [2, 5, 8, 12, 51, 99] második kvartilise (mediánja) -- mivel nincs egyetlen középső elem, a két középső elem átlaga, azaz 10. 6 elem 5 szakaszra vágja a terjedelmet, itt az első negyedelelőpont az 5 és 8 közé esik, méghozzá az 5-höz közelebb. Ezért az első kvartilis nem más, mint (3*5+1*8)/4 = 5.75. A harmadik kvartilis a 12 és 51 közé esik, méghozzá az 51-hez közelebb. Ezért (3*51+12)/4 = 165/4 = 41.25.
+
+        További kis segítség: Egy n elemű listában az első kvartilis mindig az (n-1)/4 + 1 pozíción található. Ha ez tört szám, akkor ha a törtrész
+            <ul>
+                <li>
+                    egynegyed, akkor az kisebbik szám kapja a 3-as súlyozást és a nagyobbik az egyest. 
+                </li>
+                <li>
+                    fél, akkor súlyozatlan hagyományos átlagról beszélünk.
+                </li>
+                <li>
+                    háromnegyed, akkor a kisebbik szám kapja az 1-es súlyozást és a nagyobbik a hármast. 
+                </li>
+            </ul>
+        </li>
+        <li>Két lista uniója/összefuttatása az elemeiket tartalmazó új rendezett lista, amelyben minden elem annyiszor szerepel, ahányszor az egyikben és a másikban együttesen szerepelt. Ha műveleti jelet használsz, használj + jelet!</li>
+        <li>Két lista metszete az elemeiket tartalmazó új rendezett lista, amelyben minden elem annyiszor szerepel, ahányszor az mindkettőben szerepel. Ha műveleti jelet használsz, használj * jelet!</li>
+        <li>Egy A és B lista különbsége az A lista elemeit tartalmazó új rendezett lista, amelyben minden elem annyiszor szerepel, amennyi az A és B halmazokbeli előfordulásainak a számának a különbsége. Ha műveleti jelet használsz, használj - jelet!</li>
+        <li>
+            Add meg az adathalmaz interkvartilis terjedelmét! Ez nem más, mint az első és harmadik kvartilis értékeinek távolsága
+        </li>
+    </ol>
+    <p>
+        Úgy írd meg a programod, hogy mutassa be ezeket a metódusokat a felhasználónak! Legyen egy lista, amelyen bemutatja az adatszerkezet működését. 4 db példalistával dolgozz!
+        Legyen egy 9 elemű, egy 10 elemű, egy 11 elemű és egy 12 elemű tesztlista is! A törlendő elem, a keresendő elem, stb., legyenek a felhasználótól bekért elemek! A lista legyen kellően változatos! A programod kommunikáljon a felhasználóval! Minden bemenetet "kérjen be", és minden kimenetnél írja ki, hogy mit fog kapni a felhasználó. 
+    </p>
+    
+
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
