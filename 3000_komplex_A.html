@@ -17,7 +17,7 @@
 <header><h1><a href="./index.html">Házi feladat</a></h1></header>
 
 <main>
-    <h2>3000 komplex gyakorlófeladat</h2>
+    <h2>3000 komplex A</h2>
     <article>
         <h3>Általános leírás</h3>
     <p>
@@ -32,10 +32,10 @@
     <h4>I. rész</h4>
     <ol>
         <li>
-            Készíts egy "fajlellenorzes" függvényt, aminek bemenő paraméterei stringek, egész pontosan elérési útvonalak, és a függvény kimenete pedig egy lista arról, hogy a két elérési útvonalon található fájlok mely indexű soraik különböznek. Két teljesen azonos tartalmú fájl esetén tehát egy üres lista az eredmény. Ha a két fájl csak a negyedik és hetedik sorában tér el egymástól, akkor a 4-et és a 7-et tartalmazó kételemű lista az eredmény.
+            Készíts egy "fajlellenorzes" függvényt, aminek bemenő paraméterei 2 db string, egész pontosan elérési útvonalak, és a függvény kimenete pedig egy lista arról, hogy a két elérési útvonalon található fájlok mely indexű soraik különböznek. Két teljesen azonos tartalmú fájl esetén tehát egy üres lista az eredmény. Ha a két fájl csak a negyedik és hetedik sorában tér el egymástól, akkor a 4-et és a 7-et tartalmazó kételemű lista az eredmény.
         </li>
         <li>
-            Készíts egy "kiir" eljárást (kimenet nélküli függvényt), aminek bemenő paramétere egy lista, és amely a listában szereplő minden értéket kiír egy fájlba. Amennyiben ez az érték nem szöveg vagy szám, akkor logikai érték esetén az "igen" és "nem" szavak jelenjenek meg, lista-érték esetén (tehát amikor a listában kisebb listák vannak) pedig a lista elemeit írja a fájlba szóközzel elválasztva külső határoló elem nélkül. Esetleges törtszámok esetén pontot használjunk a megjelenítésre! A listák elemeinek kiírása után mindig nyisson új sort. Tehát egy 13 elemű lista esetén a fájlban 13 db új sort jelző jel (\n vagy \r\n) legyen.
+            Készíts egy "kiir" eljárást (kimenet nélküli függvényt), aminek bemenő paramétere egy lista és egy elérési útvonval (string), és amely a listában szereplő minden értéket kiír egy, a megadott elérési útvonalhoz létrehozott text fájlba. Amennyiben ez az érték nem szöveg vagy szám, akkor logikai érték esetén az "igen" és "nem" szavak jelenjenek meg, lista-érték esetén (tehát amikor a listában kisebb listák vannak) pedig a lista elemeit írja a fájlba szóközzel elválasztva külső határoló elem nélkül. Esetleges törtszámok esetén pontot használjunk a megjelenítésre! A listák elemeinek kiírása után mindig nyisson új sort. Tehát egy 13 elemű lista esetén a fájlban 13 db új sort jelző jel (\n vagy \r\n) legyen.
         </li>
         <li>
             A II. részben úgy oldd meg a feladatokat, hogy minden feladat eredményét egy listába gyűjtöd, és az eredménylistát a fenti függvénnyel írod ki a megfelelő output-fájlba. Az így keletkezett fájlt utána a "fajlellenorzes" függvénnyel hasonlítod össze. Az eredményt (eltérések indexeinek a listáját) írd ki a képernyőre!
@@ -43,32 +43,34 @@
     </ol>
     <h4>II. rész</h4>
     <p>
-        Az input1.txt, input2.txt és input3.txt fájlokban számok szerepelnek egymás alá írva. Olvasd be ezeket egy listába/tömbbe, és végezd a a következő feladatokat! A megoldásokat egy nagy listába mentsd el, amit aztán  készítsd el a megfelelő output1.txt, output2.txt és output3.txt fájlokat!
+        Az input1.txt, input2.txt és input3.txt fájlokban számok szerepelnek egymás alá írva. Olvasd be ezeket egy listába/tömbbe, és végezd a a következő feladatokat! 
+        A megoldásokat egy nagy listába mentsd el, ami alapján aztán készítsd el a megfelelő output1.txt, output2.txt és output3.txt fájlokat!
     </p>
     <ol>
         <li>Hány páros szám van?</li>
         <li>Mennyi a pozitív számok összege?</li>
         <li>Mi a legnagyobb páratlan szám?</li>
-        <li>Igaz-e, hogy minden páratlan szám pozitív?</li>
+        <li>Igaz-e, hogy minden páratlan szám negatív?</li>
         <li>Add meg az első páros negatív szám indexét! A válasz legyen -1, amennyiben nincs ilyen!</li>
+        <li>Add meg a 7-tel osztható számok ötszöröseit!</li>
         <li>Add meg az utolsó negatív számot!</li>
         <li>Hol van és mi az utolsó olyan pozitív szám, amely negatív páros számot követ?</li>
         <li>Hol van és mi a legnagyobb negatív szám a listában? Ha nincs ilyen, a válasz legyen az, hogy "nincs ilyen".</li>
         <li>Van-e a sorozatban egymást követő olyan számhármas, ahol a középső szám a két szélső átlaga?</li>
-        <li>Mi a legnagyobb olyan egymást követő számnégyes, ahol a számjegyek összege a lehető legnagyobb?</li>
+        <li>Mi a legnagyobb olyan egymást követő számnégyes, ahol a számjegyek összege a lehető legnagyobb? Több megoldás esetén az elsőt adjuk meg!</li>
         <li>Válogasd ki a pozitív héttel osztható számokat! Az értékek növekvő sorrendben legyenek!</li>
-        <li>Add meg a sorozat első felének és második felének a halmazelméleti értelemben vett metszetét! (páratlan elem esetén az első fele legyen a nagyobb halmaz)</li>
-        <li>Add meg azt a hételemű listát, amelynek i-edik helyén a héttel osztva i maradékot adó számok száma van!</li>
+        <li>Add meg a sorozat első felének és második felének a halmazelméleti értelemben vett metszetét! (Minden elem legfeljebb egyszer szerepeljen a halmazban! Páratlan elem esetén a második fele legyen a nagyobb halmaz)</li>
+        <li>Add meg azt a hételemű listát, amelynek i-edik helyén a héttel osztva i maradékot adó számok száma van két tizedesjegyre kerekítve!</li>
         <li>Add meg azt a nyolcelemű listát, amelyenek i-edik helyén a nyolccal osztva i maradékot adó számok közti legnagyobb van!</li>
         <li>Add meg azt a kilencelemű listát, amelynek i-edik helyén a kilenccel osztva i maradékot adó számok átlaga van!</li>
     </ol>
     <p>
-        <a href="input/3000_komplex/input1.txt">input1.txt</a>
-        <a href="input/3000_komplex/input2.txt">input2.txt</a>
-        <a href="input/3000_komplex/input3.txt">input3.txt</a>
-        <a href="input/3000_komplex/output1.txt">output1.txt</a>
-        <a href="input/3000_komplex/output2.txt">output2.txt</a>
-        <a href="input/3000_komplex/output3.txt">output3.txt</a>
+        <a href="input/3000_komplex_A/input1.txt">input1.txt</a>
+        <a href="input/3000_komplex_A/input2.txt">input2.txt</a>
+        <a href="input/3000_komplex_A/input3.txt">input3.txt</a>
+        <a href="input/3000_komplex_A/output1.txt">output1.txt</a>
+        <a href="input/3000_komplex_A/output2.txt">output2.txt</a>
+        <a href="input/3000_komplex_A/output3.txt">output3.txt</a>
     </p>
 </article>
 </main>
