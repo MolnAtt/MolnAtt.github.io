@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Páros munka</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Páros munka (rekurzívan)</h2>
+    <article>
+        <h3>Leírás</h3>
+        <p>
+            Adott egy N főből álló osztály, ahol egy feladat elvégzéséhez párokat kell majd alkotni. Hogy az osztály összességében a legboldogabb legyen a páros munka során, mindenki felírja az osztálytársainak a névsorban elfoglalt sorszámait egy papírra olyan sorrendben, amilyen sorrendben a legszívesebben dolgozna a többiekkel. 
+        </p>
+        <p>
+            Tehát például egy 10 fős osztály esetében ha a 7. sorszámú tanuló lapján ez áll: 5 9 8 2 3 1 4 6, akkor ez azt jelenti, hogy a legszívesebben az 5-ös sorszámú tanulóval dolgozna együtt, de ha az nem ér rá, akkor a 9-es sorszámú tanulóval, aki ha megint nem ér rá, akkor a 8-as sorszámúval és így tovább.
+        </p>
+        <p>
+            A feladat az osztály egy olyan párbaállítását adni, ahol az osztály <strong>összességében</strong> a lehető legboldogabb, azaz a lehető legkevésbé csalódtak összességében a párbaállításban. Egy <strong>ember csalódottságának mértékén</strong> azt értjük, hogy a vele párban álló személy sorszámának pozíciója hanyadik az illető papírjára felírt listán. Például ha a fenti példában a 7. sorszámú tanuló végül a 3-as sorszámú tanulóval alkot párt, akkor a 7-es sorszámú tanuló csalódottságának mértéke 5, mivel a 3-as sorszámú tanuló az 5. helyet foglalja el a 7-es sorszámú tanuló listáján. A 3-as sorszámú tanuló csalódottságának mértéke a fenti példából nem derül ki, mivel ahhoz szükség van a 3-as számú tanuló listájára is. A csalódottság mértéke tehát a párok tagjainál eltérő lehet. 
+        </p>
+        <p>
+            Az <strong>osztály csalódottsága</strong> alatt a tagjai csalódottsági mértékének összegét értjük. Akkor mondjuk azt, hogy az osztály párbaállása a lehető legjobb, ha az osztály csalódottsága a lehető legkisebb. 
+        </p>
+        <p>
+            Add meg, hogy kinek kivel kellene párba állnia ahhoz, hogy a párbaállás a lehető legboldogabbá (legkevésbé csalódottá) tegye az osztályt! 
+            A konzolról bekért bemenet egy szám (az osztálylétszám), majd N darab N hosszú szóközökkel tagolt számsorozat legyen különböző sorokba tagolva, ahol az i-edik számsorozat az i-edik tanuló listáját jelentik. Azaz az i-edik sorban álló j-edik szám azt mondja, hogy az i-edik tanuló csalódottságának mértéke a j-edik tanulóval való párbaálláskor nem más, mint j. 
+        </p>
+        <p>
+            A válasz egy szóközökkel elválasztott számok sorozata legyen, ahol az i-edik szám az i-edik tanuló párjának sorszáma legyen!
+        </p>
+        <p>
+            A feladat megoldása során <strong>rekurzióval</strong> dolgozz! (Siker, levél, reménytelen, kilépési feltételek, rekurzív hívás, globális változók...)
+        </p>    
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+    <div class="hivatkozas">A kérdések túlnyomó része <a href="http://ntibi.web.elte.hu">Nagy Tibor oldaláról</a> származik.</div>
+</footer>
+</body>
+</html>
