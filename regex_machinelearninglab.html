@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3000J+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Reguláris kifejezések haladóknak</h2>
+    <article>
+    <h3>Regexone</h3>
+    <p>
+        Teljesítsd a <a href="http://play.inginf.units.it">http://play.inginf.units.it</a>-en található kihívásokat! Egész pontosan ezeket:
+    </p>
+    <ul>
+        <li><a href="http://play.inginf.units.it/#/level/1">Számok</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/2">MAC-address</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/3">ftp-elérések</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/4">LaTeX matematikai formulái</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/5">IP-címek</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/6">HTML-linkek</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/7">URI-címek</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/8">HTML heading-elemek</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/9">Telefonszámok</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/10">LaTeX bibliográfia-fájlok (bibTeX) </a></li>
+        <li><a href="http://play.inginf.units.it/#/level/11">HTML-heading-tartalmak</a></li>
+        <li><a href="http://play.inginf.units.it/#/level/12">bibliográfia szerzői</a></li>
+    </ul>
+
+    <p>
+        Kis segítség: én a végefelé csak úgy tudtam megoldani néhány feladatot, hogy nem csak a lookahead (?=......) hanem a lookbehind operátort is használtam. Ez azért fontos, mert a honlap tutorialjában csak lookahead operátort mutatnak. A lookbehind a (?=<.......) jelöléssel fogható meg, illetve pontosabb jellemzésük itt található: <a href="https://www.regular-expressions.info/lookaround.html">Regular-expressions.info</a>. Idézem a fontos sort: "(?<=a)b (positive lookbehind) matches the b (and only the b) in cab, but does not match bed or debt."
+    </p>
+    <p>
+        A megoldást adó reguláris kifejezéseket rakd egy regex_machinelearninglab_megoldasok.txt fájlba. Az n-edik sorban az n-edik feladat megoldása legyen! A megoldások 100%-osak legyenek (F-measure a jobb felső sarokban).
+    </p>
+    
+
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+    <div class="hivatkozas">A kérdések túlnyomó része <a href="http://ntibi.web.elte.hu">Nagy Tibor oldaláról</a> származik.</div>
+</footer>
+</body>
+</html>
