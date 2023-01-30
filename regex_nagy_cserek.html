@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-regex: Nagy cserék</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Reguláris kifejezések alkalmazása nagy cserékben</h2>
+    <article>
+    <h3>Általánosságban</h3>
+    <p>
+        A reguláris kifejezések nagyon jól alkalmazhatók különböző formátumok (HTML, XML, CSV, ...) közti átváltásokban. 
+        Ezek gyakorlását segíti ez a feladatsor. Minden feladatnak lesz egy kódneve, amire a következőkben FELADAT-ként hivatkozunk. 
+        Ezek mindig a feladat címében szerepelnek majd zárójelben.
+        Mindegyik feladat a következőket tartalmazza:
+    </p>
+    <ul>
+        <li>egy <strong>input_FELADAT.X</strong> nevű fájlt nagy bemenetet valamilyen fájlformátumban (X mindig változhat)</li>
+        <li>egy <strong>kisinput_FELADAT.X</strong> nevű fájlt, ami egy kis bemenetet tartalmaz ugyanabban a formátumban</li>
+        <li>egy <strong>kisoutput_FELADAT.Y</strong> nevű fájlt, ami egy kis kimenetet tartalmaz a kívánt formátumban (Y mindig változhat), ami a kis bemenetre adott jó megoldás. Ebből derül ki, hogy mit is kell csinálni. </li>
+    </ul>
+    <p>
+        A feladatod az lenne, hogy előállítsd ezek alapján a következő fájlokat:
+    </p>
+    <ul>
+        <li>egy <strong>output_FELADAT.Y</strong>, ami a nagy bemenethez tartozó szintén nagy kimenetet tartalmazza.</li>
+        <li>egy <strong>mo_FELADAT.regex</strong> mindössze kettő sort tartalmazó .regex kiterjesztésű szöveges fájlt, amelynek első sora a reguláris kifejezés, amire kerestél, a második sora pedig a paraméteres kifejezés, amire cseréltél.</li>
+    </ul>
+    Természetesen a lényeg az lenne, hogy a .regex fájl-ban leírt teljes dokumentumos cserét végrehajtva az input_FELADAT.X-en az output_FELADAT.Y-t kapjuk, és ez megfeleljen annak az átírásnak, amit a kis bemenet és kis kimenet fájlpár leír. 
+
+    </article>
+    <article>
+        <h3>Konkrét feladatok</h3>
+        <h4>Számozott felsorolások átírása HTML-re (felsorolas2html)</h4>
+        Összeömlesztettem az összes 3000-es feladatot A és I között, és szeretném ezeket átírni html-re, hogy kirakhassam a honlapomon. 
+        Nyilván nem stimmelnek így a számozások, de megoldaná a problémát, ha ol-környezetet használnék, hiszen az magától számozna mindent. 
+        Erre problémára adj egyetlen teljes dokumentumos cserével választ úgy, hogy reguláris kifejezésekre támaszkodsz!
+        <ul>
+            <li>Nagy input: <a href="input/regexcsere/felsorolas2html/input_felsorolas2html.txt">input_felsorolas2html.txt</a></li>
+            <li>Kis input: <a href="input/regexcsere/felsorolas2html/kisinput_felsorolas2html.txt">kisinput_felsorolas2html.txt</a></li>
+            <li>Kis output: <a href="input/regexcsere/felsorolas2html/kisoutput_felsorolas2html.html">kisoutput_felsorolas2html.html</a></li>
+        </ul>  
+        <p>
+            Vigyázat, a kisoutput most egy html-fájl, így azt a böngésző rendesen megnyitja (és ul-környezetként értelmezi). Az oldal forrását nézzétek vagy mentsétek le a mögötte lévő lapot teljes egészében!  
+        </p>
+        <h4>csv fájl átírása html-táblázattá (csv2html)</h4>
+        Ki kell rakni a 3000J-ben lévő nevezetes tanulói adatbázist egy statikus honlapra. Egyetlen cserével írd át a mellékelt csv-fájlt, hogy egy megfelelő table-környezetbe beillesztve a fájlt a megfelelő táblázat jelenjen majd meg!
+        <ul>
+            <li>Nagy input: <a href="input/regexcsere/csv2html/input_csv2html.csv">input_csv2html.csv</a></li>
+            <li>Kis input: <a href="input/regexcsere/csv2html/kisinput_csv2html.csv">kisinput_csv2html.csv</a></li>
+            <li>Kis output: <a href="input/regexcsere/csv2html/kisoutput_csv2html.html">kisoutput_csv2html.html</a></li>
+        </ul>    
+        <p>
+            Vigyázat, a kisoutput most egy html-fájl, így azt a böngésző rendesen megnyitja (és ul-környezetként értelmezi). Az oldal forrását nézzétek vagy mentsétek le a mögötte lévő lapot teljes egészében!  
+        </p>
+        <p>
+            Illetve vigyázzatok arra is, hogy a csv-fájlokat valószínűleg megpróbálja majd az excel automatikusan megnyitni. Rendes szövegszerkesztővel (pl. VSCode vagy Notepad++) nyissátok meg! Kódolásra is ügyeljetek, ezekben a szövegszerkesztőkben ez könnyen elintézhető (encoding!). Legyen szép UTF-8.
+        </p>
+        <h4>csv fájl feltöltése relációs adatbázisba (csv2sql)</h4>
+        Fel kell tölteni a 3000J-ben lévő nevezetes tanulói adatbázist egy adatbázisba (pl. azért, hogy azt egy dinamikus webes alkalmazás felhasználhassa). Egyetlen cserével írd át a mellékelt csv-fájlt úgy, hogy az adatbázisszerver értelmezve a parancsokat felöltse a csv tartalmával az (erre már előkészített) adatbázist!
+        <ul>
+            <li>Nagy input: <a href="input/regexcsere/csv2sql/input_csv2sql.csv">input_csv2sql.csv</a></li>
+            <li>Kis input: <a href="input/regexcsere/csv2sql/kisinput_csv2sql.csv">kisinput_csv2sql.csv</a></li>
+            <li>Kis output: <a href="input/regexcsere/csv2sql/kisoutput_csv2sql.sql">kisoutput_csv2sql.sql</a></li>
+        </ul>    
+        <p>
+            Vigyázat, a csv-fájlokat valószínűleg megpróbálja majd az excel automatikusan megnyitni. Rendes szövegszerkesztővel (pl. VSCode vagy Notepad++) nyissátok meg! Kódolásra is ügyeljetek, ezekben a szövegszerkesztőkben ez könnyen elintézhető (encoding!). Legyen szép UTF-8. 
+        </p>
+        <p>
+            Illetve vigyázzatok arra is, hogy a csv-fájlokat valószínűleg megpróbálja majd az excel automatikusan megnyitni. Rendes szövegszerkesztővel (pl. VSCode vagy Notepad++) nyissátok meg! Kódolásra is ügyeljetek, ezekben a szövegszerkesztőkben ez könnyen elintézhető (encoding!). Legyen szép UTF-8.
+        </p>
+        <h4>html fájl átírása tsv-formátumba (html2tsv)</h4>
+        A MESTER visszalépéses keresés témakörének Üzletek* feladatára beérkezett eredményeket szeretné egy tanár egy programban feldolgozni. A tanárnak már vannak korábban elkészített kiváló tsv fájlbeolvasó és feldolgozó függvényei, azonban az eredmények kapcsán csak a tanulók által is hozzáférhető "EredményLista" linken keresztül tud hozzáférni, és ott egy html-be ágyazott táblázat várja. Adj meg olyan reguláris kifejezéssel megadott teljes dokumentumos cserét, amely sok sorban és sok whitespace-szel szedett html-táblázatot egy egyszerű, a tanár programja számára kényelmesen beolvasható és feldolgozható tabulátorokkal tagolt tsv-fájlba alakítja át!
+        <ul>
+            <li>Nagy input: <a href="input/regexcsere/html2tsv/input_html2tsv.html">input_html2tsv.tsv</a></li>
+            <li>Kis input: <a href="input/regexcsere/html2tsv/kisinput_html2tsv.html">kisinput_html2tsv.tsv</a></li>
+            <li>Kis output: <a href="input/regexcsere/html2tsv/kisoutput_html2tsv.tsv">kisoutput_html2tsv.tsv</a></li>
+        </ul>    
+        <p>
+            Vigyázat, az input-fájlok most html-fájlok, így a böngésző ezeket egyből értelmezi. Az oldal forrását nézzétek vagy mentsétek le a mögötte lévő lapot teljes egészében és kódszerkesztővel nyissátok meg!
+        </p>
+    </article>
+    
+    
+
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

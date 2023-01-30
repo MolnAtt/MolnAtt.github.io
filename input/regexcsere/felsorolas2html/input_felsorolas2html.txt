@@ -1,0 +1,90 @@
+1. Hány eleme van a sorozatnak?
+2. Van-e a sorozatban negatív szám?
+3. Hány páros szám található a sorozatban?
+4. Mennyi a sorozatban található legnagyobb szám?
+5. Írjuk ki a sorozatban található 10-zel osztható számokat!
+6. Írjuk ki az első 29-cel osztható szám indexét!
+7. Igaz-e, hogy minden szám páros?
+8. Mennyi a sorozatban található számok átlaga?
+9. Van-e a sorozatban olyan negatív szám, amelyet nulla követ?
+10. Írjuk ki az utolsó 17-tel osztható szám indexét!
+1. Van-e a sorozatban pozitív szám?
+2. Hány eleme van a sorozatnak?
+3. Mennyi a sorozatban található legkisebb szám?
+4. Írjuk ki az első 33-mal osztható szám indexét!
+5. Mennyi a sorozatban található számok átlagának a fele?
+6. Igaz-e, hogy minden szám pozitív?
+7. Hány páratlan szám található a sorozatban?
+8. Van-e a sorozatban olyan negatív szám, amelyet újabb negatív követ?
+9. Írjuk ki az utolsó 19-cel osztható szám indexét!
+10. Írjuk ki a sorozatban található 5-tel osztható számokat!
+1. Van-e a sorozatban 100-zal osztható szám?
+2. Írjuk ki az utolsó 7-tel osztható szám indexét!
+3. Írjuk ki az első 19-cel osztható szám indexét!
+4. Mennyi a sorozatban található számok átlagának a négyzete?
+5. Igaz-e, hogy minden szám nagyobb, mint 10?
+6. Hány 9-cel osztható szám található a sorozatban?
+7. Írjuk ki a sorozatban található 15-tel osztható számok felét!
+8. Hány eleme van a sorozatnak?
+9. Van-e a sorozatban olyan negatív szám, amelyet pozitív követ?
+10. Mennyi a sorozatban található legkisebb szám fele?
+1. Mennyi a sorozatban található számok szorzata?
+2. Írjuk ki az utolsó 5-tel vagy 7-tel osztható szám indexét!
+3. Írjuk ki az első 3-mal és 7-tel osztható szám indexét!
+4. Igaz-e, hogy minden szám negatív?
+5. Van-e a sorozatban olyan szám, amelyik 1 és 10 közé esik?
+6. Hány 18-cal osztható szám található a sorozatban?
+7. Mennyi a sorozatban található egyik legkisebb szám indexe?
+8. Írjuk ki a sorozatban található 17-tel vagy 18-cal osztható számok négyzetét!
+9. Hány eleme van a sorozatnak?
+10. Van-e a sorozatban olyan negatív szám, amelynek az összes szomszédja pozitív?
+1. Hány eleme van a sorozatnak?
+2. Írjuk ki az utolsó 9-cel vagy 3-mal osztható szám indexét!
+3. Írjuk ki az első 3-mal és 5-tel osztható szám indexét!
+4. Igaz-e, hogy minden szám (-10,10) nyilt intervallumba esik?
+5. Mennyi a sorozatban található számok szorzatának kétszerese?
+6. Hány 18-cal és 6-tal osztható szám található a sorozatban?
+7. Írjuk ki a sorozatban található 17-tel vagy 18-cal osztható számok köbét!
+8. Mennyi a sorozatban található második legkisebb szám?
+9. Van-e a sorozatban négyzetszám?
+10. Van-e a sorozatban olyan negatív szám, amelynek az összes szomszédja nulla?
+1. Írjuk ki a sorozatban található 17-tel és -17-tel osztható számok harmadát!
+2. Írjuk ki az utolsó 9-cel vagy 25-tel osztható szám négyzetgyökét!
+3. Írjuk ki az első 3-mal vagy 5-tel osztható szám indexét!
+4. Igaz-e, hogy minden szám (0,20) nyilt intervallumba esik?
+5. Van-e a sorozatban olyan negatív szám, amelynek az összes szomszédja nulla?
+6. Hány 18-cal vagy 6-tal osztható szám található a sorozatban?
+7. Hány eleme van a sorozatnak?
+8. Mennyi a sorozatban található második legnagyobb szám?
+9. Van-e a sorozatban köbszám?
+10. Mennyi a sorozatban található számok szorzatának a fele?
+1. Hány eleme van a sorozatnak?
+2. Írjuk ki az utolsó [-10,10] zárt intervallumba eső szám indexét!
+3. Igaz-e, hogy minden szám 100-nál kisebb?
+4. Írjuk ki az első 3-mal és 5-tel osztható számot!
+5. Mennyi a sorozatban található számok számtani közepe?
+6. Van-e a sorozatban köbszám?
+7. Írjuk ki a sorozatban található négyzetszámok négyzetgyökét!
+8. Van-e a sorozatban olyan negatív szám, amelyet két nulla követ?
+9. Igaz-e, hogy a sorozat szigorúan monoton növő?
+10. Mennyi a sorozatban található második legnagyobb szám?
+1. Írjuk ki a sorozatban található utolsó négyzetszámot!
+2. Írjuk ki  a sorozatban található első köbszám indexét!
+3. Mennyi a sorozatban található számok számtani közepe?
+4. Mennyi a sorozatban található legátlagosabb szám? (legkevésbé tér el az átlagtól)
+5. Írjuk ki a sorozatban található négyzetszámok négyzetgyökét!
+6. Van-e a sorozatban olyan negatív szám, amelyet két nulla is megelőz?
+7. Hány eleme van a sorozatnak?
+8. Igaz-e, hogy minden szám [0,100] zárt intervallumba esik?
+9. Igaz-e, hogy a sorozat monoton növő?
+10. Van-e a sorozatban kettő hatvány?
+1. Írjuk ki a sorozatban található utolsó köbszámot!
+2. Hány eleme van a sorozatnak?
+3. Mennyi a sorozatban található számok közti diferencia összege?
+4. Van-e a sorozatban olyan szám, amely osztható az indexével?
+5. Igaz-e, hogy a sorozat egy számtani sorozat?
+6. Írjuk ki a sorozatban található első négyzetszám négyzetét!
+7. Van-e a sorozatban prímszám?
+8. Igaz-e, hogy minden szám (-50,50) nyílt intervallumba esik?
+9. Írjuk ki a sorozatban található prímszámokat!
+10. Mennyi a sorozatban található legátlagosabb szám? (legkevésbé tér el az átlagtól)

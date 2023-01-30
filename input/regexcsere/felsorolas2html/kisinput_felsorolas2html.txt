@@ -1,0 +1,10 @@
+1. Hány eleme van a sorozatnak?
+2. Van-e a sorozatban negatív szám?
+3. Hány páros szám található a sorozatban?
+4. Mennyi a sorozatban található legnagyobb szám?
+5. Írjuk ki a sorozatban található 10-zel osztható számokat!
+6. Írjuk ki az első 29-cel osztható szám indexét!
+7. Igaz-e, hogy minden szám páros?
+8. Mennyi a sorozatban található számok átlaga?
+9. Van-e a sorozatban olyan negatív szám, amelyet nulla követ?
+10. Írjuk ki az utolsó 17-tel osztható szám indexét!
