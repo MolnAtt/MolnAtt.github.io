@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Django-ab</title>
+    <link rel="stylesheet" href="static/css/general.css">
+    <script src="static/js/ab_erettsegi_django.js" defer></script>
+</head>
+<body>
+<header><h1><a href="./index.html">Középszintű adatbáziskezelés</a></h1></header>
+
+<main>
+    <h2>Középszintű adatbáziskezelés</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Adott egy <strong>középszintű</strong> érettségi (lásd lejjebb), amelyet szerveroldali programozással kell megoldani. Ehhez létre kell hozni egy adatbázist, ami hűen követi az eredeti feladat logikáját, kellenek felületek, ahol fel lehet tölteni a feladathoz mellékelt tsv fájlokat, és minden feladathoz szükség van egy külön oldalra, ami ezt kiszolgálja. Az oldalakhoz minimális méretű css-re is szükség van. Elég formokkal dolgozni, nincs szükség Fetch API-ra. Egyelőre nem szükséges hosztolni a szervert. 
+        </p>
+        <p>Röviden összefoglalva: </p>
+        <ul>
+            <li>kellenek modellek, és kell hozzájuk admin site-támogatás.</li>
+            <li>Kell adatbázisimport.</li>
+            <li>Kell hibakezelés mindenhova.</li>
+            <li>Kell CSS, de elég egy minimális mértékben.</li>
+            <li>Nem kell JS.</li>
+            <li>Kellenek POST-requestek. Formokkal elegendő dolgozni, Fetch API-ra nincs szükség. De aki szeretne, megcsinálhat minden post requestet Fetch API-al is, az igazából az igazi...</li>
+            <li>Elég dev-szervert kidolgozni, nem szükséges deploy-olni.</li>
+        </ul>
+    </article>
+    <article>
+        <h3>Részletek</h3>
+        <p>
+            <ul>
+                <li>A feladathoz kapcsolódjon egy külön applikáció</li>
+                <li>Adatbázis
+                    <ul>
+                        <li>A models.py-ban legyenek kialakítva azok a táblák, amelyekről a feladat szól.</li>
+                        <li>A táblák esetében az N:1 és N:M kapcsolatokat a djangoban szokásos módon legyenek implementálva. Azaz:
+                            <ul>
+                                <li>Az idegen kulcsok ForeignKey mezővel legyenek implementálva. Amennyiben az eredeti táblában az idegen kulcs mező más célt nem szolgált, csak a kapcsolat létrehozását, akkor ezt a kulcsot számmezőként nem kell elmenteni.</li>
+                                <li>Tehát ha egy N:M kapcsolatot a középszintű adatbáziskezelői feladatsor egy kétmezős összetett kulcsú kapcsolótáblával valósít meg, akkor ne hozzunk létre expliciten harmadik kapcsolótáblát, hanem használjunk many-to-many relationship mezőt az egyik modellben! Ha azonban más fontos mezője is van az N:M kapcsolatot teremtő tábláknak, akkor külön táblára és ForeignKey-ekre van szükség úgy, ahogy az előző pontban volt tárgyalva.</li>
+                            </ul>
+                        </li>
+                        <li>Minden modell esetében legyenek str magic methodok implementálva, amik kellően beszédesek de még áttekinthetővé teszik az adatokat.</li>
+                        <li>A charfield és egyéb mezők esetében a max_length tulajdonság legyen akkora, hogy az eredeti tsv-fájlok hiba nélkül importálhatók legyenek.</li>
+                        <li>Ügyeljünk a blank és null tulajdonságokra is azon táblák esetén, ahol előfordulhatnak null mezők.</li>
+                        <li>Minden modellhez kapcsolódjon egy admin-felület, ahol azokat kezelni lehet.</li>
+                        <li>Minden modellben legyen implentálva egy olyan import metódus, ami egy tsv (tabulator separated values, első sorban a mezőnevekkel) formátumú stringből feltölti a táblát. 
+                            <ul>
+                                <li>Ez a feltöltés legyen hibakezelve. Példák:
+                                    <ul>
+                                        <li>egész számmezőbe nem egész szám érkezett</li>
+                                        <li>tizedestört meződbe nem tizedestört érkezett</li>
+                                        <li>nincs elég mező a sorban (kevés a tabulátor)</li>
+                                        <li>A logikai mezőbe szánt kifejezés nem alakítható logikai kifejezéssé (általában ilyenkor a "-1" az igaz, és a "0" a hamis!) </li>
+                                        <li>Dátum mezőbe szánt kifejezés nem megfelelő formátumú.</li>
+                                        <li>Idegen kulcsnak megfelelő kulccsal nem létezik rekord a másik, hivatkozott táblában.</li>
+                                    </ul>
+                                    A hibaüzenetben szerepeljen 
+                                    <ul>
+                                        <li>a hibát tartalmazó sor sorszáma</li>
+                                        <li>a feltöltés során sikerrel létrehozott rekordok száma</li>
+                                        <li>a hibaüzenet pontos mibenléte</li>
+                                    </ul>
+                                        A hibaüzenet legyen rendelkezzen a megfelelő státuszkóddal, azaz a megfelelő HTTPResponse paranccsal üzenjünk (method not allowed, internal server error, forbidden, bad request, not found, ...)
+                                </li>
+                                <li>
+                                    Fontos, hogy amennyiben többször töltjük fel ugyanazt a tsv-t, akkor ne hozzon létre új elemeket. (get_or_create!)
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Az adatbázis minden táblájához kapcsolódjon egy url, ahol azt egy textarea input segítségével fel lehet tölteni.</li>
+                <li>az url-eket kiszolgáló view-kat hibakezeljük! Pl. ha nemlétező táblához akarnak feltölteni vagy ha a feltöltés nem POST requesten keresztül történik, akkor adjon hibaüzenetet. </li>
+                <li>
+                    Minden applikációhoz legyen egy alapértelmezett (index) megtekintés, ahol ki lehet választani, hogy feltölteni akarunk (tsv-impot), vagy lekérdezni (feladatok). A feltöltésnél lehessen kiválasztani azt is, hogy mely táblákhoz akarunk hozzájárulni. 
+                </li>
+                <li>
+                    A hibaüzenetek kivételével minden válasz renderelt html-template-tel történjen! Ezeken legyen egy minimális css is. Nem kell nagyon szép legyen, de legyen áttekinthető. (középre igazítások, dolgok egymás alatt, linkek nézzenek ki normálisan, nem kék-aláhúzott dolgok legyenek! A gombokat, input-formelemeket nem szükséges külön formázni, azok maradhatnak alapértelmezett formázáson.)
+                </li>
+                <li>
+                    Feladatok
+                    <ul>
+                        <li>Minden feladathoz létezzen egy form, ahol paraméterezhető valamennyire az eredeti kiírás. Például, ha a feladat az 1918 évvel kapcsolatban kérdezett valamit, akkor az év száma legyen beállítható egy number típusú input-formon. Ha egy szövegrészletre kell rákeresni, akkor a szövegrészlet legyen text-típusú inputtal megadható. Mindig legyen egy submit-típusú küldés-gomb.</li>
+                        <li>Ha több válasz is lehetséges vagy több oszlopot kell megjeleníteni - tehát ha táblázatszerű az elvárt válasz - akkor alkalmazzunk table HTML-elemeket. Itt már ne divekkel, gridekkel, flexekkel dolgozzunk (ezt egyébként is így illik! Szemantikus web! Illetve a table-ben közölt adatok könnyebben másolhatók ki böngészőből -> automatikus tsv formázás...) </li>
+                    </ul>
+                </li>
+            </ul>
+
+            Ha megadod a géped számát, akkor a következő gombra kattintva derítheted ki, hogy melyik érettségit kell így kidolgoznod:
+            <!-- <label for="gepszaminput">Add meg a géped számát!</label> -->
+            <input type="number" id="gepszaminput" max = 25 min = 1>
+            <button type="button" id="melyikfeladatgomb">Melyik feladat az enyém?</button>
+        </p>
+    </article>
+    <article>
+        <h3>Példa</h3>
+        <p>
+            <a href="https://github.com/MolnAtt/projekt_erettsegi">Itt</a> található néhány kidolgozott példa egy N:1 és N:M kapcsolatokkal is dolgozó feladatsorokkal.
+        </p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
