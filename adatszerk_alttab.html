@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Rendezett lista</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>"ALT+TAB" adatszerkezet</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Egy olyan adatszerkezetet készítünk, amely a Windows ALT+TAB-bal előhívható ablakváltó funkciójához hasonlóan működik. Az elemek megtekintésekor (PEEK) meg lehet adni egy egész számot. Ezt az indexű elemet a metódus visszaadja, de nem hagyja helyben, hanem az adatszerkezet "elejére teszi". Mostantól ez lesz a 0. elem. Fontos, hogy a lista számosságán túlmutató vagy negatív indexű elemekkel is lehessen dolgozni, ilyenkor a lépegetés "körbe megy". (A negatív index úgy működik, mint a SHIFT+ALT+TAB!)
+    </p>
+    <ol>
+        <li>Készíts egy publikus Push metódust, amely beletesz egy elemet az adatszerkezet elejére.</li>
+        <li>Készíts egy publikus Close metódust, amely kiveszi a leghamarabb elérhető elemet az adatszerkezetből.</li>
+        <li>Készíts egy publikus Peek metódust, amely egy szám alapján kiveszi az ennyi lépéssel elérhető elemet az adatszerkezetből, visszaadja azt, majd az adatszerkezet elejére helyezi azt át. Figyelj arra, hogy a negatív és az adatszerkezet számosságánál nagyobb számokra is értelmezve legyen! </li>
+        <li>Készíts egy publikus Empty metódust, amely annak függvényében ad vissza igazat vagy hamisat, hogy üres-e az adatszerkezet vagy sem.</li>
+        <li>Legyen egy publikus Count tulajdonság, amely megadja, hány eleme van az adatszerkezetnek!</li>
+    </ol>
+    <p>
+        Úgy írd meg a programod, hogy mutassa be ezeket a metódusokat a felhasználónak! 
+    </p>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Buborékos rendezés+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Buborékos rendezés</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Írj egy programot, ami bekér egy N, INF, SUP számot. Generálj le egy N elemű listát, amiben INF és SUP közötti véletlenszerű számok szerepelnek. A program ezt követően írja ki a képernyőre az így generált számok listáját. Ezután írja ki sorbarendezve a számsorozatot. 
+    </p>
+    <p>
+        A sorbarendezés során a Buborékos rendezés algoritmusát használd! Ennek a lényege röviden összefoglalva: 
+        Elindítunk az első elemtől egy ciklust a lista végéig, ami a nagyobb elemet mindig előbbre cseréli. Ennek hatására a legnagyobb elem kerül majd a lista élére. 
+        Ezt megint végrehajtjuk, de most már csak a lista vége előtti elemig. Ennek hatására a két legnagyobb elem már a helyére kerül. Ezt folytatjuk addig, amíg minden elem a helyére nem kerül. Figyelem, az algoritmus gyorsítható, ahogy az a következő videóban is látható! (ez a gyorsítás is legyen megoldva.)
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Iv3vgjM8Pv4?si=BC0PQpcYJxi2IcD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p>
+        A megoldásod során érdemes függvényt használni (mert ez a feladat papíros dolgozatban is számon lesz kérve, és úgy könnyebb megjegyezni). A részfeladatokat érdemes külön függvényekben kidolgozni.
+    </p>
+    <p>
+        A programod kommunikáljon a felhasználóval! Minden bemenetet "kérjen be", és minden kimenetnél írja ki, hogy mit fog kapni a felhasználó. 
+    </p>
+    <p>
+        A programod ezt követően véletlenszerű, -100 és 100 közé eső N (ez természetesen nem negatív), INF, SUP értékekkel generáljon listákat 100000-szer, és mindegyikre futtassa le a te rendezésedet és a programnyelv saját beépített rendezését, majd hasonlítsa őket össze. (Ügyelj arra, hogy a rendezetlen lista másolataival dolgozz, ne a rendezett listát rendezzék újra!) A programod írja ki, hogy hány esetben volt eltérés a két eredmény között!
+    </p>
+    <p>
+        A rendezésed legyen képes tetszőleges típussal is dolgozni, ne csak számokkal (noha a tesztelés során csak számokkal dolgozunk). 
+    </p>
+    <p>
+        A rendezésed igényeljen rendezési szempontot is kötelező paraméterként! (A rendezési szempont az, amit comparatornak is hívtunk, ami egy két argumentumú, Python és C# esetén 3 értékű, C++ esetén logikai visszatérési értékű függvény.)
+    </p>
+    
+
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

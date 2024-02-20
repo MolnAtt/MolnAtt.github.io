@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Eloszlasrendezes</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Természetes számok rendezése sűrűség- és eloszlástömbökkel</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Ebben a feladatsorban azt mutatjuk meg, hogy a szokásosnál jóval nagyobb rendelkezésre álló memória segítségével a természetes számokat tartalmazó tömbök lineáris időben is rendezhetők. 
+        (Emlékezzünk vissza, hogy az összefésüléses, a kupac és a gyorsrendezés is nlogn idő alatt rendez csak!)
+    </p>
+    <p>
+        A feladatsor minden feladata egy lépés a lineáris idejű rendezésben. 
+    </p>
+    <ol>
+        <li>Készíts egy számlistát visszaadó szamok(N:Egész,M:Egész):Tömb[Egész] függvényt, amely véletlenszerűen generál egy N db számból álló M-nél kisebb természetes számokból álló számsorozatot! A továbbiakban ezt a számlistát A-nak nevezzük. </li>
+        <li>Készíts egy tömbértékű gyakorisag(A:Tömb[Egész]):Tömb[Egész] függvényt, amely visszaad egy M méretű GY tömböt (gyakorisági táblázat), amelyre igaz, hogy az i-edik helyen szereplő szám értéke nem más, mint az i természetes szám előfordulásainak száma (gyakorisága) az A tömbben! </li>
+        <li>Készíts egy tömbértékű eloszlas(GY:Tömb[Egész]):Tömb[Egész] függvényt, amely visszaad egy M méretű E tömböt (eloszlás), amelyre igaz, hogy az i-edik helyen szereplő szám értéke nem más, mint az i természetes számnál nem nagyobb számok előfordulásainak a száma az A tömbben.</li>
+        <li>Készíts egy tömbértékű rendezett(E:Tömb[Egész]):Tömb[Egész] függvényt, amely visszaad egy N méretű R tömböt (rendezett tömb), amelyre igaz, hogy az A tömbben szereplő számok szerepelnek benne növekvő sorrendben. A megoldáshoz használhatod az A-tömböt is paraméterként, de az algoritmus működik nélküle is, ugyanis az eloszlástömb egyértelműen meghatározza a tömb elemeit (indexek nélkül). </li>
+        <li>
+            A függvények eredményeit olvasható és követhető formában írd ki a képernyőre, hogy a programot ellenőrző mentor lássa, hogy hogyan működik az algoritmus részleteiben!
+        </li>
+    </ol>
+    <p>megjegyezzük, hogy a fenti lépések mindegyike lineáris időben zajlik, így a rendezés maga is lineáris idejű! Az ára ennek az, hogy a tömb értékkészletétől függően kell nagy mennyiségű memóriát használnunk. Ha hasítótáblákra épülő szótárakkal vágjuk le a memóriát, akkor nem tudunk "sorban" végigmenni az elemeken, mivel a hasítótáblán nincs rendezés. Ha piros-fekete fákra, AVL-fákra vagy rendezett halmazokra épülő szótárakkal dolgozunk, akkor azokban az elérés már logaritmikus időben zajlik, így visszalassulunk nlogn időre. </p>
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

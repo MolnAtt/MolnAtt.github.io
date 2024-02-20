@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Heapsort</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Kupacrendezés</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Írj egy programot, ami bekér egy N, INF, SUP számot. Generálj le egy N elemű listát, amiben INF és SUP közötti véletlenszerű számok szerepelnek. A program ezt követően írja ki a képernyőre az így generált számok listáját. Ezután írja ki sorbarendezve a számsorozatot. 
+    </p>
+    <p>
+        A sorbarendezés során a kupacrendezés algoritmusát használd! Ennek a lényege röviden összefoglalva: 
+        A listát egy kupacnak fogja fel, és a levelektől kezdve kialakítja a kupac szerkezetet. 
+        Ezt követően a legnagyobb elemet (amely mindig a 0-ás indexen foglal helyet) mindig átcseréli a lista végén lévő elemmel. Ennek hatására a legnagyobb elem a lista végére (tehát a helyére) kerül. A 0-ás indexre került elemet elsüllyeszti a kupacbeli helyére. A kupac mérete most már kisebb, így újra megismétli ezt, de most már a kupac vége máshol lesz, a lista utolsó előtti eleménél. És így tovább, míg a kupac el nem fogy.
+    </p>
+    <p>
+        Felhívjuk a figyelmet arra, hogy ez az algoritmus egy nagyságrenddel gyorsabb, mint a minimumkiválasztos, beszúró és buborékos rendezés! nlog(n) idő alatt rendez. A gyorsrendezéssel és az összefésüléses rendezéssel szemben pedig ez az algoritmus nem használ rekurziót!
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Xw2D9aJRBY4?si=YHa0-7b2vpCkalNL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p>
+        A megoldásod során érdemes függvényt használni (mert ez a feladat papíros dolgozatban is számon lesz kérve, és úgy könnyebb megjegyezni). A részfeladatokat érdemes külön függvényekben kidolgozni.
+    </p>
+    <p>
+        A programod kommunikáljon a felhasználóval! Minden bemenetet "kérjen be", és minden kimenetnél írja ki, hogy mit fog kapni a felhasználó. 
+    </p>
+    <p>
+        A programod ezt követően véletlenszerű, -100 és 100 közé eső N (ez természetesen nem negatív), INF, SUP értékekkel generáljon listákat 100000-szer, és mindegyikre futtassa le a te rendezésedet és a programnyelv saját beépített rendezését, majd hasonlítsa őket össze. (Ügyelj arra, hogy a rendezetlen lista másolataival dolgozz, ne a rendezett listát rendezzék újra!) A programod írja ki, hogy hány esetben volt eltérés a két eredmény között!
+    </p>
+    <p>
+        A rendezésed legyen képes tetszőleges típussal is dolgozni, ne csak számokkal (noha a tesztelés során csak számokkal dolgozunk). 
+    </p>
+    <p>
+        A rendezésed igényeljen rendezési szempontot is kötelező paraméterként! (A rendezési szempont az, amit comparatornak is hívtunk, ami egy két argumentumú, Python és C# esetén 3 értékű, C++ esetén logikai visszatérési értékű függvény.)
+    </p>
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
