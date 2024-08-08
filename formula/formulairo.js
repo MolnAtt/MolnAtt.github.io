@@ -30,7 +30,7 @@ class Formulairo {
         h:'h', 
         i:'i', 
         j:'j', 
-        k:'k', 
+        // k:'k', 
         l:'l', 
         m:'m', 
         // n:'n', 
