@@ -45,6 +45,7 @@ class Formulairo {
         x:'x', 
         y:'y', 
         z:'z',         
+        // ' ':' ', 
         // A:'A', 
         B:'B', 
         C:'C', 
@@ -72,14 +73,17 @@ class Formulairo {
         Y:'Y', 
         Z:'Z', 
     };
-
     leut(s){
         console.log(s);
+        if (s === 'Space'){
+            vagolapra_masolas(undefined);
+        }
+
         if (s === 'ArrowLeft' && 0 < this.I){
             this.I--;
         }
 
-        if (s === 'ArrowUp'){
+        if (s === 'ArrowUp' || s === 'Home'){
             this.I = 0;
         }
 
@@ -88,11 +92,10 @@ class Formulairo {
         }
 
 
-        if (s === 'ArrowDown'){
-            this.I = this.F.length - 1;
+        if (s === 'ArrowDown' || s === 'End'){
+            this.I = this.F.length;
         }
-
-
+        
         if (s === 'Backspace' && 0 < this.I){
             this.F = this.F.slice(0,this.I-1) + this.F.slice(this.I);
             this.I--;
@@ -109,6 +112,7 @@ class Formulairo {
         }
 
         this.frissit();
+
     }
 
     frissit(){
