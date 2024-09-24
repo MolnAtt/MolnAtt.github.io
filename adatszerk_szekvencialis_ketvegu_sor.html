@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Rendezett lista</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Szekvenciális kétvégű sor adatszerkezet</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Egy kétvégű sor adatszerkezetet készítünk, amelyben az elemek az elemek egy statikus tömbben lesznek tárolva. Fontos, hogy a sornak van egy maximális mérete, amennyi elemet be tud fogadni. A kétvégű sor úgy telik, hogy feltölthetjük a listát az elejéről és a végéről is. Amikor a lista végéről szedünk ki elemet, akkor persze az utolsó elemet töröljük. Amikor a lista elejéről veszünk ki egy elemet, akkor az elejét töröljük, és megjegyezzük, hogy honnan kezdődnek a maradék elemek. Így "kígyószerűen" előrekúszik a sor a tömb végéig. A végén, mikor a tömb végét már elérték az új elemek, akkor a tömb elején lévő már felszabadult helyeket kezdjük el feltölteni. És így tovább, a két sorvége-jelölő tehát körbe-körbe jár a tömbben.
+    </p>
+    <ol>
+        <li>A sornak legyen egy olyan lekérdezhető (de át nem írható)tulajdonsága, hogy hány elemet tud maximálisan fogadni. Ezt a konstruktorban kérd be, és ekkora méretű statikus tömbbel dolgozz.</li>
+        <li>Létezzen két privát változó arra, hogy hol a sor eleje és hol a sor vége.</li>
+        <li>Készíts egy publikus Enqueue metódust, amely beletesz egy elemet a sorba, azaz a sor végét jelölő változóban tárolt helyre beír egy elemet a tömbre és a változót előre lépteti. Ha a tömb végére érne, akkor a tömb elejére (körbe)léptet.</li>
+        <li>Legyen egy publikus Push metódus is, ami visszavezet az előbbi metódusra.</li>
+        <li>Legyen egy publikus Pop metódus is, ami kivesz a sor végéről egy elemet és azt adja vissza.</li>
+        <li>Készíts egy publikus Dequeue metódust, amely kiveszi a statikus tömbből a sor eleji elemet. A sor elejét mutató változót léptesse, ami ha a tömb végére kerülne, akkor (körbe)léptetődjön a tömb elejére.</li>
+        <li>Készíts egy publikus PeekFront metódust, amely visszaadja a sor elején lévő elemet anélkül, hogy azt törölné. </li>
+        <li>Készíts egy publikus PeekBack metódust, amely visszaadja a sor végén lévő elemet anélkül, hogy azt törölné. </li>
+        <li>Készíts egy publikus Empty metódust, amely annak függvényében ad vissza igazat vagy hamisat, hogy üres-e a sor vagy sem.</li>
+        <li>Legyen egy publikus Count tulajdonság, amely megadja, hány eleme van a sornak! Ez ne változóban legyen eltárolva, amit folyton frissítesz, hanem a soreleje és sorvége változók értékeiből számítódjon ki!</li>
+    </ol>
+    <p>
+        Úgy írd meg a programod, hogy mutassa be ezeket a metódusokat a felhasználónak! 
+    </p>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
