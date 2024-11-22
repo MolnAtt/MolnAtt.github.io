@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-4000C</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>4000C Csongrád megye települései</h2>
+    <article>
+        <h3>Általános leírás</h3>
+    <p>
+        Az input fájl Csongrád megye számos településének néhány adatát tartalmazza. Az egyes adatelemeket tabulátor választja el. Az input fájl tartalmazza a mezőneveket.
+        
+        A fájlok beolvasását külön függvényben végezd el!
+
+        Minden feladathoz külön függvényt írj!
+        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    <p><a href="input/4000C/4000C_telepulesek.tsv">4000C_telepulesek.tsv</a></p>
+    <p><a href="input/4000C/4000C_utak.tsv">4000C_utak.tsv</a></p>
+    
+    <h3>(C) Csongrád megye települései</h3>
+    
+    <p>A 4000C_telepulesek.tsv fájlban egy tabulátorokkal tagolt adattábla található, a mezők a következőket jelentik:</p>
+    <ul>
+        <li>id: település azonosítója</li>
+        <li>nev: település neve</li>
+        <li>rang: rangja</li>
+        <li>kisterseg: kistérségi besorolása</li>
+        <li>terulet: területe hektárban</li>
+        <li>nepesseg: népessége</li>
+        <li>lakas: a településen lévő lakások száma</li>
+    </ul>
+    
+    <h3>(C) Csongrád megye útjai</h3>
+    <p>
+    A 4000C_utak.tsv fájl a teljes egészében Csongrád megyei utakról szól. Egy nagy, sortöréssel és tabulátorral tagolt mátrixról van szó. A mátrix i-edik sorában és j-edik sorában szereplő nemnulla T szám azt jelenti, hogy T*100 méteres út vezet a 4000C_telepulesek.tsv fájlban található településlista i-edik településéből a j-edik településbe. Minden út "kétirányú", tehát a mátrix szimmetrikus lesz. Minden település 0 távolságra található magától, ezért is a főátlóban 0-ák vannak. Amennyiben két különböző település között 0 szerepel, az nem azt jelenti, hogy egymáson van a két település, hanem hogy nincs közvetlen út a kettő között -- más településeken lehet csak eljutni egyikből a másikba. A nehezebb feladatok majd természetesen arról szólnak majd, hogy legrövidebb útláncolatot keresünk két ilyen település között...
+
+    </p>
+
+
+    <p>
+        Az adatbázisban található városokhoz egy <a href="https://www.google.com/maps/d/edit?mid=1Ly_6khEli5rs_7Dc1UEVTyBcec4jwDU&usp=sharing">google térkép itt található</a> (nem minden Csongrád megyei település szerepel és nem minden kis út!), ez segíthet a megoldások értelmezésében: 
+    </p>
+    <ol>
+        <li>Olvasd be a fájlt és írd ki a képernyőre graphviz számára értelmezhető formátumban, hogy mely városból melyik másik milyen távolságra található!</li>
+        <li>Hány település található az adattáblában?</li>
+        <li>Hány útszakasz van a mátrixban?</li>
+        <li>Hány kilométer hosszú az inputfájlokban leírt összes útszakasz együttesen?</li>
+        <li>Van-e közvetlen út Szegedről Deszkbe?</li>
+        <li>Van-e közvetlen út Szegedről Hódmezővásárhelyre?</li>
+        <li>Van-e közvetlen út Algyőről Felgyőre?</li>
+        <li>Van-e közvetlen út Pusztaszerről Ópusztaszerre?</li>
+        <li>Hány méterre van a Szegedhez legközelebb eső település?</li>
+        <li>Hány méterre van a Hódmezővásárhelytől legmesszebb eső közvetlen szomszédja?</li>
+        <li>Átlagosan milyen messze vannak Szegedtől Szeged szomszédos települései?</li>
+        <li>Hány közvetlen szomszédja van Királyhegyesnek?</li>
+        <li>Melyik a legtöbb közvetlen szomszéddal bíró település?</li>
+        <li>Melyek Csongrád megye azon települései, amelyeknek csak mindössze egyetlen csongrád megyei szomszédos településük van?</li>
+        
+        
+        <li>Hány településen keresztül vezet az út Nagylakról Szentesre?</li>
+        <li>Mely településeken keresztül vezet az út Nagylakról Szentesre, ha a legkevesebb települést szeretnénk érinteni?</li>
+        <li>Mely településeken keresztül vezet az út Röszkéről Eperjesre, ha a lehető legkevesebb települést szeretnénk érinteni?</li>
+        <li>Hány méter hosszú a legrövidebb út Tömörkényről Kiszomborra?</li>
+        <li>Baks és Mindszent a Tisza két oldalán van egymással szemben -- de nincs köztük híd a folyón. Hány méter hosszú a legrövidebb út az egyikből a másikba és mely városokon keresztül vezet ez az út?</li>
+        <li>Melyik a Szegedhez legközelebb eső szentesi kistérségbeli település?</li>
+        <li>Melyik a Szegedhez legközelebb eső szentesi kistérségbeli település?</li>
+        <li>Hány község található Szegedhez 30 km-es körzetében?</li>
+        <li>Hány ember él Hódmezővásárhely 40 km-es körzetében?</li>
+        <li>János Nagymágocsról nagyon nem szereti a Hódmezővásárhelyi kistérséget. Mi a legrövidebb út, amin keresztül el tud jutni Szegedre és amely nem érint egyetlen Hódmezővásárhely kistérségéhez tartozó települést sem? (a kistérség az adattáblában található. )</li>
+        
+
+        
+    </ol>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
