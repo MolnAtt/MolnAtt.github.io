@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3200C</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3200C Cégek</h2>
+    <article>
+        <h3>Általános leírás</h3>
+    <p>
+        Törekedj arra, hogy szép, áttekinthető kódot írj! 
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+        A felhasznált függvényekben ne történjen konzolra való kiírás!
+    </p>
+    <p>        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    
+    
+    <h3>3.200-C: Cégek</h3>
+    <p>
+        Olvassuk be az alábbi fájl tartalmát egy mátrixba,
+        majd a következő feladatokat oldjuk meg.
+        Minden feladat előtt a program írja ki a feladat sorszámát!
+    </p>
+    <p>
+        Az <a href="input/3200C/input.tsv">input.tsv</a>-ben 26 db cég egymás közt történő utalásaik találhatók. Egy sorban három érték található, amelyeket tabulátorok választanak el egymástól. 
+        Az első oszlopban a pénzt elutaló cég sorszáma szerepel, a másodikban azon cég sorszáma található, amely a pénzt megkapja, a harmadik oszlopban pedig az elutalt pénz mennyisége található. A cégek sorszámainál 0-tól értendő a sorszámozás, tehát van 0. cég de nincs 26-os sorszámú cég. Tehát a "2	3	105877" értékhármas például azt jelenti, hogy a 2. cég a 3. cégnek 105877 Ft-ot utalt át. Minden utalás 1000 Ft és 1000000 Ft közötti, mindegyik összeg egész szám és 1000 átutalás történt összesen. Mivel 26*26 kisebb, mint 1000, természetesen többször lesz olyan is, hogy egy cég többször is utal ugyanazon cégnek. 
+    </p>
+    <p>
+        Az első és legfontosabb feladatod ezen adatok beolvasása egy 26x26-os mátrixba. A mátrix  i-edik sorának j-edik oszlopában lévő szám jelentse azt, hogy az i-edik cég a j-edik cégnek <b>összesen</b> mennyit utalt eddig. 
+
+    </p>
+        <ol>
+            <li>Olvasd be a fájlból az adatokat és készítsd el az átutalásokat összesítő fentebb leírt mátrixot!</li>
+            <li>Mennyit utalt a 4. cég a 9. cégnek?</li>
+            <li>Melyek azok a cégek, akiknek utalt a 10. cég?</li>
+            <li>Melyek azok a cégek, akik utaltak a 10. cégnek?</li>
+            <li>Van-e olyan cég, aki magának utalt el valamilyen összeget?</li>
+            <li>Keress egy 5000 Ft alatt utalást! Hanyadik cég utalt hanyadiknak ennyi pénzt? Ha nincs ilyen, akkor jelezd ezt a válaszban!</li>
+            <li>Keresd meg a legnagyobb összegű utalást! (Ha több ilyen is van, elegendő egyet megadni.) Mekkora ez az összeg és melyik cég utalt melyiknek ennyi pénzt?</li>
+            <li>Mennyi a 6. cég által elutalt összes pénz?</li>
+            <li>Mennyi a 6. cég által fogadott összes pénz?</li>
+            <li>Melyik cég kapta összesen a legtöbb pénzt?</li>
+            <li>Melyik az a cég, amely a legtöbb másik cégnek utalt pénzt?</li>
+        </ol>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+
+</footer>
+</body>
+</html>
