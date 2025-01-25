@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-4000B</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>4000B</h2>
+    <article>
+        <h3>Általános leírás</h3>
+    <p>
+        A 3.J osztályban egy új social network, a Buddify hódit: mindenki bejelölhet másokat mint barát (buddy), és ha ő visszajelöli őt, akkor ők mostantól barátok lesznek. A régi ismerős 3.J osztályban a visszaigazolt kapcsolatokról egy mátrix készült, ezt tartalmazza a 4000B_kapcsolatok.tsv. A 4000B_tanulok.tsv tartalmazza a jól ismert adatokat a 3.J osztály tanulóiról és csoportbontásairól, testvéreik számáról stb.
+        
+        A fájlok beolvasását külön függvényben végezd el!
+
+        Minden feladathoz külön függvényt írj!
+        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    
+    
+    <h3>(B) Buddify social network</h3>
+    <p>
+    A 4000B_tanulok.tsv fájl egy osztály névsorát, különböző tanulócsoportokba történő beosztását és néhány egyéb adatát tartalmazza. Az egyes adatelemeket tabulátor választja el. A mezőneveket a fájl tartalmazza. A 4000B_kapcsolatok.tsv egy szimmetrikus mátrixban tartalmazza a visszaigazolt kapcsolatokat. Az i. sor j-edik oszlopában pontosan akkor van 1-es szám, ha a névsorban i. tanuló és a j. tanuló barátok a Buddify rendszeren belül. Ezek a barátságok mindig szimmetrikusak, tehát ha X barátja Y-nak, akkor Y is barátja X-nek. 
+    </p>
+    <p><a href="input/4000B/4000B_tanulok.tsv">4000B_tanulok.tsv</a></p>
+    <p><a href="input/4000B/4000B_kapcsolatok.tsv">4000B_kapcsolatok.tsv</a></p>
+    <p>
+        A tanulok esetében az egyes oszlopok jelentése a következő:
+    </p>   
+    <ul>
+        <li>sorszam: Hanyadik a névsorban</li>
+        <li>nev: diákok neve (szöveg)</li>
+        <li>matcsop: matematika és informatika szerinti csoportbeosztás (szöveg)</li>
+        <li>ancsop: angol csoportok szerinti besorolás, a szint és tanár megjelölésével (szöveg)</li>
+        <li>nyelv2: választott 2. idegen nyelv (szöveg)</li>
+        <li>nem: a diák neme, testnevelés szerinti bontás (szöveg)</li>
+        <li>egyuttlakok: a családban együttlakók száma (szám). Ez mindig 1 és 10 közé esik.</li>
+        <li>testverek: testvérek száma (szám). Ez mindig egy 1 és 7 közé esik. </li>
+    </ul>
+
+    <ol>
+        <li>Olvasd be a fájlt és írd ki a képernyőre graphviz számára értelmezhető formátumban, hogy kiknek van visszaigazolt barát kapcsolatuk a Buddy alkalmazásban!</li>
+        <li>Vagd Alma és Parady Csoma barátok-e?</li>
+        <li>Vagd Alma és Ordy Bálint barátok-e?</li>
+        <li>Ka Pál és Feles Elek barátok-e?</li>
+        <li>Hány barátja van Ordy Bálintnak?</li>
+        <li>Hány barátja van Mérta Nórának?</li>
+        <li>Kinek van a legtöbb barátja?</li>
+        <li>Kinek van a legkevesebb barátja?</li>
+
+        <li>Van-e olyan barátja Ne Pálnak, akivel egy matekcsoportba jár?</li>
+        <li>Hány olyan barátja van Mángor Olgának, akinek több testvére is van?</li>
+        <li>Lapos Elemér pizsipartit szervez, ahova a barátait mind meghívja. Kiket hívott meg?</li>
+        <li>Meg Győző meghívja az összes barátait és azok testvéreit a születésnapi zsúrjára. Hány főt hívott meg?</li>
+        
+        
+        <li>Szüre Tibor buliba hívja a barátait, méghozzá úgy, hogy ők is hívják meg minden barátukat, és így tovább. Hányan lesznek végülis a buliban? </li>
+
+        <li>Hot Elek is bulit szervez, de hozzá csak azok mehetnek, akik Elek barátai, vagy azok barátai. Hányan lesznek Elek buliján?</li>
+
+        <li>Kor Mihály nagyon szeretne egy bizalmas üzenetet eljuttatni Cita Dellának, de csak barátok írhatnak egymásnak az alkalmazásban. Hány emberen kell átmenjen az üzenet és kik kell továbbítsák ezt az üzenetet, hogy Kor Mihálytól az üzenetet a lehető legbiztonságosabban eljusson Cita Dellához? Ha több lehetséges megoldás is van, elegendő egyet megadni.</li>
+
+        <li>Feles Elek tudomást szerez arról, hogy a másnapi második nyelvi órája elmarad. Ha terjeszti a barátai között a hírt, akik szintén tovább adják az információt, és így tovább, akkor eljut-e minden csoporttársához ez a hír? Ha van, akihez nem jut el a hír, sorold fel őket!</li>
+    </ol>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

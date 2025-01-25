@@ -22,7 +22,7 @@
         <h3>Általános leírás</h3>
     <p>
         Az Alpesi Kalandparkban a fákon keresztül átcsúszó állomásokat építettek ki. Minden átcsúszó állomás fájának kódja (id), az állomás magassága (magassag) és a fa fajtája (tipus) a 4000A_fak.tsv tabulátorokkal tagolt fájlban van adva.
-        A kotelek.tsv azt mondja meg, hogy mely fák közt mennek kötelek, amin át lehet csúszni egyik fáról a másikra. Fontos, hogy csak egy irányba lehet a kötélen csúszni: lefelé. Az, hogy milyen irányban lehet csúszni, tehát a fak.tsv fájlból derül ki, ahol az állomások magassága is tárolva van. 
+        A kotelek.tsv azt mondja meg, hogy mely fák közt mennek kötelek, amin át lehet csúszni egyik fáról a másikra. Fontos, hogy csak egy irányba lehet a kötélen csúszni: lefelé. Az, hogy milyen irányban lehet csúszni, tehát a 4000A_fak.tsv fájlból derül ki, ahol az állomások magassága is tárolva van. 
         
         A fájlok beolvasását külön függvényben végezd el!
 
@@ -34,9 +34,11 @@
     
     <h3>(A) Alpesi Kalandpark</h3>
     <p>
-    A 4000A_fak.txt fájl egy osztály névsorát, különböző tanulócsoportokba történő beosztását és néhány egyéb adatát tartalmazza. Az egyes adatelemeket pontosvessző választja el. A mezőneveket a fájl tartalmazza.
+    A 4000A_fak.tsv fájl egy kalandpark fáinak a listáját, magasságát és a fajtáját tartalmazza. 
+    Az egyes adatelemeket tabulátor választja el. A mezőneveket a fájl tartalmazza. A 4000A_kotelek.tsv fájl azt tartalmazza, hogy mely két fa között feszül kötél. Azt, hogy melyik fáról hova lehet csúszni, a fa magassága határozza meg. A magasabb fáról lehet az alacsonyabb fára csúszni, fordítva nem.
     </p>
-    <p><a href="input/3000J/input.txt">input.txt</a></p>
+    <p><a href="input/4000A/4000A_fak.tsv">4000A_fak.tsv</a></p>
+    <p><a href="input/4000A/4000A_kotelek.tsv">4000A_kotelek.tsv</a></p>
     <p>
         Az egyes oszlopok jelentése a következő:
     </p>   
@@ -48,24 +50,26 @@
 
     <ol>
         <li>Olvasd be a fájlt és írd ki a képernyőre graphviz számára értelmezhető formátumban, hogy mely fáról melyiket lehet elérni?</li>
-        <li>Elérhető-e a 618-as fáról egyetlen csúszással a 619-es fa?</li>
+        <li>Elérhető-e a 601-as fáról egyetlen csúszással a 672-es fa?</li>
+        <li>Elérhető-e a 601-as fáról egyetlen csúszással a 666-os fa?</li>
         <li>Add meg azon fa sorszámát, amelyről már nem lehet más fára továbbcsúszni!</li>
         <li>Add meg azon fa sorszámát, ahova nem lehet máshonnan odacsúszni!</li>
         <li>Melyik fáról lehet a legtöbb helyre továbbcsúszni, és mely helyekre lehet onnan továbbcsúszni? Ha több is van, ami maximális ilyen értelemben, akkor elég egyet megadni. </li>
         <li>Mely két fa között vezet a legmeredekebb csúszás?</li>
 
-        <li>El lehet-e csúszások egy véges sorozatával jutni a 618-as fáról a 701-es fára?</li>
-        <li>Hány fa érhető el csúszások egy véges sorozatával a 618-as fáról?</li>
-        <li>Hány tölgyfa érhető el csúszások egy véges sorozatával a 618-as fáról?</li>
-        <li>Hány juhar érhető el csúszások egy véges sorozatával a 619-es fáról?</li>
-        <li>Elérhető-e csúszások egy véges sorozatával kőrisfa a 620-as fáról?</li>
-        <li>Elérhető-e csúszások egy véges sorozatával vadgesztenye fa a 621-es fáról?</li>
-        <li>Hány csúszással lehet elérni azt a fát a 618-as fától, amihez a legtöbb átcsúszás szükséges?</li>
-        <li>A 618-as fáról indulva mekkora a lehető legnagyobb szintkülönbség, amit csúszások egy láncolatával utazni lehet?</li>
-        <li>Mely bükkök érhetők el csúszások egy véges sorozatával a 621-es fáról?</li>
-        <li>Mely kőrisek érhetők el csúszások egy véges sorozatával a 621-es fáról?</li>
-        <li>Add meg a legkevesebb csúszásból álló út hosszát, ami a 618-as fától a 700-as fáig tart!</li>
-        <li>Adj meg egy legkevesebb csúszásból álló utat a 618-as fától a 700-as fáig!</li>
+        <li>El lehet-e csúszások egy véges sorozatával jutni a 628-as fáról a 676-os fára?</li>
+        <li>El lehet-e csúszások egy véges sorozatával jutni a 695-ös fáról a 698-as fára?</li>
+        <li>Hány fa érhető el csúszások egy véges sorozatával a 686-as fáról?</li>
+        <li>Hány tölgyfa érhető el csúszások egy véges sorozatával a 686-os fáról?</li>
+        <li>Hány juhar érhető el csúszások egy véges sorozatával a 686-os fáról?</li>
+        <li>Elérhető-e csúszások egy véges sorozatával kőrisfa a 686-os fáról?</li>
+        <li>Elérhető-e csúszások egy véges sorozatával vadgesztenye fa a 686-os fáról?</li>
+        <li>Hány csúszással lehet elérni azt a fát a 686-as fától, amihez a legtöbb átcsúszás szükséges?</li>
+        <li>A 686-as fáról indulva mekkora a lehető legnagyobb szintkülönbség, amit csúszások egy láncolatával utazni lehet?</li>
+        <li>Mely bükkök érhetők el csúszások egy véges sorozatával a 686-os fáról?</li>
+        <li>Mely kőrisek érhetők el csúszások egy véges sorozatával a 686-os fáról?</li>
+        <li>Add meg a legkevesebb csúszásból álló út hosszát, ami a 695-ös fától a 698-as fáig tart!</li>
+        <li>Adj meg egy legkevesebb csúszásból álló utat a 695-as fától a 698-as fáig!</li>
     </ol>
 </article>
 </main>

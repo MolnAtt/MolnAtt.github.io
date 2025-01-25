@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3200B</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3200B Buszok</h2>
+    <article>
+        <h3>Általános leírás</h3>
+    <p>
+        Törekedj arra, hogy szép, áttekinthető kódot írj! 
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+        A felhasznált függvényekben ne történjen konzolra való kiírás!
+    </p>
+    <p>        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    
+    
+    <h3>3.200-B: Buszok</h3>
+    <p>
+        Olvassuk be az alábbi fájl tartalmát egy mátrixba,
+        majd a következő feladatokat oldjuk meg.
+        Minden feladat előtt a program írja ki a feladat sorszámát!
+    </p>
+    <p>
+        Az <a href="input/3200B/input.tsv">input.tsv</a>-ben található mátrix egyjegyű számokból áll, amelyeket tabulátorok tagolnak. Ezek egy utazási iroda útjait mutatják. Az utazási iroda felül nyitott turistabuszokat üzemeltet a városban, amikre a város különböző helyein fel lehet szállni és le lehet szállni róla. Egy busz mindig csak két helyszín között szállít utasokat, és visszafele nem biztos, hogy szállítanak utast. Összesen 26 db helyszín van, mindegyik az angol abácé betűiről van elnevezve, azaz az első helyszín az A, a második a B stb. 
+    </p>
+    <p>
+        A tabulátorokkal tagolt táblázat i-edik sorának j-edik oszlopában lévő nem nulla szám azt mutatja, hogy hányszor <b>tíz</b> perc az út az i-edik helyszínről a j-edik helyszínre. Ha ez a szám nulla lenne, az azt jelenti, hogy az i-edik helyszínről valójában nem megy a j-edik helyszínre közvetlen busz. 
+        Körutak is lehetségesek, azaz létezhetnek olyan utak is, ahol az ember felszáll a buszra, és valamennyi idő után ugyanoda jut vissza, ahol felszált.
+
+        A helyszínekre csak a sorszámuk alapján hivatkozunk, amely sorszámozást 0-tól kezdünk.
+    </p>
+        <ol>
+            <li>Van-e közvetlen buszjárat az A és C helyszín között?</li>
+            <li>Hány helyre lehet eljutni a D helyszínről?</li>
+            <li>Sorold fel azon állomások betűit, ahonnan körutazás tehető, azaz ami ugyanoda érkezik, mint ahonnan elindult.</li>
+            <li>Átlagosan mennyi hány perc egy út az utazási iroda kínálatában? (0 hosszú út ugye nincs!)</li>
+            <li>Van-e olyan helyszín, ahova csak legfeljebb 3 út megy? Ha igen, melyik ez a helyszín?</li>
+            <li>Melyik helyszínről megy a legtöbb út?</li>
+            <li>Az utazási iroda azon gondolkodik, hogy beszünteti a 30 percnél rövidebb utakat. Hány utat érintene ez az intézkedés, ha megvalósulna?</li>
+        </ol>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+
+</footer>
+</body>
+</html>

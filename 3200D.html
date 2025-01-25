@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3200D</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3200D Domainek</h2>
+    <article>
+        <h3>Általános leírás</h3>
+    <p>
+        Törekedj arra, hogy szép, áttekinthető kódot írj! 
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+        A felhasznált függvényekben ne történjen konzolra való kiírás!
+    </p>
+    <p>        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    
+    
+    <h3>3.200-D: Domainek</h3>
+    <p>
+        Olvassuk be az alábbi fájl tartalmát egy mátrixba,
+        majd a következő feladatokat oldjuk meg.
+        Minden feladat előtt a program írja ki a feladat sorszámát!
+    </p>
+    <p>
+        Az <a href="input/3200D/input.tsv">input.tsv</a>-ben 50 db domain-en található weboldal egymással való kapcsolatai szerepelnek. 
+        Azt térképezték fel, hogy egy adott weboldalról mely más weboldalakra mutatnak még linkek. 
+        A tsv-ben 50 db sor van, és mindegyik sorban egy vagy több szám szerepel, de némelyik sorban több szám van, némelyikben pedig kevesebb (nem mátrix!)</p>
+
+    <p>
+        Az inputfájlban lévő adatok a következőképpen olvasandók: Az i-edik sorban az i-edik weboldalról elérhető többi weboldalak sorszámai vannak. Tehát ha például 0. sorban a 12, 11, 9, 2 szerepel, akkor ez azt jelenti, hogy 0. weboldalról a tizenkettedik, tizenegyedik, kilencedik és második sorszámú weboldal érhető el (0-tól számozva a sorszámokat). A felsorolásban egy szám mindig csak egyszer szerepel és mindig csökkenő sorrendben szerepelnek. Ha egy weboldalról elérhető egy másik, az még nem jelenti azt, hogy fordítva is így van!
+    </p>
+
+    <p>
+        Az első és legfontosabb feladatod ezen adatok beolvasása egy 50x50-es mátrixba. A mátrix i-edik sorának j-edik oszlopában lévő szám jelentse azt, hogy az i-edik weboldalról elérhető-e a j-edik weboldal. (Most érdemes bool típusú elemeket tartalmazó mátrixot használnod!)
+
+    </p>
+        <ol>
+            <li>Olvasd be a fájlból az adatokat és készítsd el az átutalásokat összesítő fentebb leírt mátrixot! A további feladatokat ennek a mátrixnak a segítségével oldd meg!</li>
+            <li>Elérhető-e a 3. weboldalról a 8. weboldal?</li>
+            <li>Mely weboldalakról lehet elérni a 18. weboldalt?</li>
+            <li>Mely weboldalak érhetőek el a 30. weboldalról?</li>
+            <li>Van-e olyan weboldal, amelyről saját magára mutat link?</li>
+            <li>Van-e olyan weboldal, ahonnan semelyik másik sem érhető el?</li>
+            <li>Van-e olyan weboldal, ahonnan mindegyik másik is elérhető?</li>
+            <li>Melyik weboldalról érhető el a legtöbb másik?</li>
+            <li>Melyik weboldal érhető el a legtöbb weboldalról?</li>
+            <li>A 4. sorszámú weboldalról hány másik érhető el?</li>
+            <li>Hány link van összesen a weboldalakon?</li>
+        </ol>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+
+</footer>
+</body>
+</html>
