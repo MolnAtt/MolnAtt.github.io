@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3000Í+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Segédlet matematikusoknak</a></h1></header>
+
+<main>
+    <h2>Segédlet matematikusoknak: Pascal-téglák</h2>
+    <article>
+        <h3>Pascal-tégla</h3>
+    <p>
+        Gyakori kombinatorikafeladat matematikából, hogy egy szót egy téglalapban leírnak, majd a téglalap bal felső sarkából a jobb alsó sarokba kell eljutni úgy, hogy csak jobbra vagy lefelé léphetünk. 
+    </p>
+    <p
+        Például a <em>PASCAL</em> szót a következő téglalapban írhatjuk le:
+    </p>
+        <table>
+            <tr>
+                <td>P</td><td>A</td><td>S</td><td>C</td>
+            </tr>
+            <tr>
+                <td>A</td><td>S</td><td>C</td><td>A</td>
+            </tr>
+            <tr>
+                <td>S</td><td>C</td><td>A</td><td>L</td>
+            </tr>
+        </table>
+    <p>
+        A kérdés ezt követően az, hogy hányféleképpen juthatunk el a bal felső sarokból a jobb alsó sarokba.
+    </p>
+    <p>
+        A feladat első része: Hozz létre egy programot, amely bekér egy szöveget, majd egy számot, hogy hány betű széles legyen a téglalap, ezt követően kiírja a képernyőre a megadott szóból készített betűtéglát, úgy, hogy a megadott szélességű téglalapban helyezkedjen el a szó. Kezeld az olyan hibalehetőségeket is, ha valamilyen értelemben hibás inputot adott meg a felhasználó!
+        a betűket mindig egy szóköz válassza el egymástól, a sorok pedig új sorral legyenek elválasztva!
+    </p>
+    <p>
+        A feladat második része: Készíts egy programot, amely a fenti téglalapban megszámolja, hogy hányféleképpen juthatunk el a bal felső sarokból a jobb alsó sarokba úgy, hogy csak jobbra vagy lefelé léphetünk! Ehhez elég a matematikából ismert explicit képletet csinálni, de egy táblázat (listában-a-lista) és egy ügyes ciklus segítségével magad is kiszámolhatod ezt a számot. Ez utóbbi egyébként általánosabb, ha pl. a térkép különféle falakat és akadályokat is tartalmazna...
+    </p>
+    <p>
+        a feladat harmadik része: ezeket a téglákat szokták úgy is bonyolítani, hogy bevezetnek egy szűkületet: 
+    </p>
+        <table>
+            <tr>
+                <td>P</td><td>A</td><td>S</td><td></td>
+            </tr>
+            <tr>
+                <td>A</td><td>S</td><td>C</td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td>A</td><td>L</td>
+            </tr>
+        </table>
+    <p>
+        Ehhez kérj be egy szót, két szélességet is a felhasználótól! Az első szélesség az első téglalap szélessége legyen, a második szélesség a második téglalap szélessége. A szűkület mindig egyetlen karakter legyen! A betűket itt is egy szóköz válassza el egymástól, a sorok pedig új sorral legyenek elválasztva! A program ezután írja ki a képernyőre a megadott szóból készített betűtéglát, úgy, hogy a megadott szélességű téglalapban helyezkedjen el a szó, és a szűkület is megjelenjen. Kezeld az olyan hibalehetőségeket is, ha valamilyen értelemben hibás inputot adott meg a felhasználó!
+    </p>
+    <p>
+        Negyedik rész: hányféleképpen lehet kiolvasni a harmadik részben megadott szót?
+    </p>
+    <p>
+        Törekedj arra, hogy szép, áttekinthető kódot írj! 
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+    </p>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
