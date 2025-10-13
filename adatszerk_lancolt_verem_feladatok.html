@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Rendezett lista</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Láncolt verem adatszerkezet</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Hozd létre a lenti felsorolásnak megfelelő LinQ-szerű metódusokat a saját láncolt verem adatszerkezetedhez!
+        Fontos kikötések: 
+    </p>
+    <ol>
+        <li><strong>Tilos bármilyen más beépített adatszerkezetet használni</strong>, pl. listát, tömböt, szótárat stb. Még saját magad által írt nem-verem típusú adatszerkezetet sem használhatsz. Csak Láncolt vermet! Tehát minden átmeneti tároláshoz is köteles vagy vermet használni! </li>
+        <li>
+            <strong>Egyik metódusod futása után sem ürülhet ki az eredeti listád!</strong> Ideiglenesen persze kiürítheted, hogy az utolsó elemhez hozzáférj, de utána vissza kell állítanod az eredeti állapotot!
+        </li>
+        <li>
+            <strong>Nem használhatsz rekurziót!</strong> Tehát a metódusaidban nem hívhatod meg saját magadat, sem közvetve, sem közvetlenül!
+        </li>
+        <li>
+            <strong>Nem használhatsz for vagy foreach-ciklusokat sem!</strong> Csak while vagy esetleg do-while ciklusokat használhatsz!
+        </li>
+    </ol>
+    És akkor az implementálandó metódusok:
+    <ol>
+        <li>Készíts egy Where metódust, ami egy predikátum ismeretében visszaadja egy új láncolt veremben azokat az elemeket, amelyekre a predikátum igaz! (A predikátum egy olyan függvény, amely egy elemet kap és igaz vagy hamis értéket ad vissza.)</li>
+        <li>Készíts egy Select metódust, ami egy selector függvény ismeretében létrehoz egy új láncolt vermet, amiben az összes eredeti veremben lévő elem selector függvény szerinti képe van. A verem.Select(x=> x+5) egy számokat tartalmazó veremben létrehoz egy olyan vermet amiben az eredeti veremben lévő elemek 5-nél nagyobb változatai vannak, az eredeti sorrendet követve.</li>
+        <li>Készíts egy Reverse metódust, ami egy veremből készít egy olyan vermet, amiben pont fordítva helyezkednek el az elemek.</li>
+        <li>Készíts egy First metódust, ami egy predikátum ismeretében visszaadja az első predikátumnak megfelelő elemet.</li>
+        <li>Készíts egy Contains metódust, ami egy predikátum ismeretében megadja, hogy van-e az adott tulajdoságnak megfelelő elem a listában.</li>
+        <li>Készíts egy Count metódust, ami egy predikátum függvény ismeretében megadja a veremben található predikátumnak megfelelő elemek számát.</li>
+        <li>Készíts egy Max metódust, ami egy comparator függvény ismeretében (amely egy olyan T,T párokhoz -1, 0, 1 számokat rendelő függvény, amely -1-et ad vissza, ha a második tag nagyobb, mint az első, 0-át ad vissza, ha ugyanakkorák, és 1-et ad vissza, ha az első nagyobb mint a második.) megadja a legnagyobb elemet a veremben. </li>
+    </ol>
+    <p>
+        Úgy írd meg a programod, hogy mutassa be ezeket a metódusokat a felhasználónak! 
+    </p>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
