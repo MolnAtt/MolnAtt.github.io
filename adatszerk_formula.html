@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-Rendezett lista</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>Formula (fa adatszerkezet)</h2>
+    <article>
+    <h3>Általános leírás</h3>
+    <p>
+        Az órán vett formula adatszerkezetet fogjuk tovább fejleszteni különböző metódusokkal. Az alábbi metódusokat kell megvalósítanod a formula adatszerkezetedhez:
+    </p>
+    <ol>        
+        <li>Konstruktor Formula(infix_szöveg) -- Írj olyan konstruktort a formulához, amely egy infix zárójeles alakban megadott kijelentéslogikai formulát beolvas. (Használd fel a számológépes programból ismert shunting yard algoritmust!) A műveletek prioritásai: Az ¬ a legerősebben kötő művelet, aztán a jönnek a ∧,∨,↑,↓ műveletek, majd a →, és végül a ↔.</li>
+        <li>Metódus Igazságérték(igaz_atomi_kijelentések: Halmaz[Szöveg]):Logikai -- Adott az igaz_atomi_kijelentések halmaz, amelyben pontosan akkor van benne egy atomi kijelentés, ha az igaz. Ez alapján add meg, hogy a(z összetett) formula igaz-e vagy hamis! </li>
+        <li>Metódus NemÉs(): Formula -- Olyan, az eredetivel ekvivalens formulát ad vissza, amelyben csak és kizárólag negáció és konjunkció műveletek szerepelnek. </li>
+        <li>Metódus NemVagy(): Formula -- Olyan, az eredetivel ekvivalens formulát ad vissza, amelyben csak és kizárólag negáció és diszjunkció műveletek szerepelnek. </li>
+        <li>Metódus NemAkkor(): Formula -- Olyan, az eredetivel ekvivalens formulát ad vissza, amelyben csak és kizárólag negáció és kondicionális műveletek szerepelnek. </li>
+        <li>Metódus FalsAkkor(): Formula -- Olyan, az eredetivel ekvivalens formulát ad vissza, amelyben csak és kizárólag kondicionális művelet szerepel és a falsum (⊥) atomi kijelentés, amely mindig azonosan hamis.</li>
+        <li>Metódus SemSem(): Formula -- Olyan, az eredetivel ekvivalens formulát ad vissza, amelyben csak és kizárólag a sem-sem művelet (A↓B ⇔ ¬A∧¬B) fordul elő.</li>
+        <li>Metódus Sheffer(): Formula -- Olyan, az eredetivel ekvivalens formulát ad vissza, amelyben csak és kizárólag a Sheffer-művelet (A↑B ⇔ ¬(A∧B)) fordul elő.</li>
+    </ol>
+    <p>
+        Úgy írd meg a programod, hogy mutassa be ezeket a metódusokat a felhasználónak! 
+    </p>
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
