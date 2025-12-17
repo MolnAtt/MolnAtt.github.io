@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-5000N</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>5000P Adatvizualizáció és gépi tanulás: Portugál diákok </h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            A feladatot HTML+JS+CSS környezetben kell elvégezni. Feladatod az, hogy egy textarea-ban bemásolva az input fájlt, egy gombra kattintva beolvassa a JS az adatokat és azokkal három fő feladatot végezzen. 
+        </p>
+        <ol>
+            <li><b>Adatvizualizáció:</b> Megadott szempontok szerint ábrázold az adatokat!</li>
+            <li><b>Felügyelt tanulás:</b> A K nearest neighbour algoritmussal vizsgáld meg, hogy egy új adat milyen kategóriába tartozna az adatbázis alapján. </li>
+            <li><b>Nem felügyelt tanulás:</b> A K means clustering algoritmussal határozz meg kategóriákat, amik elkülönülnek. </li>
+        </ol>
+
+        <h4>Adatvizualizáció</h4>
+        <p>
+            Adott egy SVG elem, amibe rajzolni kell. Legyen két input-mező, amin a rácsozás (nagyítás) mértéke állítható. 
+            A rajzolás során a sok szempont közül kettő választható ki, ezeket egy select vagy radiogomb csoporttal lehessen kiválasztani. 
+        </p>
+        <h4>K nearest neighbours</h4>
+        <p>
+            Legyen egy input mező, amiben a K értékét lehessen megadni, az algoritmus ez alapján a K alapján fusson. Legyen egy olyan input mező is, amivel a távolságfogalom legyen állítható: Euklideszi vagy Manhattan távolság. 
+            Legyenek inputmezők a különböző mezőnevekre, ami alapján egy új elemet lehessen bevinni. A mezők közül egyedül a kategória hiányozzon! (Pl. a nőszirmok esetében a nőszírom faja, a borok esetében a bor minősége, stb.) Legyen egy gomb, amire rányomva az algoritmus lefut: a megadott adatok alapján milyen kategóriába tartozhat a megadott adat. Ezt a választ egy divbe írja ki a program.
+        </p>
+        <h4>K means clustering</h4>
+        <p>
+            Legyen egy input mező, ahol a K értékét meg lehet adni. Legyen egy gomb, amit megnyomva ábrázolja az adatbázisban található objektumokat, de azokat nem az adatbázisban szereplő nőszirom típus alapján színez, hanem elvégezve a K means clusteringet az így kialakult csoportosítás alapján színezi. 
+        </p>
+    </p>
+    <p><a href="input/5000P/5000P_portugal_diakok.csv">5000P_portugal_diakok.csv</a></p>
+    
+    <h3>(N) Nőszirmok</h3>
+    <p>Az 5000N_noszirmok.csv fájlban egy vesszőkkel tagolt adattábla található, a mezők a következőket jelentik:</p>
+    <table>
+        <tr><th>Oszlopnév</th><th>Jelentés</th><th>Értéktartomány / típus</th></tr>
+        <tr><td>school</td><td>iskola kódja</td><td>GP = Gabriel Pereira, MS = Mousinho da Silveira</td></tr>
+        <tr><td>sex</td><td>nem</td><td>F = nő, M = férfi</td></tr>
+        <tr><td>age</td><td>életkor</td><td>15-22</td></tr>
+        <tr><td>address</td><td>lakóhely típusa</td><td>U = városi, R = vidéki</td></tr>
+        <tr><td>famsize</td><td>családméret</td><td>LE3 = kevesebb, mint 3 fő, GT3 = több mint 3 fő</td></tr>
+        <tr><td>Pstatus</td><td>szülők együtt élnek-e</td><td>T = együtt (together), A = külön (apart)</td></tr>
+        <tr><td>Medu</td><td>anya iskolázottsága</td><td>0 = nincs, 1 = alap, 2 = általános, 3 = közép, 4 = felső</td></tr>
+        <tr><td>Fedu</td><td>apa iskolázottsága</td><td>ugyanaz a skála</td></tr>
+        <tr><td>Mjob</td><td>anya foglalkozása</td><td>teacher, health, services, at_home, other</td></tr>
+        <tr><td>Fjob</td><td>apa foglalkozása</td><td>ugyanaz</td></tr>
+        <tr><td>reason</td><td>iskola választásának oka</td><td>home, reputation, course, other</td></tr>
+        <tr><td>guardian</td><td>gondviselő</td><td>mother, father, other</td></tr>
+        <tr><td>traveltime</td><td>utazási idő iskolába</td><td>1 = 15 percnél kevesebb, 2 = 15-30 perc, 3 = 30-60, 4 = 1 óránál több</td></tr>
+        <tr><td>studytime</td><td>heti tanulási idő</td><td>1 = 2 óránál kevesebb, 2 = 2-5 óra, 3 = 5-10 óra, 4 = 10 óránál több</td></tr>
+        <tr><td>failures</td><td>korábbi bukások száma</td><td>0-4</td></tr>
+        <tr><td>schoolsup</td><td>iskolai korrepetálás</td><td>yes / no</td></tr>
+        <tr><td>famsup</td><td>családi segítség a tanulásban</td><td>yes / no</td></tr>
+        <tr><td>paid</td><td>különóra a tárgyban (itt: matek)</td><td>yes / no</td></tr>
+        <tr><td>activities</td><td>délutáni szakkörök, sport, stb.</td><td>yes / no</td></tr>
+        <tr><td>nursery</td><td>járt-e óvodába</td><td>yes / no</td></tr>
+        <tr><td>higher</td><td>szeretne-e továbbtanulni</td><td>yes / no</td></tr>
+        <tr><td>internet</td><td>van-e internet otthon</td><td>yes / no</td></tr>
+        <tr><td>romantic</td><td>van-e párkapcsolat</td><td>yes / no</td></tr>
+        <tr><td>famrel</td><td>családi kapcsolatok minősége</td><td>1 = nagyon rossz - 5 = kiváló</td></tr>
+        <tr><td>freetime</td><td>szabadidő mennyisége</td><td>1-5</td></tr>
+        <tr><td>goout</td><td>társasági élet gyakorisága</td><td>1-5</td></tr>
+        <tr><td>Dalc</td><td>napi alkoholfogyasztás</td><td>1 = nagyon alacsony - 5 = nagyon magas</td></tr>
+        <tr><td>Walc</td><td>hétvégi alkoholfogyasztás</td><td>1-5</td></tr>
+        <tr><td>health</td><td>egészségi állapot</td><td>1 (nagyon rossz) - 5 (nagyon jó)</td></tr>
+        <tr><td>absences</td><td>hiányzások száma</td><td>0-93</td></tr>
+        <tr><td>G1</td><td>1. negyedévi jegy</td><td>(0-20)</td></tr>
+        <tr><td>G2</td><td>2. negyedévi jegy</td><td>(0-20)</td></tr>
+        <tr><td>G3</td><td>év végi jegy</td><td>(0-20, a célváltozó)</td></tr>
+    </table>
+    <p>
+        Az első négy számnál a tizedesvessző <b>ponttal</b> van jelölve!
+    </p>
+    
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

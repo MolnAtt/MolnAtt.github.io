@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-5000N</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>5000F: Adatvizualizáció és gépi tanulás: Fehérborok</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            A feladatot HTML+JS+CSS környezetben kell elvégezni. Feladatod az, hogy egy textarea-ban bemásolva az input fájlt, egy gombra kattintva beolvassa a JS az adatokat és azokkal három fő feladatot végezzen. 
+        </p>
+        <ol>
+            <li><b>Adatvizualizáció:</b> Megadott szempontok szerint ábrázold az adatokat!</li>
+            <li><b>Felügyelt tanulás:</b> A K nearest neighbour algoritmussal vizsgáld meg, hogy egy új adat milyen kategóriába tartozna az adatbázis alapján. </li>
+            <li><b>Nem felügyelt tanulás:</b> A K means clustering algoritmussal határozz meg kategóriákat, amik elkülönülnek. </li>
+        </ol>
+
+        <h4>Adatvizualizáció</h4>
+        <p>
+            Adott egy SVG elem, amibe rajzolni kell. Legyen két input-mező, amin a rácsozás (nagyítás) mértéke állítható. 
+            A rajzolás során a sok szempont közül kettő választható ki, ezeket egy select vagy radiogomb csoporttal lehessen kiválasztani. 
+        </p>
+        <h4>K nearest neighbours</h4>
+        <p>
+            Legyen egy input mező, amiben a K értékét lehessen megadni, az algoritmus ez alapján a K alapján fusson. Legyen egy olyan input mező is, amivel a távolságfogalom legyen állítható: Euklideszi vagy Manhattan távolság. 
+            Legyenek inputmezők a különböző mezőnevekre, ami alapján egy új elemet lehessen bevinni. A mezők közül egyedül a kategória hiányozzon! (Pl. a nőszirmok esetében a nőszírom faja, a borok esetében a bor minősége, stb.) Legyen egy gomb, amire rányomva az algoritmus lefut: a megadott adatok alapján milyen kategóriába tartozhat a megadott adat. Ezt a választ egy divbe írja ki a program.
+        </p>
+        <h4>K means clustering</h4>
+        <p>
+            Legyen egy input mező, ahol a K értékét meg lehet adni. Legyen egy gomb, amit megnyomva ábrázolja az adatbázisban található objektumokat, de azokat nem az adatbázisban szereplő nőszirom típus alapján színez, hanem elvégezve a K means clusteringet az így kialakult csoportosítás alapján színezi. 
+        </p>
+    </p>
+    <p><a href="input/5000F/5000F_feherborok.csv">5000F_feherborok.csv</a></p>
+    
+    <h3>(N) Nőszirmok</h3>
+    <p>Az 5000N_noszirmok.csv fájlban egy vesszőkkel tagolt adattábla található, a mezők a következőket jelentik:</p>
+    <ul>
+        <li>fixed acidity: nem illékony savtartalom (pl. borkősav), amely a bor alap savasságát adja</li>
+        <li>volatile acidity: illékony savtartalom (főként ecetsav), magas értéke hibás, ecetes ízt okozhat</li>
+        <li>citric acid: citromsav-tartalom, kis mennyiségben frissességet ad a bornak</li>
+        <li>residual sugar: maradék cukortartalom, az erjedés után visszamaradt cukor mennyisége</li>
+        <li>chlorides: kloridok (só) mennyisége, túl magas érték sós ízt eredményezhet</li>
+        <li>free sulfur dioxide: szabad kén-dioxid mennyisége, amely a bor oxidációját és romlását gátolja</li>
+        <li>total sulfur dioxide: teljes kén-dioxid mennyisége (szabad + kötött), tartósítószerként szolgál</li>
+        <li>density: sűrűség, amely összefügg a cukor- és alkoholtartalommal</li>
+        <li>pH: a bor kémhatása, alacsonyabb érték savasabb bort jelent</li>
+        <li>sulphates: szulfátok mennyisége, amelyek hozzájárulnak a bor eltarthatóságához és ízéhez</li>
+        <li>alcohol: alkoholtartalom térfogatszázalékban (%)</li>
+        <li>quality: a bor minőségi pontszáma (0-10), szakértői érzékszervi értékelés alapján</li>
+    </ul>
+    <p>
+        Minden törtszámnál a tizedesvessző <b>ponttal</b> van jelölve!
+    </p>
+    
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
