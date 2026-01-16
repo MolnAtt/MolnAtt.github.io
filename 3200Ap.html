@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3200A+</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3200A+ Kincses térkép</h2>
+    <article>
+        <h3>Általános leírás</h3>
+    <p>
+        Törekedj arra, hogy szép, áttekinthető kódot írj! 
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz! 
+        A felhasznált függvényekben ne történjen konzolra való kiírás!
+    </p>
+    <p>        
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+    </p>
+    
+    
+    <h3>3.200-A+ Kincses térkép</h3>
+    <p>
+        Olvassuk be az alábbi fájl tartalmát egy mátrixba,
+        majd a következő feladatokat oldjuk meg.
+        Minden feladat előtt a program írja ki a feladat sorszámát!
+    </p>
+    <p>
+        Az <a href="input/3200A/input.txt">input.txt</a>-ben található mátrix egyjegyű számokból áll. 
+    </p>
+
+    <p>Valójában ez egy térkép, ahol egy mező szomszédai alatt a felső, alsó, jobb oldali és bal oldali szomszédjait értjük. Tehát a szomszédoknál nem számítanak az "átlós" szomszédok.
+    </p>
+
+    <p>A 3200A+ annyiban más a 3200A feladathoz képest, hogy kincseket kell <strong>gyűjtögetni</strong> a pályán megadott szabályok szerint. Minden feladat abban lesz más, hogy mennyire bonyolultak ezek a szabályok. Egy azonban mindegyikben közös: A gyűjtögető ágens, akit a továbbiakban az egyszerűség kedvéért nevezzünk <strong>Karesznek</strong>, minden esetben a <strong>bal felső sarokból</strong> indul.</p>
+
+    <ol>
+        <li>
+            <p>
+                feladat szabályai:
+            </p>
+            <ul>
+                <li>Karesz csak jobbra és lefele tud lépni.</li>
+                <li>A táblázatban a 2-esek nagy érzelmi értékkel bíró, egyébként különösebb anyagi értékkel nem bíró kincseket jelölnek. </li>
+            </ul>
+            <p>
+                Legfeljebb mennyi ilyen nagy érzelmi értékkel bíró kincset tud Karesz így összegyűjteni, mire a jobb alsó sarokig eljut?
+            </p>            
+        </li>
+        <li>
+            <p>
+                feladat szabályai:
+            </p>
+            <ul>
+                <li>Karesz csak jobbra és lefele tud lépni.</li>
+                <li>A páros számok mindig olyan kincseket jelölnek, amelyek összértéke pontosan a számértékük fele. </li>
+                <li>A páratlan számok értéktelenek.</li>
+            </ul>
+            <p>
+                Mekkora összértékű kincset tud Karesz maximálisan összeporszívózni, mire a pálya végére ér?
+            </p>            
+        </li>
+        <li>
+            <p>
+                feladat szabályai:
+            </p>
+            <ul>
+                <li>Karesz csak jobbra és lefele tud lépni.</li>
+                <li>A 9-es számok falat jelölnek. A falra lépni nem lehet. </li>
+                <li>A páros számok mindig olyan kincseket jelölnek, amelyek összértéke pontosan a számértékük fele. </li>
+                <li>A páratlan számok értéktelenek.</li>
+            </ul>
+            <p>
+                Mekkora összértékű kincset tud Karesz maximálisan összeporszívózni, mire a pálya végére ér?
+            </p>            
+        </li>
+        <li>
+            <p>
+                feladat szabályai:
+            </p>
+            <ul>
+                <li>Karesz csak jobbra és lefele tud lépni.</li>
+                <li>A pálya valójában egy erdő, és a páratlan számok szúrós bokrokat jelentenek. Ezeken áthaladva Karesz strukturális szerkezete sérül, mindig annyival, amennyi a mező (páratlan) számértéke.</li>
+            </ul>
+            <p>
+                Mennyi az a legkevesebb sérülés, amit Karesz sajnos muszáj összeszedjen, ha át akar kelni az erdőn?
+            </p>            
+        </li>
+        <li>
+            <p>
+                feladat szabályai:
+            </p>
+            <ul>
+                <li>Karesz csak jobbra és lefele tud lépni.</li>
+                <li>A pálya valójában egy erdő, és a páratlan számok szúrós bokrokat jelentenek. Ezeken áthaladva Karesz strukturális szerkezete sérül, mindig annyival, amennyi a mező (páratlan) számértéke.</li>
+                <li>A páros számok valójában finom gyümölcsök, amik annál értékesebbek, minél nagyobb a számértékük. Minden gyümölcs fele olyan értékes, mint a számértékük.</li>
+            </ul>
+            <p>
+                Karesz a lehető legkevesebb sérülés mellett azért összeszedi a kincseket, amik az útjába kerülnek. Mennyi a legkevesebb strukturális szerkezeti sérülés mellett összeszedhető maximális kincsérték?
+            </p>            
+        </li>
+        <li>
+            <p>
+                feladat szabályai: A pálya valójában egy sivatag benzinkutakkal és változó nehézségű tereppel.
+            </p>
+            <ul>
+                <li>Karesz csak jobbra, lefele és akár <strong>átlósan lefele</strong> is tud lépni.</li>
+                <li>Karesz induló benzinkészlete 20 egység, a tankja legfeljebb 50 egységet bír. </li>
+                <li>Páratlan számmal ellátott mezőre lépni 5 egységbe és még annyi egység üzemanyagba kerül, amennyi a mező értéke.</li>
+                <li>Páros számmal ellátott mezőre 5 egységbe kerül lépni, de az ott lévő számértéknyi benzint (és nem csak a felét) hozzá lehet adni a tankhoz, amennyiben abban még van hely. Túltölteni a tankot nem lehetséges.</li>
+            </ul>
+            <p>
+                El tud-e jutni Karesz az sivatag végére (jobb alsó sarkába) úgy, hogy maradjon benzine, és ha igen, legfeljebb mennyi benzint tud így magával vinni?
+            </p>            
+        </li>
+        <li>
+            <p>
+                feladat szabályai: A pálya valójában egy sivatag benzinkutakkal és változó nehézségű tereppel.
+            </p>
+            <ul>
+                <li>Karesz csak jobbra, lefele és akár <strong>átlósan lefele</strong> is tud lépni.</li>
+                <li>Karesz induló benzinkészlete 20 egység, a tankja legfeljebb 50 egységet bír. </li>
+                <li>Páratlan számmal ellátott mezőre lépni 5 egységbe és még annyi egység üzemanyagba kerül, amennyi a mező értéke.</li>
+                <li>Páros számmal ellátott mezőre 5 egységbe kerül lépni, de az ott lévő számértéknyi benzint (és nem csak a felét) hozzá lehet adni a tankhoz, amennyiben abban még van hely. Túltölteni a tankot nem lehetséges.</li>
+                <li>A 9-es számok valójában áthatolhatatlan sziklás hegységet jelentenek, arra menni nem lehet.</li>
+            </ul>
+            <p>
+                El tud-e jutni Karesz az sivatag végére (jobb alsó sarkába) úgy, hogy maradjon benzine, és ha igen, legfeljebb mennyi benzint tud így magával vinni?
+            </p>            
+        </li>
+    </ol>
+
+</article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
