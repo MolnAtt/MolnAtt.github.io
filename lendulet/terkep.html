@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Térkép</title>
+    <link rel="stylesheet" href="terkep.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="terkep.js" defer></script>
+    <script src="ellenorzes.js" defer></script>
+</head>
+<body>
+    <div id="vezerlopult">
+        <button id="kovgomb">Következő település</button>
+        <div id="telepulesnev">Településnév</div>
+        <input type="number" id="telepulesindex" min="0" max="4000" value="0">
+        <div id="geonames_coord">koordináták a geonamesből</div>
+        <button id="geonamesgomb">Ugrás a Geonames koordinátákhoz</button>
+        <div id="osm_coord">koordináták az OSM-ből</div>
+        <button id="osmgomb">Ugrás az OSM koordinátákhoz</button>
+        <div id="tavolsag">Távolság</div>
+        <div id="figyelmezteto">Ez OK</div>
+        <div id="info"></div>
+    </div>
+    <div id="map"></div>
+</body>
+</html>
