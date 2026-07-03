@@ -131,20 +131,19 @@ async function auto_ellenorzes(mettol, meddig) {
         let p = points[i];
         let tav = await ellenorzes(p);
         await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
-        console.log(`Auto ellenőrzés: ${i} / ${meddig}`);
 
         if (tav === null) {
             
-            console.log(`Nincs adat: ${p.nev}`);
+            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Nincs adat: ${p.nev}`);
             nemtalalt.push({index : i, point : p});
         } else if (tav > 5000) {
-            console.log(`Túl nagy eltérés: ${p.nev}, távolság: ${tav} m`);
+            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Túl nagy eltérés: ${p.nev}, távolság: ${tav} m`);
             rossz.push({index : i, point : p});
         } else if (tav > 1000) {
-            console.log(`Figyelmeztetés: ${p.nev}, távolság: ${tav} m`);
+            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Figyelmeztetés: ${p.nev}, távolság: ${tav} m`);
             gyanus.push({index : i, point : p});
         } else {
-            console.log(`Rendben: ${p.nev}, távolság: ${tav} m`);
+            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Rendben: ${p.nev}, távolság: ${tav} m`);
             jo.push({index : i, point : p});
         }
     }
