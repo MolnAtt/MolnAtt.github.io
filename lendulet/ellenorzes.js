@@ -24,6 +24,17 @@ async function telepulesKoordinatak(telepulesNev) {
         : null;
 }
 
+function zarojeles_resze(s){
+    let match = s.match(/\(([^)]+)\)/);
+    return match ? match[1] : null;
+}
+
+function zarojel_elotti_resze(s){
+    let match = s.match(/^(.*?)\s*\(/);
+    return match ? match[1] : null;
+}
+
+
 
 async function ellenorzes(p) {
     document.getElementById("telepulesnev").textContent = p.nev;
@@ -32,6 +43,25 @@ async function ellenorzes(p) {
     document.getElementById("info").textContent = `tipus: ${p.tipus}, ifm: ${p.ifm}, szin: ${point2color(p)}, felirat: ${p.felirat}`;
 
     let OSM_point = await telepulesKoordinatak(p.nev);
+
+    if (OSM_point === null) {
+        let zarojeles_resz = zarojeles_resze(p.nev);
+        if (zarojeles_resz) {
+            OSM_point = await telepulesKoordinatak(zarojeles_resz.trim());
+        }
+    }
+
+    if (OSM_point === null) {
+        let zarojel_elotti_resz = zarojel_elotti_resze(p.nev);
+        if (zarojel_elotti_resz) {
+            const keresendo = zarojel_elotti_resz.trim();
+            if (keresendo && keresendo !== p.nev.trim()) {
+                OSM_point = await telepulesKoordinatak(keresendo);
+            }
+        }
+    }
+
+    
     if (!OSM_point) {
         document.getElementById("osm_coord").textContent = `OSM koordináták: Nincs adat`;
         document.getElementById("tavolsag").textContent = `Távolság: Nincs adat`;
@@ -104,6 +134,7 @@ async function auto_ellenorzes(mettol, meddig) {
         console.log(`Auto ellenőrzés: ${i} / ${meddig}`);
 
         if (tav === null) {
+            
             console.log(`Nincs adat: ${p.nev}`);
             nemtalalt.push({index : i, point : p});
         } else if (tav > 5000) {
@@ -117,5 +148,10 @@ async function auto_ellenorzes(mettol, meddig) {
             jo.push({index : i, point : p});
         }
     }
-    return [gyanus, rossz, nemtalalt, jo];
+    return {
+        gyanus: gyanus, 
+        rossz: rossz, 
+        nemtalalt: nemtalalt, 
+        jo: jo
+    };
 }
