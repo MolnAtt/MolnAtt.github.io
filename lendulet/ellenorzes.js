@@ -47,6 +47,7 @@ async function ellenorzes(p) {
     if (OSM_point === null) {
         let zarojeles_resz = zarojeles_resze(p.nev);
         if (zarojeles_resz) {
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
             OSM_point = await telepulesKoordinatak(zarojeles_resz.trim());
         }
     }
@@ -56,6 +57,7 @@ async function ellenorzes(p) {
         if (zarojel_elotti_resz) {
             const keresendo = zarojel_elotti_resz.trim();
             if (keresendo && keresendo !== p.nev.trim()) {
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
                 OSM_point = await telepulesKoordinatak(keresendo);
             }
         }
