@@ -25,12 +25,12 @@ async function telepulesKoordinatak(telepulesNev) {
 }
 
 function zarojeles_resze(s){
-    let match = s.match(/\(([^)]+)\)/);
-    return match ? match[1] : null;
+    let match = s.match(/(?:\(([^)]+)\)|\[([^\]]+)\])/);
+    return match ? (match[1] || match[2]) : null;
 }
 
 function zarojel_elotti_resze(s){
-    let match = s.match(/^(.*?)\s*\(/);
+    let match = s.match(/^(.*?)\s*[\(\[]/);
     return match ? match[1] : null;
 }
 
