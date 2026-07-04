@@ -23,6 +23,10 @@ html, body {
 
 body { overflow: hidden; }
 
+.leaflet-tooltip.telepules-tooltip {
+    white-space: pre-line;
+}
+
 /* A Leaflet alap CSS-ének minimális, beágyazott része.
     Ez azért van itt, hogy ne essen szét a térkép akkor sem,
     ha a külső leaflet.css nem töltődik be. */

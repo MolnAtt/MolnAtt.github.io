@@ -69,7 +69,8 @@
                 permanent: false,
                 sticky: true,
                 direction: "top",
-                opacity: 0.9
+                opacity: 0.9,
+                className: "telepules-tooltip"
             });
 
             marker.on("click", function () {
