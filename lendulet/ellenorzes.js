@@ -34,8 +34,6 @@ function zarojel_elotti_resze(s){
     return match ? match[1] : null;
 }
 
-
-
 async function ellenorzes(p) {
     document.getElementById("telepulesnev").textContent = p.nev;
     let geonames_point = [p.lat, p.lon];
@@ -94,25 +92,31 @@ async function ellenorzes(p) {
     return tav;
 }
 
-
 document.getElementById("kovgomb").addEventListener("click", async function () {
     let i = document.getElementById("telepulesindex").value++;
     let p = points[i];
     await ellenorzes(p);
 });
 
-async function ellenorzesMinden() {
-    for (const p of points) {
-        await ellenorzes(p);
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
-    }
-}
-
 function ugrik_str(str, zoom = map.getZoom()) {
-    let [lat_str, lon_str] = str.split(':')[1].split(',');
-    console.log(`ugrik_str: lat_str=${lat_str}, lon_str=${lon_str}`);
-    const lat = parseFloat(lat_str);
-    const lon = parseFloat(lon_str);
+    // Kiszedi az elso ket szamot a szovegbol (pl. "...: 47.1, 19.2").
+    const match = str.match(/(-?\d+(?:[\.,]\d+)?)\s*,\s*(-?\d+(?:[\.,]\d+)?)/);
+    if (!match) {
+        document.getElementById("figyelmezteto").textContent = "Nincs használható koordináta az ugráshoz.";
+        document.getElementById("figyelmezteto").style.color = "red";
+        return;
+    }
+
+    const lat = Number(match[1].replace(',', '.'));
+    const lon = Number(match[2].replace(',', '.'));
+
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+        document.getElementById("figyelmezteto").textContent = "Érvénytelen koordináta formátum.";
+        document.getElementById("figyelmezteto").style.color = "red";
+        return;
+    }
+
+    console.log(`ugrik_str: lat=${lat}, lon=${lon}`);
     map.setView([lat, lon], zoom);
 }
 
