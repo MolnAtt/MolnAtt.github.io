@@ -5,23 +5,29 @@
      * @returns {number} a sugar érték
      */
     function ifm2sugar(ifm) {
+        const ifmStr = String(ifm ?? "").replaceAll(' ', '').trim();
         let result = 0;
-        if (ifm.replaceAll(' ', '') === "n.a."){
+        if (ifmStr === "n.a."){
             result = 1;
-        } else if (ifm.replaceAll(' ', '') === ""){
+        } else if (ifmStr === ""){
             result = 1.5;
         } else {
-            result = 5*Math.log2(1+parseFloat(ifm));
+            const ifmSzam = Number(ifmStr.replace(',', '.'));
+            if (!Number.isFinite(ifmSzam) || ifmSzam < 0) {
+                return 1;
+            }
+            result = 5 * Math.log2(1 + ifmSzam);
             // result = Math.sqrt(parseFloat(ifm)/Math.PI);
             // result = 0.1*parseFloat(ifm);
         }
-        return result;
+        return Number.isFinite(result) && result > 0 ? result : 1;
     }
 
     function point2color(p){
-        if (p.ifm.replaceAll(' ', '') == "n.a.")
+        const ifmStr = String(p.ifm ?? "").replaceAll(' ', '').trim();
+        if (ifmStr == "n.a.")
             return "black";
-        if (p.ifm.replaceAll(' ', '') == "")
+        if (ifmStr == "")
             return "yellow";
         if (p.tipus == "k")
             return "brown";
@@ -33,10 +39,21 @@
     }
 
     function rajzol(points){
+        let kihagyott = 0;
         for (const p of points) {
+            const lat = Number(String(p.lat ?? "").replace(',', '.'));
+            const lon = Number(String(p.lon ?? "").replace(',', '.'));
+            const radius = ifm2sugar(p.ifm);
+
+            if (!Number.isFinite(lat) || !Number.isFinite(lon) || !Number.isFinite(radius) || radius <= 0) {
+                kihagyott++;
+                console.warn("Kihagyott hibas pont:", p);
+                continue;
+            }
+
             const szin = point2color(p);
-            const marker = L.circleMarker([p.lat, p.lon], {
-                radius: ifm2sugar(p.ifm),
+            const marker = L.circleMarker([lat, lon], {
+                radius: radius,
                 stroke:false,
                 fill: true,
                 fillColor: szin,
@@ -65,6 +82,10 @@
                 this.setStyle({ fillOpacity: 0.5 });
             });
             
+        }
+
+        if (kihagyott > 0) {
+            console.warn(`Rajzolas kozben ${kihagyott} hibas pont ki lett hagyva.`);
         }
     }
 
