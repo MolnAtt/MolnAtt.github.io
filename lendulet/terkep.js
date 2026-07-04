@@ -38,6 +38,10 @@
         return "magenta";
     }
 
+    function felirat(p){
+        return `${p.nev}\n${p.megye}\n${p.mettol} - ${p.meddig}\n${p.ifm} ifm (körjegyzőség: ${p.kjifm})`;
+    }
+
     function rajzol(points){
         let kihagyott = 0;
         for (const p of points) {
@@ -61,7 +65,7 @@
                 interactive: true,
             }).addTo(map);
     
-            marker.bindTooltip(p.felirat, {
+            marker.bindTooltip(felirat(p), {
                 permanent: false,
                 sticky: true,
                 direction: "top",
