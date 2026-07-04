@@ -89,6 +89,8 @@
         }
     }
 
+    console.log("verzió: 2024.07.04 6:42");
+
     const hely = [47.482663388987206, 19.087897524361903];
 
     const map = L.map('map', {
@@ -120,3 +122,4 @@
 
 
     rajzol(points);
+
