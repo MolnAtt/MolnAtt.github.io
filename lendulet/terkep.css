@@ -24,7 +24,27 @@ html, body {
 body { overflow: hidden; }
 
 .leaflet-tooltip.telepules-tooltip {
-    white-space: pre-line;
+    white-space: normal;
+    line-height: 1.35;
+}
+
+.leaflet-tooltip.telepules-tooltip .tooltip-nev {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.leaflet-tooltip.telepules-tooltip .tooltip-megye {
+    margin-top: 1px;
+    font-size: 0.82rem;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.04em;
+    color: #555;
+}
+
+.leaflet-tooltip.telepules-tooltip .tooltip-ev,
+.leaflet-tooltip.telepules-tooltip .tooltip-ifm {
+    margin-top: 3px;
+    font-size: 0.88rem;
 }
 
 /* A Leaflet alap CSS-ének minimális, beágyazott része.

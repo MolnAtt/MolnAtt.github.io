@@ -38,8 +38,29 @@
         return "magenta";
     }
 
+    function escapeHtml(value) {
+        return String(value ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+    }
+
     function felirat(p){
-        return `${p.nev}\n${p.megye}\n${p.mettol} - ${p.meddig}\n${p.ifm} ifm (körjegyzőség: ${p.kjifm})`;
+        const nev = escapeHtml(p.nev);
+        const megye = escapeHtml(p.megye);
+        const mettol = escapeHtml(p.mettol);
+        const meddig = escapeHtml(p.meddig);
+        const ifm = escapeHtml(p.ifm);
+        const kjifm = escapeHtml(p.kjifm);
+
+        return `
+            <div class="tooltip-nev">${nev}</div>
+            <div class="tooltip-megye">${megye.toLowerCase()}</div>
+            <div class="tooltip-ev">${mettol} - ${meddig}</div>
+            <div class="tooltip-ifm">${ifm} ifm (körjegyzőség: ${kjifm})</div>
+        `;
     }
 
     function rajzol(points){
