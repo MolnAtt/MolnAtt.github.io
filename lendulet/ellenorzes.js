@@ -140,13 +140,13 @@ async function auto_ellenorzes(mettol, meddig) {
 
         if (tav === null) {
             
-            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Nincs adat: ${p.nev}`);
+            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: Nincs adat: ${p.nev}`, 'color: purple; font-size: larger');
             nemtalalt.push({index : i, point : p});
         } else if (tav > 5000) {
-            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Túl nagy eltérés: ${p.nev}, távolság: ${tav} m`);
+            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: Túl nagy eltérés: ${p.nev}, távolság: ${tav} m`, 'color: red; font-size: larger');
             rossz.push({index : i, point : p});
         } else if (tav > 1000) {
-            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Figyelmeztetés: ${p.nev}, távolság: ${tav} m`);
+            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: Figyelmeztetés: ${p.nev}, távolság: ${tav} m`, 'color: orange; font-size: larger');
             gyanus.push({index : i, point : p});
         } else {
             console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Rendben: ${p.nev}, távolság: ${tav} m`);
