@@ -63,7 +63,34 @@
         `;
     }
 
+    function intervallumMetsz(intervallum1, intervallum2) {        // Két zárt intervallum metszete nem üres: [mettol, meddig] és [evszazadTol, evszazadIg]
+        let [mettol, meddig] = intervallum1;
+        let [evszazadTol, evszazadIg] = intervallum2;
+        return mettol <= evszazadIg && meddig >= evszazadTol;
+    }
+
     function rajzol(points){
+
+        points = points.filter(p => {
+            if (p.tipus == "k" && !chb_tipus_k.checked) return false;
+            if (p.tipus == "mv" && !chb_tipus_mv.checked) return false;
+            if (p.tipus == "kmv" && !chb_tipus_kmv.checked) return false;
+            return true;
+        }).filter(p => {
+            const mettol = Number(p.mettol);
+            const meddig = Number(p.meddig);
+
+            if (!Number.isFinite(mettol) || !Number.isFinite(meddig)) {
+                return false;
+            }
+
+            return (
+               (!chb_evkor18.checked || intervallumMetsz([mettol, meddig], [1700, 1799]))
+            && (!chb_evkor19.checked || intervallumMetsz([mettol, meddig], [1800, 1899]))
+            && (!chb_evkor20.checked || intervallumMetsz([mettol, meddig], [1900, 1999]))
+            );
+        });
+
         let kihagyott = 0;
         for (const p of points) {
             const lat = Number(String(p.lat ?? "").replace(',', '.'));
@@ -84,7 +111,7 @@
                 fillColor: szin,
                 fillOpacity: 0.5,
                 interactive: true,
-            }).addTo(map);
+            }).addTo(pontLayer);
     
             marker.bindTooltip(felirat(p), {
                 permanent: false,
@@ -113,6 +140,10 @@
         if (kihagyott > 0) {
             console.warn(`Rajzolas kozben ${kihagyott} hibas pont ki lett hagyva.`);
         }
+    }
+
+    function torolRajzoltPontok() {
+        pontLayer.clearLayers();
     }
 
 
@@ -144,65 +175,99 @@
     maxZoom: 20
     }).addTo(map);
 
+    const pontLayer = L.layerGroup().addTo(map);
+
 
     setTimeout(() => map.invalidateSize(), 200);
 
 
+
+    let chb_tipus_k = document.getElementById("chb_tipus_k");
+    let chb_tipus_mv = document.getElementById("chb_tipus_mv");
+    let chb_tipus_kmv = document.getElementById("chb_tipus_kmv");
+    let chb_evkor18 = document.getElementById("chb_evkor18");
+    let chb_evkor19 = document.getElementById("chb_evkor19");
+    let chb_evkor20 = document.getElementById("chb_evkor20");
+
+    let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_evkor18, chb_evkor19, chb_evkor20];
+
+    for (const chb of checkboxok) {
+        chb.addEventListener("change", () => {
+            torolRajzoltPontok();
+            rajzol(points);
+        });
+    }
+
     rajzol(points);
 
-    let mindengomb = document.getElementById("mindengomb");
-    let kgomb = document.getElementById("kgomb");
-    let kgomb18 = document.getElementById("kgomb18");
-    let kgomb19 = document.getElementById("kgomb19");
-    let kgomb20 = document.getElementById("kgomb20");
-    let mvgomb = document.getElementById("mvgomb");
-    let mvgomb18 = document.getElementById("mvgomb18");
-    let mvgomb19 = document.getElementById("mvgomb19");
-    let mvgomb20 = document.getElementById("mvgomb20");
+
+    // let mindengomb = document.getElementById("mindengomb");
+    // let kgomb = document.getElementById("kgomb");
+    // let kgomb18 = document.getElementById("kgomb18");
+    // let kgomb19 = document.getElementById("kgomb19");
+    // let kgomb20 = document.getElementById("kgomb20");
+    // let mvgomb = document.getElementById("mvgomb");
+    // let mvgomb18 = document.getElementById("mvgomb18");
+    // let mvgomb19 = document.getElementById("mvgomb19");
+    // let mvgomb20 = document.getElementById("mvgomb20");
+    // let semmigomb = document.getElementById("semmigomb");
 
 
+    // mindengomb.addEventListener("click", () => {
+    //     torolRajzoltPontok();
+    //     rajzol(points);
+    // });
 
-    mindengomb.addEventListener("click", () => {
-        rajzol(points);
-    });
+    // semmigomb.addEventListener("click", () => {
+    //     torolRajzoltPontok();
+    // });
 
-    kgomb.addEventListener("click", () => {
-        const kpoints = points.filter(p => p.tipus == "k");
-        rajzol(kpoints);
-    });
+    // kgomb.addEventListener("click", () => {
+    //     const kpoints = points.filter(p => p.tipus == "k");
+    //     torolRajzoltPontok();
+    //     rajzol(kpoints);
+    // });
 
-    kgomb18.addEventListener("click", () => {
-        const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1700);
-        rajzol(kpoints);
-    });
+    // kgomb18.addEventListener("click", () => {
+    //     const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1700);
+    //     torolRajzoltPontok();
+    //     rajzol(kpoints);
+    // });
 
-    kgomb19.addEventListener("click", () => {
-        const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1800);
-        rajzol(kpoints);
-    });
+    // kgomb19.addEventListener("click", () => {
+    //     const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1800);
+    //     torolRajzoltPontok();
+    //     rajzol(kpoints);
+    // });
 
-    kgomb20.addEventListener("click", () => {
-        const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1900);
-        rajzol(kpoints);
-    });
+    // kgomb20.addEventListener("click", () => {
+    //     const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1900);
+    //     torolRajzoltPontok();
+    //     rajzol(kpoints);
+    // });
 
-    mvgomb.addEventListener("click", () => {
-        const mvpoints = points.filter(p => p.tipus == "mv" || p.tipus == "kmv");
-        rajzol(mvpoints);
-    });
+    // mvgomb.addEventListener("click", () => {
+    //     const mvpoints = points.filter(p => p.tipus == "mv" || p.tipus == "kmv");
+    //     torolRajzoltPontok();
+    //     rajzol(mvpoints);
+    // });
 
-    mvgomb18.addEventListener("click", () => {
-        const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1700);
-        rajzol(mvpoints);
-    });
+    // mvgomb18.addEventListener("click", () => {
+    //     const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1700);
+    //     torolRajzoltPontok();
+    //     rajzol(mvpoints);
+    // });
 
-    mvgomb19.addEventListener("click", () => {
-        const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1800);
-        rajzol(mvpoints);
-    });
+    // mvgomb19.addEventListener("click", () => {
+    //     const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1800);
+    //     torolRajzoltPontok();
+    //     rajzol(mvpoints);
+    // });
 
-    mvgomb20.addEventListener("click", () => {
-        const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1900);
-        rajzol(mvpoints);
-    });
+    // mvgomb20.addEventListener("click", () => {
+    //     const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1900);
+    //     torolRajzoltPontok();
+    //     rajzol(mvpoints);
+    // });
     
+

@@ -26,7 +26,8 @@
         <div id="tavolsag">Távolság</div>
         <div id="figyelmezteto">Ez OK</div>
         <div id="info"></div>
-        <button id="mindengomb">Minden adat ábrázolása</button>
+        <!-- <button id="semmigomb">Semmi</button>
+        <button id="mindengomb">Minden</button>
         <button id="kgomb">Községek</button>
         <button id="kgomb18">Községek 18. századtól</button>
         <button id="kgomb19">Községek 19. századtól</button>
@@ -34,7 +35,26 @@
         <button id="mvgomb">Mezővárosok</button>
         <button id="mvgomb18">Mezővárosok 18. századtól</button>
         <button id="mvgomb19">Mezővárosok 19. századtól</button>
-        <button id="mvgomb20">Mezővárosok 20. századtól</button>
+        <button id="mvgomb20">Mezővárosok 20. századtól</button> -->
+        <div id="evkorok">
+            <h2>Évkör szerinti megszorítások</h2>
+            <input type="checkbox" id="chb_evkor18">
+            <label for="chb_evkor18">18. század</label>
+            <input type="checkbox" id="chb_evkor19">
+            <label for="chb_evkor19">19. század</label>
+            <input type="checkbox" id="chb_evkor20">
+            <label for="chb_evkor20">20. század</label>
+        </div>
+        <div id="tipusok">
+            <h2>Látható típusok</h2>
+            <input type="checkbox" id="chb_tipus_k" checked>
+            <label for="chb_tipus_k">Községek</label>
+            <input type="checkbox" id="chb_tipus_mv" checked>
+            <label for="chb_tipus_mv">Mezővárosok</label>
+            <input type="checkbox" id="chb_tipus_kmv" checked>
+            <label for="chb_tipus_kmv">Községből lett mezővárosok</label>
+        </div>
+                
     </div>
     <div id="map"></div>
 </body>

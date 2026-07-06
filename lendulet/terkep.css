@@ -17,6 +17,9 @@ html, body {
     background: white;
     padding: 12px;
     border-radius: 8px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
 }
 
 
