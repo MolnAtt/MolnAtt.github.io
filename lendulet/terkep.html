@@ -9,6 +9,9 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="data.js" defer></script>
     <script src="terkep.js" defer></script>
+    <script defer>
+        rajzol(points);
+    </script>
     <script src="ellenorzes.js" defer></script>
 </head>
 <body>
@@ -23,6 +26,15 @@
         <div id="tavolsag">Távolság</div>
         <div id="figyelmezteto">Ez OK</div>
         <div id="info"></div>
+        <button id="mindengomb">Minden adat ábrázolása</button>
+        <button id="kgomb">Községek</button>
+        <button id="kgomb18">Községek 18. századtól</button>
+        <button id="kgomb19">Községek 19. századtól</button>
+        <button id="kgomb20">Községek 20. századtól</button>
+        <button id="mvgomb">Mezővárosok</button>
+        <button id="mvgomb18">Mezővárosok 18. századtól</button>
+        <button id="mvgomb19">Mezővárosok 19. századtól</button>
+        <button id="mvgomb20">Mezővárosok 20. századtól</button>
     </div>
     <div id="map"></div>
 </body>

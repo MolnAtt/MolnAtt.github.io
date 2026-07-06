@@ -115,6 +115,7 @@
         }
     }
 
+
     console.log("verzió: 2024.07.04 6:42");
 
     const hely = [47.482663388987206, 19.087897524361903];
@@ -149,3 +150,59 @@
 
     rajzol(points);
 
+    let mindengomb = document.getElementById("mindengomb");
+    let kgomb = document.getElementById("kgomb");
+    let kgomb18 = document.getElementById("kgomb18");
+    let kgomb19 = document.getElementById("kgomb19");
+    let kgomb20 = document.getElementById("kgomb20");
+    let mvgomb = document.getElementById("mvgomb");
+    let mvgomb18 = document.getElementById("mvgomb18");
+    let mvgomb19 = document.getElementById("mvgomb19");
+    let mvgomb20 = document.getElementById("mvgomb20");
+
+
+
+    mindengomb.addEventListener("click", () => {
+        rajzol(points);
+    });
+
+    kgomb.addEventListener("click", () => {
+        const kpoints = points.filter(p => p.tipus == "k");
+        rajzol(kpoints);
+    });
+
+    kgomb18.addEventListener("click", () => {
+        const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1700);
+        rajzol(kpoints);
+    });
+
+    kgomb19.addEventListener("click", () => {
+        const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1800);
+        rajzol(kpoints);
+    });
+
+    kgomb20.addEventListener("click", () => {
+        const kpoints = points.filter(p => p.tipus == "k" && Number(p.mettol) >= 1900);
+        rajzol(kpoints);
+    });
+
+    mvgomb.addEventListener("click", () => {
+        const mvpoints = points.filter(p => p.tipus == "mv" || p.tipus == "kmv");
+        rajzol(mvpoints);
+    });
+
+    mvgomb18.addEventListener("click", () => {
+        const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1700);
+        rajzol(mvpoints);
+    });
+
+    mvgomb19.addEventListener("click", () => {
+        const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1800);
+        rajzol(mvpoints);
+    });
+
+    mvgomb20.addEventListener("click", () => {
+        const mvpoints = points.filter(p => (p.tipus == "mv" || p.tipus == "kmv") && Number(p.mettol) >= 1900);
+        rajzol(mvpoints);
+    });
+    
