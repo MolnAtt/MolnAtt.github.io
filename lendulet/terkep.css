@@ -20,6 +20,7 @@ html, body {
     display:grid;
     grid-template-columns: 1fr;
     gap: 1px;
+    border:#333 solid 1px;
 }
 
 #evkorcsuszkak h2{
@@ -41,6 +42,8 @@ body { overflow: hidden; }
 .leaflet-tooltip.telepules-tooltip {
     white-space: normal;
     line-height: 1.35;
+    min-width: 220px;
+    max-width: 400px;
 }
 
 .leaflet-tooltip.telepules-tooltip .tooltip-nev {

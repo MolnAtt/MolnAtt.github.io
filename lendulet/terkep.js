@@ -1,6 +1,8 @@
 
 console.log("verzió: 2026.07.07. 22:03");
 
+const ZOOM_MERET_SZORZO_LEPESENKENT = 1.5;
+
 /**
  * megadja a pont színét az ifm és a tipus alapján.
  * @param {Object} p 
@@ -8,16 +10,16 @@ console.log("verzió: 2026.07.07. 22:03");
  */
 function point2color(p){
     const ifmStr = String(p.ifm ?? "").replaceAll(' ', '').trim();
-    if (ifmStr == "n.a.")
-        return "black";
     if (ifmStr == "")
-        return "red";
+        return "black";
     if (p.tipus == "k")
         return "brown";
     if (p.tipus == "mv")
         return "green";
     if (p.tipus == "kmv")
         return "purple";
+    if (ifmStr == "n.a.")
+        return "black";
     return "magenta";
 }
 
@@ -46,15 +48,17 @@ function felirat(p, index = null) {
     const megye = escapeHtml(p.megye);
     const mettol = escapeHtml(p.mettol);
     const meddig = escapeHtml(p.meddig);
-    const ifm = escapeHtml(p.ifm);
-    const kjifm = escapeHtml(p.kjifm);
+    const elsodleges_iratanyag_html = `<div class="tooltip-ifm">elsődleges iratanyag: ${escapeHtml(p.ifm ? `${p.ifm} ifm` : "-")}</div>`;
+    const korjegyzoseg_iratanyag_html = p.korjegyzoseg ? `<div class="tooltip-korjegyzoseg">körjegyzőség iratanyag: ${escapeHtml(`${p.korjegyzoseg} ifm`)} </div>` : "";
 
     return `
         <div class="tooltip-nev">${nev}</div>
         <div class="tooltip-megye">${megye.toLowerCase()}</div>
         <div class="tooltip-ev">${mettol} - ${meddig}</div>
-        <div class="tooltip-ifm">${ifm} ifm (körjegyzőség: ${kjifm})</div>
-        ${index !== null ? `<div class="tooltip-index">ID: ${index}</div>` : ""}
+        ${elsodleges_iratanyag_html}
+        ${korjegyzoseg_iratanyag_html}
+        <div class="tooltip-index">index: ${index}</div>
+        <div class="tooltip-id">ID: ${p.id}</div>
     `;
 }
 
@@ -96,25 +100,13 @@ function szures_checkboxok_alapjan(points) {
     });
 }
 
-/**
- * logaritmikus skálázás az ifm-ből sugárra
- * @param {Number} ifmSzam 
- * @returns Number
- */
-function ifmfv(ifmSzam) {
-    const minsugar = 1;
-    const mertek = 3;
-    return mertek*(minsugar + Math.log2(1 + ifmSzam));
-    // result = Math.sqrt(parseFloat(ifm)/Math.PI);
-    // result = 0.1*parseFloat(ifm);
-}
 
 /**
  * Átalakítja az ifm-et sugárra logaritmikus függvénnyel.
  * @param {number} ifm - az ifm érték
  * @returns {number} a sugar érték
  */
-function ifm2sugar(ifm) {
+function ifm2meret(ifm) {
     const ifmStr = String(ifm ?? "").replaceAll(' ', '').trim();
     
     if (ifmStr === "n.a.")
@@ -124,7 +116,88 @@ function ifm2sugar(ifm) {
     else if (ifmStr === "i")
         return 0;
     else
-        return ifmfv(Number(ifmStr.replace(',', '.')));
+        return Math.log2(1 + Number(ifmStr.replace(',', '.')));
+}
+
+function zoomSugar(ifm) {
+    return ifm2meret(ifm) * Math.pow(ZOOM_MERET_SZORZO_LEPESENKENT, map.getZoom() - 8);
+}
+
+function zoomMeretSzorzo() {
+    return Math.pow(ZOOM_MERET_SZORZO_LEPESENKENT, map.getZoom() - 8);
+}
+
+function normalizaltKorjegyzosegErtek(value) {
+    return String(value ?? "").replaceAll(' ', '').trim().toLowerCase();
+}
+
+function vanKorjegyzoseg(value) {
+    const normalizalt = normalizaltKorjegyzosegErtek(value);
+    return normalizalt !== "" && normalizalt !== "0" && normalizalt !== "n.a.";
+}
+
+function korjegyzosegSzam(value) {
+    const normalizalt = normalizaltKorjegyzosegErtek(value).replace(',', '.');
+    const szam = Number(normalizalt);
+    return Number.isFinite(szam) && normalizalt !== "i";
+}
+
+function lathatoKorjegyzoseg(value) {
+    const normalizalt = normalizaltKorjegyzosegErtek(value);
+
+    if (!vanKorjegyzoseg(normalizalt)) {
+        return false;
+    }
+
+    if (normalizalt === "i") {
+        return chb_korjegyzoseg_i.checked;
+    }
+
+    if (korjegyzosegSzam(normalizalt)) {
+        return chb_korjegyzoseg_szam.checked;
+    }
+
+    return true;
+}
+
+function korjegyzosegAlapSzelesseg(value) {
+    const normalizalt = normalizaltKorjegyzosegErtek(value);
+
+    if (normalizalt === "i") {
+        return 2;
+    }
+
+    if (!vanKorjegyzoseg(value)) {
+        return 0;
+    }
+
+    return ifm2meret(value);
+}
+
+
+let elsodlegesMarkers = [];  
+let korjegyzosegMarkers = [];  
+
+const tooltip_setup = {
+    permanent: false,
+    sticky: true,
+    direction: "top",
+    opacity: 0.9,
+    className: "telepules-tooltip"
+}   
+
+function tooltipeles(marker, p, index) {
+    marker.bindTooltip(felirat(p, index), tooltip_setup);
+
+    marker.on('mouseover', function () {
+        this.openTooltip();
+        // this.setStyle({ fillOpacity: 0.9 });
+    });
+
+    marker.on('mouseout', function () {
+        this.closeTooltip();
+        // this.setStyle({ fillOpacity: marker === elsodleges_iratanyag_marker ? { fillOpacity: 0.5 } : { fillOpacity: 0.2 } });
+    });
 }
 
 /**
@@ -132,42 +205,37 @@ function ifm2sugar(ifm) {
  * @param {Array<object>} points 
  */
 function rajzol(points){
+    elsodlegesMarkers = [];
+    korjegyzosegMarkers = [];
+
     points = szures_checkboxok_alapjan(points);
 
     let kihagyott = 0;
 
-    const tooltip_setup = {
-        permanent: false,
-        sticky: true,
-        direction: "top",
-        opacity: 0.9,
-        className: "telepules-tooltip"
-    }   
+
 
     for (let i = 0; i < points.length; i++) {
         const p = points[i];
         const lat = Number(String(p.lat ?? "").replace(',', '.'));
         const lon = Number(String(p.lon ?? "").replace(',', '.'));
+        const elsodleges_minMeret = 2;
+        const korjegyzoseg_minMeret = 0;
+        const nagyitas = 1;
         const szin = point2color(p);
-        const sugar = ifm2sugar(p.ifm);
-        const korjegyzoseg_sugar = sugar + ifm2sugar(p.korjegyzoseg);
+        const alapSugar = elsodleges_minMeret + nagyitas * ifm2meret(p.ifm);
+        const korjegyzosegSzelesseg = korjegyzosegAlapSzelesseg(p.korjegyzoseg);
+        const alapKorjegyzosegSugar = vanKorjegyzoseg(p.korjegyzoseg)
+            ? korjegyzoseg_minMeret + nagyitas * (alapSugar + korjegyzosegSzelesseg / 2)
+            : 0;
+        const zoomSzorzo = zoomMeretSzorzo();
+        const sugar = alapSugar * zoomSzorzo;
+        const korjegyzoseg_sugar = alapKorjegyzosegSugar * zoomSzorzo;
         
         if (!Number.isFinite(lat) || !Number.isFinite(lon) || !Number.isFinite(sugar) || sugar < 0) {
             kihagyott++;
             console.warn("Kihagyott hibas pont:", p);
             continue;
         }
-
-
-        const korjegyzoseg_iratanyag_marker = L.circleMarker([lat, lon], {
-            radius: korjegyzoseg_sugar,
-            stroke: false,
-            fill: true,
-            fillColor: szin,
-            fillOpacity: 0.2,
-            interactive: true,
-        }).addTo(pontLayer);
-
 
         const elsodleges_iratanyag_marker = L.circleMarker([lat, lon], {
             radius: sugar,
@@ -177,21 +245,29 @@ function rajzol(points){
             fillOpacity: 0.5,
             interactive: true,
         }).addTo(pontLayer);
+        elsodleges_iratanyag_marker.alapSugar = alapSugar;
+        elsodlegesMarkers.push(elsodleges_iratanyag_marker);
+        tooltipeles(elsodleges_iratanyag_marker, p, i);
 
+        if (lathatoKorjegyzoseg(p.korjegyzoseg)) {
+            const korjegyzosegAktualisSzelesseg = korjegyzosegSzelesseg * zoomSzorzo;
+            const korjegyzosegAktualisSugar = korjegyzoseg_sugar;
 
-        for (const marker of [elsodleges_iratanyag_marker, korjegyzoseg_iratanyag_marker]) {
-            marker.bindTooltip(felirat(p, i), tooltip_setup);
-
-            marker.on('mouseover', function () {
-                this.openTooltip();
-                // this.setStyle({ fillOpacity: 0.9 });
-            });
-
-            marker.on('mouseout', function () {
-                this.closeTooltip();
-                // this.setStyle({ fillOpacity: marker === elsodleges_iratanyag_marker ? { fillOpacity: 0.5 } : { fillOpacity: 0.2 } });
-            });
+            const korjegyzoseg_iratanyag_marker = L.circleMarker([lat, lon], {
+                radius: korjegyzosegAktualisSugar,
+                stroke: true,
+                color: p.korjegyzoseg == "i" ? "blue" : szin,
+                weight: korjegyzosegAktualisSzelesseg,
+                fill: false,
+                opacity: 0.2,
+                interactive: true,
+            }).addTo(pontLayer);
+            korjegyzoseg_iratanyag_marker.alapSugar = alapKorjegyzosegSugar;
+            korjegyzoseg_iratanyag_marker.alapSzelesseg = korjegyzosegSzelesseg;
+            korjegyzosegMarkers.push(korjegyzoseg_iratanyag_marker);
+            tooltipeles(korjegyzoseg_iratanyag_marker, p, i);
         }
+        
         
 
     } // end of for
@@ -201,18 +277,38 @@ function rajzol(points){
     }
 }
 
-function torolRajzoltPontok() {
-    pontLayer.clearLayers();
+function frissitKorMeretekZoomAlapjan() {
+    const zoomSzorzo = zoomMeretSzorzo();
+
+    for (const marker of elsodlegesMarkers) {
+        marker.setRadius(marker.alapSugar * zoomSzorzo);
+    }
+
+    for (const marker of korjegyzosegMarkers) {
+        marker.setRadius(marker.alapSugar * zoomSzorzo);
+        if (Number.isFinite(marker.alapSzelesseg)) {
+            marker.setStyle({ weight: marker.alapSzelesseg * zoomSzorzo });
+        }
+    }
 }
 
+function torolRajzoltPontok() {
+    pontLayer.clearLayers();
+    elsodlegesMarkers = [];
+    korjegyzosegMarkers = [];
+}
 
-const hely = [47.180102654846685, 19.504011519869753];
+let meret = 1;
+
+// const hely = [47.180102654846685, 19.504011519869753];
+const hely = [47.334286998205826, 19.951559635596578];
 
 const map = L.map('map', {
     center: hely,
     zoom: 9,
     scrollWheelZoom: true
 });
+
 
 // terepes
 // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -234,6 +330,8 @@ maxZoom: 20
 
 const pontLayer = L.layerGroup().addTo(map);
 
+map.on("zoom", frissitKorMeretekZoomAlapjan);
+
 
 setTimeout(() => map.invalidateSize(), 200);
 
@@ -243,7 +341,9 @@ setTimeout(() => map.invalidateSize(), 200);
 let chb_tipus_k = document.getElementById("chb_tipus_k");
 let chb_tipus_mv = document.getElementById("chb_tipus_mv");
 let chb_tipus_kmv = document.getElementById("chb_tipus_kmv");
-let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv];
+let chb_korjegyzoseg_i = document.getElementById("chb_korjegyzoseg_i");
+let chb_korjegyzoseg_szam = document.getElementById("chb_korjegyzoseg_szam");
+let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_korjegyzoseg_i, chb_korjegyzoseg_szam];
 
 for (const chb of checkboxok) {
     chb.addEventListener("change", () => {

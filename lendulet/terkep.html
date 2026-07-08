@@ -13,27 +13,7 @@
 </head>
 <body>
     <div id="vezerlopult">
-        <button id="kovgomb">Következő település</button>
-        <div id="telepulesnev">Településnév</div>
-        <input type="number" id="telepulesindex" min="0" max="4000" value="0">
-        <div id="geonames_coord">koordináták a geonamesből</div>
-        <button id="geonamesgomb">Ugrás a Geonames koordinátákhoz</button>
-        <div id="osm_coord">koordináták az OSM-ből</div>
-        <button id="osmgomb">Ugrás az OSM koordinátákhoz</button>
-        <div id="tavolsag">Távolság</div>
-        <div id="figyelmezteto">Ez OK</div>
-        <div id="info"></div>
-        <!-- <button id="semmigomb">Semmi</button>
-        <button id="mindengomb">Minden</button>
-        <button id="kgomb">Községek</button>
-        <button id="kgomb18">Községek 18. századtól</button>
-        <button id="kgomb19">Községek 19. századtól</button>
-        <button id="kgomb20">Községek 20. századtól</button>
-        <button id="mvgomb">Mezővárosok</button>
-        <button id="mvgomb18">Mezővárosok 18. századtól</button>
-        <button id="mvgomb19">Mezővárosok 19. századtól</button>
-        <button id="mvgomb20">Mezővárosok 20. századtól</button> -->
-
+        
         <div id="evkorcsuszkak">
             <h2>Időintervallum</h2>
             <label for="mettol_csuszka">mettől:</label>
@@ -53,7 +33,27 @@
             <input type="checkbox" id="chb_tipus_kmv" checked>
             <label for="chb_tipus_kmv">Községből lett mezővárosok</label>
         </div>
-                
+        <div id="korjegyzosegek">
+            <h2>Körjegyzőségek</h2>
+            <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
+            <label for="chb_korjegyzoseg_szam">Számszerű körjegyzőségi adatok</label>
+            <input type="checkbox" id="chb_korjegyzoseg_i" checked>
+            <label for="chb_korjegyzoseg_i">ismeretlen körjegyzőségi adatok</label>
+        </div>
+        
+        <div id="vezerlopultAttilanak">
+            <h2>Geolokáció hibakereső eszközök (Attilának)</h2>
+            <button id="kovgomb">Következő település</button>
+            <div id="telepulesnev">Településnév</div>
+            <input type="number" id="telepulesindex" min="0" max="4000" value="0">
+            <div id="geonames_coord">koordináták a geonamesből</div>
+            <button id="geonamesgomb">Ugrás a Geonames koordinátákhoz</button>
+            <div id="osm_coord">koordináták az OSM-ből</div>
+            <button id="osmgomb">Ugrás az OSM koordinátákhoz</button>
+            <div id="tavolsag">Távolság</div>
+            <div id="figyelmezteto">Ez OK</div>
+            <div id="info"></div>
+        </div>
     </div>
     <div id="map"></div>
 </body>
