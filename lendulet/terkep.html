@@ -9,9 +9,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="data.js" defer></script>
     <script src="terkep.js" defer></script>
-    <script defer>
-        rajzol(points);
-    </script>
     <script src="ellenorzes.js" defer></script>
 </head>
 <body>
@@ -36,18 +33,19 @@
         <button id="mvgomb18">Mezővárosok 18. századtól</button>
         <button id="mvgomb19">Mezővárosok 19. századtól</button>
         <button id="mvgomb20">Mezővárosok 20. századtól</button> -->
-        
-        <div id="evkorok">
-            <h2>Évkör szerinti megszorítások</h2>
-            <input type="checkbox" id="chb_evkor18">
-            <label for="chb_evkor18">18. század</label>
-            <input type="checkbox" id="chb_evkor19">
-            <label for="chb_evkor19">19. század</label>
-            <input type="checkbox" id="chb_evkor20">
-            <label for="chb_evkor20">20. század</label>
+
+        <div id="evkorcsuszkak">
+            <h2>Időintervallum</h2>
+            <label for="mettol_csuszka">mettől:</label>
+            <input type="number" id="mettol_ertek" value="1000">
+            <input type="range" id="mettol_csuszka" min="1000" max="2000" value="1000">
+            <label for="meddig_csuszka">meddig:</label>
+            <input type="number" id="meddig_ertek" value="2000">
+            <input type="range" id="meddig_csuszka" min="1000" max="2000" value="2000">
+            <button type="button" id="idointervallum_gomb">Alkalmaz</button>
         </div>
         <div id="tipusok">
-            <h2>Látható típusok</h2>
+            <h2>Településtípusok</h2>
             <input type="checkbox" id="chb_tipus_k" checked>
             <label for="chb_tipus_k">Községek</label>
             <input type="checkbox" id="chb_tipus_mv" checked>
