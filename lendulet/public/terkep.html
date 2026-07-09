@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Térkép</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="terkep.css" />
+    <link rel="stylesheet" href="sajat_leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="../data.js" defer></script>
+    <script src="terkep.js" defer></script>
+    <script src="ellenorzes.js" defer></script>
+</head>
+<body>
+    <div id="vezerlopult">
+        <div id="evkorcsuszkak">
+            <h2>Időintervallum</h2>
+            <label for="mettol_csuszka">mettől:</label>
+            <input type="number" id="mettol_ertek" value="1000">
+            <input type="range" id="mettol_csuszka" min="1000" max="2000" value="1000">
+            <label for="meddig_csuszka">meddig:</label>
+            <input type="number" id="meddig_ertek" value="2000">
+            <input type="range" id="meddig_csuszka" min="1000" max="2000" value="2000">
+            <button type="button" id="idointervallum_gomb">Alkalmaz</button>
+        </div>
+        <div id="tipusok">
+            <h2>Településtípusok</h2>
+            <input type="checkbox" id="chb_tipus_k" checked>
+            <label for="chb_tipus_k">Községek</label>
+            <input type="checkbox" id="chb_tipus_mv" checked>
+            <label for="chb_tipus_mv">Mezővárosok</label>
+            <input type="checkbox" id="chb_tipus_kmv" checked>
+            <label for="chb_tipus_kmv">Községből lett mezővárosok</label>
+        </div>
+        <div id="korjegyzosegek">
+            <h2>Körjegyzőségek</h2>
+            <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
+            <label for="chb_korjegyzoseg_szam">Számszerű körjegyzőségi adatok</label>
+            <input type="checkbox" id="chb_korjegyzoseg_i" checked>
+            <label for="chb_korjegyzoseg_i">ismeretlen körjegyzőségi adatok</label>
+        </div>
+        
+        <div id="megyevalaszto">
+            <h2>Megyék szerinti szűrések</h2>
+            <input type="checkbox" id="chb_megye_bacs" checked>
+            <label for="chb_megye_bacs">Bács-Kiskun</label>
+            <input type="checkbox" id="chb_megye_baranya" checked>
+            <label for="chb_megye_baranya">Baranya</label>
+            <input type="checkbox" id="chb_megye_bekes" checked>
+            <label for="chb_megye_bekes">Békés</label>
+            <input type="checkbox" id="chb_megye_borsod" checked>
+            <label for="chb_megye_borsod">Borsod-Abaúj-Zemplén</label>
+            <input type="checkbox" id="chb_megye_csongrad" checked>
+            <label for="chb_megye_csongrad">Csongrád-Csanád</label>
+            <input type="checkbox" id="chb_megye_fejer" checked>
+            <label for="chb_megye_fejer">Fejér</label>
+            <input type="checkbox" id="chb_megye_gyor" checked>
+            <label for="chb_megye_gyor">Győr-Moson-Sopron</label>
+            <input type="checkbox" id="chb_megye_hajdu" checked>
+            <label for="chb_megye_hajdu">Hajdú-Bihar</label>
+            <input type="checkbox" id="chb_megye_heves" checked>
+            <label for="chb_megye_heves">Heves</label>
+            <input type="checkbox" id="chb_megye_jasz" checked>
+            <label for="chb_megye_jasz">Jász-Nagykun-Szolnok</label>
+            <input type="checkbox" id="chb_megye_komarom" checked>
+            <label for="chb_megye_komarom">Komárom-Esztergom</label>
+            <input type="checkbox" id="chb_megye_nograd" checked>
+            <label for="chb_megye_nograd">Nógrád</label>
+            <input type="checkbox" id="chb_megye_pest" checked>
+            <label for="chb_megye_pest">Pest</label>
+            <input type="checkbox" id="chb_megye_somogy" checked>
+            <label for="chb_megye_somogy">Somogy</label>
+            <input type="checkbox" id="chb_megye_szabolcs" checked>
+            <label for="chb_megye_szabolcs">Szabolcs-Szatmár-Bereg</label>
+            <input type="checkbox" id="chb_megye_tolna" checked>
+            <label for="chb_megye_tolna">Tolna</label>
+            <input type="checkbox" id="chb_megye_vas" checked>
+            <label for="chb_megye_vas">Vas</label>
+            <input type="checkbox" id="chb_megye_veszprem" checked>
+            <label for="chb_megye_veszprem">Veszprém</label>
+            <input type="checkbox" id="chb_megye_zala" checked>
+            <label for="chb_megye_zala">Zala</label>
+        </div>
+
+        <div id="vezerlopultAttilanak">
+            <h2>Geolokáció hibakereső eszközök (Attilának)</h2>
+            <button id="kovgomb">Következő település</button>
+            <div id="telepulesnev">Településnév</div>
+            <input type="number" id="telepulesindex" min="0" max="4000" value="0">
+            <div id="geonames_coord">koordináták a geonamesből</div>
+            <button id="geonamesgomb">Ugrás a Geonames koordinátákhoz</button>
+            <div id="osm_coord">koordináták az OSM-ből</div>
+            <button id="osmgomb">Ugrás az OSM koordinátákhoz</button>
+            <div id="tavolsag">Távolság</div>
+            <div id="figyelmezteto">Ez OK</div>
+            <div id="info"></div>
+        </div>
+        
+
+    </div>
+    <div id="map"></div>
+</body>
+</html>

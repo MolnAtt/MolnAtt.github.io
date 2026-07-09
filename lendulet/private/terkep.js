@@ -87,6 +87,7 @@ function szures_checkboxok_alapjan(points) {
         if (p.tipus == "k" && !chb_tipus_k.checked) return false;
         if (p.tipus == "mv" && !chb_tipus_mv.checked) return false;
         if (p.tipus == "kmv" && !chb_tipus_kmv.checked) return false;
+        if (!lathatoMegye(p.megye)) return false;
         return true;
     }).filter(p => {
         const telepules_mettol = Number(p.mettol);
@@ -129,6 +130,26 @@ function zoomMeretSzorzo() {
 
 function normalizaltKorjegyzosegErtek(value) {
     return String(value ?? "").replaceAll(' ', '').trim().toLowerCase();
+}
+
+function normalizaltMegyeKod(megyeNev) {
+    const elsoSzo = String(megyeNev ?? "").trim().split(/[-\s]+/)[0] ?? "";
+
+    return elsoSzo
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+function lathatoMegye(megyeNev) {
+    const kod = normalizaltMegyeKod(megyeNev);
+    const checkbox = megyeCheckboxokByKod[kod];
+
+    if (!checkbox) {
+        return true;
+    }
+
+    return checkbox.checked;
 }
 
 function vanKorjegyzoseg(value) {
@@ -343,7 +364,11 @@ let chb_tipus_mv = document.getElementById("chb_tipus_mv");
 let chb_tipus_kmv = document.getElementById("chb_tipus_kmv");
 let chb_korjegyzoseg_i = document.getElementById("chb_korjegyzoseg_i");
 let chb_korjegyzoseg_szam = document.getElementById("chb_korjegyzoseg_szam");
-let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_korjegyzoseg_i, chb_korjegyzoseg_szam];
+let megyeCheckboxok = Array.from(document.querySelectorAll('#megyevalaszto input[type="checkbox"][id^="chb_megye_"]'));
+let megyeCheckboxokByKod = Object.fromEntries(
+    megyeCheckboxok.map(chb => [chb.id.replace("chb_megye_", ""), chb])
+);
+let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_korjegyzoseg_i, chb_korjegyzoseg_szam, ...megyeCheckboxok];
 
 for (const chb of checkboxok) {
     chb.addEventListener("change", () => {
