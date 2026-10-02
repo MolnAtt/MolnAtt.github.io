@@ -331,23 +331,30 @@ const map = L.map('map', {
 });
 
 
-// terepes
+// terepes – OpenStreetMap standard, kulcs nélkül (aktív)
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap közreműködők'
+}).addTo(map);
+
+// Világos, halványszürke alternatívák (ha cserélni szeretnéd, csak ezt a blokkot kapcsold át):
+// Esri World Light Gray – kulcs nélkül, de a térképen Magyarország térségében kínai címkék is előfordulnak
+// L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+//   attribution: '&copy; Esri, HERE, Garmin, OpenStreetMap contributors',
+//   maxZoom: 19
+// }).addTo(map);
+// CARTO light_all – 2025 óta API-kulcs kell hozzá: https://carto.com/basemaps/apikey/
+// L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=YOUR_KEY", {
+//   attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+//   subdomains: "abcd",
+//   maxZoom: 20
+// }).addTo(map);
+// OSM + CSS-szürke filter – nem kell kulcs, de a címkék is szürkék lesznek
 // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //   maxZoom: 19,
-//   attribution: '&copy; OpenStreetMap közreműködők'
+//   attribution: '&copy; OpenStreetMap közreműködők',
+//   className: 'leaflet-tile-gray'
 // }).addTo(map);
-
-// utakhoz
-// L.tileLayer("https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png", {
-// attribution: '&copy; Stadia Maps &copy; Stamen Design &copy; OpenMapTiles &copy; OpenStreetMap contributors',
-// maxZoom: 20
-// }).addTo(map);
-
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-subdomains: "abcd",
-maxZoom: 20
-}).addTo(map);
 
 const pontLayer = L.layerGroup().addTo(map);
 
