@@ -373,6 +373,13 @@ csempeBeallit(csempeSelect.value); // kezdőbetöltés
 
 const pontLayer = L.layerGroup().addTo(map);
 
+// Vezérlőpult nyitása/zárása mobilon
+const vezerlopultGomb = document.getElementById("vezerlopult_gomb");
+const vezerlopult = document.getElementById("vezerlopult");
+vezerlopultGomb.addEventListener("click", () => {
+    vezerlopult.classList.toggle("nyitva");
+});
+
 map.on("zoom", frissitKorMeretekZoomAlapjan);
 
 
@@ -571,9 +578,9 @@ function frissitTelepulesLista() {
  */
 function ugrikPontra(lat, lon, zoom) {
     const pult = document.getElementById("vezerlopult");
-    const takartSzelesseg = pult ? pult.offsetWidth + 20 : 0; // panel + jobb margó
+    const takartSzelesseg = pult && pult.offsetParent !== null ? pult.offsetWidth + 20 : 0;
     const celPont = map.project([lat, lon], zoom);
-    const etoltPont = celPont.add([takartSzelesseg / 2, 0]); // középpontot keletre toljuk, így a pont balra, a látható középre kerül
+    const etoltPont = celPont.add([takartSzelesseg / 2, 0]);
     map.setView(map.unproject(etoltPont, zoom), zoom);
 }
 
