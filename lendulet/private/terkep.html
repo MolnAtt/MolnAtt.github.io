@@ -21,6 +21,9 @@
 <body>
     <button id="vezerlopult_gomb" aria-label="Vezérlőpult nyitása/zárása">☰</button>
     <div id="vezerlopult">
+        <div id="darabszam">
+            <strong>0</strong> település
+        </div>
         <div id="csempevalaszto">
             <h2>Térképtípus</h2>
             <select id="csempe_stilus">
@@ -50,11 +53,11 @@
             <label for="chb_tipus_kmv">Községből lett mezővárosok</label>
         </div>
         <div id="korjegyzosegek">
-            <h2>Körjegyzőségek</h2>
+            <h2>Egyéb iratanyag</h2>
             <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
-            <label for="chb_korjegyzoseg_szam">Számszerű körjegyzőségi adatok</label>
+            <label for="chb_korjegyzoseg_szam">Számszerű egyéb iratanyag</label>
             <input type="checkbox" id="chb_korjegyzoseg_i" checked>
-            <label for="chb_korjegyzoseg_i">ismeretlen körjegyzőségi adatok</label>
+            <label for="chb_korjegyzoseg_i">ismeretlen egyéb iratanyag</label>
         </div>
         
         <div id="megyevalaszto">
@@ -92,11 +95,11 @@
             </div>
             <div class="legenda-sor">
                 <span class="legenda-kor" style="border-color: blue;"></span>
-                <span>Ismeretlen körjegyzőség ifm (i)</span>
+                <span>Ismeretlen egyéb iratanyag ifm (i)</span>
             </div>
             <div class="legenda-sor">
                 <span class="legenda-kor" style="border-color: #666;"></span>
-                <span>Számszerű körjegyzőség</span>
+                <span>Számszerű egyéb iratanyag ifm (szam)</span>
             </div>
         </div>
 
