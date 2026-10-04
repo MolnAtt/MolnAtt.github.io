@@ -59,7 +59,33 @@ body { overflow: hidden; }
 #megyevalaszto{
     display:grid;
     gap: 1px;
-    grid-template-columns: 30px auto;
+}
+
+#megyeterkep{
+    width: 100%;
+}
+
+#megyeterkep svg{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#megyeterkep path{
+    transition: fill 0.15s;
+}
+
+#telepuleskereso{
+    display:grid;
+    gap: 6px;
+}
+
+#telepuleskereso_input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 
