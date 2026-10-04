@@ -137,4 +137,33 @@ body { overflow: hidden; }
     border-radius: 4px;
 }
 
+#legenda{
+    display: grid;
+    gap: 6px;
+}
+
+.legenda-sor{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.legenda-pont{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.legenda-kor{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid;
+    flex-shrink: 0;
+    background: transparent;
+}
+
 
