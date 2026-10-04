@@ -320,11 +320,13 @@ function torolRajzoltPontok() {
 let meret = 1;
 
 // const hely = [47.180102654846685, 19.504011519869753];
-const hely = [47.334286998205826, 19.951559635596578];
+// const hely = [47.334286998205826, 19.951559635596578];
+const hely = [46.80713, 18.92763]; // Dunaföldvár
+const kezdoZoom = window.innerWidth <= 768 ? 6 : 7;
 
 const map = L.map('map', {
     center: hely,
-    zoom: 9,
+    zoom: kezdoZoom,
     scrollWheelZoom: true
 });
 
