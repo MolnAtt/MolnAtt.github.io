@@ -329,30 +329,47 @@ const map = L.map('map', {
 });
 
 
-// terepes – OpenStreetMap standard, kulcs nélkül (aktív)
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap közreműködők'
-}).addTo(map);
+// Csempeválasztó dropdown
 
-// Világos, halványszürke alternatívák (ha cserélni szeretnéd, csak ezt a blokkot kapcsold át):
-// Esri World Light Gray – kulcs nélkül, de a térképen Magyarország térségében kínai címkék is előfordulnak
-// L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-//   attribution: '&copy; Esri, HERE, Garmin, OpenStreetMap contributors',
-//   maxZoom: 19
-// }).addTo(map);
-// CARTO light_all – 2025 óta API-kulcs kell hozzá: https://carto.com/basemaps/apikey/
-// L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=YOUR_KEY", {
-//   attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-//   subdomains: "abcd",
-//   maxZoom: 20
-// }).addTo(map);
-// OSM + CSS-szürke filter – nem kell kulcs, de a címkék is szürkék lesznek
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//   maxZoom: 19,
-//   attribution: '&copy; OpenStreetMap közreműködők',
-//   className: 'leaflet-tile-gray'
-// }).addTo(map);
+const CARTO_API_KEY = "cb1_496l_1_19493acc3f7411b849230888";
+
+const CSEMPE_STILUSOK = {
+    osm: {
+        url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        options: { maxZoom: 19, attribution: '&copy; OpenStreetMap közreműködők' }
+    },
+    carto: {
+        url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" + (CARTO_API_KEY ? `?key=${CARTO_API_KEY}` : ""),
+        options: { subdomains: "abcd", maxZoom: 20, attribution: '&copy; OpenStreetMap contributors &copy; CARTO' }
+    },
+    esri: {
+        url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+        options: { maxZoom: 19, attribution: '&copy; Esri, HERE, Garmin, OpenStreetMap contributors' }
+    },
+    osmgray: {
+        url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        options: { maxZoom: 19, attribution: '&copy; OpenStreetMap közreműködők', className: 'leaflet-tile-gray' }
+    }
+};
+
+let aktivCsempeLayer = null;
+
+/**
+ * Beállítja a térkép háttércsempéit a kiválasztott stílus alapján.
+ * @param {string} stilusKulcs - a CSEMPE_STILUSOK kulcsa
+ */
+function csempeBeallit(stilusKulcs) {
+    if (aktivCsempeLayer) {
+        map.removeLayer(aktivCsempeLayer);
+    }
+    const stilus = CSEMPE_STILUSOK[stilusKulcs];
+    if (!stilus) return;
+    aktivCsempeLayer = L.tileLayer(stilus.url, stilus.options).addTo(map);
+}
+
+const csempeSelect = document.getElementById("csempe_stilus");
+csempeSelect.addEventListener("change", () => csempeBeallit(csempeSelect.value));
+csempeBeallit(csempeSelect.value); // kezdőbetöltés
 
 const pontLayer = L.layerGroup().addTo(map);
 

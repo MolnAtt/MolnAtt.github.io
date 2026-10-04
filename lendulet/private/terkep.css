@@ -75,6 +75,23 @@ body { overflow: hidden; }
     transition: fill 0.15s;
 }
 
+#csempevalaszto{
+    display:grid;
+    gap: 4px;
+}
+
+#csempe_stilus{
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+}
+
+.leaflet-tile-gray{
+    filter: grayscale(0.8) brightness(1.1) contrast(0.8);
+}
+
 #telepuleskereso{
     display:grid;
     gap: 6px;
