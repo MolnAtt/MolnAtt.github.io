@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="../data.js" defer></script>
     <script src="terkep.js" defer></script>
-    <script src="ellenorzes.js" defer></script>
+    <!-- <script src="ellenorzes.js" defer></script> -->
 </head>
 <body>
     <div id="vezerlopult">
@@ -66,21 +66,6 @@
             <input type="text" id="telepuleskereso_input" list="telepuleslista" placeholder="Kezdj el gépelni…" autocomplete="off">
             <datalist id="telepuleslista"></datalist>
         </div>
-
-        <div id="vezerlopultAttilanak">
-            <h2>Geolokáció hibakereső eszközök (Attilának)</h2>
-            <button id="kovgomb">Következő település</button>
-            <div id="telepulesnev">Településnév</div>
-            <input type="number" id="telepulesindex" min="0" max="4000" value="0">
-            <div id="geonames_coord">koordináták a geonamesből</div>
-            <button id="geonamesgomb">Ugrás a Geonames koordinátákhoz</button>
-            <div id="osm_coord">koordináták az OSM-ből</div>
-            <button id="osmgomb">Ugrás az OSM koordinátákhoz</button>
-            <div id="tavolsag">Távolság</div>
-            <div id="figyelmezteto">Ez OK</div>
-            <div id="info"></div>
-        </div>
-        
 
     </div>
     <div id="map"></div>
