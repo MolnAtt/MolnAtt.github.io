@@ -3,6 +3,7 @@ console.log("verzió: 2026.10.07. 13:02");
 
 const ZOOM_MERET_SZORZO_LEPESENKENT = 1.5;
 const ISMERETLEN_EGYEB_IRATANYAG_PANE = "ismeretlenEgyebIratanyagPane";
+const TOOLTIP_TAKARITAS_MS = 10_000;
 
 /**
  * megadja a pont színét az ifm és a tipus alapján.
@@ -206,6 +207,7 @@ function egyebIratanyagAlapSzelesseg(value) {
 let elsodlegesMarkers = [];  
 let egyebIratanyagMarkers = [];  
 let elsodlegesIratanyagMintasMarkers = [];
+const tooltipeltMarkerek = new Set();
 
 const tooltip_setup = {
     permanent: false,
@@ -217,16 +219,43 @@ const tooltip_setup = {
 
 function tooltipeles(marker, p, index) {
     marker.bindTooltip(felirat(p, index), tooltip_setup);
+    marker._kurzorFolotte = false;
+    tooltipeltMarkerek.add(marker);
 
     marker.on('mouseover', function () {
+        this._kurzorFolotte = true;
         this.openTooltip();
         // this.setStyle({ fillOpacity: 0.9 });
     });
 
     marker.on('mouseout', function () {
+        this._kurzorFolotte = false;
         this.closeTooltip();
         // this.setStyle({ fillOpacity: marker === elsodleges_iratanyag_marker ? { fillOpacity: 0.5 } : { fillOpacity: 0.2 } });
     });
+}
+
+function markerFolottVanKurzor(marker) {
+    if (!marker) return false;
+
+    if (marker._kurzorFolotte) return true;
+
+    const markerElem = marker._path ?? marker._icon;
+    if (markerElem?.matches?.(':hover')) return true;
+
+    const tooltipElem = marker.getTooltip?.()?._container;
+    if (tooltipElem?.matches?.(':hover')) return true;
+
+    return false;
+}
+
+function tooltipTakaritas() {
+    for (const marker of tooltipeltMarkerek) {
+        if (!map.hasLayer(marker)) continue;
+        if (!marker.isTooltipOpen?.()) continue;
+        if (markerFolottVanKurzor(marker)) continue;
+        marker.closeTooltip();
+    }
 }
 
 function ismeretlenEgyebIratanyagIcon(sugar, szin) {
@@ -480,6 +509,8 @@ vezerlopultGomb.addEventListener("click", () => {
 });
 
 map.on("zoom", frissitKorMeretekZoomAlapjan);
+
+setInterval(tooltipTakaritas, TOOLTIP_TAKARITAS_MS);
 
 
 setTimeout(() => map.invalidateSize(), 200);
