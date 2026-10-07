@@ -1,3 +1,6 @@
+
+console.log("verzió: 2026.07.07. 22:03");
+
 const ZOOM_MERET_SZORZO_LEPESENKENT = 1.5;
 
 /**
