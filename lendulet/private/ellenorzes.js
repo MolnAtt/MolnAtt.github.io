@@ -1,3 +1,4 @@
+﻿/*
 
 async function telepulesKoordinatak(telepulesNev) {
     const url =
@@ -15,7 +16,7 @@ async function telepulesKoordinatak(telepulesNev) {
         }
     });
 
-    if (!response.ok) throw new Error("Hálózati hiba.");
+    if (!response.ok) throw new Error("HĂˇlĂłzati hiba.");
 
     const data = await response.json();
 
@@ -37,7 +38,7 @@ function zarojel_elotti_resze(s){
 async function ellenorzes(p) {
     document.getElementById("telepulesnev").textContent = p.nev;
     let geonames_point = [p.lat, p.lon];
-    document.getElementById("geonames_coord").textContent = `Geonames koordináták: ${geonames_point}`;
+    document.getElementById("geonames_coord").textContent = `Geonames koordinĂˇtĂˇk: ${geonames_point}`;
     document.getElementById("info").textContent = `tipus: ${p.tipus}, ifm: ${p.ifm}, szin: ${point2color(p)}, felirat: ${p.felirat}`;
 
     let OSM_point = await telepulesKoordinatak(p.nev);
@@ -45,7 +46,7 @@ async function ellenorzes(p) {
     if (OSM_point === null) {
         let zarojeles_resz = zarojeles_resze(p.nev);
         if (zarojeles_resz) {
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
+            await new Promise(resolve => setTimeout(resolve, 1000)); // VĂˇrakozĂˇs 1 mĂˇsodpercig a kĂ¶vetkezĹ‘ lekĂ©rĂ©s elĹ‘tt
             OSM_point = await telepulesKoordinatak(zarojeles_resz.trim());
         }
     }
@@ -55,7 +56,7 @@ async function ellenorzes(p) {
         if (zarojel_elotti_resz) {
             const keresendo = zarojel_elotti_resz.trim();
             if (keresendo && keresendo !== p.nev.trim()) {
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
+                await new Promise(resolve => setTimeout(resolve, 1000)); // VĂˇrakozĂˇs 1 mĂˇsodpercig a kĂ¶vetkezĹ‘ lekĂ©rĂ©s elĹ‘tt
                 OSM_point = await telepulesKoordinatak(keresendo);
             }
         }
@@ -63,30 +64,30 @@ async function ellenorzes(p) {
 
     
     if (!OSM_point) {
-        document.getElementById("osm_coord").textContent = `OSM koordináták: Nincs adat`;
-        document.getElementById("tavolsag").textContent = `Távolság: Nincs adat`;
+        document.getElementById("osm_coord").textContent = `OSM koordinĂˇtĂˇk: Nincs adat`;
+        document.getElementById("tavolsag").textContent = `TĂˇvolsĂˇg: Nincs adat`;
         document.getElementById("figyelmezteto").textContent = "Figyelem! Nincs adat az OSM-ben!";
         document.getElementById("figyelmezteto").style.color = "red";
         return null;
     }
-    document.getElementById("osm_coord").textContent = `OSM koordináták: ${OSM_point[0]}, ${OSM_point[1]}`;
+    document.getElementById("osm_coord").textContent = `OSM koordinĂˇtĂˇk: ${OSM_point[0]}, ${OSM_point[1]}`;
     let tav = map.distance(geonames_point, OSM_point);
-    document.getElementById("tavolsag").textContent = `Távolság: ${(tav/1000).toFixed(2)} km`;
+    document.getElementById("tavolsag").textContent = `TĂˇvolsĂˇg: ${(tav/1000).toFixed(2)} km`;
     if (tav > 5000) {
-        document.getElementById("figyelmezteto").textContent = "Figyelem! Az eltérés több, mint 5 km!";
+        document.getElementById("figyelmezteto").textContent = "Figyelem! Az eltĂ©rĂ©s tĂ¶bb, mint 5 km!";
         document.getElementById("figyelmezteto").style.color = "red";
     } else if (tav > 1000) {
-        document.getElementById("figyelmezteto").textContent = "Figyelem! Az eltérés több, mint 1 km!";
+        document.getElementById("figyelmezteto").textContent = "Figyelem! Az eltĂ©rĂ©s tĂ¶bb, mint 1 km!";
         document.getElementById("figyelmezteto").style.color = "orange";
     } else {
         document.getElementById("figyelmezteto").textContent = "Ez OK";
         document.getElementById("figyelmezteto").style.color = "black";
     }
 
-    // console.log(`Település: ${p.nev}`);
-    // console.log(`Geonames koordináták: ${geonames_point}`);
-    // console.log(`OSM koordináták: ${OSM_point}`);
-    // console.log(`Távolság: ${tav} m`);
+    // console.log(`TelepĂĽlĂ©s: ${p.nev}`);
+    // console.log(`Geonames koordinĂˇtĂˇk: ${geonames_point}`);
+    // console.log(`OSM koordinĂˇtĂˇk: ${OSM_point}`);
+    // console.log(`TĂˇvolsĂˇg: ${tav} m`);
     // console.log(`tipus: ${p.tipus}, ifm: ${p.ifm}, szin: ${point2color(p)}, felirat: ${p.felirat}`);
     // console.log(p);
     return tav;
@@ -102,7 +103,7 @@ function ugrik_str(str, zoom = map.getZoom()) {
     // Kiszedi az elso ket szamot a szovegbol (pl. "...: 47.1, 19.2").
     const match = str.match(/(-?\d+(?:[\.,]\d+)?)\s*,\s*(-?\d+(?:[\.,]\d+)?)/);
     if (!match) {
-        document.getElementById("figyelmezteto").textContent = "Nincs használható koordináta az ugráshoz.";
+        document.getElementById("figyelmezteto").textContent = "Nincs hasznĂˇlhatĂł koordinĂˇta az ugrĂˇshoz.";
         document.getElementById("figyelmezteto").style.color = "red";
         return;
     }
@@ -111,7 +112,7 @@ function ugrik_str(str, zoom = map.getZoom()) {
     const lon = Number(match[2].replace(',', '.'));
 
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
-        document.getElementById("figyelmezteto").textContent = "Érvénytelen koordináta formátum.";
+        document.getElementById("figyelmezteto").textContent = "Ă‰rvĂ©nytelen koordinĂˇta formĂˇtum.";
         document.getElementById("figyelmezteto").style.color = "red";
         return;
     }
@@ -136,20 +137,20 @@ async function auto_ellenorzes(mettol, meddig) {
     for (let i = mettol; i <= meddig; i++) {
         let p = points[i];
         let tav = await ellenorzes(p);
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Várakozás 1 másodpercig a következő lekérés előtt
+        await new Promise(resolve => setTimeout(resolve, 1000)); // VĂˇrakozĂˇs 1 mĂˇsodpercig a kĂ¶vetkezĹ‘ lekĂ©rĂ©s elĹ‘tt
 
         if (tav === null) {
             
             console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: Nincs adat: ${p.nev}`, 'color: purple; font-size: larger');
             nemtalalt.push({index : i, point : p});
         } else if (tav > 5000) {
-            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: Túl nagy eltérés: ${p.nev}, távolság: ${tav} m`, 'color: red; font-size: larger');
+            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: TĂşl nagy eltĂ©rĂ©s: ${p.nev}, tĂˇvolsĂˇg: ${tav} m`, 'color: red; font-size: larger');
             rossz.push({index : i, point : p});
         } else if (tav > 1000) {
-            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: Figyelmeztetés: ${p.nev}, távolság: ${tav} m`, 'color: orange; font-size: larger');
+            console.log(`%c${i.toString().padStart(4, '0')} / ${meddig}: FigyelmeztetĂ©s: ${p.nev}, tĂˇvolsĂˇg: ${tav} m`, 'color: orange; font-size: larger');
             gyanus.push({index : i, point : p});
         } else {
-            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Rendben: ${p.nev}, távolság: ${tav} m`);
+            console.log(`${i.toString().padStart(4, '0')} / ${meddig}: Rendben: ${p.nev}, tĂˇvolsĂˇg: ${tav} m`);
             jo.push({index : i, point : p});
         }
     }
@@ -160,3 +161,5 @@ async function auto_ellenorzes(mettol, meddig) {
         jo: jo
     };
 }
+
+*/
