@@ -1,5 +1,5 @@
 
-console.log("verzió: 2026.07.07. 22:03");
+console.log("verzió: 2026.10.07. 13:02");
 
 const ZOOM_MERET_SZORZO_LEPESENKENT = 1.5;
 
