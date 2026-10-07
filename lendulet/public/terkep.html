@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="hu">
 <head>
     <meta charset="utf-8">
@@ -62,14 +62,14 @@
                 Községek/mezővárosok
             </label>
         </div>
-        <div id="korjegyzosegek">
+        <div id="egyeb_iratanyagok">
             <h2>Egyéb iratanyag</h2>
             <label>
-                <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
+                <input type="checkbox" id="chb_egyeb_iratanyag_szam" checked>
                 Számszerű egyéb iratanyag
             </label>
             <label>
-                <input type="checkbox" id="chb_korjegyzoseg_i" checked>
+                <input type="checkbox" id="chb_egyeb_iratanyag_i" checked>
                 ismeretlen egyéb iratanyag
             </label>
         </div>
@@ -100,20 +100,19 @@
                 <span>Község/mezőváros (kmv)</span>
             </div>
             <div class="legenda-sor">
-                <span class="legenda-pont" style="background-color: magenta;"></span>
-                <span>Ismeretlen ifm (ifm ≠ "", "n.a.", tipus ≠ k/mv/kmv)</span>
+                <span class="legenda-kor legenda-mintas-elsodleges-kor"></span>
+                <span>Nincs elsődleges iratanyag (ifm = "" vagy "n.a."): sávozott kör</span>
             </div>
             <div class="legenda-sor">
-                <span class="legenda-pont" style="background-color: black;"></span>
-                <span>Nincs adat (ifm = "" vagy "n.a.")</span>
+                <span class="legenda-mintas-kor" style="--legenda-szin:brown;">
+                    <span class="legenda-mintas-kor-kulso"></span>
+                    <span class="legenda-mintas-kor-belso"></span>
+                </span>
+                <span>Ismeretlen egyéb iratanyag ifm (i): ellentétesen sávozott külső körgyűrű, a település színével</span>
             </div>
             <div class="legenda-sor">
-                <span class="legenda-kor" style="border-color: blue;"></span>
-                <span>Ismeretlen egyéb iratanyag ifm (i)</span>
-            </div>
-            <div class="legenda-sor">
-                <span class="legenda-kor" style="border-color: #666;"></span>
-                <span>Számszerű egyéb iratanyag ifm (szam)</span>
+                <span class="legenda-kor legenda-koveto-kor" style="--legenda-szin:brown;"></span>
+                <span>Számszerű egyéb iratanyag ifm (szám): külső kör, a település színével</span>
             </div>
         </div>
 
@@ -121,3 +120,5 @@
     <div id="map"></div>
 </body>
 </html>
+
+

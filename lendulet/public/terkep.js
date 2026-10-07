@@ -1,7 +1,8 @@
-
+﻿
 console.log("verzió: 2026.10.07. 13:02");
 
 const ZOOM_MERET_SZORZO_LEPESENKENT = 1.5;
+const ISMERETLEN_EGYEB_IRATANYAG_PANE = "ismeretlenEgyebIratanyagPane";
 
 /**
  * megadja a pont színét az ifm és a tipus alapján.
@@ -49,14 +50,14 @@ function felirat(p, index = null) {
     const mettol = escapeHtml(p.mettol);
     const meddig = escapeHtml(p.meddig);
     const elsodleges_iratanyag_html = `<div class="tooltip-ifm">elsődleges iratanyag: ${escapeHtml(p.ifm ? `${p.ifm} ifm` : "-")}</div>`;
-    const korjegyzoseg_iratanyag_html = p.korjegyzoseg ? `<div class="tooltip-korjegyzoseg">körjegyzőség iratanyag: ${escapeHtml(`${p.korjegyzoseg} ifm`)} </div>` : "";
+    const egyeb_iratanyag_html = p.korjegyzoseg ? `<div class="tooltip-egyeb-iratanyag">egyéb iratanyag: ${escapeHtml(`${p.korjegyzoseg} ifm`)} </div>` : "";
 
     return `
         <div class="tooltip-nev">${nev}</div>
         <div class="tooltip-megye">${megye.toLowerCase()}</div>
         <div class="tooltip-ev">${mettol} - ${meddig}</div>
         ${elsodleges_iratanyag_html}
-        ${korjegyzoseg_iratanyag_html}
+        ${egyeb_iratanyag_html}
         <div class="tooltip-index">index: ${index}</div>
         <div class="tooltip-id">ID: ${p.id}</div>
     `;
@@ -123,6 +124,11 @@ function ifm2meret(ifm) {
         return Math.log2(1 + Number(ifmStr.replace(',', '.')));
 }
 
+function elsodlegesIratanyagIsmeretlen(ifm) {
+    const normalizalt = String(ifm ?? "").replaceAll(' ', '').trim().toLowerCase();
+    return normalizalt === "" || normalizalt === "n.a.";
+}
+
 function zoomSugar(ifm) {
     return ifm2meret(ifm) * Math.pow(ZOOM_MERET_SZORZO_LEPESENKENT, map.getZoom() - 8);
 }
@@ -131,7 +137,7 @@ function zoomMeretSzorzo() {
     return Math.pow(ZOOM_MERET_SZORZO_LEPESENKENT, map.getZoom() - 8);
 }
 
-function normalizaltKorjegyzosegErtek(value) {
+function normalizaltEgyebIratanyagErtek(value) {
     return String(value ?? "").replaceAll(' ', '').trim().toLowerCase();
 }
 
@@ -153,43 +159,43 @@ function lathatoMegye(megyeNev) {
     return kivalasztottMegyek.has(kod);
 }
 
-function vanKorjegyzoseg(value) {
-    const normalizalt = normalizaltKorjegyzosegErtek(value);
+function vanEgyebIratanyag(value) {
+    const normalizalt = normalizaltEgyebIratanyagErtek(value);
     return normalizalt !== "" && normalizalt !== "0" && normalizalt !== "n.a.";
 }
 
-function korjegyzosegSzam(value) {
-    const normalizalt = normalizaltKorjegyzosegErtek(value).replace(',', '.');
+function egyebIratanyagSzam(value) {
+    const normalizalt = normalizaltEgyebIratanyagErtek(value).replace(',', '.');
     const szam = Number(normalizalt);
     return Number.isFinite(szam) && normalizalt !== "i";
 }
 
-function lathatoKorjegyzoseg(value) {
-    const normalizalt = normalizaltKorjegyzosegErtek(value);
+function lathatoEgyebIratanyag(value) {
+    const normalizalt = normalizaltEgyebIratanyagErtek(value);
 
-    if (!vanKorjegyzoseg(normalizalt)) {
+    if (!vanEgyebIratanyag(normalizalt)) {
         return false;
     }
 
     if (normalizalt === "i") {
-        return chb_korjegyzoseg_i.checked;
+        return chb_egyeb_iratanyag_i.checked;
     }
 
-    if (korjegyzosegSzam(normalizalt)) {
-        return chb_korjegyzoseg_szam.checked;
+    if (egyebIratanyagSzam(normalizalt)) {
+        return chb_egyeb_iratanyag_szam.checked;
     }
 
     return true;
 }
 
-function korjegyzosegAlapSzelesseg(value) {
-    const normalizalt = normalizaltKorjegyzosegErtek(value);
+function egyebIratanyagAlapSzelesseg(value) {
+    const normalizalt = normalizaltEgyebIratanyagErtek(value);
 
     if (normalizalt === "i") {
         return 2;
     }
 
-    if (!vanKorjegyzoseg(value)) {
+    if (!vanEgyebIratanyag(value)) {
         return 0;
     }
 
@@ -198,7 +204,8 @@ function korjegyzosegAlapSzelesseg(value) {
 
 
 let elsodlegesMarkers = [];  
-let korjegyzosegMarkers = [];  
+let egyebIratanyagMarkers = [];  
+let elsodlegesIratanyagMintasMarkers = [];
 
 const tooltip_setup = {
     permanent: false,
@@ -222,13 +229,54 @@ function tooltipeles(marker, p, index) {
     });
 }
 
+function ismeretlenEgyebIratanyagIcon(sugar, szin) {
+    const atmero = Math.max(8, sugar * 2);
+    const horgony = atmero / 2;
+
+    return L.divIcon({
+        className: "egyeb-iratanyag-ismeretlen-wrapper",
+        html: `<span class="egyeb-iratanyag-ismeretlen-jel" style="--ismeretlen-meret:${atmero}px;--ismeretlen-szin:${szin}"></span>`,
+        iconSize: [atmero, atmero],
+        iconAnchor: [horgony, horgony],
+    });
+}
+
+function ismeretlenElsodlegesIratanyagIcon(sugar) {
+    const atmero = Math.max(8, sugar * 2);
+    const horgony = atmero / 2;
+
+    return L.divIcon({
+        className: "elsodleges-iratanyag-ismeretlen-wrapper",
+        html: `<span class="elsodleges-iratanyag-ismeretlen-jel" style="--ismeretlen-meret:${atmero}px"></span>`,
+        iconSize: [atmero, atmero],
+        iconAnchor: [horgony, horgony],
+    });
+}
+
+function frissitIsmeretlenElsodlegesIratanyagMarkerMeret(marker, sugar) {
+    marker.setIcon(ismeretlenElsodlegesIratanyagIcon(sugar));
+}
+
+function frissitIsmeretlenEgyebIratanyagMarkerMeret(marker, sugar) {
+    marker.setIcon(ismeretlenEgyebIratanyagIcon(sugar, marker.alapSzin ?? "#444"));
+}
+
+function ismeretlenEgyebIratanyagMarker(lat, lon, alapSugar, zoomSzorzo, szin) {
+    return L.marker([lat, lon], {
+        icon: ismeretlenEgyebIratanyagIcon(alapSugar * zoomSzorzo, szin),
+        pane: ISMERETLEN_EGYEB_IRATANYAG_PANE,
+        interactive: false,
+    }).addTo(pontLayer);
+}
+
 /**
  * 
  * @param {Array<object>} points 
  */
 function rajzol(points){
     elsodlegesMarkers = [];
-    korjegyzosegMarkers = [];
+    egyebIratanyagMarkers = [];
+    elsodlegesIratanyagMintasMarkers = [];
 
     points = szures_checkboxok_alapjan(points);
 
@@ -238,20 +286,22 @@ function rajzol(points){
 
     for (let i = 0; i < points.length; i++) {
         const p = points[i];
+        const elsodlegesIratanyagHianyzik = elsodlegesIratanyagIsmeretlen(p.ifm);
+        const egyebIratanyagIsmeretlen = normalizaltEgyebIratanyagErtek(p.korjegyzoseg) === "i";
         const lat = Number(String(p.lat ?? "").replace(',', '.'));
         const lon = Number(String(p.lon ?? "").replace(',', '.'));
         const elsodleges_minMeret = 2;
-        const korjegyzoseg_minMeret = 0;
+        const egyebIratanyag_minMeret = 0;
         const nagyitas = 1;
         const szin = point2color(p);
         const alapSugar = elsodleges_minMeret + nagyitas * ifm2meret(p.ifm);
-        const korjegyzosegSzelesseg = korjegyzosegAlapSzelesseg(p.korjegyzoseg);
-        const alapKorjegyzosegSugar = vanKorjegyzoseg(p.korjegyzoseg)
-            ? korjegyzoseg_minMeret + nagyitas * (alapSugar + korjegyzosegSzelesseg / 2)
+        const egyebIratanyagSzelesseg = egyebIratanyagAlapSzelesseg(p.korjegyzoseg);
+        const alapEgyebIratanyagSugar = vanEgyebIratanyag(p.korjegyzoseg)
+            ? egyebIratanyag_minMeret + nagyitas * (alapSugar + egyebIratanyagSzelesseg / 2)
             : 0;
         const zoomSzorzo = zoomMeretSzorzo();
         const sugar = alapSugar * zoomSzorzo;
-        const korjegyzoseg_sugar = alapKorjegyzosegSugar * zoomSzorzo;
+        const egyebIratanyag_sugar = alapEgyebIratanyagSugar * zoomSzorzo;
         
         if (!Number.isFinite(lat) || !Number.isFinite(lon) || !Number.isFinite(sugar) || sugar < 0) {
             kihagyott++;
@@ -263,31 +313,52 @@ function rajzol(points){
             radius: sugar,
             stroke: false,
             fill: true,
-            fillColor: szin,
-            fillOpacity: 0.5,
+            fillColor: elsodlegesIratanyagHianyzik ? "#555" : szin,
+            fillOpacity: elsodlegesIratanyagHianyzik ? 0.45 : (egyebIratanyagIsmeretlen ? 1 : 0.5),
             interactive: true,
         }).addTo(pontLayer);
         elsodleges_iratanyag_marker.alapSugar = alapSugar;
         elsodlegesMarkers.push(elsodleges_iratanyag_marker);
         tooltipeles(elsodleges_iratanyag_marker, p, i);
 
-        if (lathatoKorjegyzoseg(p.korjegyzoseg)) {
-            const korjegyzosegAktualisSzelesseg = korjegyzosegSzelesseg * zoomSzorzo;
-            const korjegyzosegAktualisSugar = korjegyzoseg_sugar;
+        if (elsodlegesIratanyagHianyzik) {
+            const mintasElsodlegesMarker = L.marker([lat, lon], {
+                icon: ismeretlenElsodlegesIratanyagIcon(sugar),
+                interactive: false,
+                zIndexOffset: 1000,
+            }).addTo(pontLayer);
+            mintasElsodlegesMarker.alapSugar = alapSugar;
+            elsodlegesIratanyagMintasMarkers.push(mintasElsodlegesMarker);
+            elsodleges_iratanyag_marker.mintasOverlayMarker = mintasElsodlegesMarker;
+        }
 
-            const korjegyzoseg_iratanyag_marker = L.circleMarker([lat, lon], {
-                radius: korjegyzosegAktualisSugar,
+        if (lathatoEgyebIratanyag(p.korjegyzoseg)) {
+            const egyebIratanyagAktualisSzelesseg = egyebIratanyagSzelesseg * zoomSzorzo;
+            const egyebIratanyagAktualisSugar = egyebIratanyag_sugar;
+
+            if (egyebIratanyagIsmeretlen) {
+                const egyeb_iratanyag_marker = ismeretlenEgyebIratanyagMarker(lat, lon, alapEgyebIratanyagSugar, zoomSzorzo, szin);
+                egyeb_iratanyag_marker.alapSugar = alapEgyebIratanyagSugar;
+                egyeb_iratanyag_marker.alapSzin = szin;
+                egyeb_iratanyag_marker.isMintasEgyebIratanyag = true;
+                egyebIratanyagMarkers.push(egyeb_iratanyag_marker);
+                elsodleges_iratanyag_marker.bringToFront();
+                continue;
+            }
+
+            const egyeb_iratanyag_marker = L.circleMarker([lat, lon], {
+                radius: egyebIratanyagAktualisSugar,
                 stroke: true,
-                color: p.korjegyzoseg == "i" ? "blue" : szin,
-                weight: korjegyzosegAktualisSzelesseg,
+                color: szin,
+                weight: egyebIratanyagAktualisSzelesseg,
                 fill: false,
                 opacity: 0.2,
                 interactive: true,
             }).addTo(pontLayer);
-            korjegyzoseg_iratanyag_marker.alapSugar = alapKorjegyzosegSugar;
-            korjegyzoseg_iratanyag_marker.alapSzelesseg = korjegyzosegSzelesseg;
-            korjegyzosegMarkers.push(korjegyzoseg_iratanyag_marker);
-            tooltipeles(korjegyzoseg_iratanyag_marker, p, i);
+            egyeb_iratanyag_marker.alapSugar = alapEgyebIratanyagSugar;
+            egyeb_iratanyag_marker.alapSzelesseg = egyebIratanyagSzelesseg;
+            egyebIratanyagMarkers.push(egyeb_iratanyag_marker);
+            tooltipeles(egyeb_iratanyag_marker, p, i);
         }
         
         
@@ -311,7 +382,16 @@ function frissitKorMeretekZoomAlapjan() {
         marker.setRadius(marker.alapSugar * zoomSzorzo);
     }
 
-    for (const marker of korjegyzosegMarkers) {
+    for (const marker of elsodlegesIratanyagMintasMarkers) {
+        frissitIsmeretlenElsodlegesIratanyagMarkerMeret(marker, marker.alapSugar * zoomSzorzo);
+    }
+
+    for (const marker of egyebIratanyagMarkers) {
+        if (marker.isMintasEgyebIratanyag) {
+            frissitIsmeretlenEgyebIratanyagMarkerMeret(marker, marker.alapSugar * zoomSzorzo);
+            continue;
+        }
+
         marker.setRadius(marker.alapSugar * zoomSzorzo);
         if (Number.isFinite(marker.alapSzelesseg)) {
             marker.setStyle({ weight: marker.alapSzelesseg * zoomSzorzo });
@@ -322,7 +402,8 @@ function frissitKorMeretekZoomAlapjan() {
 function torolRajzoltPontok() {
     pontLayer.clearLayers();
     elsodlegesMarkers = [];
-    korjegyzosegMarkers = [];
+    egyebIratanyagMarkers = [];
+    elsodlegesIratanyagMintasMarkers = [];
 }
 
 let meret = 1;
@@ -339,6 +420,9 @@ const map = L.map('map', {
     zoom: kezdoZoom,
     scrollWheelZoom: true
 });
+
+const ismeretlenEgyebIratanyagPane = map.createPane(ISMERETLEN_EGYEB_IRATANYAG_PANE);
+ismeretlenEgyebIratanyagPane.style.zIndex = "350";
 
 
 // Csempeválasztó dropdown
@@ -406,9 +490,9 @@ setTimeout(() => map.invalidateSize(), 200);
 let chb_tipus_k = document.getElementById("chb_tipus_k");
 let chb_tipus_mv = document.getElementById("chb_tipus_mv");
 let chb_tipus_kmv = document.getElementById("chb_tipus_kmv");
-let chb_korjegyzoseg_i = document.getElementById("chb_korjegyzoseg_i");
-let chb_korjegyzoseg_szam = document.getElementById("chb_korjegyzoseg_szam");
-let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_korjegyzoseg_i, chb_korjegyzoseg_szam];
+let chb_egyeb_iratanyag_i = document.getElementById("chb_egyeb_iratanyag_i");
+let chb_egyeb_iratanyag_szam = document.getElementById("chb_egyeb_iratanyag_szam");
+let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_egyeb_iratanyag_i, chb_egyeb_iratanyag_szam];
 
 for (const chb of checkboxok) {
     chb.addEventListener("change", () => {
@@ -470,9 +554,29 @@ const MEGYE_NEV = {
  * Betölti a megyek.svg-t, és minden megye-pathhoz kattintáskezelést rendel.
  */
 async function megysTerkepBetoltes() {
-    const resp = await fetch("megyek.svg");
-    const szoveg = await resp.text();
     const holder = document.getElementById("megyeterkep");
+
+    if (!holder) {
+        console.warn("A megyeterkep kontener nem talalhato.");
+        return;
+    }
+
+    let resp;
+    try {
+        resp = await fetch("megyek.svg");
+    } catch (error) {
+        console.warn("A megyeterkep nem toltheto be (file:// korlatozas vagy halozati hiba).", error);
+        holder.innerHTML = "<p style=\"font-size:12px;color:#a33;line-height:1.4;\">A megyeválasztó SVG nem tölthető be file:// módban. Nyisd meg helyi szerverről (pl. VS Code Live Server).</p>";
+        return;
+    }
+
+    if (!resp.ok) {
+        console.warn(`A megyeterkep betoltese sikertelen: ${resp.status} ${resp.statusText}`);
+        holder.innerHTML = "<p style=\"font-size:12px;color:#a33;line-height:1.4;\">A megyeválasztó SVG betöltése sikertelen.</p>";
+        return;
+    }
+
+    const szoveg = await resp.text();
     holder.innerHTML = szoveg;
     const svg = holder.querySelector("svg");
     if (!svg) return;
@@ -642,3 +746,7 @@ telepuleskereso_input.addEventListener("change", telepulesKivalasztva);
 // RAJZOLÁS
 
 rajzol(points);
+
+
+
+
