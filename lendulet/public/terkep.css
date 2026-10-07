@@ -38,6 +38,29 @@ html, body {
     border:#333 solid 1px;
 }
 
+#vezerlopult_gomb{
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 2001;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: #333 solid 1px;
+    background: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#darabszam{
+    text-align: center;
+    padding: 6px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 h2{
     margin: 0;
     grid-column: 1 / -1;
@@ -55,11 +78,100 @@ h2{
 
 body { overflow: hidden; }
 
+/* Mobil nézet: 768 px alatt a vezérlőpult becsukható */
+@media (max-width: 768px) {
+    #vezerlopult_gomb{
+        display: block;
+    }
+    #vezerlopult{
+        top: 64px;
+        right: 10px;
+        max-height: calc(100vh - 74px);
+        overflow-y: auto;
+        display: none;
+    }
+    #vezerlopult.nyitva{
+        display: grid;
+    }
+}
+
 
 #megyevalaszto{
     display:grid;
     gap: 1px;
-    grid-template-columns: 30px auto;
+}
+
+#megyeterkep{
+    width: 100%;
+}
+
+#megyeterkep svg{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#megyeterkep path{
+    transition: fill 0.15s;
+}
+
+#csempevalaszto{
+    display:grid;
+    gap: 4px;
+}
+
+#csempe_stilus{
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+}
+
+.leaflet-tile-gray{
+    filter: grayscale(0.8) brightness(1.1) contrast(0.8);
+}
+
+#telepuleskereso{
+    display:grid;
+    gap: 6px;
+}
+
+#telepuleskereso_input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#legenda{
+    display: grid;
+    gap: 6px;
+}
+
+.legenda-sor{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.legenda-pont{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.legenda-kor{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid;
+    flex-shrink: 0;
+    background: transparent;
 }
 
 

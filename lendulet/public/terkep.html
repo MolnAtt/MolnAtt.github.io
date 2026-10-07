@@ -16,10 +16,23 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="../data.js" defer></script>
     <script src="terkep.js" defer></script>
-    <script src="ellenorzes.js" defer></script>
+    <!-- <script src="ellenorzes.js" defer></script> -->
 </head>
 <body>
+    <button id="vezerlopult_gomb" aria-label="Vezérlőpult nyitása/zárása">☰</button>
     <div id="vezerlopult">
+        <div id="darabszam">
+            <strong>0</strong> település
+        </div>
+        <div id="csempevalaszto">
+            <h2>Térképtípus</h2>
+            <select id="csempe_stilus">
+                <option value="carto">CARTO light</option>
+                <option value="osm">OpenStreetMap</option>
+                <option value="osmgray">OpenStreetMap szürkített</option>
+                <option value="esri">Esri világos szürke</option>
+            </select>
+        </div>
         <div id="evkorcsuszkak">
             <h2>Időintervallum</h2>
             <label for="mettol_csuszka">mettől:</label>
@@ -40,69 +53,55 @@
             <label for="chb_tipus_kmv">Községből lett mezővárosok</label>
         </div>
         <div id="korjegyzosegek">
-            <h2>Körjegyzőségek</h2>
+            <h2>Egyéb iratanyag</h2>
             <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
-            <label for="chb_korjegyzoseg_szam">Számszerű körjegyzőségi adatok</label>
+            <label for="chb_korjegyzoseg_szam">Számszerű egyéb iratanyag</label>
             <input type="checkbox" id="chb_korjegyzoseg_i" checked>
-            <label for="chb_korjegyzoseg_i">ismeretlen körjegyzőségi adatok</label>
+            <label for="chb_korjegyzoseg_i">ismeretlen egyéb iratanyag</label>
         </div>
         
         <div id="megyevalaszto">
             <h2>Megyék szerinti szűrések</h2>
-            <input type="checkbox" id="chb_megye_bacs" checked>
-            <label for="chb_megye_bacs">Bács-Kiskun</label>
-            <input type="checkbox" id="chb_megye_baranya" checked>
-            <label for="chb_megye_baranya">Baranya</label>
-            <input type="checkbox" id="chb_megye_bekes" checked>
-            <label for="chb_megye_bekes">Békés</label>
-            <input type="checkbox" id="chb_megye_borsod" checked>
-            <label for="chb_megye_borsod">Borsod-Abaúj-Zemplén</label>
-            <input type="checkbox" id="chb_megye_csongrad" checked>
-            <label for="chb_megye_csongrad">Csongrád-Csanád</label>
-            <input type="checkbox" id="chb_megye_fejer" checked>
-            <label for="chb_megye_fejer">Fejér</label>
-            <input type="checkbox" id="chb_megye_gyor" checked>
-            <label for="chb_megye_gyor">Győr-Moson-Sopron</label>
-            <input type="checkbox" id="chb_megye_hajdu" checked>
-            <label for="chb_megye_hajdu">Hajdú-Bihar</label>
-            <input type="checkbox" id="chb_megye_heves" checked>
-            <label for="chb_megye_heves">Heves</label>
-            <input type="checkbox" id="chb_megye_jasz" checked>
-            <label for="chb_megye_jasz">Jász-Nagykun-Szolnok</label>
-            <input type="checkbox" id="chb_megye_komarom" checked>
-            <label for="chb_megye_komarom">Komárom-Esztergom</label>
-            <input type="checkbox" id="chb_megye_nograd" checked>
-            <label for="chb_megye_nograd">Nógrád</label>
-            <input type="checkbox" id="chb_megye_pest" checked>
-            <label for="chb_megye_pest">Pest</label>
-            <input type="checkbox" id="chb_megye_somogy" checked>
-            <label for="chb_megye_somogy">Somogy</label>
-            <input type="checkbox" id="chb_megye_szabolcs" checked>
-            <label for="chb_megye_szabolcs">Szabolcs-Szatmár-Bereg</label>
-            <input type="checkbox" id="chb_megye_tolna" checked>
-            <label for="chb_megye_tolna">Tolna</label>
-            <input type="checkbox" id="chb_megye_vas" checked>
-            <label for="chb_megye_vas">Vas</label>
-            <input type="checkbox" id="chb_megye_veszprem" checked>
-            <label for="chb_megye_veszprem">Veszprém</label>
-            <input type="checkbox" id="chb_megye_zala" checked>
-            <label for="chb_megye_zala">Zala</label>
+            <div id="megyeterkep"></div>
         </div>
 
-        <div id="vezerlopultAttilanak">
-            <h2>Geolokáció hibakereső eszközök (Attilának)</h2>
-            <button id="kovgomb">Következő település</button>
-            <div id="telepulesnev">Településnév</div>
-            <input type="number" id="telepulesindex" min="0" max="4000" value="0">
-            <div id="geonames_coord">koordináták a geonamesből</div>
-            <button id="geonamesgomb">Ugrás a Geonames koordinátákhoz</button>
-            <div id="osm_coord">koordináták az OSM-ből</div>
-            <button id="osmgomb">Ugrás az OSM koordinátákhoz</button>
-            <div id="tavolsag">Távolság</div>
-            <div id="figyelmezteto">Ez OK</div>
-            <div id="info"></div>
+        <div id="telepuleskereso">
+            <h2>Település keresése</h2>
+            <input type="text" id="telepuleskereso_input" list="telepuleslista" placeholder="Kezdj el gépelni…" autocomplete="off">
+            <datalist id="telepuleslista"></datalist>
         </div>
-        
+
+        <div id="legenda">
+            <h2>Jelmagyarázat</h2>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: brown;"></span>
+                <span>Község (k)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: green;"></span>
+                <span>Mezőváros (mv)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: purple;"></span>
+                <span>Község/mezőváros (kmv)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: magenta;"></span>
+                <span>Ismeretlen ifm (ifm ≠ "", "n.a.", tipus ≠ k/mv/kmv)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: black;"></span>
+                <span>Nincs adat (ifm = "" vagy "n.a.")</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-kor" style="border-color: blue;"></span>
+                <span>Ismeretlen egyéb iratanyag ifm (i)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-kor" style="border-color: #666;"></span>
+                <span>Számszerű egyéb iratanyag ifm (szam)</span>
+            </div>
+        </div>
 
     </div>
     <div id="map"></div>

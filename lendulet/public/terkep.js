@@ -1,5 +1,5 @@
 
-console.log("verzió: 2026.07.07. 22:03");
+console.log("verzió: 2026.10.07. 13:02");
 
 const ZOOM_MERET_SZORZO_LEPESENKENT = 1.5;
 
@@ -141,15 +141,13 @@ function normalizaltMegyeKod(megyeNev) {
         .replace(/[\u0300-\u036f]/g, "");
 }
 
+// A kiválasztott megyék kódjai (Set). Ha üres, minden megye látszik.
+const kivalasztottMegyek = new Set();
+
 function lathatoMegye(megyeNev) {
+    if (kivalasztottMegyek.size === 0) return true;
     const kod = normalizaltMegyeKod(megyeNev);
-    const checkbox = megyeCheckboxokByKod[kod];
-
-    if (!checkbox) {
-        return true;
-    }
-
-    return checkbox.checked;
+    return kivalasztottMegyek.has(kod);
 }
 
 function vanKorjegyzoseg(value) {
@@ -296,6 +294,11 @@ function rajzol(points){
     if (kihagyott > 0) {
         console.warn(`Rajzolas kozben ${kihagyott} hibas pont ki lett hagyva.`);
     }
+
+    const darabszamElem = document.getElementById("darabszam");
+    if (darabszamElem) {
+        darabszamElem.innerHTML = `<strong>${points.length}</strong> / ${osszesPontSzam} település`;
+    }
 }
 
 function frissitKorMeretekZoomAlapjan() {
@@ -322,34 +325,72 @@ function torolRajzoltPontok() {
 let meret = 1;
 
 // const hely = [47.180102654846685, 19.504011519869753];
-const hely = [47.334286998205826, 19.951559635596578];
+// const hely = [47.334286998205826, 19.951559635596578];
+// const hely = [46.80713, 18.92763]; // Dunaföldvár
+// const hely = [47.5, 19.91667]; // Jászberény
+const hely = [47.33609, 19.87724]; // Tápiószele
+const kezdoZoom = window.innerWidth <= 768 ? 6 : 8;
 
 const map = L.map('map', {
     center: hely,
-    zoom: 9,
+    zoom: kezdoZoom,
     scrollWheelZoom: true
 });
 
 
-// terepes
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//   maxZoom: 19,
-//   attribution: '&copy; OpenStreetMap közreműködők'
-// }).addTo(map);
+// Csempeválasztó dropdown
 
-// utakhoz
-// L.tileLayer("https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png", {
-// attribution: '&copy; Stadia Maps &copy; Stamen Design &copy; OpenMapTiles &copy; OpenStreetMap contributors',
-// maxZoom: 20
-// }).addTo(map);
+const CARTO_API_KEY = "cb1_496l_1_19493acc3f7411b849230888";
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-subdomains: "abcd",
-maxZoom: 20
-}).addTo(map);
+const CSEMPE_STILUSOK = {
+    osm: {
+        url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        options: { maxZoom: 19, attribution: '&copy; OpenStreetMap közreműködők' }
+    },
+    carto: {
+        url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" + (CARTO_API_KEY ? `?key=${CARTO_API_KEY}` : ""),
+        options: { subdomains: "abcd", maxZoom: 20, attribution: '&copy; OpenStreetMap contributors &copy; CARTO' }
+    },
+    esri: {
+        url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+        options: { maxZoom: 19, attribution: '&copy; Esri, HERE, Garmin, OpenStreetMap contributors' }
+    },
+    osmgray: {
+        url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        options: { maxZoom: 19, attribution: '&copy; OpenStreetMap közreműködők', className: 'leaflet-tile-gray' }
+    }
+};
+
+let aktivCsempeLayer = null;
+
+/**
+ * Beállítja a térkép háttércsempéit a kiválasztott stílus alapján.
+ * @param {string} stilusKulcs - a CSEMPE_STILUSOK kulcsa
+ */
+function csempeBeallit(stilusKulcs) {
+    if (aktivCsempeLayer) {
+        map.removeLayer(aktivCsempeLayer);
+    }
+    const stilus = CSEMPE_STILUSOK[stilusKulcs];
+    if (!stilus) return;
+    aktivCsempeLayer = L.tileLayer(stilus.url, stilus.options).addTo(map);
+}
+
+const csempeSelect = document.getElementById("csempe_stilus");
+csempeSelect.addEventListener("change", () => csempeBeallit(csempeSelect.value));
+csempeBeallit(csempeSelect.value); // kezdőbetöltés
 
 const pontLayer = L.layerGroup().addTo(map);
+
+// A teljes adathalmaz mérete a számlálóhoz
+const osszesPontSzam = points.length;
+
+// Vezérlőpult nyitása/zárása mobilon
+const vezerlopultGomb = document.getElementById("vezerlopult_gomb");
+const vezerlopult = document.getElementById("vezerlopult");
+vezerlopultGomb.addEventListener("click", () => {
+    vezerlopult.classList.toggle("nyitva");
+});
 
 map.on("zoom", frissitKorMeretekZoomAlapjan);
 
@@ -364,11 +405,7 @@ let chb_tipus_mv = document.getElementById("chb_tipus_mv");
 let chb_tipus_kmv = document.getElementById("chb_tipus_kmv");
 let chb_korjegyzoseg_i = document.getElementById("chb_korjegyzoseg_i");
 let chb_korjegyzoseg_szam = document.getElementById("chb_korjegyzoseg_szam");
-let megyeCheckboxok = Array.from(document.querySelectorAll('#megyevalaszto input[type="checkbox"][id^="chb_megye_"]'));
-let megyeCheckboxokByKod = Object.fromEntries(
-    megyeCheckboxok.map(chb => [chb.id.replace("chb_megye_", ""), chb])
-);
-let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_korjegyzoseg_i, chb_korjegyzoseg_szam, ...megyeCheckboxok];
+let checkboxok = [chb_tipus_k, chb_tipus_mv, chb_tipus_kmv, chb_korjegyzoseg_i, chb_korjegyzoseg_szam];
 
 for (const chb of checkboxok) {
     chb.addEventListener("change", () => {
@@ -376,6 +413,106 @@ for (const chb of checkboxok) {
         rajzol(points);
     });
 }
+
+// Megyeválasztó SVG-térkép
+
+// A path id-kat a megyek.svg-ből geometriai súlypont alapján azonosítottuk be.
+// Budapest (path2230) Pest megyéhez tartozik, mert a data.js-ben nincs külön Budapest megye.
+const PATH_MEGYE_KOD = {
+    path1349: "borsod",
+    path2293: "szabolcs",
+    path1315: "hajdu",
+    path3097: "bekes",
+    path4015: "csongrad",
+    path4896: "bacs",
+    path1331: "baranya",
+    path1337: "somogy",
+    path2219: "zala",
+    path2235: "vas",
+    path2218: "gyor",
+    path2229: "komarom",
+    path7536: "tolna",
+    path2221: "veszprem",
+    path7528: "fejer",
+    path3992: "pest",
+    path2230: "pest",
+    path4010: "jasz",
+    path4022: "heves",
+    path5788: "nograd"
+};
+
+const MEGYE_NEV = {
+    szabolcs: "Szabolcs-Szatmár-Bereg",
+    borsod: "Borsod-Abaúj-Zemplén",
+    hajdu: "Hajdú-Bihar",
+    bekes: "Békés",
+    csongrad: "Csongrád-Csanád",
+    bacs: "Bács-Kiskun",
+    baranya: "Baranya",
+    somogy: "Somogy",
+    zala: "Zala",
+    vas: "Vas",
+    gyor: "Győr-Moson-Sopron",
+    komarom: "Komárom-Esztergom",
+    tolna: "Tolna",
+    veszprem: "Veszprém",
+    fejer: "Fejér",
+    pest: "Pest",
+    jasz: "Jász-Nagykun-Szolnok",
+    heves: "Heves",
+    nograd: "Nógrád"
+};
+
+/**
+ * Betölti a megyek.svg-t, és minden megye-pathhoz kattintáskezelést rendel.
+ */
+async function megysTerkepBetoltes() {
+    const resp = await fetch("megyek.svg");
+    const szoveg = await resp.text();
+    const holder = document.getElementById("megyeterkep");
+    holder.innerHTML = szoveg;
+    const svg = holder.querySelector("svg");
+    if (!svg) return;
+    svg.removeAttribute("width");
+    svg.removeAttribute("height");
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    // viewBox beállítása, ha nincs
+    if (!svg.getAttribute("viewBox")) {
+        const paths = Array.from(svg.querySelectorAll("path"));
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        for (const p of paths) {
+            const bb = p.getBBox();
+            minX = Math.min(minX, bb.x); minY = Math.min(minY, bb.y);
+            maxX = Math.max(maxX, bb.x + bb.width); maxY = Math.max(maxY, bb.y + bb.height);
+        }
+        svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
+    }
+
+    for (const [pathId, megyeKod] of Object.entries(PATH_MEGYE_KOD)) {
+        const path = svg.querySelector("#" + pathId);
+        if (!path) continue;
+        path.style.cursor = "pointer";
+        path.title = MEGYE_NEV[megyeKod] ?? megyeKod;
+        path.addEventListener("click", () => {
+            if (kivalasztottMegyek.has(megyeKod)) {
+                kivalasztottMegyek.delete(megyeKod);
+            } else {
+                kivalasztottMegyek.add(megyeKod);
+            }
+            // szín frissítése
+            const aktiv = kivalasztottMegyek.has(megyeKod);
+            for (const [pid, kod] of Object.entries(PATH_MEGYE_KOD)) {
+                const p = svg.querySelector("#" + pid);
+                if (!p) continue;
+                p.style.fill = kivalasztottMegyek.has(kod) ? "#4488ff" : "#ffffff";
+            }
+            torolRajzoltPontok();
+            rajzol(points);
+        });
+    }
+}
+
+megysTerkepBetoltes();
 
 // Időintervallum kezelőfelület
 
@@ -408,6 +545,75 @@ idointervallum_gomb.addEventListener("click", () => {
     torolRajzoltPontok();
     rajzol(points);
 });
+
+
+// Település kereső mező
+
+/**
+ * Ékezetmentesíti a szöveget, hogy a keresés ne ütközzön ékezetekbe.
+ * @param {string} szoveg 
+ * @returns {string} ékezetmentes szöveg
+ */
+function ekezetMentesit(szoveg) {
+    return String(szoveg ?? "")
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
+}
+
+const telepuleskereso_input = document.getElementById("telepuleskereso_input");
+const telepuleslista = document.getElementById("telepuleslista");
+
+/**
+ * Frissíti a datalist opcióit a beírt szöveg alapján.
+ */
+function frissitTelepulesLista() {
+    const keresett = ekezetMentesit(telepuleskereso_input.value);
+    telepuleslista.innerHTML = "";
+    if (!keresett) return;
+
+    const talalatok = points.filter(p => ekezetMentesit(p.nev).startsWith(keresett));
+    for (const p of talalatok) {
+        const opt = document.createElement("option");
+        opt.value = p.nev;
+        opt.dataset.id = p.id;
+        telepuleslista.appendChild(opt);
+    }
+}
+
+/**
+ * Úgy ugrik a pontra, hogy az a látható terület közepére kerüljön,
+ * ne a teljes ablak közepére (a vezérlőpult a térkép jobb szélét takarja).
+ * @param {number} lat
+ * @param {number} lon
+ * @param {number} zoom
+ */
+function ugrikPontra(lat, lon, zoom) {
+    const pult = document.getElementById("vezerlopult");
+    const takartSzelesseg = pult && pult.offsetParent !== null ? pult.offsetWidth + 20 : 0;
+    const celPont = map.project([lat, lon], zoom);
+    const etoltPont = celPont.add([takartSzelesseg / 2, 0]);
+    map.setView(map.unproject(etoltPont, zoom), zoom);
+}
+
+/**
+ * A kiválasztott településhez ugrik a térkép.
+ */
+function telepulesKivalasztva() {
+    const kivalasztottNev = telepuleskereso_input.value;
+    const option = Array.from(telepuleslista.options).find(o => o.value === kivalasztottNev);
+    if (!option) return;
+    const p = points.find(p => p.id === Number(option.dataset.id));
+    if (!p) return;
+    const lat = Number(String(p.lat ?? "").replace(',', '.'));
+    const lon = Number(String(p.lon ?? "").replace(',', '.'));
+    if (Number.isFinite(lat) && Number.isFinite(lon)) {
+        ugrikPontra(lat, lon, Math.max(map.getZoom(), 13));
+    }
+}
+
+telepuleskereso_input.addEventListener("input", frissitTelepulesLista);
+telepuleskereso_input.addEventListener("change", telepulesKivalasztva);
 
 
 // RAJZOLÁS
