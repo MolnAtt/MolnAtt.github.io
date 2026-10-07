@@ -35,6 +35,10 @@
         </div>
         <div id="evkorcsuszkak">
             <h2>Időintervallum</h2>
+            <label>
+                <input type="checkbox" id="chb_idointervallum">
+                szűrés évszám szerint
+            </label>
             <label for="mettol_csuszka">mettől:</label>
             <input type="number" id="mettol_ertek" value="1000">
             <input type="range" id="mettol_csuszka" min="1000" max="2000" value="1000">
@@ -45,19 +49,29 @@
         </div>
         <div id="tipusok">
             <h2>Településtípusok</h2>
-            <input type="checkbox" id="chb_tipus_k" checked>
-            <label for="chb_tipus_k">Községek</label>
-            <input type="checkbox" id="chb_tipus_mv" checked>
-            <label for="chb_tipus_mv">Mezővárosok</label>
-            <input type="checkbox" id="chb_tipus_kmv" checked>
-            <label for="chb_tipus_kmv">Községből lett mezővárosok</label>
+            <label>
+                <input type="checkbox" id="chb_tipus_k" checked>
+                Községek
+            </label>
+            <label>
+                <input type="checkbox" id="chb_tipus_mv" checked>
+                Mezővárosok
+            </label>
+            <label>
+                <input type="checkbox" id="chb_tipus_kmv" checked>
+                Községek/mezővárosok
+            </label>
         </div>
         <div id="korjegyzosegek">
             <h2>Egyéb iratanyag</h2>
-            <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
-            <label for="chb_korjegyzoseg_szam">Számszerű egyéb iratanyag</label>
-            <input type="checkbox" id="chb_korjegyzoseg_i" checked>
-            <label for="chb_korjegyzoseg_i">ismeretlen egyéb iratanyag</label>
+            <label>
+                <input type="checkbox" id="chb_korjegyzoseg_szam" checked>
+                Számszerű egyéb iratanyag
+            </label>
+            <label>
+                <input type="checkbox" id="chb_korjegyzoseg_i" checked>
+                ismeretlen egyéb iratanyag
+            </label>
         </div>
         
         <div id="megyevalaszto">

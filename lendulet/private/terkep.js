@@ -81,6 +81,7 @@ function intervallumMetsz(intervallum1, intervallum2) {        // Két zárt int
  * @returns {Array<object>} a szűrt pontok tömbje a checkboxok állapota alapján
  */
 function szures_checkboxok_alapjan(points) {
+    const idoszuresAktiv = document.getElementById("chb_idointervallum").checked;
     const csuszka_mettol = Number(mettol_csuszka.value);
     const csuszka_meddig = Number(meddig_csuszka.value);
     return points.filter(p => {
@@ -90,6 +91,8 @@ function szures_checkboxok_alapjan(points) {
         if (!lathatoMegye(p.megye)) return false;
         return true;
     }).filter(p => {
+        if (!idoszuresAktiv) return true;
+
         const telepules_mettol = Number(p.mettol);
         const telepules_meddig = Number(p.meddig);
 
@@ -516,6 +519,13 @@ megysTerkepBetoltes();
 
 // Időintervallum kezelőfelület
 
+const chb_idointervallum = document.getElementById("chb_idointervallum");
+const mettol_csuszka = document.getElementById("mettol_csuszka");
+const mettol_ertek = document.getElementById("mettol_ertek");
+const meddig_csuszka = document.getElementById("meddig_csuszka");
+const meddig_ertek = document.getElementById("meddig_ertek");
+const idointervallum_gomb = document.getElementById("idointervallum_gomb");
+
 /**
  * Összeköti a két inputot.
  * @param {HTMLInputElement} csuszka 
@@ -531,13 +541,6 @@ function osszekot(csuszka, szam) {
     });
 }
 
-
-const mettol_csuszka = document.getElementById("mettol_csuszka");
-const mettol_ertek = document.getElementById("mettol_ertek");
-const meddig_csuszka = document.getElementById("meddig_csuszka");
-const meddig_ertek = document.getElementById("meddig_ertek");
-const idointervallum_gomb = document.getElementById("idointervallum_gomb");
-
 osszekot(mettol_csuszka, mettol_ertek);
 osszekot(meddig_csuszka, meddig_ertek);
 
@@ -545,6 +548,26 @@ idointervallum_gomb.addEventListener("click", () => {
     torolRajzoltPontok();
     rajzol(points);
 });
+
+/**
+ * Engedélyezi vagy letiltja az időintervallum-kezelőelemeket.
+ */
+function idointervallumAllapot() {
+    const aktiv = chb_idointervallum.checked;
+    mettol_csuszka.disabled = !aktiv;
+    mettol_ertek.disabled = !aktiv;
+    meddig_csuszka.disabled = !aktiv;
+    meddig_ertek.disabled = !aktiv;
+    idointervallum_gomb.disabled = !aktiv;
+}
+
+chb_idointervallum.addEventListener("change", () => {
+    idointervallumAllapot();
+    torolRajzoltPontok();
+    rajzol(points);
+});
+
+idointervallumAllapot(); // kezdőállapot
 
 
 // Település kereső mező
