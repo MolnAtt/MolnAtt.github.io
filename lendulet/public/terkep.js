@@ -44,11 +44,16 @@ function escapeHtml(value) {
  * @param {Number} index 
  * @returns {string} HTML string for the tooltip content
  */
+function evszamVagyKerdojel(value) {
+    const ertek = String(value ?? "").trim();
+    return /^\d{3,4}$/.test(ertek) ? ertek : "?";
+}
+
 function felirat(p, index = null) {
     const nev = escapeHtml(p.nev);
     const megye = escapeHtml(p.megye);
-    const mettol = escapeHtml(p.mettol);
-    const meddig = escapeHtml(p.meddig);
+    const mettol = evszamVagyKerdojel(p.mettol);
+    const meddig = evszamVagyKerdojel(p.meddig);
     const elsodleges_iratanyag_html = `<div class="tooltip-ifm">elsődleges iratanyag: ${escapeHtml(p.ifm ? `${p.ifm} ifm` : "-")}</div>`;
     const egyeb_iratanyag_html = p.korjegyzoseg ? `<div class="tooltip-egyeb-iratanyag">egyéb iratanyag: ${escapeHtml(`${p.korjegyzoseg} ifm`)} </div>` : "";
 
@@ -112,7 +117,7 @@ function szures_checkboxok_alapjan(points) {
  * @returns {number} a sugar érték
  */
 function ifm2meret(ifm) {
-    const ifmStr = String(ifm ?? "").replaceAll(' ', '').trim();
+    const ifmStr = String(ifm ?? "").replace(/\s+/g, '').toLowerCase();
     
     if (ifmStr === "n.a.")
         return 0;
@@ -125,8 +130,8 @@ function ifm2meret(ifm) {
 }
 
 function elsodlegesIratanyagIsmeretlen(ifm) {
-    const normalizalt = String(ifm ?? "").replaceAll(' ', '').trim().toLowerCase();
-    return normalizalt === "" || normalizalt === "n.a.";
+    const normalizalt = String(ifm ?? "").replace(/\s+/g, '').toLowerCase();
+    return normalizalt === "" || normalizalt === "n.a." || Number(normalizalt.replace(',', '.')) === 0;
 }
 
 function zoomSugar(ifm) {
@@ -746,7 +751,6 @@ telepuleskereso_input.addEventListener("change", telepulesKivalasztva);
 // RAJZOLÁS
 
 rajzol(points);
-
 
 
 
