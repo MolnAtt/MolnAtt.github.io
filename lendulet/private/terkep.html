@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Térkép</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="terkep.css" />
+    <link rel="stylesheet" href="sajat_leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="../data.js" defer></script>
+    <script src="terkep.js" defer></script>
+    <!-- <script src="ellenorzes.js" defer></script> -->
+</head>
+<body>
+    <button id="vezerlopult_gomb" aria-label="Vezérlőpult nyitása/zárása">☰</button>
+    <div id="vezerlopult">
+        <div id="darabszam">
+            <strong>0</strong> település
+        </div>
+        <div id="csempevalaszto">
+            <h2>Térképtípus</h2>
+            <select id="csempe_stilus">
+                <option value="carto">CARTO light</option>
+                <option value="osm">OpenStreetMap</option>
+                <option value="osmgray">OpenStreetMap szürkített</option>
+                <option value="esri">Esri világos szürke</option>
+            </select>
+        </div>
+        <div id="evkorcsuszkak">
+            <h2>Időintervallum</h2>
+            <label>
+                <input type="checkbox" id="chb_idointervallum">
+                szűrés évszám szerint
+            </label>
+            <label for="mettol_csuszka">mettől:</label>
+            <input type="number" id="mettol_ertek" value="1000">
+            <input type="range" id="mettol_csuszka" min="1000" max="2000" value="1000">
+            <label for="meddig_csuszka">meddig:</label>
+            <input type="number" id="meddig_ertek" value="2000">
+            <input type="range" id="meddig_csuszka" min="1000" max="2000" value="2000">
+            <button type="button" id="idointervallum_gomb">Alkalmaz</button>
+        </div>
+        <div id="tipusok">
+            <h2>Településtípusok</h2>
+            <label>
+                <input type="checkbox" id="chb_tipus_k" checked>
+                Községek
+            </label>
+            <label>
+                <input type="checkbox" id="chb_tipus_mv" checked>
+                Mezővárosok
+            </label>
+            <label>
+                <input type="checkbox" id="chb_tipus_kmv" checked>
+                Községek/mezővárosok
+            </label>
+        </div>
+        <div id="egyeb_iratanyagok">
+            <h2>Egyéb iratanyag</h2>
+            <label>
+                <input type="checkbox" id="chb_egyeb_iratanyag_szam" checked>
+                Számszerű egyéb iratanyag
+            </label>
+            <label>
+                <input type="checkbox" id="chb_egyeb_iratanyag_i" checked>
+                ismeretlen egyéb iratanyag
+            </label>
+        </div>
+        
+        <div id="megyevalaszto">
+            <h2>Megyék szerinti szűrések</h2>
+            <div id="megyeterkep"></div>
+        </div>
+
+        <div id="telepuleskereso">
+            <h2>Település keresése</h2>
+            <input type="text" id="telepuleskereso_input" list="telepuleslista" placeholder="Kezdj el gépelni…" autocomplete="off">
+            <datalist id="telepuleslista"></datalist>
+        </div>
+
+        <div id="legenda">
+            <h2>Jelmagyarázat</h2>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: brown;"></span>
+                <span>Község (k)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: green;"></span>
+                <span>Mezőváros (mv)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-pont" style="background-color: purple;"></span>
+                <span>Község/mezőváros (kmv)</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-kor legenda-mintas-elsodleges-kor"></span>
+                <span>Nincs elsődleges iratanyag (ifm = "" vagy "n.a."): sávozott kör</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-mintas-kor" style="--legenda-szin:brown;">
+                    <span class="legenda-mintas-kor-kulso"></span>
+                    <span class="legenda-mintas-kor-belso"></span>
+                </span>
+                <span>Ismeretlen egyéb iratanyag ifm (i): ellentétesen sávozott külső körgyűrű, a település színével</span>
+            </div>
+            <div class="legenda-sor">
+                <span class="legenda-kor legenda-koveto-kor" style="--legenda-szin:brown;"></span>
+                <span>Számszerű egyéb iratanyag ifm (szám): külső kör, a település színével</span>
+            </div>
+        </div>
+
+    </div>
+    <div id="map"></div>
+</body>
+</html>
+
+
