@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100E</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100 mentőcsónakok</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-E Mentőcsónakok</h3>
+        <p>
+            Egy hajó utasait mentőcsónakokkal kell partra juttatni.
+            A csónakok azonos teherbírásúak, és egy csónakba legfeljebb két ember ülhet.
+            Az utasok együttes tömege nem haladhatja meg a csónak teherbírását.
+            A cél, hogy mindenki eljusson a partra a lehető legkevesebb csónak felhasználásával.
+            Minden csónak csak egyszer indul útnak.
+        </p>
+        <p>
+            Az <a href="input/3100E/input.txt">input.txt</a> UTF-8 kódolású fájl első sorában
+            a csónakok teherbírása szerepel kilogrammban, pozitív egész számként.
+            Minden további sor egy utas teljes nevét és kilogrammban megadott tömegét tartalmazza,
+            pontosvesszővel elválasztva. A fájlban nincs fejlécsor.
+            A nevek szóközt is tartalmazhatnak, de pontosvesszőt vagy sortörést nem;
+            a mezők nincsenek idézőjelezve.
+            A tömegek pozitív egész számok.
+            <strong>Feltételezheted, hogy legalább egy utas van, és mindenki külön-külön
+            elfér egy csónakban.</strong>
+            Azonos nevű és azonos tömegű utasok is előfordulhatnak;
+            minden bemeneti sor egy külön személyt jelöl.
+        </p>
+        <ol>
+            <li>
+                Olvasd be az adatokat, és készíts olyan csónakbeosztást, amelyhez
+                <strong>a lehető legkevesebb csónak szükséges!</strong>
+                Minden utas pontosan egy csónakba kerüljön; egy csónakban egy vagy két ember utazhat.
+                Készíts függvényt, amely visszaadja a csónakbeosztást!
+                A program írja ki a szükséges csónakok számát, majd csónakonként
+                az utasok teljes nevét, tömegét és a csónakban utazók össztömegét!
+                A csónakokat 1-től kezdve sorszámozd!
+                Több optimális beosztás esetén bármelyiket megadhatod;
+                a csónakok és az azokon belüli utasok felsorolásának sorrendje tetszőleges.
+            </li>
+        </ol>
+        <p>Például az alábbi bemenet esetén:</p>
+        <pre><code>100
+Kovács Anna;40
+Nagy Bence;80
+Tóth Eszter;50
+Kiss Dániel;60
+Szabó Fanni;50</code></pre>
+        <p>Egy megfelelő kimenet:</p>
+        <pre><code>A szükséges csónakok száma: 3
+1. csónak: Nagy Bence (80 kg). Össztömeg: 80 kg.
+2. csónak: Kovács Anna (40 kg), Kiss Dániel (60 kg). Össztömeg: 100 kg.
+3. csónak: Tóth Eszter (50 kg), Szabó Fanni (50 kg). Össztömeg: 100 kg.</code></pre>
+        <p>
+            Mindhárom csónak terhelése legfeljebb 100 kg.
+            Két csónak nem lenne elegendő, mert azokban összesen legfeljebb négy ember férne el.
+        </p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

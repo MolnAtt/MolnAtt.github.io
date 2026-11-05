@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100F</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100 fesztiválprogramok</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-F Fesztiválprogramok</h3>
+        <p>
+            Egy fesztiválon több helyszínen, részben egymással párhuzamosan zajlanak a programok.
+            Szeretnél minél több programon részt venni, de egyszerre csak egyet tudsz megnézni.
+            Egy program csak akkor számít meglátogatottnak, ha a kezdetétől a végéig ott vagy:
+            később érkezni, korábban távozni vagy egy programot megszakítani nem lehet.
+            Minden program ugyanannyit ér: kizárólag a meglátogatott programok számát szeretnénk maximalizálni.
+        </p>
+        <p>
+            Az <a href="input/3100F/input.txt">input.txt</a> UTF-8 kódolású fájl első sora mezőneveket tartalmaz.
+            Minden további sor egy program nevét, kezdési és befejezési időpontját tartalmazza,
+            pontosvesszővel elválasztva, ebben a sorrendben.
+            Az időpontok 24 órás, <code>ÓÓ:pp</code> formátumban szerepelnek.
+            Minden program ugyanazon a napon zajlik, és a kezdési időpontja szigorúan korábbi a befejezésénél.
+            A fájl legalább egy programot tartalmaz, a sorok sorrendje tetszőleges.
+            A programnevek egyediek, nem tartalmaznak pontosvesszőt vagy sortörést,
+            a mezők nincsenek idézőjelezve.
+        </p>
+        <p>
+            A helyszínek közötti közlekedés idejét elhanyagoljuk.
+            <strong>Ha egy program pontosan akkor kezdődik, amikor az előző véget ér,
+            mindkettőn részt vehetsz.</strong>
+        </p>
+        <ol>
+            <li>
+                Olvasd be a programok adatait, és állíts össze olyan menetrendet, amelyben
+                <strong>a lehető legtöbb programon tudsz elejétől a végéig részt venni!</strong>
+                Készíts függvényt, amely visszaadja a kiválasztott programok listáját!
+                A program írja ki a meglátogatható programok legnagyobb számát,
+                majd a kiválasztott programok nevét, kezdési és befejezési időpontját időrendben!
+                Több optimális megoldás esetén bármelyiket megadhatod.
+                A megoldásod rendezés után a rendezett lista egyszeri bejárásával válassza ki a programokat;
+                az összes lehetséges programválogatást ne állítsd elő!
+            </li>
+        </ol>
+        <p>Például az alábbi bemenet esetén:</p>
+        <pre><code>Nev;Kezdes;Befejezes
+Nagy koncert;08:30;12:30
+Bűvészbemutató;11:00;12:00
+Táncház;09:30;10:30
+Bábelőadás;09:00;10:00
+Filmvetítés;11:30;13:30
+Dobkoncert;12:00;13:00
+Tudományos bemutató;10:00;11:00</code></pre>
+        <p>Egy megfelelő kimenet:</p>
+        <pre><code>A meglátogatható programok legnagyobb száma: 4
+Bábelőadás;09:00;10:00
+Tudományos bemutató;10:00;11:00
+Bűvészbemutató;11:00;12:00
+Dobkoncert;12:00;13:00</code></pre>
+        <p>
+            A kiválasztott programok nem ütköznek egymással.
+            Ha a legkorábban kezdődő Nagy koncertre mennél el, a többi program közül
+            már egyiken sem tudnál elejétől a végéig részt venni.
+            A legkorábbi kezdés választása tehát nem feltétlenül adja a legtöbb programot.
+        </p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

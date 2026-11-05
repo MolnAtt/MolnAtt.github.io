@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100C</title>
+    <link rel="stylesheet" href="static/css/general.css">
+</head>
+<body>
+<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100 legnagyobb hézag</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-C Legnagyobb hézag</h3>
+        <p>
+            Az <a href="input/3100C/input.txt">input.txt</a> fájl minden sora egy
+            0 és 1 000 000 közötti egész számot tartalmaz. A fájlban nincs fejléc,
+            a számok nem feltétlenül nagyság szerint követik egymást.
+            Ugyanaz a szám többször is előfordulhat, de legalább két különböző érték szerepel a fájlban.
+        </p>
+        <ol>
+            <li>
+                Olvasd be a számsorozatot, és keresd meg azt a két különböző értéket,
+                amelyek különbsége a lehető legnagyobb úgy, hogy
+                <strong>a két érték között nagyság szerint nem szerepel a sorozat egyetlen másik eleme sem!</strong>
+                Ha több megfelelő számpár is van, azt válaszd, amelynek kisebbik tagja a legkisebb!
+                Készíts függvényt, amely visszaadja a keresett számpárt!
+                A program írja ki a két számot növekvő sorrendben, szóközzel elválasztva!
+            </li>
+        </ol>
+        <p>Például az alábbi bemenet esetén:</p>
+        <pre><code>18
+3
+25
+10
+3
+20
+9</code></pre>
+        <p>A kiírandó számpár:</p>
+        <pre><code>10 18</code></pre>
+        <p>
+            A különbségük 8, és 10-nél nagyobb, de 18-nál kisebb szám nem szerepel a bemenetben.
+            A „közöttük” itt a számok értékére vonatkozik, nem a fájlban elfoglalt helyükre.
+        </p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
