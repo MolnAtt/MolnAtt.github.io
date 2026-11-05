@@ -1,0 +1,51 @@
+Nev;Kezdes;Befejezes
+Szélcsengő táncház;11:00;11:30
+Égi iránytű kalandjáték;10:00;10:20
+Tükörlabirintus bemutató;16:00;17:30
+Lámpások éjszakai sétája;15:45;16:05
+Üstökös vonósnégyes;12:15;13:15
+Kódfejtők találkozója;17:20;18:00
+Tűzvirág cirkuszműsor;09:00;09:15
+Léghajósok krónikája;15:25;16:25
+Homokrajzok története;19:25;19:50
+Smaragd jazztrió;12:25;12:40
+Felhővadász meseműhely;10:00;10:30
+Hajnali fénykapu;08:00;15:00
+Mélységből szóló dallamok;15:50;16:30
+Holdtükör elektronikus koncert;20:35;21:50
+Rézmadarak koncertje;09:00;09:30
+Opálkert akusztikus est;15:10;15:55
+Különös találmányok vására;15:55;16:35
+Napköszöntő dobkör;08:00;08:30
+Fűszerek világkörüli útja;19:00;19:15
+Éjféli csillagvizsgálat;21:15;21:55
+Árnyjáték a ligetben;09:30;10:00
+Színes árnyékok laborja;10:50;12:20
+Kristályharang meditáció;15:35;16:00
+Robotok ritmusversenye;09:15;09:55
+Zafír utcai improvizáció;19:25;20:40
+Szélrózsa világzenei koncert;12:30;13:45
+Szivárványos buborékparádé;11:30;12:00
+Kék üstökös filmklub;17:15;17:55
+Csillagpor bűvészműsor;09:10;10:30
+Hajnalmadár kamarakórus;09:30;11:30
+Tündérpor pantomim;14:40;17:40
+Ritmuskonyha;11:50;13:50
+Kavicsok titkos élete;16:15;17:45
+Sárkányok és algoritmusok;12:20;13:50
+Parázsfény tűzzsonglőrök;21:35;22:00
+Gyöngyfolyam hangszerbemutató;10:30;11:45
+Borostyánerdő bábszínház;11:00;12:30
+Fényfestés élőzenére;17:00;18:30
+Titkos ajtók szabadulójátéka;21:20;22:35
+Papírsárkányok tánca;08:30;09:00
+Kötéltánc a felhők alatt;12:05;12:50
+Bársonyhíd költészeti est;09:40;10:05
+Sarki fény lézershow;21:15;21:35
+Láthatatlan tinták laborja;14:45;15:00
+Vándorcsillag népzenei műhely;14:10;14:40
+Rézüst mesekonyha;12:15;12:45
+Üveghangok zenekara;10:30;11:00
+Holdkő zsonglőrshow;11:30;12:00
+Nyomozás a toronyóránál;20:00;20:25
+Hangszerek a semmiből;19:55;20:35

@@ -39,30 +39,30 @@
             Minden feladat előtt a program írja ki a feladat sorszámát!
         </p>
         <p>
-            Az <a href="input/3100B/iskolak.csv">iskolak.csv</a> az iskolák adatait tartalmazza.
-            A fájl UTF-8 kódolású, mezőit pontosvessző választja el, első sora mezőneveket tartalmaz.
-            Az oszlopok sorrendje: az iskola OM-száma, kerületszáma és teljes neve.
+            Az <a href="input/3100B/iskolak.tsv">iskolak.tsv</a> az iskolák adatait tartalmazza.
+            A fájl UTF-8 kódolású, mezőit tabulátor választja el, első sora mezőneveket tartalmaz.
+            Az oszlopok sorrendje: az iskola OM-száma, teljes neve, a kerület száma és a település neve.
             Az OM-szám egyedi, pontosan hat számjegyből áll; szövegként tárold, hogy az esetleges
-            kezdő nullák is megmaradjanak! A kerületszám 1 és 23 közötti egész szám.
+            kezdő nullák is megmaradjanak! A kerületszám 0 és 23 közötti egész szám. A 0 számot a nem budapesti iskolák kapják.
             A feladatban minden iskola budapesti.
         </p>
-        <pre><code>OM;Kerulet;Iskolanev
-012345;10;Példa Általános Iskola
-023456;14;Minta Általános Iskola</code></pre>
+        <pre><code>
+012345;Példa Általános Iskola;10;Budapest
+023456;Minta Általános Iskola;14;Budapest</code></pre>
         <p>
-            A <a href="input/3100B/jelentkezesek.txt">jelentkezesek.txt</a> minden sora egy diák jelentkezését
+            A <a href="input/3100B/jelentkezesek.csv">jelentkezesek.csv</a> minden sora egy diák jelentkezését
             tartalmazza. A fájl UTF-8 kódolású, nincs fejlécsora, mezőit pontosvessző választja el.
-            A mezők sorrendje: a jelentkezés időpontja, a tanuló teljes neve, iskolájának OM-száma és osztálya.
+            A mezők sorrendje: a jelentkezés időpontja, a tanuló teljes neve, iskolájának OM-száma.
             Az időpont formátuma <code>éééé-HH-nn ÓÓ:pp:mm</code>, például
             <code>2026-10-15 08:03:27</code>; az időpontot dátum és idő típusú adatként kezeld!
-            A teljes nevet, az iskola OM-számát és az osztályt szövegként tárold!
+            A teljes nevet és az iskola OM-számát szövegként tárold!
             Minden tanuló egyszer jelentkezett, és minden megadott iskola szerepel az iskolák fájljában.
             A szöveges mezők nem tartalmaznak pontosvesszőt vagy sortörést, és nincsenek idézőjelezve.
             A jelentkezések nem feltétlenül időrendben szerepelnek.
         </p>
-        <pre><code>2026-10-15 08:03:27;Kovács Anna;012345;8.a
-2026-10-15 08:01:12;Nagy Bence;023456;8.b
-2026-10-15 08:05:40;Tóth Eszter;012345;8.c</code></pre>
+        <pre><code>2026-10-15 08:03:27;Kovács Anna;012345
+2026-10-15 08:01:12;Nagy Bence;023456
+2026-10-15 08:05:40;Tóth Eszter;012345</code></pre>
         <ol>
             <li>
                 <strong>A bejutottak névsora.</strong>

@@ -1,0 +1,61 @@
+3100I – Tanári ellenőrző eredmények
+
+Jelöltek: 6; szavazatok: 200.
+A jelöltazonosítók szándékosan nem folytonosak, a fájlok sorai kevertek.
+A szavazólapokon minden jelölt pontosan egyszer szerepel.
+
+1. Csak az első hely számít:
+7;Holdkövi Arisztid;60
+19;Zafírparti Amábel;50
+42;Ezüstpatak Celesztina;40
+68;Opálmezei Belizár;25
+103;Smaragdkúti Meluzina;25
+250;Csillagréti Hamilkár;0
+
+2. Pontozásos rangsor:
+42;Ezüstpatak Celesztina;790
+19;Zafírparti Amábel;750
+68;Opálmezei Belizár;605
+7;Holdkövi Arisztid;400
+103;Smaragdkúti Meluzina;365
+250;Csillagréti Hamilkár;90
+
+3. Kieséses eljárás, 1. forduló:
+7;Holdkövi Arisztid;60
+19;Zafírparti Amábel;50
+42;Ezüstpatak Celesztina;40
+68;Opálmezei Belizár;25
+103;Smaragdkúti Meluzina;25
+250;Csillagréti Hamilkár;0
+Kiesik: Csillagréti Hamilkár
+
+3. Kieséses eljárás, 2. forduló:
+7;Holdkövi Arisztid;60
+19;Zafírparti Amábel;50
+42;Ezüstpatak Celesztina;40
+68;Opálmezei Belizár;25
+103;Smaragdkúti Meluzina;25
+Kiesik: Smaragdkúti Meluzina
+
+3. Kieséses eljárás, 3. forduló:
+19;Zafírparti Amábel;75
+7;Holdkövi Arisztid;60
+42;Ezüstpatak Celesztina;40
+68;Opálmezei Belizár;25
+Kiesik: Opálmezei Belizár
+
+3. Kieséses eljárás, 4. forduló:
+19;Zafírparti Amábel;100
+7;Holdkövi Arisztid;60
+42;Ezüstpatak Celesztina;40
+Kiesik: Ezüstpatak Celesztina
+
+3. Kieséses eljárás, 5. forduló:
+19;Zafírparti Amábel;140
+7;Holdkövi Arisztid;60
+Győztes: Zafírparti Amábel
+
+Három különböző győztes.
+A 250-es jelölt kezdetben 0 szavazatot kap, mégis szerepelnie kell a rangsorban.
+A 68-as és 103-as jelölt holtversenyéből a nagyobb azonosítójú 103-as esik ki.
+A 19-es jelölt 100 szavazata a 200-ból pontosan 50%, ezért ekkor még nem győzött.
