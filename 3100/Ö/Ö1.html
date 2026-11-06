@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100-Ö</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100-Ö öregdiákok csoportképei</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-Ö Öregdiákok csoportképei</h3>
+        <p>
+            Egy maratoni öregdiáktalálkozó déli 12 órakor kezdődik, és másnap reggel 10 óráig tart.
+            A résztvevők eltérő időpontokban érkeznek és távoznak.
+            Sajnos nincs olyan időpont, amikor mindenki egyszerre jelen lenne.
+            A szervezők ezért több csoportképet készítenek, de szeretnék
+            <strong>a lehető legkevesebb fényképpel elérni, hogy minden résztvevő legalább egy képen szerepeljen.</strong>
+        </p>
+        <p>
+            Az <a href="input.txt">input.txt</a> UTF-8 kódolású fájl első sora mezőneveket tartalmaz.
+            Minden további sor egy résztvevő teljes nevét, érkezési és távozási időpontját tartalmazza,
+            pontosvesszővel elválasztva. Az időpontok formátuma <code>éééé-HH-nn ÓÓ:pp:mm</code>,
+            például <code>2026-11-14 23:30:00</code>.
+            <strong>Az érkezési és távozási időpontokat <code>DateTime</code> típusú adatként tárold és kezeld!</strong>
+            A program más dátumokkal is működjön: az esemény kezdőnapja nem rögzített.
+        </p>
+        <p>
+            Minden résztvevő egyszer érkezik és egyszer távozik, a kettő között végig jelen van.
+            Az érkezése szigorúan korábbi a távozásánál.
+            Minden időpont a találkozó déli kezdete és másnap 10 órás vége közé esik, a határokat is beleértve.
+            A fájl legalább két résztvevőt tartalmaz, a sorok sorrendje tetszőleges.
+            A nevek egyediek, nem tartalmaznak pontosvesszőt vagy sortörést;
+            a mezők nincsenek idézőjelezve.
+        </p>
+        <p>
+            A fényképezést pillanatszerűnek tekintjük.
+            <strong>A résztvevő az érkezése és a távozása pontos pillanatában is rákerülhet a képre.</strong>
+            Minden fényképen az összes akkor jelen lévő résztvevő szerepel, és ugyanaz a személy több képen is megjelenhet.
+            A fényképek készüljenek egész másodperc pontossággal.
+        </p>
+        <ol>
+            <li>
+                Olvasd be az adatokat, és határozd meg, mikor készüljenek a csoportképek úgy,
+                hogy mindenki legalább egy képen szerepeljen, és a képek száma minimális legyen!
+                Készíts függvényt, amely visszaadja a fényképezési időpontok listáját!
+                A megoldás rendezést és mohó kiválasztást használjon;
+                ne állítsd elő az összes lehetséges időpontkombinációt!
+                Írd ki a szükséges képek legkisebb számát, majd időrendben az időpontokat
+                <code>éééé-HH-nn ÓÓ:pp:mm</code> formátumban!
+                Minden időpont alatt sorold fel az adott képen szereplő résztvevőket,
+                teljes nevük szerint magyar ábécérendben!
+                Több optimális megoldás esetén bármelyiket megadhatod.
+            </li>
+        </ol>
+        <p>Például az alábbi bemenet esetén:</p>
+        <pre><code>Nev;Erkezes;Tavozas
+Kovács Anna;2026-11-14 12:00:00;2026-11-14 16:00:00
+Nagy Bence;2026-11-14 15:00:00;2026-11-14 18:00:00
+Tóth Csilla;2026-11-14 17:00:00;2026-11-15 01:00:00
+Kiss Dániel;2026-11-14 23:00:00;2026-11-15 04:00:00
+Szabó Eszter;2026-11-15 03:00:00;2026-11-15 08:00:00
+Varga Ferenc;2026-11-15 07:00:00;2026-11-15 10:00:00</code></pre>
+        <p>Egy megfelelő kimenet:</p>
+        <pre><code>A szükséges képek száma: 3
+2026-11-14 16:00:00
+Kovács Anna
+Nagy Bence
+
+2026-11-15 01:00:00
+Kiss Dániel
+Tóth Csilla
+
+2026-11-15 08:00:00
+Szabó Eszter
+Varga Ferenc</code></pre>
+        <p>
+            Két kép nem lenne elegendő: Kovács Anna, Tóth Csilla és Szabó Eszter
+            jelenléti időszakai páronként nem fedik egymást, ezért őket három különböző képen kell lefényképezni.
+        </p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

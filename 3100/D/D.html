@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100D</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100 keringőpárok</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-D Keringőpárok</h3>
+        <p>
+            A szalagavató keringőjére jelentkező tanulókból fiú–lány párokat kell kialakítani.
+            A szervezők azt szeretnék, hogy a párok tagjainak magassága összességében minél kevésbé térjen el.
+            Minden tanulónak pontosan egy párban kell szerepelnie.
+        </p>
+        <p>
+            Az <a href="input.txt">input.txt</a> fájl a jelentkezők táblázatát tartalmazza.
+            A fájl UTF-8 kódolású, első sora mezőneveket tartalmaz,
+            a mezőket pontosvessző választja el.
+            Minden további sor egy tanuló adatait tartalmazza az alábbi sorrendben:
+            vezetéknév; keresztnév; magasság; nem.
+            A magasság centiméterben megadott pozitív egész szám,
+            a nem értéke <code>fiú</code> vagy <code>lány</code>.
+            A névmezők szóközt is tartalmazhatnak, de pontosvesszőt vagy sortörést nem;
+            a mezők nincsenek idézőjelezve.
+            <strong>Feltételezheted, hogy ugyanannyi fiú és lány szerepel a fájlban,
+            és mindkét nemből legalább egy tanuló jelentkezett.</strong>
+            A tanulók sorrendje tetszőleges, azonos nevű vagy azonos magasságú tanulók is előfordulhatnak.
+        </p>
+        <ol>
+            <li>
+                Olvasd be a tanulók adatait, és alakíts ki fiú–lány párokat úgy, hogy
+                <strong>a párokon belüli magasságkülönbségek abszolút értékeinek összege
+                a lehető legkisebb legyen!</strong>
+                Minden tanulót pontosan egyszer ossz be!
+                Készíts függvényt, amely visszaadja a kialakított párok listáját!
+                Írd ki páronként a fiú és a lány teljes nevét, magasságát, valamint
+                a magasságkülönbségük abszolút értékét centiméterben!
+                A felsorolás végén írd ki a magasságkülönbségek összegét is!
+                Több optimális párosítás esetén bármelyiket megadhatod;
+                a párok felsorolásának sorrendje tetszőleges.
+            </li>
+        </ol>
+        <p>Például az alábbi bemenet esetén:</p>
+        <pre><code>Vezeteknev;Keresztnev;Magassag;Nem
+Kovács;Anna;165;lány
+Nagy;Bence;180;fiú
+Tóth;Eszter;175;lány
+Kiss;Dániel;170;fiú</code></pre>
+        <p>Egy megfelelő kimenet:</p>
+        <pre><code>Kiss Dániel (170 cm) – Kovács Anna (165 cm): 5 cm
+Nagy Bence (180 cm) – Tóth Eszter (175 cm): 5 cm
+A magasságkülönbségek összege: 10 cm</code></pre>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

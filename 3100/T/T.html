@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100T</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+<main>
+    <h2>3100 tábori foglalkozások</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>Törekedj arra, hogy szép, áttekinthető kódot írj!
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+        A felhasznált függvényekben ne történjen konzolra való kiírás!</p>
+        <p>Mindegyik feladatban nagyon fontos, hogy bár hat inputfájlt kapsz, úgy írd meg a programod,
+        hogy <strong>bármilyen, a feladatkiírásnak megfelelő bemeneti fájlegyüttessel működjön</strong>!</p>
+        <h3>3.100-T Tábori foglalkozások</h3>
+        <p>Egy nyári táborban hatféle foglalkozás közül választhatnak a diákok:
+        <strong>fizika, matematika, csillagászat, robotika, web és 3D</strong>.
+        Minden diák pontosan két vagy három különböző foglalkozást jelöl meg.
+        A foglalkozásokat két vagy három külön helyiségben, több idősávban szeretnék megtartani.
+        A szervezők ezért szeretnék látni, mely foglalkozások résztvevői között nagy az átfedés,
+        mely névsorok tartalmaznak más névsorokat, és mely foglalkozáspároknak nincs közös jelentkezőjük.</p>
+        <p>A feladatban a jelentkezéseket kell összehasonlítanod; konkrét órarendet és terembeosztást nem kell készítened.
+        Közös jelentkezőkkel rendelkező foglalkozások egyidejű megtartása ütközést okozna a diákoknak.</p>
+
+        <h3>Bemeneti fájlok</h3>
+        <p>A hat UTF-8 kódolású fájl egy-egy foglalkozás jelentkezőinek névsorát tartalmazza:</p>
+        <ul>
+            <li><a href="fizika.txt">fizika.txt</a> – fizika</li>
+            <li><a href="matematika.txt">matematika.txt</a> – matematika</li>
+            <li><a href="csillagaszat.txt">csillagaszat.txt</a> – csillagászat</li>
+            <li><a href="robotika.txt">robotika.txt</a> – robotika</li>
+            <li><a href="web.txt">web.txt</a> – web</li>
+            <li><a href="3D.txt">3D.txt</a> – 3D</li>
+        </ul>
+        <p>Mindegyik fájl első sora fejléc, a további sorok egy-egy jelentkezés időpontját és a diák teljes nevét tartalmazzák,
+        pontosvesszővel elválasztva. A mezők nincsenek idézőjelezve.
+        A nevek nem tartalmaznak pontosvesszőt vagy sortörést.</p>
+        <pre><code>Jelentkezes;Nev
+2027-01-12 09:14:26;Zafírparti Aurél
+2027-02-03 16:08:51;Aranyligeti Izolda</code></pre>
+        <p>A fenti két sor csak formátumminta. A dátumok formátuma <code>éééé-HH-nn ÓÓ:pp:mm</code>.
+        Az időpontok 2027. január 1. 00:00:00 és 2027. június 30. 23:59:59 közé esnek.
+        <strong>Az időpontokat <code>DateTime</code> típusú értékként tárold és hasonlítsd össze!</strong></p>
+        <p>Egy diák egyszer küldi be a választásait. Az összes általa választott foglalkozás fájljában
+        ugyanazzal a teljes névvel és ugyanazzal a jelentkezési időponttal szerepel.
+        <strong>Két különböző diáknak nincs azonos jelentkezési időpontja:</strong>
+        az időpont tehát egyértelműen azonosítja a diákot.
+        Az egyezést az időpont alapján vizsgáld, ne a név alapján!
+        Különböző diákok neve elvileg megegyezhet, ekkor is külön személynek számítanak.</p>
+        <p><strong>A fájlok már a jelentkezési időpont szerint, szigorúan növekvő sorrendben rendezettek,
+        nem pedig ábécérendben!</strong> Egy fájlban ugyanaz a diák legfeljebb egyszer szerepel.
+        Minden diák pontosan két vagy három fájlban található meg.
+        A mellékelt adatok összesen 40 különböző diák választásait tartalmazzák,
+        de a programod más létszámmal is működjön! Egy foglalkozás fájlja akár csak a fejlécet is tartalmazhatja.</p>
+
+        <h3>Elvárt működés és futási idő</h3>
+        <p>Két foglalkozás jelentkezőlistáját mindig a rendezettségüket kihasználva, két mutatóval dolgozd fel!
+        Az egyik mutató az első lista, a másik a második lista aktuális elemét jelöli.
+        A mutatók csak előre haladhatnak; a listák elejéről ne indulj újra.</p>
+        <p><strong>Egy kétlistás művelet futási ideje legfeljebb O(n + m) legyen</strong>,
+        ahol n és m a két bemeneti lista hossza. A kiíráshoz szükséges bejárás megengedett.
+        A lineáris követelmény a művelet egészére vonatkozik: ne rendezd újra a listákat,
+        ne keress minden diákra külön a másik teljes listában, és ne végezz külön bináris keresést minden elemhez!
+        Ne váltsd ki a kétmutatós feldolgozást kész halmazműveletekkel vagy hash-alapú adatszerkezettel!</p>
+        <p>Készíts újra felhasználható függvényeket a műveletekhez!
+        Egy listát visszaadó függvény teljes rekordokat adjon vissza: az időpontot és a nevet együtt.
+        A bemeneti listákat ne módosítsd! A függvényeken belül ne történjen konzolra való kiírás.</p>
+        <p>Minden részfeladat előtt írd ki a sorszámát!
+        Minden eredménylistánál írd ki a létszámot, majd soronként a jelentkezési időpontot és a teljes nevet,
+        <strong>a jelentkezés időrendjében</strong>, pontosvesszővel elválasztva!
+        Az eredményeket sem kell név szerint rendezni.
+        Üres eredménynél írd ki, hogy nincs ilyen jelentkező!</p>
+
+        <h3>Beolvasás</h3>
+        <ol>
+            <li>Olvasd be a hat névsort! Írd ki foglalkozásonként a jelentkezők számát!
+            Ugyanaz a diák több foglalkozás létszámába is beleszámít, ezért ezek összege nem a táborozók száma.</li>
+        </ol>
+
+        <h3>Metszet – mindkét foglalkozást választók</h3>
+        <p>A metszetbe azok a diákok tartoznak, akik mindkét vizsgált foglalkozást megjelölték.
+        Minden közös diák pontosan egyszer szerepeljen!
+        Készíts függvényt két rendezett lista metszetének meghatározására, majd használd az alábbi feladatokhoz!</p>
+        <ol start="2">
+            <li>Kik választották a matematikát és a robotikát is?</li>
+            <li>Kik választották a fizikát és a csillagászatot is?</li>
+            <li>Kik választották a csillagászatot és a webet is?</li>
+        </ol>
+
+        <h3>Különbség – az első foglalkozást igen, a másodikat nem választók</h3>
+        <p>Az A és B lista különbségébe azok tartoznak, akik A-ban szerepelnek, B-ben viszont nem.
+        <strong>A sorrend számít: A különbség B általában nem ugyanaz, mint B különbség A.</strong>
+        Készíts függvényt két rendezett lista különbségének meghatározására!</p>
+        <ol start="5">
+            <li>Kik választották a fizikát, de a csillagászatot nem?</li>
+            <li>Kik választották a csillagászatot, de a fizikát nem?</li>
+            <li>Kik választották a robotikát, de a matematikát nem?</li>
+        </ol>
+
+        <h3>Unió – legalább az egyik foglalkozást választók</h3>
+        <p>Az unióba azok tartoznak, akik a két foglalkozás közül legalább az egyiket megjelölték.
+        <strong>Aki mindkettőt választotta, az is csak egyszer szerepeljen!</strong>
+        Készíts függvényt két rendezett lista uniójának meghatározására!</p>
+        <ol start="8">
+            <li>Kik választottak fizikát vagy csillagászatot, esetleg mindkettőt?</li>
+            <li>Kik választottak matematikát vagy robotikát, esetleg mindkettőt?</li>
+            <li>Kik választottak csillagászatot vagy webet, esetleg mindkettőt?</li>
+        </ol>
+
+        <h3>Szimmetrikus különbség – pontosan az egyik foglalkozást választók</h3>
+        <p>Ide azok tartoznak, akik a vizsgált két foglalkozás közül pontosan az egyiket jelölték meg.
+        A mindkettőt választók kimaradnak. A diák egy harmadik foglalkozást ettől még választhatott.
+        Készíts függvényt e lista meghatározására! Megoldhatod közvetlenül két mutatóval,
+        vagy a korábbi függvények felhasználásával, ha a teljes művelet így is lineáris marad.</p>
+        <ol start="11">
+            <li>Kik választották a matematika és a robotika közül pontosan az egyiket?</li>
+            <li>Kik választották a fizika és a csillagászat közül pontosan az egyiket?</li>
+            <li>Kik választották a csillagászat és a web közül pontosan az egyiket?</li>
+        </ol>
+
+        <h3>Tartalmazás – az első csoport minden tagja szerepel-e a másodikban?</h3>
+        <p>Az A jelentkezőlistája részhalmaza B jelentkezőlistájának, ha minden A-t választó diák B-t is választott.
+        Az egyenlő listák is részhalmazai egymásnak. Üres lista bármely lista részhalmaza.
+        Készíts logikai értéket visszaadó függvényt két rendezett lista részhalmazviszonyának eldöntésére!
+        A következő kérdésekre „igen” vagy „nem” választ írj ki!</p>
+        <ol start="14">
+            <li>Igaz-e, hogy minden csillagászatra jelentkező diák fizikára is jelentkezett?</li>
+            <li>Igaz-e, hogy minden fizikára jelentkező diák csillagászatra is jelentkezett?</li>
+            <li>Igaz-e, hogy minden webre jelentkező diák 3D-re is jelentkezett?</li>
+        </ol>
+
+        <h3>Diszjunktság – nincs-e közös jelentkező?</h3>
+        <p>Két jelentkezőlista diszjunkt, ha nincs olyan diák, aki mindkettőben szerepel.
+        Ez azt jelenti, hogy e két foglalkozás között a diákok választásai alapján nincs résztvevői ütközés.
+        Üres lista bármely listával diszjunkt.
+        Készíts logikai értéket visszaadó függvényt, amely ezt a két rendezett listáról eldönti!
+        A következő kérdésekre „igen” vagy „nem” választ írj ki!</p>
+        <ol start="17">
+            <li>Diszjunkt-e a csillagászat és a web jelentkezőlistája?</li>
+            <li>Diszjunkt-e a fizika és a 3D jelentkezőlistája?</li>
+            <li>Diszjunkt-e a matematika és a robotika jelentkezőlistája?</li>
+        </ol>
+
+        <h3>Mire figyelj a kétmutatós feldolgozásnál?</h3>
+        <p>Az időpontok összehasonlítása háromféle eredményt adhat: az első kisebb, a második kisebb,
+        vagy a kettő azonos. Azonos időpont esetén ugyanarról a diákról van szó.
+        Ha az egyik mutató a lista végére ért, gondold végig, mi legyen a másik lista megmaradt elemeivel!
+        Ez műveletenként eltérhet. A függvényeid üres listákkal is helyesen működjenek!</p>
+    </article>
+</main>
+<footer><a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a></footer>
+</body>
+</html>

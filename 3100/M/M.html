@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100H</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100-M mentorválasztás</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-M Mentorválasztás</h3>
+        <p>
+            Az iskola NYF osztályos tanulói mellé a 9F osztályból választanak mentorokat.
+            A cél, hogy minden mentorált olyan kilencedikes segítségét kapja, aki az előző évben,
+            NYF-esként hasonló tanulmányi eredménnyel indult.
+            Ezért mindkét évfolyamnál az NYF-es tanév novemberéig szerzett jegyek átlagát hasonlítjuk össze.
+            A kilencedikeseknél tehát nem a mostani, hanem az egy évvel korábbi átlag szerepel.
+        </p>
+        <p>
+            Az <a href="input.txt">input.txt</a> UTF-8 kódolású fájl egy tanulói adattáblát tartalmaz.
+            Az első sor mezőneveket tartalmaz, minden további sor egy tanuló adatait adja meg,
+            pontosvesszővel elválasztva, az alábbi sorrendben:
+            vezetéknév; keresztnév; évfolyam; jegyátlag.
+            Az évfolyam értéke <code>NY</code> vagy <code>9</code>:
+            az előbbi az NYF, az utóbbi a 9F osztály tanulóit jelöli.
+            A jegyátlag 1,00 és 5,00 közötti érték, amely a fájlban tizedesponttal,
+            pontosan két tizedesjeggyel szerepel.
+            A névmezők szóközt is tartalmazhatnak, de pontosvesszőt vagy sortörést nem;
+            a mezők nincsenek idézőjelezve.
+            A sorok sorrendje tetszőleges.
+            Feltételezheted, hogy mindkét osztályból legalább egy tanuló szerepel a fájlban.
+        </p>
+        <ol>
+            <li>
+                Olvasd be az adatokat, és rendelj minden NYF-es tanulóhoz pontosan egy 9F-es mentort!
+                <strong>Mindig azt a kilencedikest válaszd, akinek a megadott jegyátlaga
+                a legközelebb esik a mentorált jegyátlagához!</strong>
+                A közelséget a két jegyátlag különbségének abszolút értéke alapján mérjük.
+                Ugyanaz a kilencedikes több tanuló mentora is lehet, és nem szükséges,
+                hogy minden kilencedikes kapjon mentoráltat.
+                Ha több mentor is ugyanolyan közeli átlaggal rendelkezik, közülük a vezetéknév,
+                majd a keresztnév szerint magyar ábécérendben elsőt válaszd!
+                Teljes névazonosság esetén a bemeneti fájlban előbb szereplő tanulót válaszd.
+                A megoldáshoz használd fel a rendezést!
+                Készíts függvényt, amely egy NYF-es tanulóhoz visszaadja a kiválasztott mentort!
+                Írd ki a képernyőre a mentorált–mentor párokat:
+                soronként a mentorált teljes nevét és jegyátlagát, majd a mentor teljes nevét
+                és jegyátlagát!
+                A párok a mentoráltak vezetékneve, majd keresztneve szerint magyar ábécérendben kövessék egymást;
+                teljes névazonosság esetén a bemeneti sorrend döntsön.
+                A jegyátlagokat két tizedesjeggyel jelenítsd meg!
+            </li>
+        </ol>
+        <p>Például az alábbi bemenet esetén:</p>
+        <pre><code>Vezeteknev;Keresztnev;Evfolyam;Atlag
+Kovács;Anna;NY;4.20
+Nagy;Bence;9;4.10
+Tóth;Eszter;NY;3.60
+Kiss;Dániel;9;3.50
+Szabó;Fanni;NY;4.15
+Varga;Gergő;9;4.30
+Balogh;Hanna;9;3.70
+Farkas;Júlia;9;4.90</code></pre>
+        <p>A hozzá tartozó kimenet:</p>
+        <pre><code>Kovács Anna (4,20) – Nagy Bence (4,10)
+Szabó Fanni (4,15) – Nagy Bence (4,10)
+Tóth Eszter (3,60) – Balogh Hanna (3,70)</code></pre>
+        <p>
+            Kovács Anna átlagához Nagy Bence és Varga Gergő átlaga egyformán közel van;
+            a névsorrend miatt Nagy Bence lesz a mentora.
+            Tóth Eszter esetében Balogh Hanna és Kiss Dániel között ugyanez a szabály dönt.
+            Nagy Bence két mentoráltat is kap, míg több kilencedikesnek nem jut mentorált.
+        </p>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

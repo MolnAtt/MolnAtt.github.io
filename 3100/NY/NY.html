@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100-NY</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100-NY nyílt napi beosztás</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár két inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájlpárral működjön</strong>!
+        </p>
+
+        <h3>3.100-NY Nyílt napi beosztás</h3>
+        <p>
+            Iskolánk nyílt napjára általános iskolás diákok jelentkeztek. A férőhelyek száma korlátozott,
+            ezért a jelentkezési sorrend alapján döntjük el, ki vehet részt a programon.
+            A bejutott diákokat ezután csoportokba osztjuk.
+            Olvasd be a két bemeneti fájlt, majd oldd meg a következő feladatokat!
+            Minden feladat előtt a program írja ki a feladat sorszámát!
+        </p>
+        <p>
+            Az <a href="iskolak.tsv">iskolak.tsv</a> az iskolák adatait tartalmazza.
+            A fájl UTF-8 kódolású, mezőit tabulátor választja el, első sora mezőneveket tartalmaz.
+            Az oszlopok sorrendje: az iskola OM-száma, teljes neve, a kerület száma és a település neve.
+            Az OM-szám egyedi, pontosan hat számjegyből áll; szövegként tárold, hogy az esetleges
+            kezdő nullák is megmaradjanak! A kerületszám 0 és 23 közötti egész szám. A 0 számot a nem budapesti iskolák kapják.
+            A feladatban minden iskola budapesti.
+        </p>
+        <pre><code>
+012345;Példa Általános Iskola;10;Budapest
+023456;Minta Általános Iskola;14;Budapest</code></pre>
+        <p>
+            A <a href="jelentkezesek.csv">jelentkezesek.csv</a> minden sora egy diák jelentkezését
+            tartalmazza. A fájl UTF-8 kódolású, nincs fejlécsora, mezőit pontosvessző választja el.
+            A mezők sorrendje: a jelentkezés időpontja, a tanuló teljes neve, iskolájának OM-száma.
+            Az időpont formátuma <code>éééé-HH-nn ÓÓ:pp:mm</code>, például
+            <code>2026-10-15 08:03:27</code>; az időpontot dátum és idő típusú adatként kezeld!
+            A teljes nevet és az iskola OM-számát szövegként tárold!
+            Minden tanuló egyszer jelentkezett, és minden megadott iskola szerepel az iskolák fájljában.
+            A szöveges mezők nem tartalmaznak pontosvesszőt vagy sortörést, és nincsenek idézőjelezve.
+            A jelentkezések nem feltétlenül időrendben szerepelnek.
+        </p>
+        <pre><code>2026-10-15 08:03:27;Kovács Anna;012345
+2026-10-15 08:01:12;Nagy Bence;023456
+2026-10-15 08:05:40;Tóth Eszter;012345</code></pre>
+        <ol>
+            <li>
+                <strong>A bejutottak névsora.</strong>
+                Kérj be a felhasználótól egy <code>N</code> egész számot!
+                Feltételezheted, hogy <code>1 &lt;= N &lt;= a jelentkezők száma</code>.
+                A jelentkezési idő szerint első <code>N</code> diák jut be a nyílt napra.
+                Ha két jelentkezés időpontja megegyezik, a bemeneti fájlban előbb szereplő jelentkezés élvez elsőbbséget.
+                Készíts névsort a kapunál dolgozók számára: írd ki a bejutott diákok teljes nevét,
+                osztályát és iskolájának teljes nevét!
+                A névsor a diákok teljes neve szerint, magyar ábécérendben növekvően legyen rendezve,
+                hogy a belépőket könnyen megtalálják, és diákigazolványuk alapján az iskolájukat is ellenőrizhessék.
+                Névazonosság esetén az iskola OM-száma, majd az osztály szöveges értéke szerint növekvő sorrend döntsön;
+                további egyezés esetén a jelentkezési sorrendet használd!
+            </li>
+            <li>
+                <strong>Csoportbeosztás.</strong>
+                A korábbi években az azonos iskolából érkező diákok gyakran egymással beszélgettek
+                az előadások alatt. A szervezők ezért idén szeretnék őket minél egyenletesebben
+                szétosztani a csoportok között.
+                Kérj be két pozitív egész számot: <code>K</code> a csoportok száma,
+                <code>M</code> pedig az egy csoportba beosztható diákok legnagyobb száma!
+                Feltételezheted, hogy <strong><code>K · M &gt;= N</code></strong>.
+                Kizárólag az első feladatban bejutott <code>N</code> diákot oszd be;
+                mindenki pontosan egy csoportba kerüljön!
+                Egyik csoportban sem lehet <code>M</code> főnél több.
+                <strong>Minden iskolára külön-külön teljesüljön, hogy az abból érkező diákok száma
+                bármely két csoportban legfeljebb eggyel tér el!</strong>
+                Ebbe az összehasonlításba azokat a csoportokat is számítsd bele,
+                amelyekbe az adott iskolából senki sem került.
+                Így ha egy iskolából legfeljebb <code>K</code> diák jutott be, mindannyian különböző csoportba kerülnek.
+                Ha többen vannak, a lehető legegyenletesebben oszlanak el.
+                Több megfelelő beosztás esetén bármelyiket megadhatod.
+                Készítsd el a csoportvezetők számára nyomtatandó névsorokat külön-külön UTF-8 kódolású fájlokba!
+                A csoportok sorszáma 1-től <code>K</code>-ig terjedjen;
+                az <code>i</code>. csoport névsora a <code>csoporti.txt</code> fájlba kerüljön,
+                például <code>csoport1.txt</code>, <code>csoport2.txt</code> és így tovább.
+                Minden csoportnál először a csoport száma szerepeljen, majd külön sorokban a beosztott
+                diákok teljes neve és iskolájának teljes neve, pontosvesszővel elválasztva!
+                A diákok az első feladatban meghatározott névsorrendben szerepeljenek.
+                Az üres csoportokhoz is készíts fájlt: az első sorban a csoport száma,
+                alatta a „Nincs beosztott diák.” szöveg szerepeljen!
+            </li>
+        </ol>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>

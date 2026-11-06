@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100K</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+<main>
+    <h2>3100 jutalomkönyvek</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>Törekedj arra, hogy szép, áttekinthető kódot írj!
+        Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+        A felhasznált függvényekben ne történjen konzolra való kiírás!</p>
+        <p>Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod,
+        hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!</p>
+        <h3>3.100-K Jutalomkönyvek</h3>
+        <p>Az iskola egy logikai feladatmegoldó verseny három díjazottjának szeretne jutalomkönyvet venni.
+        Mindhárom tanuló egy-egy könyvet kap, és a szervezők azt szeretnék, hogy
+        <strong>három különböző című kötetet</strong> válasszanak.
+        A könyvlistán kizárólag Raymond M. Smullyan művei szerepelnek.</p>
+        <p>A jutalmakra rendelkezésre álló összeget teljes egészében könyvekre kell költeni.
+        Keresd meg, választható-e három különböző könyv úgy,
+        hogy <strong>az áruk összege pontosan a megadott keretösszeg legyen</strong>!
+        A keretet túllépni nem lehet, és megmaradó pénz sem lehet.
+        Kedvezménnyel, szállítási költséggel vagy más felárral nem számolunk.</p>
+
+        <h3>Bemeneti fájl</h3>
+        <p>Az <a href="smullyan.txt">input.txt</a> UTF-8 kódolású fájl első sora mezőneveket tartalmaz.
+        Minden további sor egy könyv címét és forintban megadott árát tartalmazza,
+        pontosvesszővel elválasztva, ebben a sorrendben:</p>
+        <pre><code>Cim;Ar</code></pre>
+        <p>A könyvcímek egyediek. A címek szóközt és írásjeleket is tartalmazhatnak,
+        de pontosvesszőt vagy sortörést nem; a mezők nincsenek idézőjelezve.
+        Az árak pozitív egész számok. Különböző könyvek ára megegyezhet,
+        és ezeket továbbra is külön könyvként kell kezelni.
+        A fájl legalább három könyvet tartalmaz, a sorok sorrendje tetszőleges.</p>
+        <p>A mellékelt fájl harminc könyvet tartalmaz, de a programod más elemszámú,
+        a leírásnak megfelelő fájlokkal is működjön!
+        <strong>A címek valódi könyvcímek, az árak viszont a feladathoz kitalált tesztadatok,
+        nem aktuális bolti árak.</strong></p>
+
+        <h3>Feladatok</h3>
+        <p>Minden részfeladat előtt írd ki a sorszámát!</p>
+        <ol>
+            <li>Olvasd be és tárold a könyvek címét és árát!
+            Írd ki, hány könyv közül választhatnak a szervezők!</li>
+            <li>Kérd be a felhasználótól a keretösszeget forintban, pozitív egész számként!
+            Hibás adat esetén kérd be újra!</li>
+            <li>Rendezd a könyveket ár szerint növekvő sorrendbe!
+            A címet és az árat együtt mozgasd; azonos ár esetén a könyvek sorrendje tetszőleges.</li>
+            <li>Készíts függvényt, amely a rendezett könyvlista és a keretösszeg alapján
+            visszaad három megfelelő könyvet, vagy jelzi, ha nincs megoldás!
+            <strong>Ugyanazt a könyvet nem választhatod ki többször.</strong>
+            Azonos árú, de különböző című könyveket viszont választhatsz együtt.
+            Több megfelelő hármas esetén bármelyiket megadhatod; elég egyetlen megoldást keresni.</li>
+            <li>Ha van megoldás, írd ki a három könyv címét és árát az árak növekvő sorrendjében,
+            majd az összárukat! Ha nincs, írd ki:
+            <code>Nincs három különböző könyv, amelynek összára pontosan a megadott keret.</code></li>
+        </ol>
+
+        <h3>Algoritmikus megkötés</h3>
+        <p>A kereséshez használd ki az árak szerinti rendezettséget!
+        <strong>Rögzíts egy könyvet, majd a mögötte álló listarészben két mutatóval keresd a másik kettőt!</strong>
+        Az egyik mutató e rész elejéről, a másik a végéről induljon.
+        Az aktuális összeg alapján döntsd el, melyik mutatót kell léptetni!
+        Egy rögzített első könyvnél a mutatók csak egymás felé haladhatnak, és nem keresztezhetik egymást.</p>
+        <p>A rendezés utáni keresés futási ideje legfeljebb <strong>O(n²)</strong> legyen,
+        ahol n a könyvek száma. Egy rögzített első könyvhöz a másik kettőt legfeljebb lineáris időben keresd meg!
+        Ne próbáld végig az összes könyvhármast három egymásba ágyazott ciklussal,
+        és ne helyettesítsd a kétmutatós keresést minden könyvpárhoz indított külön bináris kereséssel!
+        A függvény visszatérési értékkel jelezze az eredményt; ne a keresőfüggvény írjon a képernyőre!</p>
+
+        <h3>Példa a mellékelt bemenettel</h3>
+        <p>A könyvlista egyik részlete:</p>
+        <pre><code>Cim;Ar
+Sherlock Holmes sakkrejtélyei;3200
+Alice Rejtvényországban;2900
+Seherezádé rejtélye;3500
+Mi a címe ennek a könyvnek?;3200</code></pre>
+        <p>A teljes fájl további könyveket is tartalmaz.
+        Ha a felhasználó <strong>10000</strong> forintos keretet ad meg, egy megfelelő eredmény:</p>
+        <pre><code>Alice Rejtvényországban;2900
+Sherlock Holmes sakkrejtélyei;3200
+Emlékek, történetek, paradoxonok;3900
+Összesen: 10000 Ft</code></pre>
+        <p>Másik helyes választás ugyanennél a keretnél:</p>
+        <pre><code>Sherlock Holmes sakkrejtélyei;3200
+Mi a címe ennek a könyvnek?;3200
+A hölgy vagy a tigris?;3600
+Összesen: 10000 Ft</code></pre>
+        <p>Ez is érvényes: a két 3200 forintos kötet különböző könyv.
+        Nem az áraknak, hanem a kiválasztott könyveknek kell különbözniük.</p>
+        <p>A mellékelt fájllal <strong>10001</strong> forintos keretre nincs megoldás:
+        az összes ár 100-zal osztható, így három könyv árának összege is az.</p>
+
+        <h3>A könyvcímek forrása</h3>
+        <p>A magyar címeket a <a href="https://typotex.hu/szerzo-fordito/smullyan-raymond/">Typotex Kiadó szerzői oldalán</a>
+        és annak <a href="https://typotex.hu/szerzo-fordito/smullyan-raymond/?page=2">második oldalán</a>
+        ellenőriztük. A további, angol című kötetek a
+        <a href="https://www.raymondsmullyan.com/books/">Raymond Smullyan Society könyvjegyzékéből</a> származnak.
+        Minden felsorolt könyv Raymond M. Smullyan műve;
+        ezért a bemeneti fájlban nincs külön szerzőoszlop.</p>
+    </article>
+</main>
+<footer><a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a></footer>
+</body>
+</html>

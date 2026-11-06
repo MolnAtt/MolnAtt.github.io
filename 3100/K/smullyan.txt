@@ -1,0 +1,31 @@
+Cim;Ar
+Sherlock Holmes sakkrejtélyei;3200
+Alice Rejtvényországban;2900
+Seherezádé rejtélye;3500
+Mi a címe ennek a könyvnek?;3200
+A csúfolórigó nyomában;4200
+A hölgy vagy a tigris?;3600
+A tao hallgat;2800
+Emlékek, történetek, paradoxonok;3900
+Gödel nemteljességi tételei;4800
+This Book Needs No Title;4100
+The Chess Mysteries of the Arabian Knights;5700
+Forever Undecided;6300
+Satan, Cantor, and Infinity;5900
+Logical Labyrinths;8200
+King Arthur in Search of His Dog and Other Curious Puzzles;4600
+The Gödelian Puzzle Book;5400
+The Magic Garden of George B and Other Logic Puzzles;7100
+Five Thousand B. C. and Other Philosophical Fantasies;4300
+Who Knows?;5200
+A Spiritual Journey;4500
+Rambles Through My Library;6800
+A Mixed Bag;4900
+Reflections;6500
+Theory of Formal Systems;11200
+First-Order Logic;7600
+Recursion Theory for Metamathematics;13900
+Diagonalization and Self-Reference;14800
+Set Theory and the Continuum Problem;12500
+A Beginner's Guide to Mathematical Logic;6100
+A Beginner's Further Guide to Mathematical Logic;8900

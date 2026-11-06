@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
+    <title>HF-3100-L</title>
+    <link rel="stylesheet" href="../../static/css/general.css">
+</head>
+<body>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
+
+<main>
+    <h2>3100-L legjobbak kiválasztása</h2>
+    <article>
+        <h3>Általános leírás</h3>
+        <p>
+            Törekedj arra, hogy szép, áttekinthető kódot írj!
+            Úgy oldd meg a feladatokat, hogy <em>függvényeket</em> használsz a megoldáshoz!
+            A felhasznált függvényekben ne történjen konzolra való kiírás!
+        </p>
+        <p>
+            Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy
+            <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>!
+        </p>
+
+        <h3>3.100-L legjobbak kiválasztása</h3>
+        <p>
+            Olvasd be az alábbi fájl tartalmát, majd oldd meg a következő feladatokat!
+            Minden feladat előtt a program írja ki a feladat sorszámát!
+        </p>
+        <p>
+            Az <a href="input.txt">input.txt</a> tanulók matematika és magyar központi írásbeli
+            felvételi vizsgán elért eredményeit és hozott pontszámait tartalmazza. A fájl UTF-8 kódolású, nincs fejlécsora;
+            minden sora egy tanuló adatait tartalmazza, szóközzel elválasztva, az alábbi sorrendben:
+            vezetéknév keresztnév OM-azonosító matematikaeredmény magyareredmény hozott pontszám.
+            A névmezők nem tartalmaznak szóközt, senkinek nincs harmadik neve. Az OM-azonosító egyedi, 11 számjegyből álló azonosító,
+            amelyet szövegként tárolj! A két írásbeli eredmény egy-egy 0 és 50 közötti egész szám.
+            A hozott pontszám az általános iskolai eredményekből már kiszámított, 0 és 30 közötti pontszám;
+            a fájlban tizedesponttal szerepel, legfeljebb két tizedesjeggyel. Ezt nem kell az érdemjegyekből kiszámítanod.
+        </p>
+        <pre><code>Kovács Anna 71234567890 45 42 28.50
+Nagy Bence 72345678901 48 39 27.75
+Tóth Eszter 73456789012 40 47 30.00</code></pre>
+        <p>
+            A feladatban az iskola <a href="https://www.szlgbp.hu/felveteli/felveteli-pontszamitas/">felvételi pontszámításának</a>
+            írásbeli eredményekre vonatkozó súlyozását és a hozott pontszámot használjuk. Egyszerűsítésként
+            szóbeli eredményt, jogosultsági feltételeket és az iskola egyéb rangsorolási szabályait nem vesszük figyelembe.
+            Tekintsd úgy, hogy minden tanuló mindkét tagozatra jelentkezett!
+        </p>
+        <p>
+            <strong>A teljes lista rendezése nem megengedett!</strong> A maximumkiválasztásos vagy a buborékos
+            rendezést módosítsd úgy, hogy csak a legjobb <code>N</code> elem meghatározásához szükséges
+            meneteket végezze el! Ezek az elemek a megadott szempont szerint rendezve kerüljenek az eredménybe;
+            a többi elem egymáshoz viszonyított sorrendje tetszőleges maradhat.
+            Beépített rendezést és a rendezést elrejtő könyvtári műveletet sem használhatsz.
+        </p>
+
+        <ol>
+            <li>
+                Készíts újrafelhasználható függvényt, amely paraméterként megkap egy listát, egy
+                <code>N</code> egész számot és az elemek sorrendjét meghatározó összehasonlító függvényt!
+                A függvény a fent leírt részleges rendezéssel válassza ki, és új listában adja vissza
+                az első <code>N</code> elemet, a legjobbtól a legrosszabbig haladva!
+                Feltételezheted, hogy <code>0 &lt;= N &lt;= lista.Count</code>.
+                <code>N = 0</code> esetén üres listát adjon vissza.
+                A következő két feladatot ennek a függvénynek a felhasználásával oldd meg,
+                egymástól függetlenül, a teljes tanulói listából kiindulva!
+            </li>
+            <li>
+                Válaszd ki az informatika (digitális kultúra) tagozat rangsorának első 20 tanulóját!
+                A rangsoroláshoz használt pontszám:
+                <strong>hozott pontszám + 0,8 · matematikaeredmény + 0,6 · magyareredmény</strong>.
+                A magasabb pontszám jelent jobb eredményt.
+                Pontegyenlőség esetén vezetéknév, majd keresztnév szerint, magyar ábécérendben növekvően rendezz;
+                teljes névazonosság esetén a kisebb OM-azonosító kerüljön előre!
+                Írd ki a kiválasztott tanulók sorszámát, teljes nevét, OM-azonosítóját és számított pontszámát!
+                Ha 20-nál kevesebb tanuló szerepel a fájlban, mindegyiküket válaszd ki!
+            </li>
+            <li>
+                Válaszd ki azt a 90 tanulót, akit a tömegkommunikáció
+                (mozgóképkultúra és médiaismeret) tagozat szóbeli vizsgájára behívnánk!
+                A rangsoroláshoz használt pontszám:
+                <strong>hozott pontszám + 0,5 · matematikaeredmény + 0,5 · magyareredmény</strong>.
+                A magasabb pontszám jelent jobb eredményt.
+                Pontegyenlőség esetén vezetéknév, majd keresztnév szerint, magyar ábécérendben növekvően rendezz;
+                teljes névazonosság esetén a kisebb OM-azonosító kerüljön előre!
+                Írd ki a kiválasztott tanulók sorszámát, teljes nevét, OM-azonosítóját és számított pontszámát!
+                Ha 90-nél kevesebb tanuló szerepel a fájlban, mindegyiküket válaszd ki!
+            </li>
+        </ol>
+    </article>
+</main>
+<footer>
+    <a href="mailto:molnar.attila@szlgbp.hu">molnar.attila@szlgbp.hu</a>
+</footer>
+</body>
+</html>
