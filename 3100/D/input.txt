@@ -10,7 +10,7 @@ Kéküstökű;Ervin;185;fiú
 Kristályrévi;Csanád;191;fiú
 Üstökösi;Amarilla;170;lány
 Gyöngykövi;Csinszka;154;lány
-Rubinszigeti;Magnólia;183;lány
+Rubinszigeti;Magnólia;199;lány
 Tündérvári;Bertold;193;fiú
 Csillagréti;Izolda;167;lány
 Ezüstpatak;Adorján;170;fiú
