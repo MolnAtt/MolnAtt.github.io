@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e15">
+  <meta name="description" content="Gravitációs szimuláció: SVG-vizualizáció és bolygókezelő felület.">
+  <title>Gravitációs szimuláció</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="vektor.js" defer></script>
+  <script src="egitest.js" defer></script>
+  <script src="galaxis.js" defer></script>
+  <script src="galaxisok.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">INTERAKTÍV FIZIKAI MODELL</p>
+        <h1>Gravitációs <span>szimuláció</span></h1>
+        <p class="lead">Bolygók, sebességvektorok és egymásra ható gravitációs erők.</p>
+      </div>
+      <div class="header-tag" aria-label="A megjelenítés SVG technológiát használ">
+        <span class="tag-dot" aria-hidden="true"></span> SVG ALAPÚ
+      </div>
+    </header>
+
+    <div class="workspace">
+      <!-- BAL OLDAL: SVG VIZUALIZÁCIÓ -->
+      <section class="visual-section" aria-labelledby="visual-heading">
+        <div class="section-heading">
+          <h2 id="visual-heading">Vizualizáció</h2>
+          <span class="section-caption">Élő szimulációs tér</span>
+        </div>
+
+        <div class="visual-card">
+          <div class="visual-topbar">
+            <div class="status" id="simulation-status" role="status">
+              <span class="status-light" aria-hidden="true"></span>
+              <span id="simulation-status-text">Készen áll</span>
+            </div>
+            <div class="time-display">t = <output id="elapsed-time">0.00</output></div>
+          </div>
+
+          <!-- A JS a #body-layer csoportot frissítheti, a #trail-layer rétegbe rajzolhatja a pályákat. -->
+          <svg id="simulation-svg" class="simulation-svg" viewBox="0 0 720 540"
+               xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="A bolygók helyzete egy kétdimenziós gravitációs térben">
+            <defs>
+              <marker id="head" orient="auto" markerWidth="3" markerHeight="4" refX="0.1" refY="2">
+                <path d="M0,0 V4 L2,2 Z" fill="gray" />
+              </marker>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" fill="none" stroke="#8492af" stroke-opacity=".09" stroke-width="1" />
+              </pattern>
+              <radialGradient id="planet-red" cx="30%" cy="28%" r="80%">
+                <stop offset="0%" stop-color="#ffb6ac" />
+                <stop offset="40%" stop-color="#ff665c" />
+                <stop offset="100%" stop-color="#b92531" />
+              </radialGradient>
+              <radialGradient id="planet-blue" cx="30%" cy="28%" r="80%">
+                <stop offset="0%" stop-color="#c6eeff" />
+                <stop offset="45%" stop-color="#5baeff" />
+                <stop offset="100%" stop-color="#2356af" />
+              </radialGradient>
+              <radialGradient id="planet-gold" cx="30%" cy="28%" r="80%">
+                <stop offset="0%" stop-color="#fff0c5" />
+                <stop offset="45%" stop-color="#ffc46b" />
+                <stop offset="100%" stop-color="#ba6d20" />
+              </radialGradient>
+            </defs>
+
+            <rect width="720" height="540" fill="url(#grid)" />
+            <g id="trail-layer" fill="none" stroke-linecap="round"></g>
+            <g id="body-layer"></g>
+          </svg>
+
+          <div class="visual-footer">
+            <span><span class="small-dot" aria-hidden="true"></span> <output id="body-count">3</output> égitest</span>
+            <span>2D koordinátarendszer · SVG</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOBB OLDAL: KEZELŐPANEL -->
+      <section class="control-section" aria-labelledby="control-heading">
+        <div class="section-heading">
+          <h2 id="control-heading">Kezelőpanel</h2>
+          <span class="section-caption">Állapot és paraméterek</span>
+        </div>
+
+        <div class="controls-card">
+          <div class="playback-bar" aria-label="Szimuláció vezérlése">
+            <button id="start-btn" class="btn btn-primary" type="button"><span aria-hidden="true">▶</span> Indítás</button>
+            <button id="pause-btn" class="btn btn-secondary" type="button"><span aria-hidden="true">Ⅱ</span> Szünet</button>
+            <button id="reset-btn" class="btn btn-secondary" type="button"><span aria-hidden="true">↺</span> Alaphelyzet</button>
+            <button id="sulypont-btn" class="btn btn-secondary" type="button"><span aria-hidden="true">◎</span> Súlypont reset</button>
+          </div>
+
+          <div class="panel-grid">
+            <!-- A kiválasztott bolygó adatai -->
+            <section class="inner-panel" aria-labelledby="info-heading">
+              <div class="panel-title-row">
+                <h3 id="info-heading">Bolygóinfó</h3>
+                <span class="panel-counter" id="body-index">01 / 03</span>
+              </div>
+
+              <dl class="planet-data">
+                <div><dt>Név</dt><dd id="info-name">Mars</dd></div>
+                <div><dt>Szín</dt><dd class="color-data"><span id="info-color-swatch" class="color-swatch" style="--swatch:#ff504f" aria-hidden="true"></span><code id="info-color">#FF0000</code></dd></div>
+                <div><dt>Sűrűség</dt><dd id="info-density">30</dd></div>
+                <div><dt>Tömeg</dt><dd id="info-mass">600</dd></div>
+                <div><dt>Hely (x, y)</dt><dd id="info-position">(50, 150)</dd></div>
+                <div><dt>Sebesség (vx, vy)</dt><dd id="info-velocity">(40, 200)</dd></div>
+              </dl>
+
+              <div class="panel-actions">
+                <button id="previous-body-btn" type="button" class="btn btn-small btn-secondary">← Előző</button>
+                <button id="next-body-btn" type="button" class="btn btn-small btn-secondary">Következő →</button>
+              </div>
+            </section>
+
+            <!-- Új bolygó hozzáadása -->
+            <section class="inner-panel" aria-labelledby="new-body-heading">
+              <div class="panel-title-row">
+                <h3 id="new-body-heading">Új bolygó</h3>
+                <span class="panel-counter">+</span>
+              </div>
+
+              <form id="new-body-form" class="new-body-form">
+                <div class="field-row">
+                  <label for="new-name">Név</label>
+                  <input id="new-name" name="name" type="text" placeholder="Pl. Jupiter" required maxlength="30" autocomplete="off">
+                </div>
+                <div class="field-row">
+                  <label for="new-color">Szín</label>
+                  <input id="new-color" name="color" type="color" value="#9b8cff" aria-label="Új bolygó színe">
+                </div>
+                <div class="field-row">
+                  <label for="new-density">Sűrűség</label>
+                  <input id="new-density" name="density" type="number" value="30" min="0.001" step="any" required>
+                </div>
+                <div class="field-row">
+                  <label for="new-mass">Tömeg</label>
+                  <input id="new-mass" name="mass" type="number" value="600" min="0.001" step="any" required>
+                </div>
+                <fieldset class="vector-group">
+                  <legend>Hely (x, y)</legend>
+                  <div class="vector-inputs">
+                    <label><span>x</span><input id="new-x" name="x" type="number" value="300" step="any" required></label>
+                    <label><span>y</span><input id="new-y" name="y" type="number" value="250" step="any" required></label>
+                  </div>
+                </fieldset>
+                <fieldset class="vector-group">
+                  <legend>Sebesség (vx, vy)</legend>
+                  <div class="vector-inputs">
+                    <label><span>vx</span><input id="new-vx" name="vx" type="number" value="0" step="any" required></label>
+                    <label><span>vy</span><input id="new-vy" name="vy" type="number" value="0" step="any" required></label>
+                  </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary btn-full">+ Létrehozás</button>
+              </form>
+            </section>
+          </div>
+
+          <section class="settings-panel" aria-label="Megjelenítési és szimulációs beállítások">
+            <div class="setting-item speed-setting">
+              <div class="setting-heading">
+                <label for="simulation-speed">Sebesség</label>
+                <output id="speed-value" for="simulation-speed">1,0×</output>
+              </div>
+              <input id="simulation-speed" type="range" min="0.1" max="3" step="0.1" value="1">
+            </div>
+            <label class="switch-setting" for="show-trails">
+              <input id="show-trails" type="checkbox" checked>
+              <span class="switch" aria-hidden="true"></span>
+              <span>Sebességvektorok</span>
+            </label>
+          </section>
+
+          <div class="preset-bar">
+            <div class="preset-select-wrap">
+              <label for="preset-select">Elmentett rendszerek</label>
+              <select id="preset-select" name="preset">
+                <option value="">Betöltés…</option>
+              </select>
+            </div>
+            <button id="load-preset-btn" type="button" class="btn btn-secondary">Betöltés</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      <p>Gravitációs szimuláció · az új felület a régi fizikai logikára épül.</p>
+      <p>Az égitestek gördülékenyen mozognak és az SVG felülethez igazodnak.</p>
+    </footer>
+  </main>
+
+</body>
+</html>
