@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,67 +9,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="static/pic/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../static/pic/favicon.ico" type="image/x-icon">
     <title>HF-4000A</title>
-    <link rel="stylesheet" href="static/css/general.css">
+    <link rel="stylesheet" href="../../static/css/general.css">
 </head>
 <body>
-<header><h1><a href="./index.html">Házi feladat</a></h1></header>
+<header><h1><a href="../../index.html">HĂˇzi feladat</a></h1></header>
 
 <main>
     <h2>4000A</h2>
     <article>
-        <h3>Általános leírás</h3>
+        <h3>ĂltalĂˇnos leĂ­rĂˇs</h3>
     <p>
-        Az Alpesi Kalandparkban a fákon keresztül átcsúszó állomásokat építettek ki. Minden átcsúszó állomás fájának kódja (id), az állomás magassága (magassag) és a fa fajtája (tipus) a 4000A_fak.tsv tabulátorokkal tagolt fájlban van adva.
-        A kotelek.tsv azt mondja meg, hogy mely fák közt mennek kötelek, amin át lehet csúszni egyik fáról a másikra. Fontos, hogy csak egy irányba lehet a kötélen csúszni: lefelé. Az, hogy milyen irányban lehet csúszni, tehát a 4000A_fak.tsv fájlból derül ki, ahol az állomások magassága is tárolva van. 
+        Az Alpesi Kalandparkban a fĂˇkon keresztĂĽl ĂˇtcsĂşszĂł ĂˇllomĂˇsokat Ă©pĂ­tettek ki. Minden ĂˇtcsĂşszĂł ĂˇllomĂˇs fĂˇjĂˇnak kĂłdja (id), az ĂˇllomĂˇs magassĂˇga (magassag) Ă©s a fa fajtĂˇja (tipus) a 4000A_fak.tsv tabulĂˇtorokkal tagolt fĂˇjlban van adva.
+        A kotelek.tsv azt mondja meg, hogy mely fĂˇk kĂ¶zt mennek kĂ¶telek, amin Ăˇt lehet csĂşszni egyik fĂˇrĂłl a mĂˇsikra. Fontos, hogy csak egy irĂˇnyba lehet a kĂ¶tĂ©len csĂşszni: lefelĂ©. Az, hogy milyen irĂˇnyban lehet csĂşszni, tehĂˇt a 4000A_fak.tsv fĂˇjlbĂłl derĂĽl ki, ahol az ĂˇllomĂˇsok magassĂˇga is tĂˇrolva van. 
         
-        A fájlok beolvasását külön függvényben végezd el!
+        A fĂˇjlok beolvasĂˇsĂˇt kĂĽlĂ¶n fĂĽggvĂ©nyben vĂ©gezd el!
 
-        Minden feladathoz külön függvényt írj!
+        Minden feladathoz kĂĽlĂ¶n fĂĽggvĂ©nyt Ă­rj!
         
-        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
+        Mindegyik feladatban nagyon fontos, hogy bĂˇr egyetlen inputfĂˇjlt kapsz, Ăşgy Ă­rd meg a programod, hogy <strong>bĂˇrmilyen, a feladatkiĂ­rĂˇsnak megfelelĹ‘ inputfĂˇjllal mĹ±kĂ¶djĂ¶n</strong>! 
     </p>
     
     
     <h3>(A) Alpesi Kalandpark</h3>
     <p>
-    A 4000A_fak.tsv fájl egy kalandpark fáinak a listáját, magasságát és a fajtáját tartalmazza. 
-    Az egyes adatelemeket tabulátor választja el. A mezőneveket a fájl tartalmazza. A 4000A_kotelek.tsv fájl azt tartalmazza, hogy mely két fa között feszül kötél. Azt, hogy melyik fáról hova lehet csúszni, a fa magassága határozza meg. A magasabb fáról lehet az alacsonyabb fára csúszni, fordítva nem.
+    A 4000A_fak.tsv fĂˇjl egy kalandpark fĂˇinak a listĂˇjĂˇt, magassĂˇgĂˇt Ă©s a fajtĂˇjĂˇt tartalmazza. 
+    Az egyes adatelemeket tabulĂˇtor vĂˇlasztja el. A mezĹ‘neveket a fĂˇjl tartalmazza. A 4000A_kotelek.tsv fĂˇjl azt tartalmazza, hogy mely kĂ©t fa kĂ¶zĂ¶tt feszĂĽl kĂ¶tĂ©l. Azt, hogy melyik fĂˇrĂłl hova lehet csĂşszni, a fa magassĂˇga hatĂˇrozza meg. A magasabb fĂˇrĂłl lehet az alacsonyabb fĂˇra csĂşszni, fordĂ­tva nem.
     </p>
-    <p><a href="input/4000A/4000A_fak.tsv">4000A_fak.tsv</a></p>
-    <p><a href="input/4000A/4000A_kotelek.tsv">4000A_kotelek.tsv</a></p>
+    <p><a href="4000A_fak.tsv">4000A_fak.tsv</a></p>
+    <p><a href="4000A_kotelek.tsv">4000A_kotelek.tsv</a></p>
     <p>
-        Az egyes oszlopok jelentése a következő:
+        Az egyes oszlopok jelentĂ©se a kĂ¶vetkezĹ‘:
     </p>   
     <ul>
-        <li>id: 600 és 750 közötti egész számok</li>
-        <li>magassag: pozitív egész szám 1000 és 4000 között</li>
-        <li>tipus: ékezetmentes szöveg</li>
+        <li>id: 600 Ă©s 750 kĂ¶zĂ¶tti egĂ©sz szĂˇmok</li>
+        <li>magassag: pozitĂ­v egĂ©sz szĂˇm 1000 Ă©s 4000 kĂ¶zĂ¶tt</li>
+        <li>tipus: Ă©kezetmentes szĂ¶veg</li>
     </ul>
 
     <ol>
-        <li>Olvasd be a fájlt és írd ki a képernyőre graphviz számára értelmezhető formátumban, hogy mely fáról melyiket lehet elérni?</li>
-        <li>Elérhető-e a 601-as fáról egyetlen csúszással a 672-es fa?</li>
-        <li>Elérhető-e a 601-as fáról egyetlen csúszással a 666-os fa?</li>
-        <li>Add meg azon fa sorszámát, amelyről már nem lehet más fára továbbcsúszni!</li>
-        <li>Add meg azon fa sorszámát, ahova nem lehet máshonnan odacsúszni!</li>
-        <li>Melyik fáról lehet a legtöbb helyre továbbcsúszni, és mely helyekre lehet onnan továbbcsúszni? Ha több is van, ami maximális ilyen értelemben, akkor elég egyet megadni. </li>
-        <li>Mely két fa között vezet a legmeredekebb csúszás?</li>
+        <li>Olvasd be a fĂˇjlt Ă©s Ă­rd ki a kĂ©pernyĹ‘re graphviz szĂˇmĂˇra Ă©rtelmezhetĹ‘ formĂˇtumban, hogy mely fĂˇrĂłl melyiket lehet elĂ©rni?</li>
+        <li>ElĂ©rhetĹ‘-e a 601-as fĂˇrĂłl egyetlen csĂşszĂˇssal a 672-es fa?</li>
+        <li>ElĂ©rhetĹ‘-e a 601-as fĂˇrĂłl egyetlen csĂşszĂˇssal a 666-os fa?</li>
+        <li>Add meg azon fa sorszĂˇmĂˇt, amelyrĹ‘l mĂˇr nem lehet mĂˇs fĂˇra tovĂˇbbcsĂşszni!</li>
+        <li>Add meg azon fa sorszĂˇmĂˇt, ahova nem lehet mĂˇshonnan odacsĂşszni!</li>
+        <li>Melyik fĂˇrĂłl lehet a legtĂ¶bb helyre tovĂˇbbcsĂşszni, Ă©s mely helyekre lehet onnan tovĂˇbbcsĂşszni? Ha tĂ¶bb is van, ami maximĂˇlis ilyen Ă©rtelemben, akkor elĂ©g egyet megadni. </li>
+        <li>Mely kĂ©t fa kĂ¶zĂ¶tt vezet a legmeredekebb csĂşszĂˇs?</li>
 
-        <li>El lehet-e csúszások egy véges sorozatával jutni a 628-as fáról a 676-os fára?</li>
-        <li>El lehet-e csúszások egy véges sorozatával jutni a 695-ös fáról a 698-as fára?</li>
-        <li>Hány fa érhető el csúszások egy véges sorozatával a 686-as fáról?</li>
-        <li>Hány tölgyfa érhető el csúszások egy véges sorozatával a 686-os fáról?</li>
-        <li>Hány juhar érhető el csúszások egy véges sorozatával a 686-os fáról?</li>
-        <li>Elérhető-e csúszások egy véges sorozatával kőrisfa a 686-os fáról?</li>
-        <li>Elérhető-e csúszások egy véges sorozatával vadgesztenye fa a 686-os fáról?</li>
-        <li>Hány csúszással lehet elérni azt a fát a 686-as fától, amihez a legtöbb átcsúszás szükséges?</li>
-        <li>A 686-as fáról indulva mekkora a lehető legnagyobb szintkülönbség, amit csúszások egy láncolatával utazni lehet?</li>
-        <li>Mely bükkök érhetők el csúszások egy véges sorozatával a 686-os fáról?</li>
-        <li>Mely kőrisek érhetők el csúszások egy véges sorozatával a 686-os fáról?</li>
-        <li>Add meg a legkevesebb csúszásból álló út hosszát, ami a 695-ös fától a 698-as fáig tart!</li>
-        <li>Adj meg egy legkevesebb csúszásból álló utat a 695-as fától a 698-as fáig!</li>
+        <li>El lehet-e csĂşszĂˇsok egy vĂ©ges sorozatĂˇval jutni a 628-as fĂˇrĂłl a 676-os fĂˇra?</li>
+        <li>El lehet-e csĂşszĂˇsok egy vĂ©ges sorozatĂˇval jutni a 695-Ă¶s fĂˇrĂłl a 698-as fĂˇra?</li>
+        <li>HĂˇny fa Ă©rhetĹ‘ el csĂşszĂˇsok egy vĂ©ges sorozatĂˇval a 686-as fĂˇrĂłl?</li>
+        <li>HĂˇny tĂ¶lgyfa Ă©rhetĹ‘ el csĂşszĂˇsok egy vĂ©ges sorozatĂˇval a 686-os fĂˇrĂłl?</li>
+        <li>HĂˇny juhar Ă©rhetĹ‘ el csĂşszĂˇsok egy vĂ©ges sorozatĂˇval a 686-os fĂˇrĂłl?</li>
+        <li>ElĂ©rhetĹ‘-e csĂşszĂˇsok egy vĂ©ges sorozatĂˇval kĹ‘risfa a 686-os fĂˇrĂłl?</li>
+        <li>ElĂ©rhetĹ‘-e csĂşszĂˇsok egy vĂ©ges sorozatĂˇval vadgesztenye fa a 686-os fĂˇrĂłl?</li>
+        <li>HĂˇny csĂşszĂˇssal lehet elĂ©rni azt a fĂˇt a 686-as fĂˇtĂłl, amihez a legtĂ¶bb ĂˇtcsĂşszĂˇs szĂĽksĂ©ges?</li>
+        <li>A 686-as fĂˇrĂłl indulva mekkora a lehetĹ‘ legnagyobb szintkĂĽlĂ¶nbsĂ©g, amit csĂşszĂˇsok egy lĂˇncolatĂˇval utazni lehet?</li>
+        <li>Mely bĂĽkkĂ¶k Ă©rhetĹ‘k el csĂşszĂˇsok egy vĂ©ges sorozatĂˇval a 686-os fĂˇrĂłl?</li>
+        <li>Mely kĹ‘risek Ă©rhetĹ‘k el csĂşszĂˇsok egy vĂ©ges sorozatĂˇval a 686-os fĂˇrĂłl?</li>
+        <li>Add meg a legkevesebb csĂşszĂˇsbĂłl ĂˇllĂł Ăşt hosszĂˇt, ami a 695-Ă¶s fĂˇtĂłl a 698-as fĂˇig tart!</li>
+        <li>Adj meg egy legkevesebb csĂşszĂˇsbĂłl ĂˇllĂł utat a 695-as fĂˇtĂłl a 698-as fĂˇig!</li>
     </ol>
 </article>
 </main>
