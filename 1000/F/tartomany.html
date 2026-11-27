@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ábrázolhatóság – Fixpontos számábrázolás</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tartomany.css">
+  <script defer src="js/tartomany.js"></script>
+</head>
+<body>
+<main class="range-page">
+  <a href="index.html">← Feladattípusok</a>
+  <header>
+    <p class="eyebrow">5. feladat · Kettes komplemens</p>
+    <h1>Ábrázolhatóság</h1>
+    <p id="range-question">Mi a legkisebb és a legnagyobb ábrázolható szám, és mekkora két szomszédos ábrázolható szám távolsága?</p>
+  </header>
+  <section class="panel" aria-labelledby="settings-title">
+    <h2 id="settings-title">A számábrázolás beállításai</h2>
+    <div class="range-settings">
+      <label for="range-bits">Bitszám (8–64)
+        <input id="range-bits" type="number" min="8" max="64" step="1" value="16" required>
+      </label>
+      <label for="range-point">Kettedespont helye (bit után)
+        <input id="range-point" type="number" min="1" max="16" step="1" value="12" required>
+      </label>
+      <div class="range-format"><span class="hint">A formátum</span><strong id="range-format"></strong></div>
+    </div>
+    <div id="range-bits-view" class="bits range-bits" aria-label="Bitpozíciók és helyiértékek"></div>
+    <div class="legend"><span class="s">Negatív helyiérték</span><span>Egész bitek</span><span class="f">Törtbitek</span></div>
+    <p id="range-error" class="error" role="alert" hidden></p>
+  </section>
+  <section class="panel" aria-labelledby="axis-title">
+    <div class="range-heading"><div><h2 id="axis-title">Az ábrázolható számok számegyenese</h2><p class="hint">Minden ábrázolható számot függőleges vonal jelöl. A bitszám változtatása nem állítja vissza a léptéket.</p></div><span id="zoom-level" class="range-chip"></span></div>
+    <div class="range-toolbar" role="group" aria-label="Nagyítás és mozgatás">
+      <button type="button" id="zoom-out" class="secondary" aria-label="Kicsinyítés, felére" title="Kicsinyítés (−)">− <span>½×</span></button>
+      <button type="button" id="zoom-in" aria-label="Nagyítás, kétszeresére" title="Nagyítás (+)">+ <span>2×</span></button>
+      <span class="range-divider" aria-hidden="true"></span>
+      <button type="button" id="pan-left" class="secondary" aria-label="Mozgatás balra" title="Mozgatás balra">←</button>
+      <button type="button" id="pan-right" class="secondary" aria-label="Mozgatás jobbra" title="Mozgatás jobbra">→</button>
+      <button type="button" id="reset-view" class="secondary">Teljes tartomány</button>
+      <button type="button" id="near-view" class="secondary">Szomszédos értékek</button>
+    </div>
+    <div class="range-landmarks" role="group" aria-label="Kiemelt értékek, ugrás és nagyítási középpont">
+      <button type="button" id="go-min" class="range-landmark min"><span>Minimum</span><strong id="axis-min"></strong></button>
+      <button type="button" id="go-zero" class="range-landmark zero"><span>Nulla</span><strong>0</strong></button>
+      <button type="button" id="go-max" class="range-landmark max"><span>Maximum</span><strong id="axis-max"></strong></button>
+    </div>
+    <div class="range-plot" id="range-plot" tabindex="0" aria-label="Görgethető számegyenes; plusz, mínusz és nyílbillentyűk a vezérléshez">
+      <svg id="number-line" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Az ábrázolható számok számegyenese"></svg>
+    </div>
+    <div class="range-window">
+      <div><small>Látható tartomány</small><strong id="visible-range"></strong></div>
+      <div><small>Nagyítás középpontja</small><strong id="zoom-center"></strong></div>
+      <div><small>Látható ábrázolható számok</small><strong id="visible-count"></strong></div>
+      <div><small>A nézet szélessége (számegység)</small><strong id="axis-span"></strong></div>
+    </div>
+    <p id="hover-value" class="range-hover hint"></p>
+    <p id="plot-note" class="hint" aria-live="polite"></p>
+    <p class="hint">Kattints egy értékre, vagy válaszd ki a minimumot, a nullát, illetve a maximumot a nagyítás középpontjának. A nyilakkal a tartományon kívülre is léphetsz. A nagyítás a szomszédos számok távolságánál kisebb tartományban is folytatható. A Szomszédos értékek gomb nyolc rácsköz szélességű nézetet állít be.</p>
+    <form id="jump-form" class="range-jump">
+      <label for="jump-value">Ugrás egy decimális értékhez
+        <input id="jump-value" type="text" inputmode="decimal" maxlength="256" placeholder="pl. −24,1">
+      </label>
+      <button type="submit" class="secondary">Ugrás</button>
+    </form>
+    <p id="jump-message" class="hint" role="status"></p>
+  </section>
+  <section class="panel" aria-labelledby="result-title">
+    <h2 id="result-title">Megoldás és részletszámítások</h2>
+    <div id="range-results" class="range-results"></div>
+    <div id="range-calculations"></div>
+  </section>
+  <noscript><p class="error">Az alkalmazás működéséhez engedélyezni kell a JavaScriptet.</p></noscript>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* Kiegészítés a közös style.css fájlhoz; csak a dekódoló oldal tölti be. */
+.decode-settings{display:grid;grid-template-columns:minmax(130px,180px) minmax(220px,1fr);gap:24px;align-items:end;margin:20px 0 24px}
+.field-label{display:block;font-weight:650}
+.point-controls{display:flex;align-items:center;gap:10px;margin-top:6px}
+.point-controls output{min-width:132px;text-align:center;font-weight:650;font-variant-numeric:tabular-nums}
+.point-controls .point-button{margin:0;padding:0;width:46px;height:46px;font-size:24px;line-height:1;flex-shrink:0}
+.point-button:disabled{opacity:.35;cursor:not-allowed;filter:none}
+.bit-editor-label{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.edit-bits{align-items:flex-start;gap:6px;padding:12px 4px 20px;min-height:76px;scrollbar-width:thin}
+.edit-bits .bit{flex:0 0 43px;min-width:43px}
+.edit-bits .digit{display:block;width:100%;height:46px;padding:0;margin:0;text-align:center;line-height:44px;font-size:24px;caret-color:var(--blue);font-variant-numeric:tabular-nums}
+.edit-bits .digit::placeholder{color:#8796a7;opacity:.65}
+.edit-bits .digit:focus{outline:2px solid var(--blue);outline-offset:2px}
+.edit-bits .point{flex:0 0 12px;line-height:46px;text-align:center;color:var(--blue);font-size:34px;user-select:none}
+.edit-bits .weight{display:block;margin-top:5px;font-size:11px}
+.weight sup,.formula sup,.calc-table sup{font-size:.72em;vertical-align:super;line-height:0}
+.decode-actions{display:flex;gap:8px;flex-wrap:wrap}
+.decode-actions button.secondary,.example-buttons button.secondary{margin-left:0}
+.example-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.example-buttons button{margin-top:0;text-align:left;flex:1 1 230px;padding:12px 16px;border:1px solid var(--line)}
+.example-buttons button span{display:block;font-size:14px;margin-top:4px}
+.decode-result{border-left:4px solid var(--green);background:#f2f9f5;padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0 0}
+.decode-result .result{font-size:clamp(22px,4vw,36px);margin:4px 0;overflow-wrap:anywhere}
+.formula{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 7px;line-height:2;font-family:ui-monospace,Consolas,monospace;font-size:clamp(15px,2vw,19px);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.formula .term{white-space:nowrap;max-width:100%}
+.formula .long-term{white-space:normal;overflow-wrap:anywhere}
+.formula .negative-weight,.calc-table .negative-weight{color:var(--red)}
+.calc-table td:first-child,.calc-table th:first-child{text-align:center}
+.calc-table tr.inactive{color:var(--muted)}
+.calc-table tr.sign-row{background:#fff1f0}
+.calc-table tr.fraction-row:not(.inactive){background:#eff8f3}
+.calc-table td:last-child{font-weight:650}
+#decode-solution .bits .bit{flex-basis:43px}
+#decode-solution .bits .point{flex:0 0 12px;text-align:center}
+#decode-solution .step{min-width:0}
+@media(max-width:650px){.decode-settings{grid-template-columns:1fr;gap:16px}.point-controls output{min-width:115px}.edit-bits .bit{flex-basis:37px;min-width:37px}.edit-bits .digit{height:43px;line-height:41px}.decode-actions button{flex:1 1 auto}.decode-result{padding:12px 14px}}

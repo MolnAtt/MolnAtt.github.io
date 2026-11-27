@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bitsorozat értelmezése – Fixpontos számábrázolás</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dekodolas.css">
+  <script defer src="js/dekodolas.js"></script>
+</head>
+<body>
+  <main>
+    <a href="index.html">← Feladattípusok</a>
+    <header>
+      <p class="eyebrow">3–4. feladat · Kettes komplemens</p>
+      <h1>Bitsorozat értelmezése</h1>
+      <p id="question">Milyen decimális számot kódol a megadott bitsorozat?</p>
+    </header>
+    <section class="panel decoder" aria-labelledby="input-title">
+      <h2 id="input-title">A bináris alak megadása</h2>
+      <form id="decode-form">
+        <div class="decode-settings">
+          <label for="bit-count">Bitszám (8–64)
+            <input id="bit-count" type="number" min="8" max="64" step="1" value="16" required>
+          </label>
+          <div class="point-settings">
+            <span class="field-label">A kettedespont helye</span>
+            <div class="point-controls">
+              <button type="button" class="point-button" id="point-left" aria-label="Kettedespont balra" title="Kettedespont balra">←</button>
+              <output id="point-position" aria-live="polite">10. bit után</output>
+              <button type="button" class="point-button" id="point-right" aria-label="Kettedespont jobbra" title="Kettedespont jobbra">→</button>
+            </div>
+          </div>
+        </div>
+        <div class="bit-editor-label"><strong>Bitsorozat</strong><span class="hint" id="bit-progress"></span></div>
+        <div id="bit-editor" class="bits edit-bits" role="group" aria-label="Bináris szám bitjei" aria-describedby="keyboard-hint"></div>
+        <div class="legend"><span class="s">Negatív helyiértékű bit</span><span>Egész bitek</span><span class="f">Törtbitek</span></div>
+        <p class="hint" id="keyboard-hint">Írj 0-t vagy 1-et: a kurzor automatikusan a következő bitre ugrik. A ← és → billentyűkkel a bitek között léphetsz, Backspace-szel törölhetsz. Egy teljes bitsorozatot be is illeszthetsz.</p>
+        <p class="hint" id="format-info" aria-live="polite"></p>
+        <div class="decode-actions">
+          <button type="submit">Megoldás megjelenítése</button>
+          <button class="secondary" type="button" id="random-bits">Véletlen bitsorozat</button>
+          <button class="secondary" type="button" id="clear-bits">Törlés</button>
+        </div>
+        <p id="decode-error" class="error" role="alert" hidden></p>
+      </form>
+    </section>
+    <section class="panel examples" aria-labelledby="example-title">
+      <h2 id="example-title">Példafeladatok betöltése</h2>
+      <div class="example-buttons">
+        <button type="button" class="secondary" id="example-3"><strong>3. feladat</strong><span class="mono">0101011001,010110</span></button>
+        <button type="button" class="secondary" id="example-4"><strong>4. feladat</strong><span class="mono">111100001111,0000</span></button>
+      </div>
+    </section>
+    <section class="panel" id="decode-solution" aria-live="polite" hidden></section>
+  </main>
+</body>
+</html>
