@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,66 +14,66 @@
     <link rel="stylesheet" href="../../static/css/general.css">
 </head>
 <body>
-<header><h1><a href="../../index.html">HĂˇzi feladat</a></h1></header>
+<header><h1><a href="../../index.html">Házi feladat</a></h1></header>
 
 <main>
     <h2>4000B</h2>
     <article>
-        <h3>ĂltalĂˇnos leĂ­rĂˇs</h3>
+        <h3>Általános leírás</h3>
     <p>
-        A 3.J osztĂˇlyban egy Ăşj social network, a Buddify hĂłdit: mindenki bejelĂ¶lhet mĂˇsokat mint barĂˇt (buddy), Ă©s ha Ĺ‘ visszajelĂ¶li Ĺ‘t, akkor Ĺ‘k mostantĂłl barĂˇtok lesznek. A rĂ©gi ismerĹ‘s 3.J osztĂˇlyban a visszaigazolt kapcsolatokrĂłl egy mĂˇtrix kĂ©szĂĽlt, ezt tartalmazza a 4000B_kapcsolatok.tsv. A 4000B_tanulok.tsv tartalmazza a jĂłl ismert adatokat a 3.J osztĂˇly tanulĂłirĂłl Ă©s csoportbontĂˇsairĂłl, testvĂ©reik szĂˇmĂˇrĂłl stb.
+        A 3.J osztályban egy új social network, a Buddify hódit: mindenki bejelölhet másokat mint barát (buddy), és ha ő visszajelöli őt, akkor ők mostantól barátok lesznek. A régi ismerős 3.J osztályban a visszaigazolt kapcsolatokról egy mátrix készült, ezt tartalmazza a 4000B_kapcsolatok.tsv. A 4000B_tanulok.tsv tartalmazza a jól ismert adatokat a 3.J osztály tanulóiról és csoportbontásairól, testvéreik számáról stb.
         
-        A fĂˇjlok beolvasĂˇsĂˇt kĂĽlĂ¶n fĂĽggvĂ©nyben vĂ©gezd el!
+        A fájlok beolvasását külön függvényben végezd el!
 
-        Minden feladathoz kĂĽlĂ¶n fĂĽggvĂ©nyt Ă­rj!
+        Minden feladathoz külön függvényt írj!
         
-        Mindegyik feladatban nagyon fontos, hogy bĂˇr egyetlen inputfĂˇjlt kapsz, Ăşgy Ă­rd meg a programod, hogy <strong>bĂˇrmilyen, a feladatkiĂ­rĂˇsnak megfelelĹ‘ inputfĂˇjllal mĹ±kĂ¶djĂ¶n</strong>! 
+        Mindegyik feladatban nagyon fontos, hogy bár egyetlen inputfájlt kapsz, úgy írd meg a programod, hogy <strong>bármilyen, a feladatkiírásnak megfelelő inputfájllal működjön</strong>! 
     </p>
     
     
     <h3>(B) Buddify social network</h3>
     <p>
-    A 4000B_tanulok.tsv fĂˇjl egy osztĂˇly nĂ©vsorĂˇt, kĂĽlĂ¶nbĂ¶zĹ‘ tanulĂłcsoportokba tĂ¶rtĂ©nĹ‘ beosztĂˇsĂˇt Ă©s nĂ©hĂˇny egyĂ©b adatĂˇt tartalmazza. Az egyes adatelemeket tabulĂˇtor vĂˇlasztja el. A mezĹ‘neveket a fĂˇjl tartalmazza. A 4000B_kapcsolatok.tsv egy szimmetrikus mĂˇtrixban tartalmazza a visszaigazolt kapcsolatokat. Az i. sor j-edik oszlopĂˇban pontosan akkor van 1-es szĂˇm, ha a nĂ©vsorban i. tanulĂł Ă©s a j. tanulĂł barĂˇtok a Buddify rendszeren belĂĽl. Ezek a barĂˇtsĂˇgok mindig szimmetrikusak, tehĂˇt ha X barĂˇtja Y-nak, akkor Y is barĂˇtja X-nek. 
+    A 4000B_tanulok.tsv fájl egy osztály névsorát, különböző tanulócsoportokba történő beosztását és néhány egyéb adatát tartalmazza. Az egyes adatelemeket tabulátor választja el. A mezőneveket a fájl tartalmazza. A 4000B_kapcsolatok.tsv egy szimmetrikus mátrixban tartalmazza a visszaigazolt kapcsolatokat. Az i. sor j-edik oszlopában pontosan akkor van 1-es szám, ha a névsorban i. tanuló és a j. tanuló barátok a Buddify rendszeren belül. Ezek a barátságok mindig szimmetrikusak, tehát ha X barátja Y-nak, akkor Y is barátja X-nek. 
     </p>
     <p><a href="4000B_tanulok.tsv">4000B_tanulok.tsv</a></p>
     <p><a href="4000B_kapcsolatok.tsv">4000B_kapcsolatok.tsv</a></p>
     <p>
-        A tanulok esetĂ©ben az egyes oszlopok jelentĂ©se a kĂ¶vetkezĹ‘:
+        A tanulok esetében az egyes oszlopok jelentése a következő:
     </p>   
     <ul>
-        <li>sorszam: Hanyadik a nĂ©vsorban</li>
-        <li>nev: diĂˇkok neve (szĂ¶veg)</li>
-        <li>matcsop: matematika Ă©s informatika szerinti csoportbeosztĂˇs (szĂ¶veg)</li>
-        <li>ancsop: angol csoportok szerinti besorolĂˇs, a szint Ă©s tanĂˇr megjelĂ¶lĂ©sĂ©vel (szĂ¶veg)</li>
-        <li>nyelv2: vĂˇlasztott 2. idegen nyelv (szĂ¶veg)</li>
-        <li>nem: a diĂˇk neme, testnevelĂ©s szerinti bontĂˇs (szĂ¶veg)</li>
-        <li>egyuttlakok: a csalĂˇdban egyĂĽttlakĂłk szĂˇma (szĂˇm). Ez mindig 1 Ă©s 10 kĂ¶zĂ© esik.</li>
-        <li>testverek: testvĂ©rek szĂˇma (szĂˇm). Ez mindig egy 1 Ă©s 7 kĂ¶zĂ© esik. </li>
+        <li>sorszam: Hanyadik a névsorban</li>
+        <li>nev: diákok neve (szöveg)</li>
+        <li>matcsop: matematika és informatika szerinti csoportbeosztás (szöveg)</li>
+        <li>ancsop: angol csoportok szerinti besorolás, a szint és tanár megjelölésével (szöveg)</li>
+        <li>nyelv2: választott 2. idegen nyelv (szöveg)</li>
+        <li>nem: a diák neme, testnevelés szerinti bontás (szöveg)</li>
+        <li>egyuttlakok: a családban együttlakók száma (szám). Ez mindig 1 és 10 közé esik.</li>
+        <li>testverek: testvérek száma (szám). Ez mindig egy 1 és 7 közé esik. </li>
     </ul>
 
     <ol>
-        <li>Olvasd be a fĂˇjlt Ă©s Ă­rd ki a kĂ©pernyĹ‘re graphviz szĂˇmĂˇra Ă©rtelmezhetĹ‘ formĂˇtumban, hogy kiknek van visszaigazolt barĂˇt kapcsolatuk a Buddy alkalmazĂˇsban!</li>
-        <li>Vagd Alma Ă©s Parady Csoma barĂˇtok-e?</li>
-        <li>Vagd Alma Ă©s Ordy BĂˇlint barĂˇtok-e?</li>
-        <li>Ka PĂˇl Ă©s Feles Elek barĂˇtok-e?</li>
-        <li>HĂˇny barĂˇtja van Ordy BĂˇlintnak?</li>
-        <li>HĂˇny barĂˇtja van MĂ©rta NĂłrĂˇnak?</li>
-        <li>Kinek van a legtĂ¶bb barĂˇtja?</li>
-        <li>Kinek van a legkevesebb barĂˇtja?</li>
+        <li>Olvasd be a fájlt és írd ki a képernyőre graphviz számára értelmezhető formátumban, hogy kiknek van visszaigazolt barát kapcsolatuk a Buddy alkalmazásban!</li>
+        <li>Vagd Alma és Parady Csoma barátok-e?</li>
+        <li>Vagd Alma és Ordy Bálint barátok-e?</li>
+        <li>Ka Pál és Feles Elek barátok-e?</li>
+        <li>Hány barátja van Ordy Bálintnak?</li>
+        <li>Hány barátja van Mérta Nórának?</li>
+        <li>Kinek van a legtöbb barátja?</li>
+        <li>Kinek van a legkevesebb barátja?</li>
 
-        <li>Van-e olyan barĂˇtja Ne PĂˇlnak, akivel egy matekcsoportba jĂˇr?</li>
-        <li>HĂˇny olyan barĂˇtja van MĂˇngor OlgĂˇnak, akinek tĂ¶bb testvĂ©re is van?</li>
-        <li>Lapos ElemĂ©r pizsipartit szervez, ahova a barĂˇtait mind meghĂ­vja. Kiket hĂ­vott meg?</li>
-        <li>Meg GyĹ‘zĹ‘ meghĂ­vja az Ă¶sszes barĂˇtait Ă©s azok testvĂ©reit a szĂĽletĂ©snapi zsĂşrjĂˇra. HĂˇny fĹ‘t hĂ­vott meg?</li>
+        <li>Van-e olyan barátja Ne Pálnak, akivel egy matekcsoportba jár?</li>
+        <li>Hány olyan barátja van Mángor Olgának, akinek több testvére is van?</li>
+        <li>Lapos Elemér pizsipartit szervez, ahova a barátait mind meghívja. Kiket hívott meg?</li>
+        <li>Meg Győző meghívja az összes barátait és azok testvéreit a születésnapi zsúrjára. Hány főt hívott meg?</li>
         
         
-        <li>SzĂĽre Tibor buliba hĂ­vja a barĂˇtait, mĂ©ghozzĂˇ Ăşgy, hogy Ĺ‘k is hĂ­vjĂˇk meg minden barĂˇtukat, Ă©s Ă­gy tovĂˇbb. HĂˇnyan lesznek vĂ©gĂĽlis a buliban? </li>
+        <li>Szüre Tibor buliba hívja a barátait, méghozzá úgy, hogy ők is hívják meg minden barátukat, és így tovább. Hányan lesznek végülis a buliban? </li>
 
-        <li>Hot Elek is bulit szervez, de hozzĂˇ csak azok mehetnek, akik Elek barĂˇtai, vagy azok barĂˇtai. HĂˇnyan lesznek Elek bulijĂˇn?</li>
+        <li>Hot Elek is bulit szervez, de hozzá csak azok mehetnek, akik Elek barátai, vagy azok barátai. Hányan lesznek Elek buliján?</li>
 
-        <li>Kor MihĂˇly nagyon szeretne egy bizalmas ĂĽzenetet eljuttatni Citad EllĂˇnak, de csak barĂˇtok Ă­rhatnak egymĂˇsnak az alkalmazĂˇsban. HĂˇny emberen kell Ăˇtmenjen az ĂĽzenet Ă©s kik kell tovĂˇbbĂ­tsĂˇk ezt az ĂĽzenetet, hogy Kor MihĂˇlytĂłl az ĂĽzenet a lehetĹ‘ legbiztonsĂˇgosabban jusson el Citad EllĂˇhoz? Ha tĂ¶bb lehetsĂ©ges megoldĂˇs is van, elegendĹ‘ egyet megadni. Egy ĂĽzenet annĂˇl biztonsĂˇgosabb, minĂ©l kevesebb emberen megy Ăˇt...</li>
+        <li>Kor Mihály nagyon szeretne egy bizalmas üzenetet eljuttatni Citad Ellának, de csak barátok írhatnak egymásnak az alkalmazásban. Hány emberen kell átmenjen az üzenet és kik kell továbbítsák ezt az üzenetet, hogy Kor Mihálytól az üzenet a lehető legbiztonságosabban jusson el Citad Ellához? Ha több lehetséges megoldás is van, elegendő egyet megadni. Egy üzenet annál biztonságosabb, minél kevesebb emberen megy át...</li>
 
-        <li>Feles Elek tudomĂˇst szerez arrĂłl, hogy a mĂˇsnapi mĂˇsodik nyelvi ĂłrĂˇja elmarad. Ha terjeszti a barĂˇtai kĂ¶zĂ¶tt a hĂ­rt, akik szintĂ©n tovĂˇbb adjĂˇk az informĂˇciĂłt, Ă©s Ă­gy tovĂˇbb, akkor eljut-e minden csoporttĂˇrsĂˇhoz ez a hĂ­r? Ha van, akihez nem jut el a hĂ­r, sorold fel Ĺ‘ket!</li>
+        <li>Feles Elek tudomást szerez arról, hogy a másnapi második nyelvi órája elmarad. Ha terjeszti a barátai között a hírt, akik szintén tovább adják az információt, és így tovább, akkor eljut-e minden csoporttársához ez a hír? Ha van, akihez nem jut el a hír, sorold fel őket!</li>
     </ol>
 </article>
 </main>
